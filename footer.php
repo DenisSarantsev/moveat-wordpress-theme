@@ -71,34 +71,8 @@
 		<button class="back-to-top-button">
 			<img src="img/icons/arrow.png" alt="Arrow up">
 		</button>
-
-
-    <!-- JavaScript Libraries -->
-    <!-- Подключаем owl.carousel через CDN для гарантированной работы -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-    
-    <!-- Подключаем owl.carousel после модулей, чтобы jQuery был уже загружен -->
-    <script>
-        // Ждем загрузки jQuery из модуля
-        (function() {
-            function loadOwlCarousel() {
-                if (typeof window.$ !== 'undefined' && typeof window.$.fn !== 'undefined') {
-                    if (typeof window.$.fn.owlCarousel === 'undefined') {
-                        var script = document.createElement('script');
-                        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js';
-                        script.onload = function() {
-                            console.log('owl.carousel загружен');
-                        };
-                        document.body.appendChild(script);
-                    }
-                } else {
-                    setTimeout(loadOwlCarousel, 50);
-                }
-            }
-            loadOwlCarousel();
-        })();
-    </script>
+		
+    <?php wp_footer(); ?>
 </body>
 
 </html>
