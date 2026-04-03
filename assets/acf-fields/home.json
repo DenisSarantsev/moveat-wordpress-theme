@@ -1,0 +1,2131 @@
+{
+	"key": "group_home",
+	"title": "Home",
+	"fields": [
+
+		{
+			"key": "field_tab_hero",
+			"label": "Hero",
+			"name": "tab_hero",
+			"type": "tab",
+			"endpoint": 0
+		},
+		{
+			"key": "field_hero_bg_image",
+			"label": "Фоновое изображение",
+			"name": "hero_bg_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_hero_title",
+			"label": "Заголовок",
+			"name": "hero_title",
+			"type": "text",
+			"default_value": "Еда станет вашим лекарством!"
+		},
+		{
+			"key": "field_hero_description",
+			"label": "Описание",
+			"name": "hero_description",
+			"type": "textarea",
+			"default_value": "Мы не упрощаем мы находим причины болезней, объясняем и убираем проблему\nОбъясним 100 важных деталей именно для вас"
+		},
+		{
+			"key": "field_hero_button_text",
+			"label": "Текст кнопки",
+			"name": "hero_button_text",
+			"type": "text",
+			"default_value": "Узнать больше"
+		},
+		{
+			"key": "field_hero_button_url",
+			"label": "URL кнопки",
+			"name": "hero_button_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_hero_right_image",
+			"label": "Изображение справа",
+			"name": "hero_right_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+
+		{
+			"key": "field_tab_trust",
+			"label": "Почему нам доверяют?",
+			"name": "tab_trust",
+			"type": "tab",
+			"endpoint": 0
+		},
+		{
+			"key": "field_trust_title",
+			"label": "Заголовок секции",
+			"name": "trust_title",
+			"type": "text",
+			"default_value": "Почему нам доверяют?"
+		},
+		{
+			"key": "field_trust_description",
+			"label": "Описание секции",
+			"name": "trust_description",
+			"type": "textarea",
+			"default_value": "Мы не упрощаем мы находим причины болезней, объясняем и убираем проблему"
+		},
+		{
+			"key": "field_trust_card_1_icon",
+			"label": "Карточка 1 - Иконка",
+			"name": "trust_card_1_icon",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_trust_card_1_title",
+			"label": "Карточка 1 - Заголовок",
+			"name": "trust_card_1_title",
+			"type": "text",
+			"default_value": "12 лет практики"
+		},
+		{
+			"key": "field_trust_card_2_icon",
+			"label": "Карточка 2 - Иконка",
+			"name": "trust_card_2_icon",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_trust_card_2_title",
+			"label": "Карточка 2 - Заголовок",
+			"name": "trust_card_2_title",
+			"type": "text",
+			"default_value": "6000+ клиентов"
+		},
+		{
+			"key": "field_trust_card_3_icon",
+			"label": "Карточка 3 - Иконка",
+			"name": "trust_card_3_icon",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_trust_card_3_title",
+			"label": "Карточка 3 - Заголовок",
+			"name": "trust_card_3_title",
+			"type": "text",
+			"default_value": "Команда врачей"
+		},
+		{
+			"key": "field_trust_card_4_icon",
+			"label": "Карточка 4 - Иконка",
+			"name": "trust_card_4_icon",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_trust_card_4_title",
+			"label": "Карточка 4 - Заголовок",
+			"name": "trust_card_4_title",
+			"type": "text",
+			"default_value": "Научный подход"
+		},
+
+		{
+			"key": "field_tab_problem",
+			"label": "Обычные диеты не работают",
+			"name": "tab_problem",
+			"type": "tab",
+			"endpoint": 0
+		},
+		{
+			"key": "field_problem_image",
+			"label": "Изображение",
+			"name": "problem_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_problem_title",
+			"label": "Заголовок секции",
+			"name": "problem_title",
+			"type": "text",
+			"default_value": "Обычные диеты не работают"
+		},
+		{
+			"key": "field_problem_description",
+			"label": "Описание секции",
+			"name": "problem_description",
+			"type": "textarea",
+			"default_value": "Большинство программ питания создаются по шаблону и не учитывают особенности вашего организма, анализы и реальные потребности. Поэтому результат либо временный, либо его нет вовсе"
+		},
+		{
+			"key": "field_problem_card_1_icon",
+			"label": "Карточка 1 - Иконка",
+			"name": "problem_card_1_icon",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_problem_card_1_title",
+			"label": "Карточка 1 - Заголовок",
+			"name": "problem_card_1_title",
+			"type": "text",
+			"default_value": "Универсальные диеты"
+		},
+		{
+			"key": "field_problem_card_1_description",
+			"label": "Карточка 1 - Описание",
+			"name": "problem_card_1_description",
+			"type": "textarea",
+			"default_value": "Большинство программ не учитывают особенности человека и часто дают слабый результат."
+		},
+		{
+			"key": "field_problem_card_2_icon",
+			"label": "Карточка 2 - Иконка",
+			"name": "problem_card_2_icon",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_problem_card_2_title",
+			"label": "Карточка 2 - Заголовок",
+			"name": "problem_card_2_title",
+			"type": "text",
+			"default_value": "Не учитываются анализы"
+		},
+		{
+			"key": "field_problem_card_2_description",
+			"label": "Карточка 2 - Описание",
+			"name": "problem_card_2_description",
+			"type": "textarea",
+			"default_value": "Без анализа данных, сложно понять, чего именно не хватает организму и что нужно скорректировать."
+		},
+		{
+			"key": "field_problem_card_3_icon",
+			"label": "Карточка 3 - Иконка",
+			"name": "problem_card_3_icon",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_problem_card_3_title",
+			"label": "Карточка 3 - Заголовок",
+			"name": "problem_card_3_title",
+			"type": "text",
+			"default_value": "Нет понимания организма"
+		},
+		{
+			"key": "field_problem_card_3_description",
+			"label": "Карточка 3 - Описание",
+			"name": "problem_card_3_description",
+			"type": "textarea",
+			"default_value": "Питание становится набором случайных решений, а не осознанной системой."
+		},
+
+		{
+			"key": "field_tab_decision",
+			"label": "Наши решения",
+			"name": "tab_decision",
+			"type": "tab",
+			"endpoint": 0
+		},
+		{
+			"key": "field_decision_title",
+			"label": "Заголовок секции",
+			"name": "decision_title",
+			"type": "text",
+			"default_value": "Наши решения"
+		},
+		{
+			"key": "field_decision_description",
+			"label": "Описание секции",
+			"name": "decision_description",
+			"type": "textarea",
+			"default_value": "Мы предлагаем комплексные решения для вашего здоровья и образа жизни"
+		},
+		{
+			"key": "field_decision_card_1_title",
+			"label": "Шаг 1 - Заголовок",
+			"name": "decision_card_1_title",
+			"type": "text",
+			"default_value": "Анализ питания"
+		},
+		{
+			"key": "field_decision_card_2_title",
+			"label": "Шаг 2 - Заголовок",
+			"name": "decision_card_2_title",
+			"type": "text",
+			"default_value": "Анализ анализов"
+		},
+		{
+			"key": "field_decision_card_3_title",
+			"label": "Шаг 3 - Заголовок",
+			"name": "decision_card_3_title",
+			"type": "text",
+			"default_value": "Анализ симптомов"
+		},
+		{
+			"key": "field_decision_card_4_title",
+			"label": "Шаг 4 - Заголовок",
+			"name": "decision_card_4_title",
+			"type": "text",
+			"default_value": "Индивидуальный рацион"
+		},
+
+		{
+			"key": "field_tab_team",
+			"label": "Команда врачей",
+			"name": "tab_team",
+			"type": "tab",
+			"endpoint": 0
+		},
+		{
+			"key": "field_team_title",
+			"label": "Заголовок секции",
+			"name": "team_title",
+			"type": "text",
+			"default_value": "Команда врачей"
+		},
+		{
+			"key": "field_team_description",
+			"label": "Описание секции",
+			"name": "team_description",
+			"type": "textarea",
+			"default_value": "Мы предлагаем комплексные решения для вашего здоровья и образа жизни"
+		},
+		{
+			"key": "field_team_member_1_photo",
+			"label": "Участник 1 - Фото",
+			"name": "team_member_1_photo",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_team_member_1_name",
+			"label": "Участник 1 - Имя",
+			"name": "team_member_1_name",
+			"type": "text",
+			"default_value": "Имя Фамилия"
+		},
+		{
+			"key": "field_team_member_1_position",
+			"label": "Участник 1 - Должность",
+			"name": "team_member_1_position",
+			"type": "text",
+			"default_value": "Должность"
+		},
+		{
+			"key": "field_team_member_1_facebook_url",
+			"label": "Участник 1 - Facebook URL",
+			"name": "team_member_1_facebook_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_1_twitter_url",
+			"label": "Участник 1 - Twitter URL",
+			"name": "team_member_1_twitter_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_1_linkedin_url",
+			"label": "Участник 1 - LinkedIn URL",
+			"name": "team_member_1_linkedin_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_1_instagram_url",
+			"label": "Участник 1 - Instagram URL",
+			"name": "team_member_1_instagram_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_2_photo",
+			"label": "Участник 2 - Фото",
+			"name": "team_member_2_photo",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_team_member_2_name",
+			"label": "Участник 2 - Имя",
+			"name": "team_member_2_name",
+			"type": "text",
+			"default_value": "Имя Фамилия"
+		},
+		{
+			"key": "field_team_member_2_position",
+			"label": "Участник 2 - Должность",
+			"name": "team_member_2_position",
+			"type": "text",
+			"default_value": "Должность"
+		},
+		{
+			"key": "field_team_member_2_facebook_url",
+			"label": "Участник 2 - Facebook URL",
+			"name": "team_member_2_facebook_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_2_twitter_url",
+			"label": "Участник 2 - Twitter URL",
+			"name": "team_member_2_twitter_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_2_linkedin_url",
+			"label": "Участник 2 - LinkedIn URL",
+			"name": "team_member_2_linkedin_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_2_instagram_url",
+			"label": "Участник 2 - Instagram URL",
+			"name": "team_member_2_instagram_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_3_photo",
+			"label": "Участник 3 - Фото",
+			"name": "team_member_3_photo",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_team_member_3_name",
+			"label": "Участник 3 - Имя",
+			"name": "team_member_3_name",
+			"type": "text",
+			"default_value": "Имя Фамилия"
+		},
+		{
+			"key": "field_team_member_3_position",
+			"label": "Участник 3 - Должность",
+			"name": "team_member_3_position",
+			"type": "text",
+			"default_value": "Должность"
+		},
+		{
+			"key": "field_team_member_3_facebook_url",
+			"label": "Участник 3 - Facebook URL",
+			"name": "team_member_3_facebook_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_3_twitter_url",
+			"label": "Участник 3 - Twitter URL",
+			"name": "team_member_3_twitter_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_3_linkedin_url",
+			"label": "Участник 3 - LinkedIn URL",
+			"name": "team_member_3_linkedin_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_3_instagram_url",
+			"label": "Участник 3 - Instagram URL",
+			"name": "team_member_3_instagram_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_4_photo",
+			"label": "Участник 4 - Фото",
+			"name": "team_member_4_photo",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_team_member_4_name",
+			"label": "Участник 4 - Имя",
+			"name": "team_member_4_name",
+			"type": "text",
+			"default_value": "Имя Фамилия"
+		},
+		{
+			"key": "field_team_member_4_position",
+			"label": "Участник 4 - Должность",
+			"name": "team_member_4_position",
+			"type": "text",
+			"default_value": "Должность"
+		},
+		{
+			"key": "field_team_member_4_facebook_url",
+			"label": "Участник 4 - Facebook URL",
+			"name": "team_member_4_facebook_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_4_twitter_url",
+			"label": "Участник 4 - Twitter URL",
+			"name": "team_member_4_twitter_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_4_linkedin_url",
+			"label": "Участник 4 - LinkedIn URL",
+			"name": "team_member_4_linkedin_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_4_instagram_url",
+			"label": "Участник 4 - Instagram URL",
+			"name": "team_member_4_instagram_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_5_photo",
+			"label": "Участник 5 - Фото",
+			"name": "team_member_5_photo",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_team_member_5_name",
+			"label": "Участник 5 - Имя",
+			"name": "team_member_5_name",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_5_position",
+			"label": "Участник 5 - Должность",
+			"name": "team_member_5_position",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_5_facebook_url",
+			"label": "Участник 5 - Facebook URL",
+			"name": "team_member_5_facebook_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_5_twitter_url",
+			"label": "Участник 5 - Twitter URL",
+			"name": "team_member_5_twitter_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_5_linkedin_url",
+			"label": "Участник 5 - LinkedIn URL",
+			"name": "team_member_5_linkedin_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_5_instagram_url",
+			"label": "Участник 5 - Instagram URL",
+			"name": "team_member_5_instagram_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_6_photo",
+			"label": "Участник 6 - Фото",
+			"name": "team_member_6_photo",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_team_member_6_name",
+			"label": "Участник 6 - Имя",
+			"name": "team_member_6_name",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_6_position",
+			"label": "Участник 6 - Должность",
+			"name": "team_member_6_position",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_6_facebook_url",
+			"label": "Участник 6 - Facebook URL",
+			"name": "team_member_6_facebook_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_6_twitter_url",
+			"label": "Участник 6 - Twitter URL",
+			"name": "team_member_6_twitter_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_6_linkedin_url",
+			"label": "Участник 6 - LinkedIn URL",
+			"name": "team_member_6_linkedin_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_6_instagram_url",
+			"label": "Участник 6 - Instagram URL",
+			"name": "team_member_6_instagram_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_7_photo",
+			"label": "Участник 7 - Фото",
+			"name": "team_member_7_photo",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_team_member_7_name",
+			"label": "Участник 7 - Имя",
+			"name": "team_member_7_name",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_7_position",
+			"label": "Участник 7 - Должность",
+			"name": "team_member_7_position",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_7_facebook_url",
+			"label": "Участник 7 - Facebook URL",
+			"name": "team_member_7_facebook_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_7_twitter_url",
+			"label": "Участник 7 - Twitter URL",
+			"name": "team_member_7_twitter_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_7_linkedin_url",
+			"label": "Участник 7 - LinkedIn URL",
+			"name": "team_member_7_linkedin_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_7_instagram_url",
+			"label": "Участник 7 - Instagram URL",
+			"name": "team_member_7_instagram_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_8_photo",
+			"label": "Участник 8 - Фото",
+			"name": "team_member_8_photo",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_team_member_8_name",
+			"label": "Участник 8 - Имя",
+			"name": "team_member_8_name",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_8_position",
+			"label": "Участник 8 - Должность",
+			"name": "team_member_8_position",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_8_facebook_url",
+			"label": "Участник 8 - Facebook URL",
+			"name": "team_member_8_facebook_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_8_twitter_url",
+			"label": "Участник 8 - Twitter URL",
+			"name": "team_member_8_twitter_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_8_linkedin_url",
+			"label": "Участник 8 - LinkedIn URL",
+			"name": "team_member_8_linkedin_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_8_instagram_url",
+			"label": "Участник 8 - Instagram URL",
+			"name": "team_member_8_instagram_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_9_photo",
+			"label": "Участник 9 - Фото",
+			"name": "team_member_9_photo",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_team_member_9_name",
+			"label": "Участник 9 - Имя",
+			"name": "team_member_9_name",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_9_position",
+			"label": "Участник 9 - Должность",
+			"name": "team_member_9_position",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_9_facebook_url",
+			"label": "Участник 9 - Facebook URL",
+			"name": "team_member_9_facebook_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_9_twitter_url",
+			"label": "Участник 9 - Twitter URL",
+			"name": "team_member_9_twitter_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_9_linkedin_url",
+			"label": "Участник 9 - LinkedIn URL",
+			"name": "team_member_9_linkedin_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_9_instagram_url",
+			"label": "Участник 9 - Instagram URL",
+			"name": "team_member_9_instagram_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_10_photo",
+			"label": "Участник 10 - Фото",
+			"name": "team_member_10_photo",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_team_member_10_name",
+			"label": "Участник 10 - Имя",
+			"name": "team_member_10_name",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_10_position",
+			"label": "Участник 10 - Должность",
+			"name": "team_member_10_position",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_10_facebook_url",
+			"label": "Участник 10 - Facebook URL",
+			"name": "team_member_10_facebook_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_10_twitter_url",
+			"label": "Участник 10 - Twitter URL",
+			"name": "team_member_10_twitter_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_10_linkedin_url",
+			"label": "Участник 10 - LinkedIn URL",
+			"name": "team_member_10_linkedin_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_team_member_10_instagram_url",
+			"label": "Участник 10 - Instagram URL",
+			"name": "team_member_10_instagram_url",
+			"type": "url",
+			"default_value": ""
+		},
+
+		{
+			"key": "field_tab_how_it_works",
+			"label": "Как это работает",
+			"name": "tab_how_it_works",
+			"type": "tab",
+			"endpoint": 0
+		},
+		{
+			"key": "field_how_it_works_title",
+			"label": "Заголовок секции",
+			"name": "how_it_works_title",
+			"type": "text",
+			"default_value": "Как это работает"
+		},
+		{
+			"key": "field_how_it_works_description",
+			"label": "Описание секции",
+			"name": "how_it_works_description",
+			"type": "textarea",
+			"default_value": "Простой и понятный процесс, который поможет вам достичь желаемых результатов"
+		},
+		{
+			"key": "field_how_it_works_button_text",
+			"label": "Текст кнопки",
+			"name": "how_it_works_button_text",
+			"type": "text",
+			"default_value": "Узнать больше"
+		},
+		{
+			"key": "field_how_it_works_button_url",
+			"label": "URL кнопки",
+			"name": "how_it_works_button_url",
+			"type": "url",
+			"default_value": "#"
+		},
+		{
+			"key": "field_how_it_works_card_1_image",
+			"label": "Шаг 1 - Изображение",
+			"name": "how_it_works_card_1_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_how_it_works_card_1_step",
+			"label": "Шаг 1 - Метка шага",
+			"name": "how_it_works_card_1_step",
+			"type": "text",
+			"default_value": "Шаг 1"
+		},
+		{
+			"key": "field_how_it_works_card_1_title",
+			"label": "Шаг 1 - Заголовок",
+			"name": "how_it_works_card_1_title",
+			"type": "text",
+			"default_value": "Консультация и анализ"
+		},
+		{
+			"key": "field_how_it_works_card_2_image",
+			"label": "Шаг 2 - Изображение",
+			"name": "how_it_works_card_2_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_how_it_works_card_2_step",
+			"label": "Шаг 2 - Метка шага",
+			"name": "how_it_works_card_2_step",
+			"type": "text",
+			"default_value": "Шаг 2"
+		},
+		{
+			"key": "field_how_it_works_card_2_title",
+			"label": "Шаг 2 - Заголовок",
+			"name": "how_it_works_card_2_title",
+			"type": "text",
+			"default_value": "Разработка плана"
+		},
+		{
+			"key": "field_how_it_works_card_3_image",
+			"label": "Шаг 3 - Изображение",
+			"name": "how_it_works_card_3_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_how_it_works_card_3_step",
+			"label": "Шаг 3 - Метка шага",
+			"name": "how_it_works_card_3_step",
+			"type": "text",
+			"default_value": "Шаг 3"
+		},
+		{
+			"key": "field_how_it_works_card_3_title",
+			"label": "Шаг 3 - Заголовок",
+			"name": "how_it_works_card_3_title",
+			"type": "text",
+			"default_value": "Сопровождение и результат"
+		},
+
+		{
+			"key": "field_tab_reviews",
+			"label": "Результаты",
+			"name": "tab_reviews",
+			"type": "tab",
+			"endpoint": 0
+		},
+		{
+			"key": "field_reviews_title",
+			"label": "Заголовок секции",
+			"name": "reviews_title",
+			"type": "text",
+			"default_value": "Результаты"
+		},
+		{
+			"key": "field_reviews_description",
+			"label": "Описание секции",
+			"name": "reviews_description",
+			"type": "textarea",
+			"default_value": "Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo."
+		},
+		{
+			"key": "field_review_1_text",
+			"label": "Отзыв 1 - Текст",
+			"name": "review_1_text",
+			"type": "textarea",
+			"default_value": "Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit."
+		},
+		{
+			"key": "field_review_1_avatar",
+			"label": "Отзыв 1 - Аватар",
+			"name": "review_1_avatar",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_review_1_author_name",
+			"label": "Отзыв 1 - Имя автора",
+			"name": "review_1_author_name",
+			"type": "text",
+			"default_value": "Client Name"
+		},
+		{
+			"key": "field_review_1_author_role",
+			"label": "Отзыв 1 - Роль автора",
+			"name": "review_1_author_role",
+			"type": "text",
+			"default_value": "Profession"
+		},
+		{
+			"key": "field_review_2_text",
+			"label": "Отзыв 2 - Текст",
+			"name": "review_2_text",
+			"type": "textarea",
+			"default_value": "Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit."
+		},
+		{
+			"key": "field_review_2_avatar",
+			"label": "Отзыв 2 - Аватар",
+			"name": "review_2_avatar",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_review_2_author_name",
+			"label": "Отзыв 2 - Имя автора",
+			"name": "review_2_author_name",
+			"type": "text",
+			"default_value": "Client Name"
+		},
+		{
+			"key": "field_review_2_author_role",
+			"label": "Отзыв 2 - Роль автора",
+			"name": "review_2_author_role",
+			"type": "text",
+			"default_value": "Profession"
+		},
+		{
+			"key": "field_review_3_text",
+			"label": "Отзыв 3 - Текст",
+			"name": "review_3_text",
+			"type": "textarea",
+			"default_value": "Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit."
+		},
+		{
+			"key": "field_review_3_avatar",
+			"label": "Отзыв 3 - Аватар",
+			"name": "review_3_avatar",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_review_3_author_name",
+			"label": "Отзыв 3 - Имя автора",
+			"name": "review_3_author_name",
+			"type": "text",
+			"default_value": "Client Name"
+		},
+		{
+			"key": "field_review_3_author_role",
+			"label": "Отзыв 3 - Роль автора",
+			"name": "review_3_author_role",
+			"type": "text",
+			"default_value": "Profession"
+		},
+		{
+			"key": "field_review_4_text",
+			"label": "Отзыв 4 - Текст",
+			"name": "review_4_text",
+			"type": "textarea",
+			"default_value": "Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit."
+		},
+		{
+			"key": "field_review_4_avatar",
+			"label": "Отзыв 4 - Аватар",
+			"name": "review_4_avatar",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_review_4_author_name",
+			"label": "Отзыв 4 - Имя автора",
+			"name": "review_4_author_name",
+			"type": "text",
+			"default_value": "Client Name"
+		},
+		{
+			"key": "field_review_4_author_role",
+			"label": "Отзыв 4 - Роль автора",
+			"name": "review_4_author_role",
+			"type": "text",
+			"default_value": "Profession"
+		},
+		{
+			"key": "field_review_5_text",
+			"label": "Отзыв 5 - Текст",
+			"name": "review_5_text",
+			"type": "textarea",
+			"default_value": ""
+		},
+		{
+			"key": "field_review_5_avatar",
+			"label": "Отзыв 5 - Аватар",
+			"name": "review_5_avatar",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_review_5_author_name",
+			"label": "Отзыв 5 - Имя автора",
+			"name": "review_5_author_name",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_review_5_author_role",
+			"label": "Отзыв 5 - Роль автора",
+			"name": "review_5_author_role",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_review_6_text",
+			"label": "Отзыв 6 - Текст",
+			"name": "review_6_text",
+			"type": "textarea",
+			"default_value": ""
+		},
+		{
+			"key": "field_review_6_avatar",
+			"label": "Отзыв 6 - Аватар",
+			"name": "review_6_avatar",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_review_6_author_name",
+			"label": "Отзыв 6 - Имя автора",
+			"name": "review_6_author_name",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_review_6_author_role",
+			"label": "Отзыв 6 - Роль автора",
+			"name": "review_6_author_role",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_review_7_text",
+			"label": "Отзыв 7 - Текст",
+			"name": "review_7_text",
+			"type": "textarea",
+			"default_value": ""
+		},
+		{
+			"key": "field_review_7_avatar",
+			"label": "Отзыв 7 - Аватар",
+			"name": "review_7_avatar",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_review_7_author_name",
+			"label": "Отзыв 7 - Имя автора",
+			"name": "review_7_author_name",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_review_7_author_role",
+			"label": "Отзыв 7 - Роль автора",
+			"name": "review_7_author_role",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_review_8_text",
+			"label": "Отзыв 8 - Текст",
+			"name": "review_8_text",
+			"type": "textarea",
+			"default_value": ""
+		},
+		{
+			"key": "field_review_8_avatar",
+			"label": "Отзыв 8 - Аватар",
+			"name": "review_8_avatar",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_review_8_author_name",
+			"label": "Отзыв 8 - Имя автора",
+			"name": "review_8_author_name",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_review_8_author_role",
+			"label": "Отзыв 8 - Роль автора",
+			"name": "review_8_author_role",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_review_9_text",
+			"label": "Отзыв 9 - Текст",
+			"name": "review_9_text",
+			"type": "textarea",
+			"default_value": ""
+		},
+		{
+			"key": "field_review_9_avatar",
+			"label": "Отзыв 9 - Аватар",
+			"name": "review_9_avatar",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_review_9_author_name",
+			"label": "Отзыв 9 - Имя автора",
+			"name": "review_9_author_name",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_review_9_author_role",
+			"label": "Отзыв 9 - Роль автора",
+			"name": "review_9_author_role",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_review_10_text",
+			"label": "Отзыв 10 - Текст",
+			"name": "review_10_text",
+			"type": "textarea",
+			"default_value": ""
+		},
+		{
+			"key": "field_review_10_avatar",
+			"label": "Отзыв 10 - Аватар",
+			"name": "review_10_avatar",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_review_10_author_name",
+			"label": "Отзыв 10 - Имя автора",
+			"name": "review_10_author_name",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_review_10_author_role",
+			"label": "Отзыв 10 - Роль автора",
+			"name": "review_10_author_role",
+			"type": "text",
+			"default_value": ""
+		},
+
+		{
+			"key": "field_tab_program",
+			"label": "Программа сопровождения",
+			"name": "tab_program",
+			"type": "tab",
+			"endpoint": 0
+		},
+		{
+			"key": "field_program_title",
+			"label": "Заголовок секции",
+			"name": "program_title",
+			"type": "text",
+			"default_value": "Программа сопровождения"
+		},
+		{
+			"key": "field_program_description",
+			"label": "Описание секции",
+			"name": "program_description",
+			"type": "textarea",
+			"default_value": "Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo."
+		},
+		{
+			"key": "field_program_button_text",
+			"label": "Текст кнопки",
+			"name": "program_button_text",
+			"type": "text",
+			"default_value": "Начать программу"
+		},
+		{
+			"key": "field_program_button_url",
+			"label": "URL кнопки",
+			"name": "program_button_url",
+			"type": "url",
+			"default_value": "#"
+		},
+		{
+			"key": "field_program_card_1_icon",
+			"label": "Карточка 1 - Иконка",
+			"name": "program_card_1_icon",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_program_card_1_title",
+			"label": "Карточка 1 - Заголовок",
+			"name": "program_card_1_title",
+			"type": "text",
+			"default_value": "Анализ питания"
+		},
+		{
+			"key": "field_program_card_1_description",
+			"label": "Карточка 1 - Описание",
+			"name": "program_card_1_description",
+			"type": "textarea",
+			"default_value": "Большинство программ не учитывают особенности человека и часто дают слабый результат."
+		},
+		{
+			"key": "field_program_card_2_icon",
+			"label": "Карточка 2 - Иконка",
+			"name": "program_card_2_icon",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_program_card_2_title",
+			"label": "Карточка 2 - Заголовок",
+			"name": "program_card_2_title",
+			"type": "text",
+			"default_value": "Анализ анализов"
+		},
+		{
+			"key": "field_program_card_2_description",
+			"label": "Карточка 2 - Описание",
+			"name": "program_card_2_description",
+			"type": "textarea",
+			"default_value": "Большинство программ не учитывают особенности человека и часто дают слабый результат."
+		},
+		{
+			"key": "field_program_card_3_icon",
+			"label": "Карточка 3 - Иконка",
+			"name": "program_card_3_icon",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_program_card_3_title",
+			"label": "Карточка 3 - Заголовок",
+			"name": "program_card_3_title",
+			"type": "text",
+			"default_value": "Индивидуальный рацион"
+		},
+		{
+			"key": "field_program_card_3_description",
+			"label": "Карточка 3 - Описание",
+			"name": "program_card_3_description",
+			"type": "textarea",
+			"default_value": "Большинство программ не учитывают особенности человека и часто дают слабый результат."
+		},
+		{
+			"key": "field_program_card_4_icon",
+			"label": "Карточка 4 - Иконка",
+			"name": "program_card_4_icon",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_program_card_4_title",
+			"label": "Карточка 4 - Заголовок",
+			"name": "program_card_4_title",
+			"type": "text",
+			"default_value": "Подбор БАДов"
+		},
+		{
+			"key": "field_program_card_4_description",
+			"label": "Карточка 4 - Описание",
+			"name": "program_card_4_description",
+			"type": "textarea",
+			"default_value": "Большинство программ не учитывают особенности человека и часто дают слабый результат."
+		},
+		{
+			"key": "field_program_card_5_icon",
+			"label": "Карточка 5 - Иконка",
+			"name": "program_card_5_icon",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_program_card_5_title",
+			"label": "Карточка 5 - Заголовок",
+			"name": "program_card_5_title",
+			"type": "text",
+			"default_value": "Поддержка врача"
+		},
+		{
+			"key": "field_program_card_5_description",
+			"label": "Карточка 5 - Описание",
+			"name": "program_card_5_description",
+			"type": "textarea",
+			"default_value": "Большинство программ не учитывают особенности человека и часто дают слабый результат."
+		},
+		{
+			"key": "field_program_card_6_icon",
+			"label": "Карточка 6 - Иконка",
+			"name": "program_card_6_icon",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_program_card_6_title",
+			"label": "Карточка 6 - Заголовок",
+			"name": "program_card_6_title",
+			"type": "text",
+			"default_value": "Корректировка рациона"
+		},
+		{
+			"key": "field_program_card_6_description",
+			"label": "Карточка 6 - Описание",
+			"name": "program_card_6_description",
+			"type": "textarea",
+			"default_value": "Большинство программ не учитывают особенности человека и часто дают слабый результат."
+		},
+		{
+			"key": "field_program_card_7_icon",
+			"label": "Карточка 7 - Иконка",
+			"name": "program_card_7_icon",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_program_card_7_title",
+			"label": "Карточка 7 - Заголовок",
+			"name": "program_card_7_title",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_program_card_7_description",
+			"label": "Карточка 7 - Описание",
+			"name": "program_card_7_description",
+			"type": "textarea",
+			"default_value": ""
+		},
+		{
+			"key": "field_program_card_8_icon",
+			"label": "Карточка 8 - Иконка",
+			"name": "program_card_8_icon",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_program_card_8_title",
+			"label": "Карточка 8 - Заголовок",
+			"name": "program_card_8_title",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_program_card_8_description",
+			"label": "Карточка 8 - Описание",
+			"name": "program_card_8_description",
+			"type": "textarea",
+			"default_value": ""
+		},
+		{
+			"key": "field_program_card_9_icon",
+			"label": "Карточка 9 - Иконка",
+			"name": "program_card_9_icon",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_program_card_9_title",
+			"label": "Карточка 9 - Заголовок",
+			"name": "program_card_9_title",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_program_card_9_description",
+			"label": "Карточка 9 - Описание",
+			"name": "program_card_9_description",
+			"type": "textarea",
+			"default_value": ""
+		},
+
+		{
+			"key": "field_tab_other_variants",
+			"label": "Другие варианты сотрудничества",
+			"name": "tab_other_variants",
+			"type": "tab",
+			"endpoint": 0
+		},
+		{
+			"key": "field_other_variants_title",
+			"label": "Заголовок секции",
+			"name": "other_variants_title",
+			"type": "text",
+			"default_value": "Другие варианты сотрудничества"
+		},
+		{
+			"key": "field_other_variants_description",
+			"label": "Описание секции",
+			"name": "other_variants_description",
+			"type": "textarea",
+			"default_value": "Выбирайте точечный формат работы, если нужен быстрый и конкретный результат."
+		},
+		{
+			"key": "field_other_variant_1_icon",
+			"label": "Карточка 1 - Иконка",
+			"name": "other_variant_1_icon",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_other_variant_1_title",
+			"label": "Карточка 1 - Заголовок",
+			"name": "other_variant_1_title",
+			"type": "text",
+			"default_value": "Расчёт рациона"
+		},
+		{
+			"key": "field_other_variant_1_text",
+			"label": "Карточка 1 - Текст",
+			"name": "other_variant_1_text",
+			"type": "textarea",
+			"default_value": "Персональный расчёт калорий, БЖУ и удобное распределение приёмов пищи под ваш ритм дня."
+		},
+		{
+			"key": "field_other_variant_2_icon",
+			"label": "Карточка 2 - Иконка",
+			"name": "other_variant_2_icon",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_other_variant_2_title",
+			"label": "Карточка 2 - Заголовок",
+			"name": "other_variant_2_title",
+			"type": "text",
+			"default_value": "Диагностика питания"
+		},
+		{
+			"key": "field_other_variant_2_text",
+			"label": "Карточка 2 - Текст",
+			"name": "other_variant_2_text",
+			"type": "textarea",
+			"default_value": "Разбор текущего питания и ключевых дефицитов с понятными рекомендациями без перегруза."
+		},
+		{
+			"key": "field_other_variant_3_icon",
+			"label": "Карточка 3 - Иконка",
+			"name": "other_variant_3_icon",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_other_variant_3_title",
+			"label": "Карточка 3 - Заголовок",
+			"name": "other_variant_3_title",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_other_variant_3_text",
+			"label": "Карточка 3 - Текст",
+			"name": "other_variant_3_text",
+			"type": "textarea",
+			"default_value": ""
+		},
+		{
+			"key": "field_other_variant_4_icon",
+			"label": "Карточка 4 - Иконка",
+			"name": "other_variant_4_icon",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_other_variant_4_title",
+			"label": "Карточка 4 - Заголовок",
+			"name": "other_variant_4_title",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_other_variant_4_text",
+			"label": "Карточка 4 - Текст",
+			"name": "other_variant_4_text",
+			"type": "textarea",
+			"default_value": ""
+		},
+
+		{
+			"key": "field_tab_science",
+			"label": "Наука - это суперсила",
+			"name": "tab_science",
+			"type": "tab",
+			"endpoint": 0
+		},
+		{
+			"key": "field_science_title",
+			"label": "Заголовок секции",
+			"name": "science_title",
+			"type": "text",
+			"default_value": "Наука - это суперсила"
+		},
+		{
+			"key": "field_science_description",
+			"label": "Описание секции",
+			"name": "science_description",
+			"type": "textarea",
+			"default_value": "Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo."
+		},
+		{
+			"key": "field_science_card_1_image",
+			"label": "Карточка 1 - Изображение",
+			"name": "science_card_1_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_science_card_1_title",
+			"label": "Карточка 1 - Заголовок",
+			"name": "science_card_1_title",
+			"type": "text",
+			"default_value": "Заголовок статьи"
+		},
+		{
+			"key": "field_science_card_1_url",
+			"label": "Карточка 1 - URL",
+			"name": "science_card_1_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_science_card_2_image",
+			"label": "Карточка 2 - Изображение",
+			"name": "science_card_2_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_science_card_2_title",
+			"label": "Карточка 2 - Заголовок",
+			"name": "science_card_2_title",
+			"type": "text",
+			"default_value": "How to cultivate organic fruits and vegetables in own firm"
+		},
+		{
+			"key": "field_science_card_2_url",
+			"label": "Карточка 2 - URL",
+			"name": "science_card_2_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_science_card_3_image",
+			"label": "Карточка 3 - Изображение",
+			"name": "science_card_3_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_science_card_3_title",
+			"label": "Карточка 3 - Заголовок",
+			"name": "science_card_3_title",
+			"type": "text",
+			"default_value": "How to cultivate organic fruits and vegetables in own firm fruits and vegetables in own firm"
+		},
+		{
+			"key": "field_science_card_3_url",
+			"label": "Карточка 3 - URL",
+			"name": "science_card_3_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_science_card_4_image",
+			"label": "Карточка 4 - Изображение",
+			"name": "science_card_4_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_science_card_4_title",
+			"label": "Карточка 4 - Заголовок",
+			"name": "science_card_4_title",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_science_card_4_url",
+			"label": "Карточка 4 - URL",
+			"name": "science_card_4_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_science_card_5_image",
+			"label": "Карточка 5 - Изображение",
+			"name": "science_card_5_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_science_card_5_title",
+			"label": "Карточка 5 - Заголовок",
+			"name": "science_card_5_title",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_science_card_5_url",
+			"label": "Карточка 5 - URL",
+			"name": "science_card_5_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_science_card_6_image",
+			"label": "Карточка 6 - Изображение",
+			"name": "science_card_6_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_science_card_6_title",
+			"label": "Карточка 6 - Заголовок",
+			"name": "science_card_6_title",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_science_card_6_url",
+			"label": "Карточка 6 - URL",
+			"name": "science_card_6_url",
+			"type": "url",
+			"default_value": ""
+		},
+
+		{
+			"key": "field_tab_faq",
+			"label": "Вопросы и ответы",
+			"name": "tab_faq",
+			"type": "tab",
+			"endpoint": 0
+		},
+		{
+			"key": "field_faq_title",
+			"label": "Заголовок секции",
+			"name": "faq_title",
+			"type": "text",
+			"default_value": "Вопросы и ответы"
+		},
+		{
+			"key": "field_faq_subtitle",
+			"label": "Подзаголовок секции",
+			"name": "faq_subtitle",
+			"type": "textarea",
+			"default_value": "Собрали самые частые вопросы — нажмите на вопрос, чтобы плавно раскрыть ответ."
+		},
+		{
+			"key": "field_faq_image",
+			"label": "Изображение справа",
+			"name": "faq_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_faq_1_question",
+			"label": "Вопрос 1",
+			"name": "faq_1_question",
+			"type": "text",
+			"default_value": "Нужно ли сдавать анализы??"
+		},
+		{
+			"key": "field_faq_1_answer",
+			"label": "Ответ 1",
+			"name": "faq_1_answer",
+			"type": "textarea",
+			"default_value": "Программа подбирается индивидуально: длительность, нагрузка и формат занятий зависят от вашей цели и текущего уровня."
+		},
+		{
+			"key": "field_faq_2_question",
+			"label": "Вопрос 2",
+			"name": "faq_2_question",
+			"type": "text",
+			"default_value": "Что если у меня нет анализов?"
+		},
+		{
+			"key": "field_faq_2_answer",
+			"label": "Ответ 2",
+			"name": "faq_2_answer",
+			"type": "textarea",
+			"default_value": "Нет, можно заниматься дома. Если у вас есть инвентарь — отлично, мы учтём его в плане, но это не обязательное условие."
+		},
+		{
+			"key": "field_faq_3_question",
+			"label": "Вопрос 3",
+			"name": "faq_3_question",
+			"type": "text",
+			"default_value": "Как проходит сопровождение?"
+		},
+		{
+			"key": "field_faq_3_answer",
+			"label": "Ответ 3",
+			"name": "faq_3_answer",
+			"type": "textarea",
+			"default_value": "Первые изменения обычно ощущаются в самочувствии и энергии уже через 1–2 недели, а визуальные — по мере соблюдения плана."
+		},
+		{
+			"key": "field_faq_4_question",
+			"label": "Вопрос 4",
+			"name": "faq_4_question",
+			"type": "text",
+			"default_value": "Подходит ли программа при заболеваниях?"
+		},
+		{
+			"key": "field_faq_4_answer",
+			"label": "Ответ 4",
+			"name": "faq_4_answer",
+			"type": "textarea",
+			"default_value": "Да. Мы адаптируем упражнения под ограничения и подберём безопасные альтернативы. При необходимости попросим рекомендации врача/реабилитолога."
+		},
+		{
+			"key": "field_faq_5_question",
+			"label": "Вопрос 5",
+			"name": "faq_5_question",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_faq_5_answer",
+			"label": "Ответ 5",
+			"name": "faq_5_answer",
+			"type": "textarea",
+			"default_value": ""
+		},
+		{
+			"key": "field_faq_6_question",
+			"label": "Вопрос 6",
+			"name": "faq_6_question",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_faq_6_answer",
+			"label": "Ответ 6",
+			"name": "faq_6_answer",
+			"type": "textarea",
+			"default_value": ""
+		},
+		{
+			"key": "field_faq_7_question",
+			"label": "Вопрос 7",
+			"name": "faq_7_question",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_faq_7_answer",
+			"label": "Ответ 7",
+			"name": "faq_7_answer",
+			"type": "textarea",
+			"default_value": ""
+		},
+		{
+			"key": "field_faq_8_question",
+			"label": "Вопрос 8",
+			"name": "faq_8_question",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_faq_8_answer",
+			"label": "Ответ 8",
+			"name": "faq_8_answer",
+			"type": "textarea",
+			"default_value": ""
+		},
+		{
+			"key": "field_faq_9_question",
+			"label": "Вопрос 9",
+			"name": "faq_9_question",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_faq_9_answer",
+			"label": "Ответ 9",
+			"name": "faq_9_answer",
+			"type": "textarea",
+			"default_value": ""
+		},
+		{
+			"key": "field_faq_10_question",
+			"label": "Вопрос 10",
+			"name": "faq_10_question",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_faq_10_answer",
+			"label": "Ответ 10",
+			"name": "faq_10_answer",
+			"type": "textarea",
+			"default_value": ""
+		},
+		{
+			"key": "field_faq_11_question",
+			"label": "Вопрос 11",
+			"name": "faq_11_question",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_faq_11_answer",
+			"label": "Ответ 11",
+			"name": "faq_11_answer",
+			"type": "textarea",
+			"default_value": ""
+		},
+		{
+			"key": "field_faq_12_question",
+			"label": "Вопрос 12",
+			"name": "faq_12_question",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_faq_12_answer",
+			"label": "Ответ 12",
+			"name": "faq_12_answer",
+			"type": "textarea",
+			"default_value": ""
+		},
+		{
+			"key": "field_faq_13_question",
+			"label": "Вопрос 13",
+			"name": "faq_13_question",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_faq_13_answer",
+			"label": "Ответ 13",
+			"name": "faq_13_answer",
+			"type": "textarea",
+			"default_value": ""
+		},
+		{
+			"key": "field_faq_14_question",
+			"label": "Вопрос 14",
+			"name": "faq_14_question",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_faq_14_answer",
+			"label": "Ответ 14",
+			"name": "faq_14_answer",
+			"type": "textarea",
+			"default_value": ""
+		},
+		{
+			"key": "field_faq_15_question",
+			"label": "Вопрос 15",
+			"name": "faq_15_question",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_faq_15_answer",
+			"label": "Ответ 15",
+			"name": "faq_15_answer",
+			"type": "textarea",
+			"default_value": ""
+		},
+		{
+			"key": "field_faq_16_question",
+			"label": "Вопрос 16",
+			"name": "faq_16_question",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_faq_16_answer",
+			"label": "Ответ 16",
+			"name": "faq_16_answer",
+			"type": "textarea",
+			"default_value": ""
+		},
+		{
+			"key": "field_faq_17_question",
+			"label": "Вопрос 17",
+			"name": "faq_17_question",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_faq_17_answer",
+			"label": "Ответ 17",
+			"name": "faq_17_answer",
+			"type": "textarea",
+			"default_value": ""
+		},
+		{
+			"key": "field_faq_18_question",
+			"label": "Вопрос 18",
+			"name": "faq_18_question",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_faq_18_answer",
+			"label": "Ответ 18",
+			"name": "faq_18_answer",
+			"type": "textarea",
+			"default_value": ""
+		},
+		{
+			"key": "field_faq_19_question",
+			"label": "Вопрос 19",
+			"name": "faq_19_question",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_faq_19_answer",
+			"label": "Ответ 19",
+			"name": "faq_19_answer",
+			"type": "textarea",
+			"default_value": ""
+		},
+		{
+			"key": "field_faq_20_question",
+			"label": "Вопрос 20",
+			"name": "faq_20_question",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_faq_20_answer",
+			"label": "Ответ 20",
+			"name": "faq_20_answer",
+			"type": "textarea",
+			"default_value": ""
+		},
+
+		{
+			"key": "field_tab_cta",
+			"label": "CTA",
+			"name": "tab_cta",
+			"type": "tab",
+			"endpoint": 0
+		},
+		{
+			"key": "field_cta_title",
+			"label": "Заголовок",
+			"name": "cta_title",
+			"type": "text",
+			"default_value": "Проверьте, как ваше питание влияет на здоровье"
+		},
+		{
+			"key": "field_cta_text",
+			"label": "Текст",
+			"name": "cta_text",
+			"type": "textarea",
+			"default_value": "Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos.\nClita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet.\nDiam dolor diam ipsum sit. Aliqu diam amet diam et eos."
+		},
+		{
+			"key": "field_cta_button_text",
+			"label": "Текст кнопки",
+			"name": "cta_button_text",
+			"type": "text",
+			"default_value": "Начать программу"
+		},
+		{
+			"key": "field_cta_button_url",
+			"label": "URL кнопки",
+			"name": "cta_button_url",
+			"type": "url",
+			"default_value": ""
+		}
+
+	],
+	"location": [
+		[
+			{
+				"param": "post_type",
+				"operator": "==",
+				"value": "page"
+			}
+		]
+	],
+	"instruction_placement": "label",
+	"active": true
+}

@@ -1,0 +1,680 @@
+{
+	"key": "group_footer",
+	"title": "Footer",
+	"fields": [
+
+		{
+			"key": "field_tab_links_block_1",
+			"label": "Группа ссылок футера 1",
+			"name": "tab_links_block_1",
+			"type": "tab",
+			"endpoint": 0
+		},
+		{
+			"key": "field_links_block_1_link_1_text",
+			"label": "Ссылка 1 - Текст",
+			"name": "links_block_1_link_1_text",
+			"type": "text",
+			"default_value": "Оценка качества питания"
+		},
+		{
+			"key": "field_links_block_1_link_1_url",
+			"label": "Ссылка 1 - URL",
+			"name": "links_block_1_link_1_url",
+			"type": "url",
+			"default_value": "#"
+		},
+		{
+			"key": "field_links_block_1_link_2_text",
+			"label": "Ссылка 2 - Текст",
+			"name": "links_block_1_link_2_text",
+			"type": "text",
+			"default_value": "Расчет рациона"
+		},
+		{
+			"key": "field_links_block_1_link_2_url",
+			"label": "Ссылка 2 - URL",
+			"name": "links_block_1_link_2_url",
+			"type": "url",
+			"default_value": "#"
+		},
+		{
+			"key": "field_links_block_1_link_3_text",
+			"label": "Ссылка 3 - Текст",
+			"name": "links_block_1_link_3_text",
+			"type": "text",
+			"default_value": "Клуб Макса Погорелого"
+		},
+		{
+			"key": "field_links_block_1_link_3_url",
+			"label": "Ссылка 3 - URL",
+			"name": "links_block_1_link_3_url",
+			"type": "url",
+			"default_value": "#"
+		},
+		{
+			"key": "field_links_block_1_link_4_text",
+			"label": "Ссылка 4 - Текст",
+			"name": "links_block_1_link_4_text",
+			"type": "text",
+			"default_value": "Полезные материалы"
+		},
+		{
+			"key": "field_links_block_1_link_4_url",
+			"label": "Ссылка 4 - URL",
+			"name": "links_block_1_link_4_url",
+			"type": "url",
+			"default_value": "#"
+		},
+		{
+			"key": "field_links_block_1_link_5_text",
+			"label": "Ссылка 5 - Текст",
+			"name": "links_block_1_link_5_text",
+			"type": "text",
+			"default_value": "Видео с Youtube канала"
+		},
+		{
+			"key": "field_links_block_1_link_5_url",
+			"label": "Ссылка 5 - URL",
+			"name": "links_block_1_link_5_url",
+			"type": "url",
+			"default_value": "#"
+		},
+		{
+			"key": "field_links_block_1_link_6_text",
+			"label": "Ссылка 6 - Текст",
+			"name": "links_block_1_link_6_text",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_links_block_1_link_6_url",
+			"label": "Ссылка 6 - URL",
+			"name": "links_block_1_link_6_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_links_block_1_link_7_text",
+			"label": "Ссылка 7 - Текст",
+			"name": "links_block_1_link_7_text",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_links_block_1_link_7_url",
+			"label": "Ссылка 7 - URL",
+			"name": "links_block_1_link_7_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_links_block_1_link_8_text",
+			"label": "Ссылка 8 - Текст",
+			"name": "links_block_1_link_8_text",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_links_block_1_link_8_url",
+			"label": "Ссылка 8 - URL",
+			"name": "links_block_1_link_8_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_links_block_1_link_9_text",
+			"label": "Ссылка 9 - Текст",
+			"name": "links_block_1_link_9_text",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_links_block_1_link_9_url",
+			"label": "Ссылка 9 - URL",
+			"name": "links_block_1_link_9_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_links_block_1_link_10_text",
+			"label": "Ссылка 10 - Текст",
+			"name": "links_block_1_link_10_text",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_links_block_1_link_10_url",
+			"label": "Ссылка 10 - URL",
+			"name": "links_block_1_link_10_url",
+			"type": "url",
+			"default_value": ""
+		},
+
+		{
+			"key": "field_tab_links_block_2",
+			"label": "Группа ссылок футера 2",
+			"name": "tab_links_block_2",
+			"type": "tab",
+			"endpoint": 0
+		},
+		{
+			"key": "field_links_block_2_link_1_text",
+			"label": "Ссылка 1 - Текст",
+			"name": "links_block_2_link_1_text",
+			"type": "text",
+			"default_value": "Про нас"
+		},
+		{
+			"key": "field_links_block_2_link_1_url",
+			"label": "Ссылка 1 - URL",
+			"name": "links_block_2_link_1_url",
+			"type": "url",
+			"default_value": "#"
+		},
+		{
+			"key": "field_links_block_2_link_2_text",
+			"label": "Ссылка 2 - Текст",
+			"name": "links_block_2_link_2_text",
+			"type": "text",
+			"default_value": "Сотрудничество"
+		},
+		{
+			"key": "field_links_block_2_link_2_url",
+			"label": "Ссылка 2 - URL",
+			"name": "links_block_2_link_2_url",
+			"type": "url",
+			"default_value": "#"
+		},
+		{
+			"key": "field_links_block_2_link_3_text",
+			"label": "Ссылка 3 - Текст",
+			"name": "links_block_2_link_3_text",
+			"type": "text",
+			"default_value": "Контакты"
+		},
+		{
+			"key": "field_links_block_2_link_3_url",
+			"label": "Ссылка 3 - URL",
+			"name": "links_block_2_link_3_url",
+			"type": "url",
+			"default_value": "#"
+		},
+		{
+			"key": "field_links_block_2_link_4_text",
+			"label": "Ссылка 4 - Текст",
+			"name": "links_block_2_link_4_text",
+			"type": "text",
+			"default_value": "Вопросы и Ответы"
+		},
+		{
+			"key": "field_links_block_2_link_4_url",
+			"label": "Ссылка 4 - URL",
+			"name": "links_block_2_link_4_url",
+			"type": "url",
+			"default_value": "#"
+		},
+		{
+			"key": "field_links_block_2_link_5_text",
+			"label": "Ссылка 5 - Текст",
+			"name": "links_block_2_link_5_text",
+			"type": "text",
+			"default_value": "Техническая поддержка"
+		},
+		{
+			"key": "field_links_block_2_link_5_url",
+			"label": "Ссылка 5 - URL",
+			"name": "links_block_2_link_5_url",
+			"type": "url",
+			"default_value": "#"
+		},
+		{
+			"key": "field_links_block_2_link_6_text",
+			"label": "Ссылка 6 - Текст",
+			"name": "links_block_2_link_6_text",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_links_block_2_link_6_url",
+			"label": "Ссылка 6 - URL",
+			"name": "links_block_2_link_6_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_links_block_2_link_7_text",
+			"label": "Ссылка 7 - Текст",
+			"name": "links_block_2_link_7_text",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_links_block_2_link_7_url",
+			"label": "Ссылка 7 - URL",
+			"name": "links_block_2_link_7_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_links_block_2_link_8_text",
+			"label": "Ссылка 8 - Текст",
+			"name": "links_block_2_link_8_text",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_links_block_2_link_8_url",
+			"label": "Ссылка 8 - URL",
+			"name": "links_block_2_link_8_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_links_block_2_link_9_text",
+			"label": "Ссылка 9 - Текст",
+			"name": "links_block_2_link_9_text",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_links_block_2_link_9_url",
+			"label": "Ссылка 9 - URL",
+			"name": "links_block_2_link_9_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_links_block_2_link_10_text",
+			"label": "Ссылка 10 - Текст",
+			"name": "links_block_2_link_10_text",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_links_block_2_link_10_url",
+			"label": "Ссылка 10 - URL",
+			"name": "links_block_2_link_10_url",
+			"type": "url",
+			"default_value": ""
+		},
+
+		{
+			"key": "field_tab_links_block_3",
+			"label": "Группа ссылок футера 3",
+			"name": "tab_links_block_3",
+			"type": "tab",
+			"endpoint": 0
+		},
+		{
+			"key": "field_links_block_3_link_1_text",
+			"label": "Ссылка 1 - Текст",
+			"name": "links_block_3_link_1_text",
+			"type": "text",
+			"default_value": "Публичный договор (оферта)"
+		},
+		{
+			"key": "field_links_block_3_link_1_url",
+			"label": "Ссылка 1 - URL",
+			"name": "links_block_3_link_1_url",
+			"type": "url",
+			"default_value": "#"
+		},
+		{
+			"key": "field_links_block_3_link_2_text",
+			"label": "Ссылка 2 - Текст",
+			"name": "links_block_3_link_2_text",
+			"type": "text",
+			"default_value": "Политика конфиденциальности"
+		},
+		{
+			"key": "field_links_block_3_link_2_url",
+			"label": "Ссылка 2 - URL",
+			"name": "links_block_3_link_2_url",
+			"type": "url",
+			"default_value": "#"
+		},
+		{
+			"key": "field_links_block_3_link_3_text",
+			"label": "Ссылка 3 - Текст",
+			"name": "links_block_3_link_3_text",
+			"type": "text",
+			"default_value": "Ответственность сторон"
+		},
+		{
+			"key": "field_links_block_3_link_3_url",
+			"label": "Ссылка 3 - URL",
+			"name": "links_block_3_link_3_url",
+			"type": "url",
+			"default_value": "#"
+		},
+		{
+			"key": "field_links_block_3_link_4_text",
+			"label": "Ссылка 4 - Текст",
+			"name": "links_block_3_link_4_text",
+			"type": "text",
+			"default_value": "Юридический адрес"
+		},
+		{
+			"key": "field_links_block_3_link_4_url",
+			"label": "Ссылка 4 - URL",
+			"name": "links_block_3_link_4_url",
+			"type": "url",
+			"default_value": "#"
+		},
+		{
+			"key": "field_links_block_3_link_5_text",
+			"label": "Ссылка 5 - Текст",
+			"name": "links_block_3_link_5_text",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_links_block_3_link_5_url",
+			"label": "Ссылка 5 - URL",
+			"name": "links_block_3_link_5_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_links_block_3_link_6_text",
+			"label": "Ссылка 6 - Текст",
+			"name": "links_block_3_link_6_text",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_links_block_3_link_6_url",
+			"label": "Ссылка 6 - URL",
+			"name": "links_block_3_link_6_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_links_block_3_link_7_text",
+			"label": "Ссылка 7 - Текст",
+			"name": "links_block_3_link_7_text",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_links_block_3_link_7_url",
+			"label": "Ссылка 7 - URL",
+			"name": "links_block_3_link_7_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_links_block_3_link_8_text",
+			"label": "Ссылка 8 - Текст",
+			"name": "links_block_3_link_8_text",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_links_block_3_link_8_url",
+			"label": "Ссылка 8 - URL",
+			"name": "links_block_3_link_8_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_links_block_3_link_9_text",
+			"label": "Ссылка 9 - Текст",
+			"name": "links_block_3_link_9_text",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_links_block_3_link_9_url",
+			"label": "Ссылка 9 - URL",
+			"name": "links_block_3_link_9_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_links_block_3_link_10_text",
+			"label": "Ссылка 10 - Текст",
+			"name": "links_block_3_link_10_text",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_links_block_3_link_10_url",
+			"label": "Ссылка 10 - URL",
+			"name": "links_block_3_link_10_url",
+			"type": "url",
+			"default_value": ""
+		},
+
+		{
+			"key": "field_tab_socials",
+			"label": "Соцсети",
+			"name": "tab_socials",
+			"type": "tab",
+			"endpoint": 0
+		},
+		{
+			"key": "field_socials_title",
+			"label": "Заголовок блока соцсетей",
+			"name": "socials_title",
+			"type": "text",
+			"default_value": "Мы в соцсетях"
+		},
+		{
+			"key": "field_social_url_1",
+			"label": "Соцсеть 1 - URL",
+			"name": "social_url_1",
+			"type": "url",
+			"default_value": "#"
+		},
+		{
+			"key": "field_social_img_1",
+			"label": "Соцсеть 1 - IMG",
+			"name": "social_img_1",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_social_url_2",
+			"label": "Соцсеть 2 - URL",
+			"name": "social_url_2",
+			"type": "url",
+			"default_value": "#"
+		},
+		{
+			"key": "field_social_img_2",
+			"label": "Соцсеть 2 - IMG",
+			"name": "social_img_2",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_social_url_3",
+			"label": "Соцсеть 3 - URL",
+			"name": "social_url_3",
+			"type": "url",
+			"default_value": "#"
+		},
+		{
+			"key": "field_social_img_3",
+			"label": "Соцсеть 3 - IMG",
+			"name": "social_img_3",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_social_url_4",
+			"label": "Соцсеть 4 - URL",
+			"name": "social_url_4",
+			"type": "url",
+			"default_value": "#"
+		},
+		{
+			"key": "field_social_img_4",
+			"label": "Соцсеть 4 - IMG",
+			"name": "social_img_4",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_social_url_5",
+			"label": "Соцсеть 5 - URL",
+			"name": "social_url_5",
+			"type": "url",
+			"default_value": "#"
+		},
+		{
+			"key": "field_social_img_5",
+			"label": "Соцсеть 5 - IMG",
+			"name": "social_img_5",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_social_url_6",
+			"label": "Соцсеть 6 - URL",
+			"name": "social_url_6",
+			"type": "url",
+			"default_value": "#"
+		},
+		{
+			"key": "field_social_img_6",
+			"label": "Соцсеть 6 - IMG",
+			"name": "social_img_6",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_social_url_7",
+			"label": "Соцсеть 7 - URL",
+			"name": "social_url_7",
+			"type": "url",
+			"default_value": "#"
+		},
+		{
+			"key": "field_social_img_7",
+			"label": "Соцсеть 7 - IMG",
+			"name": "social_img_7",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_social_url_8",
+			"label": "Соцсеть 8 - URL",
+			"name": "social_url_8",
+			"type": "url",
+			"default_value": "#"
+		},
+		{
+			"key": "field_social_img_8",
+			"label": "Соцсеть 8 - IMG",
+			"name": "social_img_8",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+
+		{
+			"key": "field_tab_payments",
+			"label": "Платёжные системы",
+			"name": "tab_payments",
+			"type": "tab",
+			"endpoint": 0
+		},
+		{
+			"key": "field_payments_title",
+			"label": "Заголовок блока оплаты",
+			"name": "payments_title",
+			"type": "text",
+			"default_value": "Мы принимаем"
+		},
+		{
+			"key": "field_payment_img_1",
+			"label": "Платёжная система 1 - IMG",
+			"name": "payment_img_1",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_payment_img_2",
+			"label": "Платёжная система 2 - IMG",
+			"name": "payment_img_2",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_payment_img_3",
+			"label": "Платёжная система 3 - IMG",
+			"name": "payment_img_3",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_payment_img_4",
+			"label": "Платёжная система 4 - IMG",
+			"name": "payment_img_4",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_payment_img_5",
+			"label": "Платёжная система 5 - IMG",
+			"name": "payment_img_5",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+
+		{
+			"key": "field_tab_copyright",
+			"label": "Копирайт",
+			"name": "tab_copyright",
+			"type": "tab",
+			"endpoint": 0
+		},
+		{
+			"key": "field_copyright_text",
+			"label": "Текст копирайта",
+			"name": "copyright_text",
+			"type": "text",
+			"default_value": "Copyright © 2018-2026. All Rights Reserved."
+		}
+
+	],
+	"location": [
+		[
+			{
+				"param": "post_type",
+				"operator": "==",
+				"value": "post"
+			}
+		]
+	],
+	"instruction_placement": "label",
+	"active": true
+}
