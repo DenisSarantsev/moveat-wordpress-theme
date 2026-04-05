@@ -39,17 +39,33 @@
     <!-- Header Module -->
     <header class="header container-fluid fixed-top px-0 wow fadeIn" data-wow-delay="0.1s">
 			<nav class="header__navbar navbar navbar-light wow fadeIn" data-wow-delay="0.1s">
-				<a href="index.html" class="navbar-brand">
-					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.png" alt="Logo" class="logo-img">
+				<?php
+					$custom_logo_id = (int) get_theme_mod( 'custom_logo' );
+					$home_url       = esc_url( home_url( '/' ) );
+					if ( $custom_logo_id ) {
+						$logo_img = wp_get_attachment_image(
+							$custom_logo_id,
+							'full',
+							false,
+							[
+								'class' => 'logo-img',
+								'alt'   => esc_attr( get_bloginfo( 'name' ) ),
+							]
+						);
+					}
+				?>
+				<a href="<?php echo $home_url; ?>" class="navbar-brand">
+					<?php echo $logo_img; ?>
 				</a>
 				<div class="navbar-content">
-					<div class="navbar-nav ms-auto p-4 p-lg-0">
-						<a href="index.html" class="nav-item nav-link active">Главная</a>
-						<a href="products.html" class="nav-item nav-link">Школа здоровья</a>
-						<a href="articles.html" class="nav-item nav-link">Статьи</a>
-						<a href="about.html" class="nav-item nav-link">О нас</a>
-						<a href="contact.html" class="nav-item nav-link">Контакты</a>
-					</div>
+					<?php
+						wp_nav_menu( [
+							'theme_location' => 'header_menu',
+							'container'      => false,
+							'menu_class'     => 'navbar-nav ms-auto p-4 p-lg-0',
+							'fallback_cb'    => false,
+						] );
+					?>
 					<div class="navbar-content__top-background"></div>
 					<div class="header-icons">
 						<a class="header-icon" href="">

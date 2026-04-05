@@ -151,15 +151,6 @@
 			"endpoint": 0
 		},
 		{
-			"key": "field_problem_image",
-			"label": "Изображение",
-			"name": "problem_image",
-			"type": "image",
-			"return_format": "url",
-			"preview_size": "thumbnail",
-			"library": "all"
-		},
-		{
 			"key": "field_problem_title",
 			"label": "Заголовок секции",
 			"name": "problem_title",

@@ -1,12 +1,19 @@
+<?php
+/*
+	Template Name: Главная страница
+	Template Post Type: page
+*/
+?>
+
 <?php get_header(); ?>
 
 	<?php
-	$hero_bg_image    = get_field('hero_bg_image');
-	$hero_title       = get_field('hero_title');
-	$hero_description = get_field('hero_description');
-	$hero_btn_text    = get_field('hero_button_text');
-	$hero_btn_url     = get_field('hero_button_url');
-	$hero_right_image = get_field('hero_right_image');
+		$hero_bg_image    = get_field('hero_bg_image');
+		$hero_title       = get_field('hero_title');
+		$hero_description = get_field('hero_description');
+		$hero_btn_text    = get_field('hero_button_text');
+		$hero_btn_url     = get_field('hero_button_url');
+		$hero_right_image = get_field('hero_right_image');
 	?>
 	<div class="hero">
 		<div class="hero__wrapper">
@@ -42,9 +49,10 @@
 	</div>
 
 	<?php
-	$trust_title       = get_field('trust_title');
-	$trust_description = get_field('trust_description');
+		$trust_title       = get_field('trust_title');
+		$trust_description = get_field('trust_description');
 	?>
+
 	<div class="trust">
 		<div class="trust__container">
 			<?php if ($trust_title || $trust_description) : ?>
@@ -78,37 +86,33 @@
 	</div>
 
 	<?php
-	$problem_image       = get_field('problem_image');
-	$problem_title       = get_field('problem_title');
-	$problem_description = get_field('problem_description');
+		$problem_title       = get_field('problem_title');
+		$problem_description = get_field('problem_description');
 
-	$problem_bg_elements = [
-		['class' => 'grey',         'src' => '/assets/semi-circles-DwgsJRuo.png'],
-		['class' => 'grey rotate-45','src' => '/assets/oval-0-N_kcrJ.png'],
-		['class' => 'green-opacity', 'src' => '/assets/cube-in-cube-DBL_F0Ww.png'],
-		['class' => 'grey',         'src' => '/assets/semi-circles-DwgsJRuo.png'],
-		['class' => 'grey rotate-45','src' => '/assets/oval-0-N_kcrJ.png'],
-		['class' => 'green-opacity', 'src' => '/assets/cube-in-cube-DBL_F0Ww.png'],
-	];
+		$problem_bg_elements = [
+			['class' => 'grey',          'src' => get_template_directory_uri() . '/assets/images/elements/semi-circles.png'],
+			['class' => 'grey rotate-45','src' => get_template_directory_uri() . '/assets/images/elements/oval.png'],
+			['class' => 'green-opacity', 'src' => get_template_directory_uri() . '/assets/images/elements/cube-in-cube.png'],
+			['class' => 'grey',          'src' => get_template_directory_uri() . '/assets/images/elements/semi-circles.png'],
+			['class' => 'grey rotate-45','src' => get_template_directory_uri() . '/assets/images/elements/oval.png'],
+			['class' => 'green-opacity', 'src' => get_template_directory_uri() . '/assets/images/elements/cube-in-cube.png'],
+		];
 
-	$problem_cards = [];
-	$i = 1;
-	while ($icon = get_field('problem_card_' . $i . '_icon')) :
-		$title = get_field('problem_card_' . $i . '_title');
-		$desc  = get_field('problem_card_' . $i . '_description');
-		if ($title && $desc) {
-			$problem_cards[] = ['icon' => $icon, 'title' => $title, 'desc' => $desc];
-		}
-		$i++;
-	endwhile;
-	$problem_last = count($problem_cards) - 1;
+		$problem_cards = [];
+		$i = 1;
+		while ($icon = get_field('problem_card_' . $i . '_icon')) :
+			$title = get_field('problem_card_' . $i . '_title');
+			$desc  = get_field('problem_card_' . $i . '_description');
+			if ($title && $desc) {
+				$problem_cards[] = ['icon' => $icon, 'title' => $title, 'desc' => $desc];
+			}
+			$i++;
+		endwhile;
+		$problem_last = count($problem_cards) - 1;
 	?>
 	<div class="problem">
 		<div class="problem__container">
 			<div class="problem__image-wrapper"></div>
-			<?php if ($problem_image) : ?>
-				<img class="problem__image" src="<?php echo esc_url($problem_image); ?>" alt="hero">
-			<?php endif; ?>
 			<?php if ($problem_title || $problem_description) : ?>
 				<div class="problem__header title-subtitle-header">
 					<div class="title-decoration">
@@ -152,16 +156,16 @@
 	</div>
 
 	<?php
-	$decision_title       = get_field('decision_title');
-	$decision_description = get_field('decision_description');
+		$decision_title       = get_field('decision_title');
+		$decision_description = get_field('decision_description');
 
-	$decision_cards = [];
-	$i = 1;
-	while ($card_title = get_field('decision_card_' . $i . '_title')) :
-		$decision_cards[] = $card_title;
-		$i++;
-	endwhile;
-	$decision_last = count($decision_cards) - 1;
+		$decision_cards = [];
+		$i = 1;
+		while ($card_title = get_field('decision_card_' . $i . '_title')) :
+			$decision_cards[] = $card_title;
+			$i++;
+		endwhile;
+		$decision_last = count($decision_cards) - 1;
 	?>
 	<div class="decision">
 		<div class="decision__container">
@@ -201,8 +205,8 @@
 	</div>
 
 	<?php
-	$team_title       = get_field('team_title');
-	$team_description = get_field('team_description');
+		$team_title       = get_field('team_title');
+		$team_description = get_field('team_description');
 	?>
 	<div class="team">
 		<div class="team__container">
@@ -263,10 +267,10 @@
 	</div>
 
 	<?php
-	$hiw_title       = get_field('how_it_works_title');
-	$hiw_description = get_field('how_it_works_description');
-	$hiw_btn_text    = get_field('how_it_works_button_text');
-	$hiw_btn_url     = get_field('how_it_works_button_url');
+		$hiw_title       = get_field('how_it_works_title');
+		$hiw_description = get_field('how_it_works_description');
+		$hiw_btn_text    = get_field('how_it_works_button_text');
+		$hiw_btn_url     = get_field('how_it_works_button_url');
 	?>
 	<div class="how-it-works">
 		<div class="how-it-works__container">
@@ -311,8 +315,8 @@
 	</div>
 
 	<?php
-	$reviews_title       = get_field('reviews_title');
-	$reviews_description = get_field('reviews_description');
+		$reviews_title       = get_field('reviews_title');
+		$reviews_description = get_field('reviews_description');
 	?>
 	<div class="reviews">
 		<div class="reviews__container">
@@ -337,7 +341,7 @@
 					$avatar      = get_field('review_' . $i . '_avatar');
 					$author_name = get_field('review_' . $i . '_author_name');
 					$author_role = get_field('review_' . $i . '_author_role');
-					if (!$avatar || !$author_name || !$author_role) { $i++; continue; }
+					if (!$text) { $i++; continue; }
 				?>
 					<div class="reviews__item testimonial-item position-relative bg-white p-5">
 						<div class="reviews__icon">
@@ -345,10 +349,16 @@
 						</div>
 						<p class="reviews__text mb-4"><?php echo nl2br(esc_html($text)); ?></p>
 						<div class="reviews__author d-flex align-items-center">
-							<img class="reviews__author-avatar flex-shrink-0 rounded-circle" src="<?php echo esc_url($avatar); ?>" alt="<?php echo esc_attr($author_name); ?>">
+							<?php if (!empty($avatar)) : ?>
+								<img class="reviews__author-avatar flex-shrink-0 rounded-circle" src="<?php echo esc_url($avatar); ?>" alt="<?php echo esc_attr($author_name ?: ''); ?>">
+							<?php endif; ?>
 							<div class="reviews__author-info ms-3">
-								<h5 class="reviews__author-name mb-1"><?php echo esc_html($author_name); ?></h5>
-								<span class="reviews__author-role"><?php echo esc_html($author_role); ?></span>
+								<?php if ($author_name) : ?>
+									<h5 class="reviews__author-name mb-1"><?php echo esc_html($author_name); ?></h5>
+								<?php endif; ?>
+								<?php if ($author_role) : ?>
+									<span class="reviews__author-role"><?php echo esc_html($author_role); ?></span>
+								<?php endif; ?>
 							</div>
 						</div>
 					</div>
@@ -358,31 +368,31 @@
 	</div>
 
 	<?php
-	$program_title    = get_field('program_title');
-	$program_desc     = get_field('program_description');
-	$program_btn_text = get_field('program_button_text');
-	$program_btn_url  = get_field('program_button_url');
+		$program_title    = get_field('program_title');
+		$program_desc     = get_field('program_description');
+		$program_btn_text = get_field('program_button_text');
+		$program_btn_url  = get_field('program_button_url');
 
-	$program_bg_elements = [
-		['class' => 'grey',          'src' => '/assets/semi-circles-DwgsJRuo.png'],
-		['class' => 'grey rotate-90','src' => '/assets/geometry1-CUs_4UmY.png'],
-		['class' => 'grey',          'src' => '/assets/geometry2-Ct1kAAdq.png'],
-		['class' => 'grey rotate-45','src' => '/assets/geometry3-BmIN80I7.png'],
-		['class' => 'grey rotate-270','src' => '/assets/oval-0-N_kcrJ.png'],
-		['class' => 'green-opacity', 'src' => '/assets/star-DThjeuod.png'],
-	];
+		$program_bg_elements = [
+			['class' => 'grey',           'src' => get_template_directory_uri() . '/assets/images/elements/semi-circles.png'],
+			['class' => 'grey rotate-90', 'src' => get_template_directory_uri() . '/assets/images/elements/geometry1.png'],
+			['class' => 'grey',           'src' => get_template_directory_uri() . '/assets/images/elements/geometry2.png'],
+			['class' => 'grey rotate-45', 'src' => get_template_directory_uri() . '/assets/images/elements/geometry3.png'],
+			['class' => 'grey rotate-270','src' => get_template_directory_uri() . '/assets/images/elements/oval.png'],
+			['class' => 'green-opacity',  'src' => get_template_directory_uri() . '/assets/images/elements/star.png'],
+		];
 
-	$program_cards = [];
-	$i = 1;
-	while ($icon = get_field('program_card_' . $i . '_icon')) :
-		$title = get_field('program_card_' . $i . '_title');
-		$desc  = get_field('program_card_' . $i . '_description');
-		if ($title && $desc) {
-			$program_cards[] = ['icon' => $icon, 'title' => $title, 'desc' => $desc];
-		}
-		$i++;
-	endwhile;
-	$program_last = count($program_cards) - 1;
+		$program_cards = [];
+		$i = 1;
+		while ($icon = get_field('program_card_' . $i . '_icon')) :
+			$title = get_field('program_card_' . $i . '_title');
+			$desc  = get_field('program_card_' . $i . '_description');
+			if ($title && $desc) {
+				$program_cards[] = ['icon' => $icon, 'title' => $title, 'desc' => $desc];
+			}
+			$i++;
+		endwhile;
+		$program_last = count($program_cards) - 1;
 	?>
 	<div class="program">
 		<div class="program__container ">

@@ -3,7 +3,20 @@
 		<div class="footer__container">
 			<div class="footer-top">
 				<div class="footer-top__logo">
-					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.png" alt="Logo">
+					<?php
+						$custom_logo_id = (int) get_theme_mod( 'custom_logo' );
+						if ( $custom_logo_id ) {
+							echo wp_get_attachment_image(
+								$custom_logo_id,
+								'full',
+								false,
+								[
+									'class' => 'logo-img',
+									'alt'   => esc_attr( get_bloginfo( 'name' ) ),
+								]
+							);
+						}
+					?>
 				</div>
 				<div class="footer-top__links">
 					<div class="footer-top__links-block">

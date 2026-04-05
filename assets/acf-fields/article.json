@@ -1,0 +1,227 @@
+{
+	"key": "group_article_fields",
+	"title": "Article",
+	"fields": [
+		{
+			"key": "tab_cta",
+			"label": "CTA",
+			"name": "cta_tab",
+			"type": "tab",
+			"placement": "top"
+		},
+		{
+			"key": "cta_title",
+			"label": "Заголовок",
+			"name": "cta_title",
+			"type": "text",
+			"default_value": "Хотите персональный план питания?"
+		},
+		{
+			"key": "cta_subtitle",
+			"label": "Подзаголовок",
+			"name": "cta_subtitle",
+			"type": "textarea",
+			"default_value": ""
+		},
+		{
+			"key": "cta_button_text",
+			"label": "Надпись на кнопке",
+			"name": "cta_button_text",
+			"type": "text",
+			"default_value": "Оставить заявку"
+		},
+		{
+			"key": "cta_button_url",
+			"label": "Ссылка (CTA)",
+			"name": "cta_button_url",
+			"type": "url",
+			"default_value": "#"
+		},
+		{
+			"key": "tab_share",
+			"label": "Поделиться",
+			"name": "share_tab",
+			"type": "tab",
+			"placement": "top"
+		},
+		{
+			"key": "share_title",
+			"label": "Заголовок блока «Поделиться»",
+			"name": "share_title",
+			"type": "text",
+			"default_value": "Поделиться"
+		},
+		{
+			"key": "share_socials_group",
+			"label": "Соцсети",
+			"name": "share_socials_group",
+			"type": "group",
+			"layout": "block",
+			"sub_fields": [
+				{
+					"key": "social_1_icon",
+					"label": "Иконка 1 (URL изображения)",
+					"name": "social_1_icon",
+					"type": "image",
+					"return_format": "url",
+					"preview_size": "medium",
+					"library": "all"
+				},
+				{
+					"key": "social_1_url",
+					"label": "Ссылка 1",
+					"name": "social_1_url",
+					"type": "url",
+					"default_value": ""
+				},
+				{
+					"key": "social_2_icon",
+					"label": "Иконка 2 (URL изображения)",
+					"name": "social_2_icon",
+					"type": "image",
+					"return_format": "url",
+					"preview_size": "medium",
+					"library": "all"
+				},
+				{
+					"key": "social_2_url",
+					"label": "Ссылка 2",
+					"name": "social_2_url",
+					"type": "url",
+					"default_value": ""
+				},
+				{
+					"key": "social_3_icon",
+					"label": "Иконка 3 (URL изображения)",
+					"name": "social_3_icon",
+					"type": "image",
+					"return_format": "url",
+					"preview_size": "medium",
+					"library": "all"
+				},
+				{
+					"key": "social_3_url",
+					"label": "Ссылка 3",
+					"name": "social_3_url",
+					"type": "url",
+					"default_value": ""
+				},
+				{
+					"key": "social_4_icon",
+					"label": "Иконка 4 (URL изображения)",
+					"name": "social_4_icon",
+					"type": "image",
+					"return_format": "url",
+					"preview_size": "medium",
+					"library": "all"
+				},
+				{
+					"key": "social_4_url",
+					"label": "Ссылка 4",
+					"name": "social_4_url",
+					"type": "url",
+					"default_value": ""
+				},
+				{
+					"key": "social_5_icon",
+					"label": "Иконка 5 (URL изображения)",
+					"name": "social_5_icon",
+					"type": "image",
+					"return_format": "url",
+					"preview_size": "medium",
+					"library": "all"
+				},
+				{
+					"key": "social_5_url",
+					"label": "Ссылка 5",
+					"name": "social_5_url",
+					"type": "url",
+					"default_value": ""
+				},
+				{
+					"key": "social_6_icon",
+					"label": "Иконка 6 (URL изображения)",
+					"name": "social_6_icon",
+					"type": "image",
+					"return_format": "url",
+					"preview_size": "medium",
+					"library": "all"
+				},
+				{
+					"key": "social_6_url",
+					"label": "Ссылка 6",
+					"name": "social_6_url",
+					"type": "url",
+					"default_value": ""
+				},
+				{
+					"key": "social_7_icon",
+					"label": "Иконка 7 (URL изображения)",
+					"name": "social_7_icon",
+					"type": "image",
+					"return_format": "url",
+					"preview_size": "medium",
+					"library": "all"
+				},
+				{
+					"key": "social_7_url",
+					"label": "Ссылка 7",
+					"name": "social_7_url",
+					"type": "url",
+					"default_value": ""
+				},
+				{
+					"key": "social_8_icon",
+					"label": "Иконка 8 (URL изображения)",
+					"name": "social_8_icon",
+					"type": "image",
+					"return_format": "url",
+					"preview_size": "medium",
+					"library": "all"
+				},
+				{
+					"key": "social_8_url",
+					"label": "Ссылка 8",
+					"name": "social_8_url",
+					"type": "url",
+					"default_value": ""
+				},
+				{
+					"key": "social_9_icon",
+					"label": "Иконка 9 (URL изображения)",
+					"name": "social_9_icon",
+					"type": "image",
+					"return_format": "url",
+					"preview_size": "medium",
+					"library": "all"
+				},
+				{
+					"key": "social_9_url",
+					"label": "Ссылка 9",
+					"name": "social_9_url",
+					"type": "url",
+					"default_value": ""
+				},
+				{
+					"key": "social_10_icon",
+					"label": "Иконка 10 (URL изображения)",
+					"name": "social_10_icon",
+					"type": "image",
+					"return_format": "url",
+					"preview_size": "medium",
+					"library": "all"
+				},
+				{
+					"key": "social_10_url",
+					"label": "Ссылка 10",
+					"name": "social_10_url",
+					"type": "url",
+					"default_value": ""
+				}
+			]
+		}
+	],
+	"instruction_placement": "label",
+	"active": true
+}
+

@@ -1,0 +1,17 @@
+{
+	"key": "group_articles",
+	"title": "Articles",
+	"fields": [],
+	"location": [
+		[
+			{
+				"param": "page_template",
+				"operator": "==",
+				"value": "templates/articles.php"
+			}
+		]
+	],
+	"instruction_placement": "label",
+	"active": true
+}
+
