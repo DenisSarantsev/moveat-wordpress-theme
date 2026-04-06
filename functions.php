@@ -30,3 +30,4 @@ add_filter( 'script_loader_tag', 'moveat_add_module_type', 10, 2 );
 // ----------------------------------- Подключение php скриптов
 // Подключаем дополнительные php скрипты из assets/scripts/php/index.php
 require_once get_template_directory() . '/assets/scripts/php/index.php';
+

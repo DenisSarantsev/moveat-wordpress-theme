@@ -68,13 +68,13 @@
 					?>
 					<div class="navbar-content__top-background"></div>
 					<div class="header-icons">
-						<a class="header-icon" href="">
+						<!-- <a class="header-icon" href="">
 							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/search.png" alt="Search" class="img-fluid">
 						</a>
 						<a class="header-icon" href="">
 							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/user.png" alt="User" class="img-fluid">
-						</a>
-						<a class="header-icon" href="/cart.html">
+						</a> -->
+						<a class="header-icon" href="<?php echo esc_url( function_exists( 'wc_get_cart_url' ) ? wc_get_cart_url() : home_url( '/cart/' ) ); ?>">
 							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/cart.png" alt="Shopping cart" class="img-fluid">
 						</a>
 					</div>
@@ -85,3 +85,26 @@
 				</div>
 			</nav>
 		</header>
+
+		<div class="messages-container">
+			<div class="messages-container__message messages-container__message--success is-template">
+				<div class="messages-container__message-icon success-icon">
+					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/check.png' ); ?>" alt="Success" class="img-fluid">
+				</div>
+				<div class="messages-container__message-icon warning-icon">
+					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/warning.png' ); ?>" alt="Warning" class="img-fluid">
+				</div>
+				<div class="messages-container__message-icon error-icon">
+					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/error.png' ); ?>" alt="Error" class="img-fluid">
+				</div>
+				<div class="messages-container__message-icon info-icon">
+					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/info.png' ); ?>" alt="Info" class="img-fluid">
+				</div>
+				<div class="messages-container__message-text">
+					Ваш заказ успешно оформлен lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+				</div>
+				<button type="button" class="messages-container__message-close" aria-label="Закрыть уведомление" data-message-close>
+					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/cross.png' ); ?>" alt="Close" class="img-fluid">
+				</button>
+			</div>
+		</div>

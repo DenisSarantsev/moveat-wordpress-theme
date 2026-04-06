@@ -1,0 +1,757 @@
+{
+  "key": "group_products",
+  "title": "Products",
+  "fields": [
+    {
+      "key": "field_products_tab_1",
+      "label": "Категория 1",
+      "name": "tab_category_1",
+      "type": "tab",
+      "endpoint": 0
+    },
+    {
+      "key": "field_products_category_1",
+      "label": "Категория товаров",
+      "name": "products_category_1",
+      "type": "taxonomy",
+      "taxonomy": "product_cat",
+      "field_type": "select",
+      "allow_null": 1,
+      "add_term": 0,
+      "save_terms": 0,
+      "load_terms": 0,
+      "return_format": "id",
+      "multiple": 0
+    },
+    {
+      "key": "field_products_show_all_1",
+      "label": "Отображать все товары категории",
+      "name": "products_show_all_1",
+      "type": "true_false",
+      "ui": 1,
+      "default_value": 0
+    },
+    {
+      "key": "field_products_list_1",
+      "label": "Товары категории (ручной порядок)",
+      "name": "products_list_1",
+      "type": "relationship",
+      "post_type": [
+        "product"
+      ],
+      "post_status": [
+        "publish"
+      ],
+      "taxonomy": "",
+      "filters": [
+        "search"
+      ],
+      "elements": [
+        "featured_image"
+      ],
+      "min": 0,
+      "max": 0,
+      "return_format": "id",
+      "conditional_logic": [
+        [
+          {
+            "field": "field_products_show_all_1",
+            "operator": "!=",
+            "value": "1"
+          }
+        ]
+      ]
+    },
+    {
+      "key": "field_products_title_1",
+      "label": "Заголовок",
+      "name": "products_title_1",
+      "type": "text",
+      "default_value": ""
+    },
+    {
+      "key": "field_products_description_1",
+      "label": "Описание",
+      "name": "products_description_1",
+      "type": "textarea",
+      "default_value": ""
+    },
+    {
+      "key": "field_products_tab_2",
+      "label": "Категория 2",
+      "name": "tab_category_2",
+      "type": "tab",
+      "endpoint": 0
+    },
+    {
+      "key": "field_products_category_2",
+      "label": "Категория товаров",
+      "name": "products_category_2",
+      "type": "taxonomy",
+      "taxonomy": "product_cat",
+      "field_type": "select",
+      "allow_null": 1,
+      "add_term": 0,
+      "save_terms": 0,
+      "load_terms": 0,
+      "return_format": "id",
+      "multiple": 0
+    },
+    {
+      "key": "field_products_show_all_2",
+      "label": "Отображать все товары категории",
+      "name": "products_show_all_2",
+      "type": "true_false",
+      "ui": 1,
+      "default_value": 0
+    },
+    {
+      "key": "field_products_list_2",
+      "label": "Товары категории (ручной порядок)",
+      "name": "products_list_2",
+      "type": "relationship",
+      "post_type": [
+        "product"
+      ],
+      "post_status": [
+        "publish"
+      ],
+      "taxonomy": "",
+      "filters": [
+        "search"
+      ],
+      "elements": [
+        "featured_image"
+      ],
+      "min": 0,
+      "max": 0,
+      "return_format": "id",
+      "conditional_logic": [
+        [
+          {
+            "field": "field_products_show_all_2",
+            "operator": "!=",
+            "value": "1"
+          }
+        ]
+      ]
+    },
+    {
+      "key": "field_products_title_2",
+      "label": "Заголовок",
+      "name": "products_title_2",
+      "type": "text",
+      "default_value": ""
+    },
+    {
+      "key": "field_products_description_2",
+      "label": "Описание",
+      "name": "products_description_2",
+      "type": "textarea",
+      "default_value": ""
+    },
+    {
+      "key": "field_products_tab_3",
+      "label": "Категория 3",
+      "name": "tab_category_3",
+      "type": "tab",
+      "endpoint": 0
+    },
+    {
+      "key": "field_products_category_3",
+      "label": "Категория товаров",
+      "name": "products_category_3",
+      "type": "taxonomy",
+      "taxonomy": "product_cat",
+      "field_type": "select",
+      "allow_null": 1,
+      "add_term": 0,
+      "save_terms": 0,
+      "load_terms": 0,
+      "return_format": "id",
+      "multiple": 0
+    },
+    {
+      "key": "field_products_show_all_3",
+      "label": "Отображать все товары категории",
+      "name": "products_show_all_3",
+      "type": "true_false",
+      "ui": 1,
+      "default_value": 0
+    },
+    {
+      "key": "field_products_list_3",
+      "label": "Товары категории (ручной порядок)",
+      "name": "products_list_3",
+      "type": "relationship",
+      "post_type": [
+        "product"
+      ],
+      "post_status": [
+        "publish"
+      ],
+      "taxonomy": "",
+      "filters": [
+        "search"
+      ],
+      "elements": [
+        "featured_image"
+      ],
+      "min": 0,
+      "max": 0,
+      "return_format": "id",
+      "conditional_logic": [
+        [
+          {
+            "field": "field_products_show_all_3",
+            "operator": "!=",
+            "value": "1"
+          }
+        ]
+      ]
+    },
+    {
+      "key": "field_products_title_3",
+      "label": "Заголовок",
+      "name": "products_title_3",
+      "type": "text",
+      "default_value": ""
+    },
+    {
+      "key": "field_products_description_3",
+      "label": "Описание",
+      "name": "products_description_3",
+      "type": "textarea",
+      "default_value": ""
+    },
+    {
+      "key": "field_products_tab_4",
+      "label": "Категория 4",
+      "name": "tab_category_4",
+      "type": "tab",
+      "endpoint": 0
+    },
+    {
+      "key": "field_products_category_4",
+      "label": "Категория товаров",
+      "name": "products_category_4",
+      "type": "taxonomy",
+      "taxonomy": "product_cat",
+      "field_type": "select",
+      "allow_null": 1,
+      "add_term": 0,
+      "save_terms": 0,
+      "load_terms": 0,
+      "return_format": "id",
+      "multiple": 0
+    },
+    {
+      "key": "field_products_show_all_4",
+      "label": "Отображать все товары категории",
+      "name": "products_show_all_4",
+      "type": "true_false",
+      "ui": 1,
+      "default_value": 0
+    },
+    {
+      "key": "field_products_list_4",
+      "label": "Товары категории (ручной порядок)",
+      "name": "products_list_4",
+      "type": "relationship",
+      "post_type": [
+        "product"
+      ],
+      "post_status": [
+        "publish"
+      ],
+      "taxonomy": "",
+      "filters": [
+        "search"
+      ],
+      "elements": [
+        "featured_image"
+      ],
+      "min": 0,
+      "max": 0,
+      "return_format": "id",
+      "conditional_logic": [
+        [
+          {
+            "field": "field_products_show_all_4",
+            "operator": "!=",
+            "value": "1"
+          }
+        ]
+      ]
+    },
+    {
+      "key": "field_products_title_4",
+      "label": "Заголовок",
+      "name": "products_title_4",
+      "type": "text",
+      "default_value": ""
+    },
+    {
+      "key": "field_products_description_4",
+      "label": "Описание",
+      "name": "products_description_4",
+      "type": "textarea",
+      "default_value": ""
+    },
+    {
+      "key": "field_products_tab_5",
+      "label": "Категория 5",
+      "name": "tab_category_5",
+      "type": "tab",
+      "endpoint": 0
+    },
+    {
+      "key": "field_products_category_5",
+      "label": "Категория товаров",
+      "name": "products_category_5",
+      "type": "taxonomy",
+      "taxonomy": "product_cat",
+      "field_type": "select",
+      "allow_null": 1,
+      "add_term": 0,
+      "save_terms": 0,
+      "load_terms": 0,
+      "return_format": "id",
+      "multiple": 0
+    },
+    {
+      "key": "field_products_show_all_5",
+      "label": "Отображать все товары категории",
+      "name": "products_show_all_5",
+      "type": "true_false",
+      "ui": 1,
+      "default_value": 0
+    },
+    {
+      "key": "field_products_list_5",
+      "label": "Товары категории (ручной порядок)",
+      "name": "products_list_5",
+      "type": "relationship",
+      "post_type": [
+        "product"
+      ],
+      "post_status": [
+        "publish"
+      ],
+      "taxonomy": "",
+      "filters": [
+        "search"
+      ],
+      "elements": [
+        "featured_image"
+      ],
+      "min": 0,
+      "max": 0,
+      "return_format": "id",
+      "conditional_logic": [
+        [
+          {
+            "field": "field_products_show_all_5",
+            "operator": "!=",
+            "value": "1"
+          }
+        ]
+      ]
+    },
+    {
+      "key": "field_products_title_5",
+      "label": "Заголовок",
+      "name": "products_title_5",
+      "type": "text",
+      "default_value": ""
+    },
+    {
+      "key": "field_products_description_5",
+      "label": "Описание",
+      "name": "products_description_5",
+      "type": "textarea",
+      "default_value": ""
+    },
+    {
+      "key": "field_products_tab_6",
+      "label": "Категория 6",
+      "name": "tab_category_6",
+      "type": "tab",
+      "endpoint": 0
+    },
+    {
+      "key": "field_products_category_6",
+      "label": "Категория товаров",
+      "name": "products_category_6",
+      "type": "taxonomy",
+      "taxonomy": "product_cat",
+      "field_type": "select",
+      "allow_null": 1,
+      "add_term": 0,
+      "save_terms": 0,
+      "load_terms": 0,
+      "return_format": "id",
+      "multiple": 0
+    },
+    {
+      "key": "field_products_show_all_6",
+      "label": "Отображать все товары категории",
+      "name": "products_show_all_6",
+      "type": "true_false",
+      "ui": 1,
+      "default_value": 0
+    },
+    {
+      "key": "field_products_list_6",
+      "label": "Товары категории (ручной порядок)",
+      "name": "products_list_6",
+      "type": "relationship",
+      "post_type": [
+        "product"
+      ],
+      "post_status": [
+        "publish"
+      ],
+      "taxonomy": "",
+      "filters": [
+        "search"
+      ],
+      "elements": [
+        "featured_image"
+      ],
+      "min": 0,
+      "max": 0,
+      "return_format": "id",
+      "conditional_logic": [
+        [
+          {
+            "field": "field_products_show_all_6",
+            "operator": "!=",
+            "value": "1"
+          }
+        ]
+      ]
+    },
+    {
+      "key": "field_products_title_6",
+      "label": "Заголовок",
+      "name": "products_title_6",
+      "type": "text",
+      "default_value": ""
+    },
+    {
+      "key": "field_products_description_6",
+      "label": "Описание",
+      "name": "products_description_6",
+      "type": "textarea",
+      "default_value": ""
+    },
+    {
+      "key": "field_products_tab_7",
+      "label": "Категория 7",
+      "name": "tab_category_7",
+      "type": "tab",
+      "endpoint": 0
+    },
+    {
+      "key": "field_products_category_7",
+      "label": "Категория товаров",
+      "name": "products_category_7",
+      "type": "taxonomy",
+      "taxonomy": "product_cat",
+      "field_type": "select",
+      "allow_null": 1,
+      "add_term": 0,
+      "save_terms": 0,
+      "load_terms": 0,
+      "return_format": "id",
+      "multiple": 0
+    },
+    {
+      "key": "field_products_show_all_7",
+      "label": "Отображать все товары категории",
+      "name": "products_show_all_7",
+      "type": "true_false",
+      "ui": 1,
+      "default_value": 0
+    },
+    {
+      "key": "field_products_list_7",
+      "label": "Товары категории (ручной порядок)",
+      "name": "products_list_7",
+      "type": "relationship",
+      "post_type": [
+        "product"
+      ],
+      "post_status": [
+        "publish"
+      ],
+      "taxonomy": "",
+      "filters": [
+        "search"
+      ],
+      "elements": [
+        "featured_image"
+      ],
+      "min": 0,
+      "max": 0,
+      "return_format": "id",
+      "conditional_logic": [
+        [
+          {
+            "field": "field_products_show_all_7",
+            "operator": "!=",
+            "value": "1"
+          }
+        ]
+      ]
+    },
+    {
+      "key": "field_products_title_7",
+      "label": "Заголовок",
+      "name": "products_title_7",
+      "type": "text",
+      "default_value": ""
+    },
+    {
+      "key": "field_products_description_7",
+      "label": "Описание",
+      "name": "products_description_7",
+      "type": "textarea",
+      "default_value": ""
+    },
+    {
+      "key": "field_products_tab_8",
+      "label": "Категория 8",
+      "name": "tab_category_8",
+      "type": "tab",
+      "endpoint": 0
+    },
+    {
+      "key": "field_products_category_8",
+      "label": "Категория товаров",
+      "name": "products_category_8",
+      "type": "taxonomy",
+      "taxonomy": "product_cat",
+      "field_type": "select",
+      "allow_null": 1,
+      "add_term": 0,
+      "save_terms": 0,
+      "load_terms": 0,
+      "return_format": "id",
+      "multiple": 0
+    },
+    {
+      "key": "field_products_show_all_8",
+      "label": "Отображать все товары категории",
+      "name": "products_show_all_8",
+      "type": "true_false",
+      "ui": 1,
+      "default_value": 0
+    },
+    {
+      "key": "field_products_list_8",
+      "label": "Товары категории (ручной порядок)",
+      "name": "products_list_8",
+      "type": "relationship",
+      "post_type": [
+        "product"
+      ],
+      "post_status": [
+        "publish"
+      ],
+      "taxonomy": "",
+      "filters": [
+        "search"
+      ],
+      "elements": [
+        "featured_image"
+      ],
+      "min": 0,
+      "max": 0,
+      "return_format": "id",
+      "conditional_logic": [
+        [
+          {
+            "field": "field_products_show_all_8",
+            "operator": "!=",
+            "value": "1"
+          }
+        ]
+      ]
+    },
+    {
+      "key": "field_products_title_8",
+      "label": "Заголовок",
+      "name": "products_title_8",
+      "type": "text",
+      "default_value": ""
+    },
+    {
+      "key": "field_products_description_8",
+      "label": "Описание",
+      "name": "products_description_8",
+      "type": "textarea",
+      "default_value": ""
+    },
+    {
+      "key": "field_products_tab_9",
+      "label": "Категория 9",
+      "name": "tab_category_9",
+      "type": "tab",
+      "endpoint": 0
+    },
+    {
+      "key": "field_products_category_9",
+      "label": "Категория товаров",
+      "name": "products_category_9",
+      "type": "taxonomy",
+      "taxonomy": "product_cat",
+      "field_type": "select",
+      "allow_null": 1,
+      "add_term": 0,
+      "save_terms": 0,
+      "load_terms": 0,
+      "return_format": "id",
+      "multiple": 0
+    },
+    {
+      "key": "field_products_show_all_9",
+      "label": "Отображать все товары категории",
+      "name": "products_show_all_9",
+      "type": "true_false",
+      "ui": 1,
+      "default_value": 0
+    },
+    {
+      "key": "field_products_list_9",
+      "label": "Товары категории (ручной порядок)",
+      "name": "products_list_9",
+      "type": "relationship",
+      "post_type": [
+        "product"
+      ],
+      "post_status": [
+        "publish"
+      ],
+      "taxonomy": "",
+      "filters": [
+        "search"
+      ],
+      "elements": [
+        "featured_image"
+      ],
+      "min": 0,
+      "max": 0,
+      "return_format": "id",
+      "conditional_logic": [
+        [
+          {
+            "field": "field_products_show_all_9",
+            "operator": "!=",
+            "value": "1"
+          }
+        ]
+      ]
+    },
+    {
+      "key": "field_products_title_9",
+      "label": "Заголовок",
+      "name": "products_title_9",
+      "type": "text",
+      "default_value": ""
+    },
+    {
+      "key": "field_products_description_9",
+      "label": "Описание",
+      "name": "products_description_9",
+      "type": "textarea",
+      "default_value": ""
+    },
+    {
+      "key": "field_products_tab_10",
+      "label": "Категория 10",
+      "name": "tab_category_10",
+      "type": "tab",
+      "endpoint": 0
+    },
+    {
+      "key": "field_products_category_10",
+      "label": "Категория товаров",
+      "name": "products_category_10",
+      "type": "taxonomy",
+      "taxonomy": "product_cat",
+      "field_type": "select",
+      "allow_null": 1,
+      "add_term": 0,
+      "save_terms": 0,
+      "load_terms": 0,
+      "return_format": "id",
+      "multiple": 0
+    },
+    {
+      "key": "field_products_show_all_10",
+      "label": "Отображать все товары категории",
+      "name": "products_show_all_10",
+      "type": "true_false",
+      "ui": 1,
+      "default_value": 0
+    },
+    {
+      "key": "field_products_list_10",
+      "label": "Товары категории (ручной порядок)",
+      "name": "products_list_10",
+      "type": "relationship",
+      "post_type": [
+        "product"
+      ],
+      "post_status": [
+        "publish"
+      ],
+      "taxonomy": "",
+      "filters": [
+        "search"
+      ],
+      "elements": [
+        "featured_image"
+      ],
+      "min": 0,
+      "max": 0,
+      "return_format": "id",
+      "conditional_logic": [
+        [
+          {
+            "field": "field_products_show_all_10",
+            "operator": "!=",
+            "value": "1"
+          }
+        ]
+      ]
+    },
+    {
+      "key": "field_products_title_10",
+      "label": "Заголовок",
+      "name": "products_title_10",
+      "type": "text",
+      "default_value": ""
+    },
+    {
+      "key": "field_products_description_10",
+      "label": "Описание",
+      "name": "products_description_10",
+      "type": "textarea",
+      "default_value": ""
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "page_template",
+        "operator": "==",
+        "value": "templates/products.php"
+      }
+    ]
+  ],
+  "instruction_placement": "label",
+  "active": true
+}
