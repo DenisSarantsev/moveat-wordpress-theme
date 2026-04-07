@@ -217,6 +217,7 @@
           <div class="product-page__buttons">
             <a href="#" class="primary-button" data-product-action="buy-now" data-product-id="<?php echo esc_attr( $product ? $product->get_id() : 0 ); ?>">Купить</a>
             <a href="#" class="secondary-button" data-product-action="add-to-cart" data-product-id="<?php echo esc_attr( $product ? $product->get_id() : 0 ); ?>">Добавить в корзину</a>
+						<div class="loader disabled"></div>
           </div>
         </div>
       </div>
@@ -313,6 +314,7 @@
 										<a href="<?php echo esc_url( get_permalink( $related_id ) ); ?>" class="primary-button">Купить</a>
 										<a href="<?php echo esc_url( $related_product->add_to_cart_url() ); ?>" data-quantity="1" class="product-card__button-cart add_to_cart_button ajax_add_to_cart" data-product_id="<?php echo esc_attr( $related_id ); ?>" aria-label="<?php echo esc_attr( sprintf( 'Добавить "%s" в корзину', get_the_title( $related_id ) ) ); ?>">
 											<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/cart.png' ); ?>" alt="Корзина">
+											<div class="loader disabled"></div>
 										</a>
 									</div>
 								</div>
