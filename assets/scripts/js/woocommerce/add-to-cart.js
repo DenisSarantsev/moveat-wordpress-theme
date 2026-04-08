@@ -1,6 +1,7 @@
 /* 
 	Файл реализует добавление товара в корзину для карточек каталога и страницы товара. 
 */
+import { showSystemMessage } from '../modules/system-message.js';
 
 // Безопасно приводит значение к целому количеству товара.
 function toPositiveInt(value, fallback = 1) {
@@ -45,6 +46,7 @@ async function addToCartUseCase(productId, quantity = 1, triggerEl = null) {
 	try {
 		const cart = await api.cart.addItem(productId, quantity);
 		syncCartCount(cart && cart.count ? cart.count : 0);
+		showSystemMessage('success', 'Товар добавлен в корзину');
 
 		if (window.jQuery) {
 			window.jQuery(document.body).trigger('added_to_cart');

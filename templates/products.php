@@ -140,7 +140,7 @@ for ( $index = 1; $index <= 10; $index++ ) {
 								<a
 									href="<?php echo esc_url( $product->add_to_cart_url() ); ?>"
 									data-quantity="1"
-									class="product-card__button product-card__button-cart add_to_cart_button ajax_add_to_cart"
+									class="product-card__button product-card__button-cart"
 									data-product_id="<?php echo esc_attr( get_the_ID() ); ?>"
 									data-add-to-cart
 									data-product-action="add-to-cart"
