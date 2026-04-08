@@ -18,6 +18,7 @@ function readRuntimeConfig() {
 	return {
 		baseUrl: runtime.baseUrl || window.location.origin,
 		nonce: runtime.nonce || '',
+		storeApiNonce: runtime.storeApiNonce || '',
 		defaultHeaders: runtime.defaultHeaders || {},
 	};
 }
@@ -38,6 +39,9 @@ export function createWooHttpClient(config = {}) {
 
 		if (merged.nonce) {
 			headers['X-WP-Nonce'] = merged.nonce;
+		}
+		if (merged.storeApiNonce) {
+			headers.Nonce = merged.storeApiNonce;
 		}
 		if (isBodyDefined && !(body instanceof FormData)) {
 			headers['Content-Type'] = 'application/json';

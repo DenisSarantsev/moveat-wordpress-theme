@@ -74,9 +74,12 @@
 						<a class="header-icon" href="">
 							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/user.png" alt="User" class="img-fluid">
 						</a> -->
+						<?php
+							$moveat_cart_count = function_exists( 'WC' ) && WC()->cart ? (int) WC()->cart->get_cart_contents_count() : 0;
+						?>
 						<a class="header-icon cart" href="<?php echo esc_url( function_exists( 'wc_get_cart_url' ) ? wc_get_cart_url() : home_url( '/cart/' ) ); ?>">
 							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/cart.png" alt="Shopping cart" class="img-fluid">
-							<div class="cart-count" data-cart-count>2</div>
+							<div class="cart-count" data-cart-count <?php echo $moveat_cart_count > 0 ? '' : 'hidden'; ?>><?php echo esc_html( $moveat_cart_count ); ?></div>
 						</a>
 					</div>
 				</div>

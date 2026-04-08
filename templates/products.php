@@ -137,8 +137,17 @@ for ( $index = 1; $index <= 10; $index++ ) {
 							</div>
 							<div class="product-card__buttons">
 								<a href="<?php the_permalink(); ?>" class="product-card__button primary-button">Подробнее</a>
-								<a href="<?php echo esc_url( $product->add_to_cart_url() ); ?>" data-quantity="1" class="product-card__button product-card__button-cart add_to_cart_button ajax_add_to_cart" data-product_id="<?php echo esc_attr( get_the_ID() ); ?>" aria-label="<?php echo esc_attr( sprintf( 'Добавить "%s" в корзину', get_the_title() ) ); ?>">
-									<img src="<?php echo esc_url( $cart_icon ); ?>" alt="Cart">
+								<a
+									href="<?php echo esc_url( $product->add_to_cart_url() ); ?>"
+									data-quantity="1"
+									class="product-card__button product-card__button-cart add_to_cart_button ajax_add_to_cart"
+									data-product_id="<?php echo esc_attr( get_the_ID() ); ?>"
+									data-add-to-cart
+									data-product-action="add-to-cart"
+									data-product-id="<?php echo esc_attr( get_the_ID() ); ?>"
+									aria-label="<?php echo esc_attr( sprintf( 'Добавить "%s" в корзину', get_the_title() ) ); ?>"
+								>
+									<img class="product-card__button-cart-icon" src="<?php echo esc_url( $cart_icon ); ?>" alt="Cart">
 									<div class="loader disabled"></div>
 								</a>
 							</div>

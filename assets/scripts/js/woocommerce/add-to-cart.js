@@ -21,7 +21,13 @@ function getWooApi() {
 function syncCartCount(count) {
 	const badge = document.querySelector('[data-cart-count]');
 	if (!badge) return;
-	badge.textContent = String(count || 0);
+	const nextCount = toPositiveInt(count, 0);
+	badge.textContent = String(nextCount);
+	if (nextCount > 0) {
+		badge.removeAttribute('hidden');
+		return;
+	}
+	badge.setAttribute('hidden', 'hidden');
 }
 
 // Унифицированный сценарий добавления товара в корзину.
@@ -53,9 +59,41 @@ async function addToCartUseCase(productId, quantity = 1, triggerEl = null) {
 	}
 }
 
+// Переключает визуальное состояние кнопки корзины в карточке товара (показывает/скрывает лоадер)
+function toggleCardButtonLoaderState(button, isLoading) {
+	if (!button) return;
+	const icon = button.querySelector('.product-card__button-cart-icon');
+	const loader = button.querySelector('.loader');
+	if (!icon || !loader) return;
+
+	if (isLoading) {
+		icon.classList.add('disabled');
+		loader.classList.remove('disabled');
+		return;
+	}
+
+	icon.classList.remove('disabled');
+	loader.classList.add('disabled');
+}
+
+// Переключает лоадер в блоке кнопок на странице товара.
+function toggleProductPageButtonLoaderState(button, isLoading) {
+	if (!button) return;
+	const buttonsBlock = button.closest('.product-page__buttons');
+	if (!buttonsBlock) return;
+	const loader = buttonsBlock.querySelector('.loader');
+	if (!loader) return;
+
+	if (isLoading) {
+		loader.classList.remove('disabled');
+		return;
+	}
+	loader.classList.add('disabled');
+}
+
 // Подключает обработчики добавления в корзину на карточках товаров.
 function bindProductCardAddToCart() {
-	const buttons = document.querySelectorAll('.add_to_cart_button[data-product_id]');
+	const buttons = document.querySelectorAll('.product-card__button-cart[data-product-id]');
 	if (!buttons.length) return;
 
 	buttons.forEach((button) => {
@@ -63,15 +101,18 @@ function bindProductCardAddToCart() {
 			event.preventDefault();
 			event.stopPropagation();
 
-			const productId = toPositiveInt(button.getAttribute('data-product_id'), 0);
+			const productId = toPositiveInt(button.getAttribute('data-product-id'), 0);
 			const quantity = toPositiveInt(button.getAttribute('data-quantity'), 1);
 			if (!productId) return;
 
 			try {
+				toggleCardButtonLoaderState(button, true);
 				await addToCartUseCase(productId, quantity, button);
 			} catch (error) {
 				// Выводим ошибку в консоль, чтобы не прерывать работу интерфейса.
 				console.error(error);
+			} finally {
+				toggleCardButtonLoaderState(button, false);
 			}
 		});
 	});
@@ -79,13 +120,14 @@ function bindProductCardAddToCart() {
 
 // Подключает обработчики кнопок на странице одного товара.
 function bindProductPageAddToCart() {
-	const buttons = document.querySelectorAll('[data-product-action][data-product-id]');
+	const buttons = document.querySelectorAll('.product-page__buttons [data-product-action][data-product-id]');
 	if (!buttons.length) return;
 
 	buttons.forEach((button) => {
 		button.addEventListener('click', async (event) => {
 			const action = button.getAttribute('data-product-action');
 			if (action !== 'add-to-cart' && action !== 'buy-now') return;
+			if (action === 'add-to-cart' && button.classList.contains('unactive')) return;
 
 			event.preventDefault();
 
@@ -94,6 +136,10 @@ function bindProductPageAddToCart() {
 			if (!productId) return;
 
 			try {
+				if (action === 'add-to-cart') {
+					button.classList.add('unactive');
+					toggleProductPageButtonLoaderState(button, true);
+				}
 				await addToCartUseCase(productId, quantity, button);
 
 				if (action === 'buy-now') {
@@ -102,14 +148,15 @@ function bindProductPageAddToCart() {
 						(window.MOVEAT_API && window.MOVEAT_API.woocommerceCheckoutUrl) ||
 						'/checkout/';
 					window.location.href = checkoutUrl;
-					return;
 				}
-
-				const cartUrl = (window.MOVEAT_THEME && window.MOVEAT_THEME.cartUrl) || '/cart/';
-				window.location.href = cartUrl;
 			} catch (error) {
 				// Выводим ошибку в консоль, чтобы не прерывать работу интерфейса.
 				console.error(error);
+			} finally {
+				if (action === 'add-to-cart') {
+					button.classList.remove('unactive');
+					toggleProductPageButtonLoaderState(button, false);
+				}
 			}
 		});
 	});
