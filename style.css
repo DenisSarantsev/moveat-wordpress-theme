@@ -13798,6 +13798,30 @@ fieldset:disabled .btn {
 	text-transform: uppercase;
 	letter-spacing: 0.06em;
 }
+.cart-page__summary-amount-discount {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+.cart-page__summary-amount-discount.hidden {
+	display: none;
+}
+.cart-page__summary-amount-discount_price {
+	font-size: 24px;
+	text-decoration: line-through;
+	font-weight: 700;
+	color: #acacac;
+}
+.cart-page__summary-amount-discount_discount {
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 120%;
+	padding: 4px 8px;
+	border-radius: 8px;
+	color: var(--primary-color-dark);
+	background-color: var(--light-primary-color);
+	border: 1px solid var(--light-primary-color-2);
+}
 .cart-page__summary-amount-wrapper {
 	display: flex;
 	align-items: end;
@@ -13900,6 +13924,9 @@ fieldset:disabled .btn {
 		grid-template-columns: 1fr;
 	}
 }
+.cart-page__promo-control.hidden {
+	display: none;
+}
 .cart-page__promo-input {
 	min-width: 0;
 }
@@ -13918,6 +13945,18 @@ fieldset:disabled .btn {
 		background-color: var(--primary-color-dark);
 	}
 }
+.cart-page__promo-button.hidden,
+.cart-page__promo-button_delete.hidden {
+	display: none;
+}
+.cart-page__promo-message-wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+.cart-page__promo-message-wrapper.hidden {
+	display: none;
+}
 .cart-page__promo-message {
 	padding: 10px 12px;
 	border-radius: var(--radius-sm);
@@ -13931,9 +13970,14 @@ fieldset:disabled .btn {
 	justify-content: center;
 	align-items: center;
 	min-height: 52px;
+	gap: 4px;
 	text-align: center;
 	font-size: 15px;
 	line-height: 1.2;
+	flex-direction: column;
+}
+.cart-page__promo-message--success > *:last-child {
+	font-weight: 700;
 }
 .cart-page__promo-message--success.hidden {
 	display: none;
@@ -14847,6 +14891,14 @@ fieldset:disabled .btn {
 	color: #333;
 	box-shadow: none;
 	transform: translateY(0);
+}
+.secondary-button.red {
+	border: 1px solid #ffa7a7;
+	background: linear-gradient(155deg, #fed5d5, #ffc0c0 50%) !important;
+	color: #a21919;
+}
+.secondary-button.red:hover {
+	background: linear-gradient(155deg, #ff7070, #ff5a5a 50%) !important;
 }
 @media not all and (max-width: 768px) {
 	.secondary-button:hover {

@@ -81,6 +81,66 @@ function updateSummaryFromDom(cartCount = null) {
 	}
 }
 
+// --- Обновление блока скидки в summary ---
+
+/**
+ * Обновляет блок скидки [data-discount-block] на основе данных корзины с сервера.
+ * Если купонов нет — скрывает блок. Если есть — показывает зачёркнутую сумму
+ * без скидки и чип со скидкой.
+ *
+ * Для процентного купона процент вычисляется как totalDiscount / subtotal * 100,
+ * так как Store API не возвращает числовой процент в объекте купона.
+ * Для фиксированного купона показывается сумма скидки в долларах.
+ *
+ * @param {object|null} cart — нормализованный объект корзины (суммы уже в долларах)
+ */
+function updateDiscountBlock(cart) {
+	const block = document.querySelector("[data-discount-block]");
+	if (!block) return;
+
+	const priceEl = block.querySelector(
+		".cart-page__summary-amount-discount_price",
+	);
+	const discountEl = block.querySelector(
+		".cart-page__summary-amount-discount_discount",
+	);
+
+	// Нет купонов — скрываем весь блок
+	const hasCoupons =
+		cart && Array.isArray(cart.coupons) && cart.coupons.length > 0;
+	if (!hasCoupons) {
+		block.classList.add("hidden");
+		return;
+	}
+
+	// Показываем блок
+	block.classList.remove("hidden");
+
+	const subtotal = Number(cart.totals && cart.totals.subtotal) || 0;
+	const totalDiscount = Number(cart.totals && cart.totals.totalDiscount) || 0;
+
+	// Зачёркнутая цена — сумма до скидки
+	if (priceEl) {
+		priceEl.textContent = formatUsd(subtotal);
+	}
+
+	// Чип скидки
+	if (discountEl) {
+		const coupon = cart.coupons[0];
+		if (coupon) {
+			if (coupon.discountType === "percent") {
+				// Вычисляем процент из фактических сумм: (скидка / сумма до скидки) * 100
+				const percent =
+					subtotal > 0 ? Math.round((totalDiscount / subtotal) * 100) : 0;
+				discountEl.textContent = `-${percent}%`;
+			} else {
+				// Фиксированная скидка — показываем сумму в долларах
+				discountEl.textContent = `-${formatUsd(totalDiscount)}`;
+			}
+		}
+	}
+}
+
 // --- Отображение пустой корзины ---
 function renderEmptyCartState() {
 	const list = document.querySelector(".cart-page__list");
@@ -144,54 +204,9 @@ export async function refreshCartData(cart) {
 
 	const count = cart && typeof cart.count !== "undefined" ? cart.count : 0;
 
-	// Если API вернул суммы в другом масштабе (например, в центах),
-	// попытаемся определить масштаб и привести lineTotal/totalPrice к 'долларному' виду.
-	let moneyScale = 1;
-	if (cart && Array.isArray(cart.items) && cart.items.length) {
-		const sumLineRaw = cart.items.reduce(
-			(s, it) => s + (Number(it.lineTotal) || 0),
-			0,
-		);
-		const totalsPriceRaw =
-			cart.totals && typeof cart.totals.totalPrice === "number"
-				? cart.totals.totalPrice
-				: null;
-
-		if (
-			totalsPriceRaw &&
-			totalsPriceRaw > 0 &&
-			sumLineRaw > totalsPriceRaw * 10
-		) {
-			// возможный коэффициент — округлённое отношение сумм (обычно 100)
-			const approx = Math.round(sumLineRaw / totalsPriceRaw);
-			if (approx >= 2 && approx <= 1000) {
-				moneyScale = approx;
-			}
-		} else {
-			// fallback: если есть позиция с аккуратным целым, кратным 100 и большим 1000 — предполагаем центы
-			const anyLarge = cart.items.some((it) => {
-				const v = Number(it.lineTotal);
-				return (
-					Number.isFinite(v) &&
-					v >= 1000 &&
-					Number.isInteger(v) &&
-					v % 100 === 0
-				);
-			});
-			if (anyLarge) moneyScale = 100;
-		}
-
-		// Если мы определили масштаб, нормализуем значения внутри cart (для дальнейшей логики)
-		if (moneyScale !== 1) {
-			cart.items = cart.items.map((it) => ({
-				...it,
-				lineTotal: (Number(it.lineTotal) || 0) / moneyScale,
-			}));
-			if (cart.totals && typeof cart.totals.totalPrice === "number") {
-				cart.totals.totalPrice = cart.totals.totalPrice / moneyScale;
-			}
-		}
-	}
+	// Масштаб валюты теперь определяется и применяется в cart-transformers.js (normalizeCart).
+	// Все суммы в объекте cart уже приведены к «долларному» виду — дополнительная обработка не нужна.
+	const moneyScale = 1;
 
 	// Попробуем определить курс UAH к USD для обновления вторичных цен (грн).
 	// Возможные источники: глобальная переменная, summary на странице или существующие цены в карточках.
@@ -236,32 +251,34 @@ export async function refreshCartData(cart) {
 		// Синхронизируем счётчик в шапке
 		syncCartCount(count);
 
+		// Обновляем блок скидки (зачёркнутая цена + чип)
+		updateDiscountBlock(cart);
+
 		// Если у нас есть объект корзины — обновляем детали из него (более надёжно),
 		// иначе оставляем старое поведение (подсчёт сумм по DOM).
 		if (cart && Array.isArray(cart.items)) {
-			// Обновляем позиции в DOM: количество и цена (USD)
 			cart.items.forEach((ci) => {
 				const itemEl = document.querySelector(
 					`[data-cart-item-key="${ci.key}"]`,
 				);
 				if (!itemEl) return;
 
-				// Количество
+				// Количество — обновляем всегда
 				const qtyEl = itemEl.querySelector(".cart-page__qty-value");
 				if (qtyEl) qtyEl.textContent = String(ci.quantity || 1);
 
-				// Цена в USD
+				// Цена позиции (USD) — используем lineSubtotal (без скидки) для отображения в карточке
 				const priceMain = itemEl.querySelector(".cart-page__item-price-main");
-				if (priceMain) priceMain.textContent = formatUsd(ci.lineTotal || 0);
+				if (priceMain) priceMain.textContent = formatUsd(ci.lineSubtotal || 0);
 
-				// Цена в UAH (если известен курс)
+				// Цена позиции (UAH)
 				if (uahRate) {
 					const priceSecondary = itemEl.querySelector(
 						".cart-page__item-price-secondary",
 					);
 					if (priceSecondary)
 						priceSecondary.textContent = formatUah(
-							(ci.lineTotal || 0) * uahRate,
+							(ci.lineSubtotal || 0) * uahRate,
 						);
 				}
 			});

@@ -57,6 +57,28 @@ if ( ! function_exists( 'moveat_cart_get_uah_rate' ) ) {
 
 $uah_rate       = moveat_cart_get_uah_rate();
 $cart_total_uah = $uah_rate > 0 ? (float) $cart_total_raw * $uah_rate : 0;
+
+// Получаем список применённых купонов из корзины WooCommerce
+$applied_coupons     = $has_woo_cart ? WC()->cart->get_applied_coupons() : [];
+$has_applied_coupon  = ! empty( $applied_coupons );
+$applied_coupon_code = $has_applied_coupon ? strtoupper( reset( $applied_coupons ) ) : '';
+
+// Считаем сумму до скидки (subtotal) и размер скидки для блока discount
+$cart_subtotal_raw  = $has_woo_cart ? (float) WC()->cart->get_subtotal() : 0;
+$cart_discount_raw  = $has_woo_cart ? (float) WC()->cart->get_discount_total() : 0;
+
+// Определяем тип и значение первого купона для отображения в чипе скидки
+$discount_chip_text = '';
+if ( $has_applied_coupon && $cart_discount_raw > 0 ) {
+	$first_coupon_code = reset( $applied_coupons );
+	$coupon_obj        = new WC_Coupon( $first_coupon_code );
+	$discount_type     = $coupon_obj->get_discount_type(); // 'percent', 'fixed_cart', 'fixed_product'
+	if ( $discount_type === 'percent' ) {
+		$discount_chip_text = '-' . wc_format_decimal( $coupon_obj->get_amount(), 0 ) . '%';
+	} else {
+		$discount_chip_text = '-$' . wc_format_decimal( $cart_discount_raw, wc_get_price_decimals() );
+	}
+}
 ?>
 <script>
 	/* Экспорт курса UAH в клиентский JS для корректных расчётов в refreshCartData */
@@ -142,6 +164,24 @@ $cart_total_uah = $uah_rate > 0 ? (float) $cart_total_raw * $uah_rate : 0;
 			<div class="cart-page__summary-card">
 				<div class="cart-page__summary-header">
 					<span class="cart-page__summary-label">Итоговая сумма</span>
+					<?php
+					/*
+					 * Блок скидки: показывается только если применён купон.
+					 * data-subtotal — сумма без скидки (для обновления через JS).
+					 * data-discount-chip — текст чипа скидки (например «-10%» или «-$5.00»).
+					 */
+					?>
+					<div class="cart-page__summary-amount-discount<?php echo $has_applied_coupon ? '' : ' hidden'; ?>"
+						data-discount-block
+						data-subtotal="<?php echo esc_attr( wc_format_decimal( $cart_subtotal_raw, wc_get_price_decimals() ) ); ?>"
+						data-discount-chip="<?php echo esc_attr( $discount_chip_text ); ?>">
+						<div class="cart-page__summary-amount-discount_price">
+							$<?php echo esc_html( wc_format_decimal( $cart_subtotal_raw, wc_get_price_decimals() ) ); ?>
+						</div>
+						<div class="cart-page__summary-amount-discount_discount">
+							<?php echo esc_html( $discount_chip_text ); ?>
+						</div>
+					</div>
 					<div class="cart-page__summary-amount-wrapper">
 						<div class="cart-page__summary-amount">$<?php echo esc_html( $cart_total_usd ); ?></div>
 						<div class="cart-page__summary-amount-secondary"><?php echo esc_html( wc_format_decimal( $cart_total_uah, 0 ) ); ?> грн</div>
@@ -152,12 +192,39 @@ $cart_total_uah = $uah_rate > 0 ? (float) $cart_total_raw * $uah_rate : 0;
 					<div class="cart-page__summary-count"><?php echo esc_html( $cart_items_count ); ?> товара в корзине</div>
 				</div>
 				<div class="cart-page__promo">
-					<div class="cart-page__promo-control">
-						<input class="cart-page__promo-input form-input" type="text" name="promocode" placeholder="Промокод" aria-label="Введите промокод">
-						<button class="cart-page__promo-button secondary-button" type="button" aria-disabled="true">Применить</button>
+					<?php
+					/*
+					 * Состояние 1 (нет купона): cart-page__promo-control видим, cart-page__promo-message-wrapper скрыт.
+					 * Состояние 2 (купон применён): cart-page__promo-control скрыт, cart-page__promo-message-wrapper видим.
+					 */
+					?>
+					<div class="cart-page__promo-control<?php echo $has_applied_coupon ? ' hidden' : ''; ?>">
+						<input
+							class="cart-page__promo-input form-input"
+							type="text"
+							name="promocode"
+							placeholder="Промокод"
+							aria-label="Введите промокод" />
+						<button
+							class="cart-page__promo-button secondary-button unactive"
+							type="button">
+							Применить
+						</button>
 					</div>
-					<p class="cart-page__promo-message cart-page__promo-message--success hidden">Промокод принят</p>
-					<p class="cart-page__promo-message cart-page__promo-message--error hidden">Промокод истек или уже был использован</p>
+					<div class="cart-page__promo-message-wrapper<?php echo $has_applied_coupon ? '' : ' hidden'; ?>">
+						<div class="cart-page__promo-message cart-page__promo-message--error hidden">
+							Промокод истёк или уже был использован
+						</div>
+						<div class="cart-page__promo-message cart-page__promo-message--success<?php echo $has_applied_coupon ? '' : ' hidden'; ?>">
+							<div>Применён промокод:</div>
+							<div><?php echo esc_html( $applied_coupon_code ); ?></div>
+						</div>
+						<button
+							class="cart-page__promo-button_delete secondary-button red<?php echo $has_applied_coupon ? '' : ' hidden'; ?>"
+							type="button">
+							Удалить промокод
+						</button>
+					</div>
 				</div>
 				<div class="cart-page__summary-divider"></div>
 				<div class="cart-page__summary-actions">

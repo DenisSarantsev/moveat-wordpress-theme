@@ -29,38 +29,11 @@ function moveat_customize_maintenance_mode( $wp_customize ) {
 }
 add_action( 'customize_register', 'moveat_customize_maintenance_mode' );
 
-/* Возвращает ID страницы техрежима по назначенному шаблону. */
-function moveat_get_maintenance_page_id() {
-	$maintenance_page = get_posts(
-		[
-			'post_type'      => 'page',
-			'posts_per_page' => 1,
-			'fields'         => 'ids',
-			'post_status'    => 'publish',
-			'meta_key'       => '_wp_page_template',
-			'meta_value'     => 'templates/maintenance.php',
-		]
-	);
-
-	if ( ! empty( $maintenance_page ) ) {
-		return (int) $maintenance_page[0];
-	}
-
-	return 0;
-}
-
-/* Возвращает URL страницы техрежима по шаблону, с запасным URL. */
-function moveat_get_maintenance_page_url() {
-	$maintenance_page_id = moveat_get_maintenance_page_id();
-	if ( $maintenance_page_id > 0 ) {
-		$page_url = get_permalink( $maintenance_page_id );
-		if ( $page_url ) {
-			return $page_url;
-		}
-	}
-
-	return home_url( '/maintenance/' );
-}
+/*
+ * Режим технического обслуживания: при включении рендерим фиксированный
+ * шаблон `templates/maintenance.php` и возвращаем HTTP 503. Никакого
+ * взаимодействия с WP-страницей не требуется.
+ */
 
 /* Перенаправляет посетителей на страницу техрежима, если режим включен. */
 function moveat_handle_maintenance_mode() {
@@ -82,15 +55,19 @@ function moveat_handle_maintenance_mode() {
 		return;
 	}
 
-	$maintenance_page_id = moveat_get_maintenance_page_id();
-	if ( $maintenance_page_id > 0 && is_page( $maintenance_page_id ) ) {
-		status_header( 503 );
-		nocache_headers();
-		return;
+	// Отдаём статус 503 и отключаем кэширование
+	status_header( 503 );
+	nocache_headers();
+
+	// Подключаем фиксированный шаблон темы, если он есть.
+	$maintenance_template = locate_template( 'templates/maintenance.php' );
+	if ( $maintenance_template ) {
+		include $maintenance_template;
+		exit;
 	}
 
-	$maintenance_url = moveat_get_maintenance_page_url();
-	wp_safe_redirect( $maintenance_url, 302 );
+	// Если шаблон не найден — отдаём минимальный 503 HTML.
+	echo '<!doctype html><html><head><meta charset="utf-8"><title>Технические работы</title></head><body><h1>Сайт временно недоступен</h1><p>Мы проводим технические работы. Попробуйте зайти позже.</p></body></html>';
 	exit;
 }
 add_action( 'template_redirect', 'moveat_handle_maintenance_mode' );

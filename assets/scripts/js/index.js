@@ -4,6 +4,7 @@ import "./modules/system-message.js";
 import "./woocommerce/add-to-cart.js";
 import "./woocommerce/remove-from-cart.js";
 import "./woocommerce/update-quantity.js";
+import "./woocommerce/coupon-process.js";
 import { createWooApiLayer } from "./woocommerce/api/index.js";
 
 window.MOVEAT_API = window.MOVEAT_API || {};
