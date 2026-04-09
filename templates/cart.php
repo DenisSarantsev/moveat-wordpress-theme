@@ -58,6 +58,10 @@ if ( ! function_exists( 'moveat_cart_get_uah_rate' ) ) {
 $uah_rate       = moveat_cart_get_uah_rate();
 $cart_total_uah = $uah_rate > 0 ? (float) $cart_total_raw * $uah_rate : 0;
 ?>
+<script>
+	/* Экспорт курса UAH в клиентский JS для корректных расчётов в refreshCartData */
+ 	window.MOVEAT_UAH_RATE = <?php echo wp_json_encode( (float) $uah_rate ); ?>;
+</script>
 
 <main class="cart-page">
 	<div class="cart-page__container max-width-limiter">
@@ -69,7 +73,7 @@ $cart_total_uah = $uah_rate > 0 ? (float) $cart_total_raw * $uah_rate : 0;
 
 			<?php if ( $cart_is_empty ) : ?>
 				<div class="cart-page__empty">
-					<img class="cart-page__empty-icon" src="<?php echo esc_url( $cart_icon ); ?>" alt="Корзина пуста">
+					<!-- <img class="cart-page__empty-icon" src="<?php echo esc_url( $cart_icon ); ?>" alt="Корзина пуста"> -->
 					<h3 class="cart-page__empty-title">Корзина пуста</h3>
 					<p class="cart-page__empty-text">Вы ещё не добавили ни одного товара. Перейдите в каталог, чтобы выбрать продукты.</p>
 					<a href="<?php echo esc_url( $shop_url ); ?>" class="primary-button cart-page__empty-action">Перейти в каталог</a>
@@ -138,10 +142,13 @@ $cart_total_uah = $uah_rate > 0 ? (float) $cart_total_raw * $uah_rate : 0;
 			<div class="cart-page__summary-card">
 				<div class="cart-page__summary-header">
 					<span class="cart-page__summary-label">Итоговая сумма</span>
-					<div class="cart-page__summary-amount">$<?php echo esc_html( $cart_total_usd ); ?></div>
-					<?php if ( $cart_total_uah > 0 ) : ?>
+					<div class="cart-page__summary-amount-wrapper">
+						<div class="cart-page__summary-amount">$<?php echo esc_html( $cart_total_usd ); ?></div>
 						<div class="cart-page__summary-amount-secondary"><?php echo esc_html( wc_format_decimal( $cart_total_uah, 0 ) ); ?> грн</div>
-					<?php endif; ?>
+						<div class="cart-page__summary-loader disabled">
+							<div class="loader"></div>
+						</div>
+					</div>
 					<div class="cart-page__summary-count"><?php echo esc_html( $cart_items_count ); ?> товара в корзине</div>
 				</div>
 				<div class="cart-page__promo">
@@ -154,7 +161,7 @@ $cart_total_uah = $uah_rate > 0 ? (float) $cart_total_raw * $uah_rate : 0;
 				</div>
 				<div class="cart-page__summary-divider"></div>
 				<div class="cart-page__summary-actions">
-					<a href="<?php echo esc_url( $checkout_url ); ?>" class="primary-button<?php echo $cart_is_empty ? ' unactive' : ''; ?>"<?php echo $cart_is_empty ? ' aria-disabled="true"' : ''; ?>>Оформить заказ</a>
+					<a href="<?php echo esc_url( $checkout_url ); ?>" class="cart-page__summary-actions_order primary-button<?php echo $cart_is_empty ? ' unactive' : ''; ?>"<?php echo $cart_is_empty ? ' aria-disabled="true"' : ''; ?>>Оформить заказ</a>
 					<a href="<?php echo esc_url( $shop_url ); ?>" class="secondary-button">Продолжить покупки</a>
 				</div>
 				<div class="cart-page__payment-note">

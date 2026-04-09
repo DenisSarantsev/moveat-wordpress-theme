@@ -2,6 +2,7 @@
 	Файл реализует добавление товара в корзину для карточек каталога и страницы товара. 
 */
 import { showSystemMessage } from '../modules/system-message.js';
+import { syncCartCount } from './common/cart-count.js';
 
 // Безопасно приводит значение к целому количеству товара.
 function toPositiveInt(value, fallback = 1) {
@@ -16,19 +17,6 @@ function getWooApi() {
 		return null;
 	}
 	return api;
-}
-
-// Обновляет базовый индикатор корзины, если на странице есть целевой селектор.
-function syncCartCount(count) {
-	const badge = document.querySelector('[data-cart-count]');
-	if (!badge) return;
-	const nextCount = toPositiveInt(count, 0);
-	badge.textContent = String(nextCount);
-	if (nextCount > 0) {
-		badge.removeAttribute('hidden');
-		return;
-	}
-	badge.setAttribute('hidden', 'hidden');
 }
 
 // Унифицированный сценарий добавления товара в корзину.

@@ -2,9 +2,9 @@
 	Файл содержит фасад API корзины: чтение корзины, добавление, удаление и изменение количества.
 */
 
-import { normalizeCart } from './cart-transformers.js';
+import { normalizeCart } from "./cart-transformers.js";
 
-const STORE_API_BASE = '/wp-json/wc/store/v1';
+const STORE_API_BASE = "/wp-json/wc/store/v1";
 
 // Создает набор методов для работы с корзиной через Store API.
 export function createCartApi(httpClient, options = {}) {
@@ -13,8 +13,13 @@ export function createCartApi(httpClient, options = {}) {
 	return {
 		// Получает текущее состояние корзины.
 		async getCart() {
-			const cart = await httpClient.get(`${basePath}/cart`);
-			return normalizeCart(cart);
+			// Логируем вызов, чтобы было видно в консоли, когда выполняется запрос за корзиной
+			try {
+				const cart = await httpClient.get(`${basePath}/cart`);
+				return normalizeCart(cart);
+			} catch (err) {
+				throw err;
+			}
 		},
 
 		// Добавляет товар в корзину.
@@ -28,7 +33,9 @@ export function createCartApi(httpClient, options = {}) {
 
 		// Удаляет товар из корзины по ключу позиции.
 		async removeItem(cartItemKey) {
-			const cart = await httpClient.post(`${basePath}/cart/remove-item`, { key: cartItemKey });
+			const cart = await httpClient.post(`${basePath}/cart/remove-item`, {
+				key: cartItemKey,
+			});
 			return normalizeCart(cart);
 		},
 
@@ -42,4 +49,3 @@ export function createCartApi(httpClient, options = {}) {
 		},
 	};
 }
-
