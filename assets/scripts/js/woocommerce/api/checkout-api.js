@@ -2,7 +2,7 @@
 	Файл содержит API checkout: чтение состояния, данные клиента, доставка и способ оплаты. 
 */
 
-const STORE_API_BASE = '/wp-json/wc/store/v1';
+const STORE_API_BASE = "/wp-json/wc/store/v1";
 
 // Создает API checkout с единым контрактом для интерфейса.
 export function createCheckoutApi(httpClient, options = {}) {
@@ -31,6 +31,15 @@ export function createCheckoutApi(httpClient, options = {}) {
 				payment_data: paymentData,
 			});
 		},
+
+		// Оформляет заказ: отправляет billing_address и payment_method, возвращает order_id и redirect_url.
+		placeOrder(payload = {}) {
+			return httpClient.post(`${basePath}/checkout`, payload);
+		},
+
+		// Инициирует оплату существующего заказа по его ID.
+		payOrder(orderId, payload = {}) {
+			return httpClient.post(`${basePath}/checkout/${orderId}`, payload);
+		},
 	};
 }
-

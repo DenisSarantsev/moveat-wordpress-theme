@@ -9,9 +9,10 @@ require_once __DIR__ . '/main/menu.php';
 require_once __DIR__ . '/main/logo.php';
 // Включает режим технического обслуживания и исключения.
 require_once __DIR__ . '/main/maintenance-mode.php';
+
+// -------------- WooCommerce modules
 // Передает конфиг Woo Store API на фронтенд (baseUrl и nonce).
 require_once __DIR__ . '/woocommerce/woo-api-config.php';
-// WooCommerce modules
 if ( class_exists( 'WooCommerce' ) ) {
 	// Подключает кастомизацию карточек и шаблонов WooCommerce.
 	require_once __DIR__ . '/woocommerce/product-card/setup.php';
