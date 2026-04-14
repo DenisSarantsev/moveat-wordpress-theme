@@ -18,4 +18,8 @@ if ( class_exists( 'WooCommerce' ) ) {
 	require_once __DIR__ . '/woocommerce/product-card/setup.php';
 	// Подключает серверный API-слой WooCommerce и маршруты.
 	require_once __DIR__ . '/woocommerce/api/setup.php';
+	// Хуки для управления статусами заказов и редиректами после оплаты.
+	require_once __DIR__ . '/woocommerce/order-hooks.php';
+	// Отправка клиентских писем (шаблоны в templates/emails)
+	require_once __DIR__ . '/woocommerce/emails.php';
 }

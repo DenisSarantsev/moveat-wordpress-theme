@@ -40,6 +40,9 @@ function moveat_order_pay_get_uah_rate() {
 }
 
 $uah_rate = $valid ? moveat_order_pay_get_uah_rate() : 0;
+
+// Для отображения в USD используем минимум 2 десятичных знака
+$display_decimals = max(2, (int) wc_get_price_decimals());
 ?>
 
 <main class="payment-page">
@@ -184,7 +187,7 @@ $uah_rate = $valid ? moveat_order_pay_get_uah_rate() : 0;
 										<span class="payment-page__summary-item-qty"><?php echo esc_html( $qty ); ?> шт.</span>
 									</div>
 									<div class="payment-page__summary-item-price">
-										<span class="payment-page__summary-item-price-usd">$<?php echo number_format( $price_usd, 0, '.', ' ' ); ?></span>
+										<span class="payment-page__summary-item-price-usd">$<?php echo esc_html( wc_format_decimal( $price_usd, $display_decimals ) ); ?></span>
 										<span class="payment-page__summary-item-price-uah"><?php echo number_format( $price_uah, 0, '.', ' ' ); ?> грн</span>
 									</div>
 								</div>
@@ -202,6 +205,33 @@ $uah_rate = $valid ? moveat_order_pay_get_uah_rate() : 0;
 							$subtotal_usd = (float) $order->get_subtotal();
 							$has_discount = $subtotal_usd > $total_usd;
 
+							// Вычислим денежную сумму скидки и запасной итог на основе subtotal + купона
+							$calculated_discount_usd = 0.0;
+							$calculated_total_usd    = $total_usd;
+							if ( $has_discount ) {
+								$coupons = $order->get_coupon_codes();
+								if ( ! empty( $coupons ) ) {
+									$coupon_obj = new WC_Coupon( $coupons[0] );
+									$coupon_type = $coupon_obj->get_discount_type();
+									$coupon_amount = (float) $coupon_obj->get_amount();
+
+									if ( $coupon_type === 'percent' ) {
+										// процентная скидка: считаем от subtotal
+										$calculated_discount_usd = $subtotal_usd * ( $coupon_amount / 100 );
+									} elseif ( $coupon_type === 'fixed_cart' ) {
+										// фиксированная скидка на корзину
+										$calculated_discount_usd = min( $coupon_amount, $subtotal_usd );
+									} else {
+										// fallback: попробуем взять разницу между subtotal и order total
+										$calculated_discount_usd = $subtotal_usd - $total_usd;
+									}
+								} else {
+									$calculated_discount_usd = $subtotal_usd - $total_usd;
+								}
+
+								$calculated_total_usd = max( 0, $subtotal_usd - $calculated_discount_usd );
+							}
+
 							// Текст чипа скидки
 							$discount_chip = '';
 							if ( $has_discount ) {
@@ -209,12 +239,15 @@ $uah_rate = $valid ? moveat_order_pay_get_uah_rate() : 0;
 								if ( ! empty( $coupons ) ) {
 									$coupon_obj = new WC_Coupon( $coupons[0] );
 									if ( $coupon_obj->get_discount_type() === 'percent' ) {
-										$discount_chip = '-' . wc_format_decimal( $coupon_obj->get_amount(), 0 ) . '%';
+										$coupon_amount     = (float) $coupon_obj->get_amount();
+										// Показываем 1 знак после запятой, если есть дробная часть (например 99.5)
+										$percent_decimals = ( floor( $coupon_amount ) != $coupon_amount ) ? 1 : 0;
+										$discount_chip     = '-' . wc_format_decimal( $coupon_amount, $percent_decimals ) . '%';
 									} else {
-										$discount_chip = '-$' . wc_format_decimal( $subtotal_usd - $total_usd, wc_get_price_decimals() );
+										$discount_chip = '-$' . wc_format_decimal( $subtotal_usd - $total_usd, $display_decimals );
 									}
 								} else {
-									$discount_chip = '-$' . wc_format_decimal( $subtotal_usd - $total_usd, wc_get_price_decimals() );
+									$discount_chip = '-$' . wc_format_decimal( $subtotal_usd - $total_usd, $display_decimals );
 								}
 							}
 							?>
@@ -222,10 +255,17 @@ $uah_rate = $valid ? moveat_order_pay_get_uah_rate() : 0;
 								<?php if ( $has_discount ) : ?>
 									<span class="payment-page__summary-total-old">
 										<span class="discount-chip"><?php echo esc_html( $discount_chip ); ?></span>
-										<s>$<?php echo number_format( $subtotal_usd, 0, '.', ' ' ); ?></s>
+										<s>$<?php echo esc_html( wc_format_decimal( $subtotal_usd, $display_decimals ) ); ?></s>
 									</span>
 								<?php endif; ?>
-								<span class="payment-page__summary-total-usd">$<?php echo number_format( $total_usd, 0, '.', ' ' ); ?></span>
+								<?php
+								// Если order->get_total() равен 0 или сильно отличается из-за округлений, используем рассчитанный запасной total
+								$display_total = $total_usd;
+								if ( isset( $calculated_total_usd ) && abs( $calculated_total_usd - $total_usd ) > 0.0001 ) {
+									$display_total = $calculated_total_usd;
+								}
+								?>
+								<span class="payment-page__summary-total-usd">$<?php echo esc_html( wc_format_decimal( $display_total, $display_decimals ) ); ?></span>
 								<span class="payment-page__summary-total-uah"><?php echo number_format( $total_uah, 0, '.', ' ' ); ?> грн</span>
 							</div>
 						<?php endif; ?>
@@ -240,3 +280,7 @@ $uah_rate = $valid ? moveat_order_pay_get_uah_rate() : 0;
 </main>
 
 <?php get_footer(); ?>
+
+<?php if ( $valid ) : ?>
+<!-- Cookie теперь устанавливается по клику на кнопку «Оплатить» в JS-модуле payment-process.js -->
+<?php endif; ?>

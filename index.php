@@ -9,6 +9,7 @@
 
 	<?php
 		$hero_bg_image    = get_field('hero_bg_image');
+		$hero_bg_image_mobile    = get_field('hero_bg_image_mobile');
 		$hero_title       = get_field('hero_title');
 		$hero_description = get_field('hero_description');
 		$hero_btn_text    = get_field('hero_button_text');
@@ -17,11 +18,10 @@
 	?>
 	<div class="hero">
 		<div class="hero__wrapper">
-			<div class="hero__bg-secondary-gradient"></div>
-			<div class="hero__bg-gradient"></div>
-			<div class="hero__bg-filter"></div>
+			<div class="hero__bg-filter"></div> 
 			<?php if ($hero_bg_image) : ?>
-				<img class="hero__image" src="<?php echo esc_url($hero_bg_image); ?>" alt="Image">
+				<img class="hero__image desktop" src="<?php echo esc_url($hero_bg_image); ?>" alt="Image">
+				<img class="hero__image mobile" src="<?php echo esc_url($hero_bg_image_mobile); ?>" alt="Image">
 			<?php endif; ?>
 			<div class="hero__container">
 				<div class="hero__content">

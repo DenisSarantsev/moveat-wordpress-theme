@@ -71,8 +71,9 @@ async function handleSubmit(e) {
 		country: "UA",
 	};
 
-	// "mono_gateway" — Monobank (Plata by Mono).
-	const paymentMethod = "mono_gateway";
+	// "cod" — заглушка для создания заказа. Реальный метод оплаты
+	// пользователь выбирает на странице /order-pay/.
+	const paymentMethod = "cod";
 
 	setLoading();
 
@@ -87,15 +88,7 @@ async function handleSubmit(e) {
 
 		console.log("[checkout-process] placeOrder result:", result);
 
-		// Если WooCommerce вернул payment_result.redirect_url — переходим на оплату
-		const redirectUrl = result?.payment_result?.redirect_url;
-		if (redirectUrl) {
-			window.location.href = redirectUrl;
-			return;
-		}
-
-		// Monobank и похожие шлюзы не возвращают redirect_url через Store API —
-		// редиректим на твою страницу оплаты с order_id и order_key в URL.
+		// Редиректим на страницу выбора метода оплаты
 		if (result?.order_id && result?.order_key) {
 			const base =
 				window.MOVEAT_WOO_API_CONFIG?.baseUrl || window.location.origin;

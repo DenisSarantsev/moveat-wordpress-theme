@@ -18,7 +18,7 @@ const submitButton = document.getElementById("paymentSubmit");
 
 const METHOD_SLUG_MAP = {
 	card: "mono_gateway",
-	paypal: "paypal",
+	paypal: "ppcp-gateway",
 };
 
 // ─── Состояние ────────────────────────────────────────────────────────────────
@@ -93,10 +93,43 @@ async function handlePay() {
 	setLoading(true);
 
 	try {
+		// Записываем короткоживущий cookie с order_id + order_key при нажатии на кнопку "Оплатить".
+		// Cookie используется глобальным чекером, чтобы при неудачном платеже вернуть пользователя на /pay-problem/.
+		try {
+			if (typeof document !== "undefined") {
+				var payloadCookie = {
+					order_id: parseInt(orderId, 10),
+					order_key: orderKey,
+				};
+				document.cookie =
+					"moveat_pending_order=" +
+					encodeURIComponent(JSON.stringify(payloadCookie)) +
+					"; path=/; max-age=" +
+					10 * 60 +
+					"; SameSite=Lax";
+			}
+		} catch (e) {
+			// ignore cookie failures
+		}
 		// Инициируем оплату существующего заказа через /checkout/{order_id}
+		// billing_address и shipping_address обязательны для Store API —
+		// берём реальные данные покупателя из заказа (прокинуты через wp_localize_script)
+		const billing = window.MOVEAT_ORDER_DATA?.billing ?? {};
+		const addressPlaceholder = {
+			first_name: billing.first_name || "—",
+			last_name: billing.last_name || "—",
+			email: billing.email || "noreply@moveat.expert",
+			phone: billing.phone || "0000000000",
+			address_1: billing.address_1 || "—",
+			city: billing.city || "—",
+			postcode: billing.postcode || "00000",
+			country: billing.country || "UA",
+		};
 		const result = await api.checkout.payOrder(orderId, {
 			payment_method: gatewaySlug,
 			key: orderKey,
+			billing_address: addressPlaceholder,
+			shipping_address: addressPlaceholder,
 		});
 
 		console.log("[payment-process] pay result:", result);

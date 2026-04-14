@@ -24,7 +24,9 @@ $cart_items       = $has_woo_cart ? WC()->cart->get_cart() : [];
 $cart_is_empty    = empty( $cart_items );
 $cart_items_count = $has_woo_cart ? (int) WC()->cart->get_cart_contents_count() : 0;
 $cart_total_raw   = $has_woo_cart ? (float) WC()->cart->get_total( 'edit' ) : 0;
-$cart_total_usd   = wc_format_decimal( $cart_total_raw, wc_get_price_decimals() );
+// Для отображения в USD используем минимум 2 десятичных знака, чтобы не округлять до целого
+$display_decimals = max(2, (int) wc_get_price_decimals());
+$cart_total_usd   = wc_format_decimal( $cart_total_raw, $display_decimals );
 
 if ( ! function_exists( 'moveat_cart_get_uah_rate' ) ) {
 	function moveat_cart_get_uah_rate() {
@@ -58,6 +60,9 @@ if ( ! function_exists( 'moveat_cart_get_uah_rate' ) ) {
 $uah_rate       = moveat_cart_get_uah_rate();
 $cart_total_uah = $uah_rate > 0 ? (float) $cart_total_raw * $uah_rate : 0;
 
+// Для отображения в USD используем минимум 2 десятичных знака, чтобы не округлять до целого
+$display_decimals = max(2, (int) wc_get_price_decimals());
+
 // Получаем список применённых купонов из корзины WooCommerce
 $applied_coupons     = $has_woo_cart ? WC()->cart->get_applied_coupons() : [];
 $has_applied_coupon  = ! empty( $applied_coupons );
@@ -76,7 +81,7 @@ if ( $has_applied_coupon && $cart_discount_raw > 0 ) {
 	if ( $discount_type === 'percent' ) {
 		$discount_chip_text = '-' . wc_format_decimal( $coupon_obj->get_amount(), 0 ) . '%';
 	} else {
-		$discount_chip_text = '-$' . wc_format_decimal( $cart_discount_raw, wc_get_price_decimals() );
+		$discount_chip_text = '-$' . wc_format_decimal( $cart_discount_raw, $display_decimals );
 	}
 }
 ?>
@@ -146,7 +151,7 @@ if ( $has_applied_coupon && $cart_discount_raw > 0 ) {
 								</button>
 							</div>
 							<div class="cart-page__item-price">
-								<span class="cart-page__item-price-main">$<?php echo esc_html( wc_format_decimal( $line_total, wc_get_price_decimals() ) ); ?></span>
+								<span class="cart-page__item-price-main">$<?php echo esc_html( wc_format_decimal( $line_total, $display_decimals ) ); ?></span>
 								<?php if ( $line_uah > 0 ) : ?>
 									<span class="cart-page__item-price-secondary"><?php echo esc_html( wc_format_decimal( $line_uah, 0 ) ); ?> грн</span>
 								<?php endif; ?>
@@ -173,10 +178,10 @@ if ( $has_applied_coupon && $cart_discount_raw > 0 ) {
 					?>
 					<div class="cart-page__summary-amount-discount<?php echo $has_applied_coupon ? '' : ' hidden'; ?>"
 						data-discount-block
-						data-subtotal="<?php echo esc_attr( wc_format_decimal( $cart_subtotal_raw, wc_get_price_decimals() ) ); ?>"
+						data-subtotal="<?php echo esc_attr( wc_format_decimal( $cart_subtotal_raw, $display_decimals ) ); ?>"
 						data-discount-chip="<?php echo esc_attr( $discount_chip_text ); ?>">
 						<div class="cart-page__summary-amount-discount_price">
-							$<?php echo esc_html( wc_format_decimal( $cart_subtotal_raw, wc_get_price_decimals() ) ); ?>
+							$<?php echo esc_html( wc_format_decimal( $cart_subtotal_raw, $display_decimals ) ); ?>
 						</div>
 						<div class="cart-page__summary-amount-discount_discount">
 							<?php echo esc_html( $discount_chip_text ); ?>
