@@ -2,44 +2,22 @@
 	Файл содержит API checkout: чтение состояния, данные клиента, доставка и способ оплаты. 
 */
 
-const STORE_API_BASE = "/wp-json/wc/store/v1";
-
 // Создает API checkout с единым контрактом для интерфейса.
-export function createCheckoutApi(httpClient, options = {}) {
-	const basePath = options.basePath || STORE_API_BASE;
-
+export function createCheckoutApi(httpClient = {}) {
 	return {
-		// Получает текущее состояние checkout.
-		getCheckout() {
-			return httpClient.get(`${basePath}/checkout`);
-		},
-
-		// Сохраняет данные клиента в checkout.
-		setCustomer(payload) {
-			return httpClient.post(`${basePath}/checkout`, payload || {});
-		},
-
-		// Сохраняет данные доставки в checkout.
-		setShipping(payload) {
-			return httpClient.post(`${basePath}/checkout`, payload || {});
-		},
-
-		// Сохраняет выбранный способ оплаты и его параметры.
-		setPaymentMethod(paymentMethod, paymentData = {}) {
-			return httpClient.post(`${basePath}/checkout`, {
-				payment_method: paymentMethod,
-				payment_data: paymentData,
-			});
-		},
-
-		// Оформляет заказ: отправляет billing_address и payment_method, возвращает order_id и redirect_url.
+		// Создаёт заказ через серверный прокси темы (moveat) — он форвардит запрос к wc/v3/orders
+		// Это позволяет безопасно использовать consumer key/secret на сервере и не раскрывать их в браузере.
 		placeOrder(payload = {}) {
-			return httpClient.post(`${basePath}/checkout`, payload);
+			return httpClient.post(`/wp-json/my-api/v1/create-order`, payload);
 		},
 
-		// Инициирует оплату существующего заказа по его ID.
+		// Обновляет существующий заказ (например, добавить payment_method и billing) через REST Orders API.
+		// Используем PUT для частичного/полного обновления заказа.
 		payOrder(orderId, payload = {}) {
-			return httpClient.post(`${basePath}/checkout/${orderId}`, payload);
+			return httpClient.post(
+				`/wp-json/my-api/v1/pay-order/${orderId}`,
+				payload,
+			);
 		},
 	};
 }

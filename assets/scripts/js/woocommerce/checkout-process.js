@@ -92,18 +92,25 @@ async function handleSubmit(e) {
 		const api = window.MOVEAT_API && window.MOVEAT_API.woocommerce;
 		if (!api) throw new Error("API не инициализирован");
 
-		const result = await api.checkout.placeOrder({
-			billing_address: billingAddress,
+		// Формируем payload в формате REST Orders API: billing, shipping, payment_method
+		const payload = {
+			billing: billingAddress,
+			shipping: billingAddress, // если у вас отдельная shipping-форма — подставьте её
 			payment_method: paymentMethod,
-		});
+			set_paid: false,
+		};
+
+		const result = await api.checkout.placeOrder(payload);
+
+		// console.log(result);
 
 		console.log("[checkout-process] placeOrder result:", result);
 
-		// Редиректим на страницу выбора метода оплаты
-		if (result?.order_id && result?.order_key) {
+		// Редиректим на страницу выбора метода оплаты. REST Orders API возвращает id и order_key.
+		if (result?.id && result?.order_key) {
 			const base =
 				window.MOVEAT_WOO_API_CONFIG?.baseUrl || window.location.origin;
-			window.location.href = `${base}/order-pay/?order_id=${result.order_id}&order_key=${result.order_key}`;
+			window.location.href = `${base}/order-pay/?order_id=${result.id}&order_key=${result.order_key}`;
 			return;
 		}
 

@@ -22,4 +22,8 @@ if ( class_exists( 'WooCommerce' ) ) {
 	require_once __DIR__ . '/woocommerce/order-hooks.php';
 	// Отправка клиентских писем (шаблоны в templates/emails)
 	require_once __DIR__ . '/woocommerce/emails.php';
+	// Создание заказа
+	require_once __DIR__ . '/woocommerce/api/create-order.php';
+	// Оплата заказа
+	require_once __DIR__ . '/woocommerce/api/pay-order.php';
 }

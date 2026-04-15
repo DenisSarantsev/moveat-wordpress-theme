@@ -6,7 +6,7 @@
 export class WooApiError extends Error {
 	constructor(message, status = 0, payload = null) {
 		super(message);
-		this.name = 'WooApiError';
+		this.name = "WooApiError";
 		this.status = status;
 		this.payload = payload;
 	}
@@ -17,8 +17,8 @@ function readRuntimeConfig() {
 	const runtime = window.MOVEAT_WOO_API_CONFIG || {};
 	return {
 		baseUrl: runtime.baseUrl || window.location.origin,
-		nonce: runtime.nonce || '',
-		storeApiNonce: runtime.storeApiNonce || '',
+		nonce: runtime.nonce || "",
+		storeApiNonce: runtime.storeApiNonce || "",
 		defaultHeaders: runtime.defaultHeaders || {},
 	};
 }
@@ -30,28 +30,32 @@ export function createWooHttpClient(config = {}) {
 
 	// Выполняет запрос и возвращает JSON либо выбрасывает WooApiError.
 	async function request(method, path, body, options = {}) {
-		const isBodyDefined = typeof body !== 'undefined';
+		const isBodyDefined = typeof body !== "undefined";
 		const headers = {
-			Accept: 'application/json',
+			Accept: "application/json",
 			...merged.defaultHeaders,
 			...(options.headers || {}),
 		};
 
 		if (merged.nonce) {
-			headers['X-WP-Nonce'] = merged.nonce;
+			headers["X-WP-Nonce"] = merged.nonce;
 		}
 		if (merged.storeApiNonce) {
 			headers.Nonce = merged.storeApiNonce;
 		}
 		if (isBodyDefined && !(body instanceof FormData)) {
-			headers['Content-Type'] = 'application/json';
+			headers["Content-Type"] = "application/json";
 		}
 
 		const response = await fetch(`${merged.baseUrl}${path}`, {
 			method,
-			credentials: 'same-origin',
+			credentials: "same-origin",
 			headers,
-			body: isBodyDefined ? (body instanceof FormData ? body : JSON.stringify(body)) : undefined,
+			body: isBodyDefined
+				? body instanceof FormData
+					? body
+					: JSON.stringify(body)
+				: undefined,
 		});
 
 		const text = await response.text();
@@ -75,23 +79,23 @@ export function createWooHttpClient(config = {}) {
 	return {
 		// Выполняет GET-запрос.
 		get(path, options) {
-			return request('GET', path, undefined, options);
+			return request("GET", path, undefined, options);
 		},
 		// Выполняет POST-запрос.
 		post(path, body, options) {
-			return request('POST', path, body, options);
+			return request("POST", path, body, options);
 		},
 		// Выполняет PUT-запрос.
 		put(path, body, options) {
-			return request('PUT', path, body, options);
+			return request("PUT", path, body, options);
 		},
 		// Выполняет PATCH-запрос.
 		patch(path, body, options) {
-			return request('PATCH', path, body, options);
+			return request("PATCH", path, body, options);
 		},
 		// Выполняет DELETE-запрос.
 		delete(path, body, options) {
-			return request('DELETE', path, body, options);
+			return request("DELETE", path, body, options);
 		},
 	};
 }

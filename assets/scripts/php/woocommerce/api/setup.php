@@ -13,4 +13,6 @@ require_once __DIR__ . '/contracts/coupons-routes-interface.php';
 require_once __DIR__ . '/contracts/checkout-routes-interface.php';
 require_once __DIR__ . '/contracts/order-routes-interface.php';
 require_once __DIR__ . '/routes-map.php';
+// Подключаем реализацию серверных маршрутов (create-order и другие)
+require_once __DIR__ . '/create-order.php';
 

@@ -97,10 +97,15 @@ async function handlePay() {
 		// Cookie используется глобальным чекером, чтобы при неудачном платеже вернуть пользователя на /pay-problem/.
 		try {
 			if (typeof document !== "undefined") {
+				console.info("[payment-process] preparing pending order cookie", {
+					orderId: orderId,
+					orderKey: orderKey,
+				});
 				var payloadCookie = {
 					order_id: parseInt(orderId, 10),
 					order_key: orderKey,
 				};
+				console.debug("[payment-process] payloadCookie:", payloadCookie);
 				document.cookie =
 					"moveat_pending_order=" +
 					encodeURIComponent(JSON.stringify(payloadCookie)) +
@@ -111,33 +116,31 @@ async function handlePay() {
 		} catch (e) {
 			// ignore cookie failures
 		}
-		// Инициируем оплату существующего заказа через /checkout/{order_id}
-		// billing_address и shipping_address обязательны для Store API —
-		// берём реальные данные покупателя из заказа (прокинуты через wp_localize_script)
-		const billing = window.MOVEAT_ORDER_DATA?.billing ?? {};
-		const addressPlaceholder = {
-			first_name: billing.first_name || "—",
-			last_name: billing.last_name || "—",
-			email: billing.email || "noreply@moveat.expert",
-			phone: billing.phone || "0000000000",
-			address_1: billing.address_1 || "—",
-			city: billing.city || "—",
-			postcode: billing.postcode || "00000",
-			country: billing.country || "UA",
-		};
-		const result = await api.checkout.payOrder(orderId, {
+
+		const payload = {
 			payment_method: gatewaySlug,
-			key: orderKey,
-			billing_address: addressPlaceholder,
-			shipping_address: addressPlaceholder,
-		});
+			order_key: orderKey,
+		};
 
-		console.log("[payment-process] pay result:", result);
+		// Отправляем запрос на серверный прокси через унифицированный API (createCheckoutApi.payOrder)
+		// Так все вызовы проходят через httpClient (единственная точка настройки headers/credentials).
+		let result = null;
+		try {
+			result = await api.checkout.payOrder(orderId, payload);
+			console.log(result);
+			console.debug("[payment-process] payOrder result:", result);
+		} catch (e) {
+			console.error("[payment-process] payOrder failed:", e);
+			throw e;
+		}
 
-		// Monobank и другие шлюзы возвращают redirect_url
-		const redirectUrl = result?.payment_result?.redirect_url;
-		if (redirectUrl) {
-			window.location.href = redirectUrl;
+		// Сначала проверяем payment_url, который возвращает наш серверный прокси
+		const paymentUrl =
+			result?.payment_url ||
+			result?.redirect_url ||
+			result?.payment_result?.redirect_url;
+		if (paymentUrl) {
+			window.location.href = paymentUrl;
 			return;
 		}
 

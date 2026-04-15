@@ -90,7 +90,7 @@ $viber_icon    = $theme_uri . '/assets/images/icons/viber.png';
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="secondary-button">
 					На главную
 				</a>
-				<a href="<?php echo esc_url( home_url( '/products/' ) ); ?>" class="primary-button">
+				<a href="<?php echo esc_url( home_url( '/catalog/' ) ); ?>" class="primary-button">
 					Продолжить покупки
 				</a>
 			</div>
