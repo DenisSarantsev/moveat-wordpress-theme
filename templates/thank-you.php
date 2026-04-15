@@ -46,7 +46,7 @@ $viber_icon    = $theme_uri . '/assets/images/icons/viber.png';
 			<div class="thankyou-page__divider"></div>
 
 			<!-- Email notice -->
-			<div class="thankyou-page__email-notice">
+			<!-- <div class="thankyou-page__email-notice">
 				<div class="thankyou-page__email-notice-icon">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
@@ -61,18 +61,18 @@ $viber_icon    = $theme_uri . '/assets/images/icons/viber.png';
 						<polyline points="2,7 12,13 22,7"></polyline>
 					</svg>
 				</div>
-				<!-- <div class="thankyou-page__email-notice-content">
+				<div class="thankyou-page__email-notice-content">
 					<p class="thankyou-page__email-notice-text">
 						Подтверждение заказа отправлено на почту
 					</p>
 					<span class="thankyou-page__email-notice-address" id="thankyouEmail">
 						example@email.com
 					</span>
-				</div> -->
-			</div>
+				</div>
+			</div> -->
 
 			<!-- Divider -->
-			<div class="thankyou-page__divider"></div>
+			<!-- <div class="thankyou-page__divider"></div> -->
 
 			<!-- Messengers -->
 			<div class="thankyou-page__messengers">
