@@ -1,0 +1,322 @@
+{
+	"key": "group_socials_002",
+	"title": "Socials module",
+	"fields": [
+		{
+			"key": "field_social_module_tab_1",
+			"label": "Соцсеть 1",
+			"name": "social_tab_1",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_social_module_label_1",
+			"label": "Название",
+			"name": "social_module_1_label",
+			"type": "text",
+			"instructions": "Короткое название (например Telegram, Instagram).",
+			"required": 0,
+			"wrapper": { "width": "50", "class": "", "id": "" }
+		},
+		{
+			"key": "field_social_module_url_1",
+			"label": "Ссылка",
+			"name": "social_module_1_url",
+			"type": "url",
+			"instructions": "Полная ссылка на профиль (https://...).",
+			"required": 0,
+			"wrapper": { "width": "50", "class": "", "id": "" }
+		},
+		{
+			"key": "field_social_module_icon_1",
+			"label": "Иконка",
+			"name": "social_module_1_icon",
+			"type": "image",
+			"instructions": "Выберите файл иконки (PNG/SVG).",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all",
+			"wrapper": { "width": "33", "class": "", "id": "" }
+		},
+		{
+			"key": "field_social_module_bg_color_1",
+			"label": "Цвет фона иконки",
+			"name": "social_module_1_bg_color",
+			"type": "color_picker",
+			"default_value": "#FFFFFF",
+			"wrapper": { "width": "33", "class": "", "id": "" }
+		},
+		{
+			"key": "field_social_module_style_1",
+			"label": "Стиль иконки",
+			"name": "social_module_1_style",
+			"type": "select",
+			"choices": {
+				"colored": "Colored",
+				"outlined": "Outlined",
+				"simple": "Simple"
+			},
+			"default_value": "colored",
+			"wrapper": { "width": "34", "class": "", "id": "" }
+		},
+
+		{
+			"key": "field_social_module_tab_2",
+			"label": "Соцсеть 2",
+			"name": "social_tab_2",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_social_module_label_2",
+			"label": "Название",
+			"name": "social_module_2_label",
+			"type": "text",
+			"instructions": "Короткое название (например Telegram, Instagram).",
+			"required": 0,
+			"wrapper": { "width": "50", "class": "", "id": "" }
+		},
+		{
+			"key": "field_social_module_url_2",
+			"label": "Ссылка",
+			"name": "social_module_2_url",
+			"type": "url",
+			"instructions": "Полная ссылка на профиль (https://...).",
+			"required": 0,
+			"wrapper": { "width": "50", "class": "", "id": "" }
+		},
+		{
+			"key": "field_social_module_icon_2",
+			"label": "Иконка",
+			"name": "social_module_2_icon",
+			"type": "image",
+			"instructions": "Выберите файл иконки (PNG/SVG).",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all",
+			"wrapper": { "width": "33", "class": "", "id": "" }
+		},
+		{
+			"key": "field_social_module_bg_color_2",
+			"label": "Цвет фона иконки",
+			"name": "social_module_2_bg_color",
+			"type": "color_picker",
+			"default_value": "#FFFFFF",
+			"wrapper": { "width": "33", "class": "", "id": "" }
+		},
+		{
+			"key": "field_social_module_style_2",
+			"label": "Стиль иконки",
+			"name": "social_module_2_style",
+			"type": "select",
+			"choices": {
+				"colored": "Colored",
+				"outlined": "Outlined",
+				"simple": "Simple"
+			},
+			"default_value": "colored",
+			"wrapper": { "width": "34", "class": "", "id": "" }
+		},
+
+		{
+			"key": "field_social_module_tab_3",
+			"label": "Соцсеть 3",
+			"name": "social_tab_3",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_social_module_label_3",
+			"label": "Название",
+			"name": "social_module_3_label",
+			"type": "text",
+			"instructions": "Короткое название (например Telegram, Instagram).",
+			"required": 0,
+			"wrapper": { "width": "50", "class": "", "id": "" }
+		},
+		{
+			"key": "field_social_module_url_3",
+			"label": "Ссылка",
+			"name": "social_module_3_url",
+			"type": "url",
+			"instructions": "Полная ссылка на профиль (https://...).",
+			"required": 0,
+			"wrapper": { "width": "50", "class": "", "id": "" }
+		},
+		{
+			"key": "field_social_module_icon_3",
+			"label": "Иконка",
+			"name": "social_module_3_icon",
+			"type": "image",
+			"instructions": "Выберите файл иконки (PNG/SVG).",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all",
+			"wrapper": { "width": "33", "class": "", "id": "" }
+		},
+		{
+			"key": "field_social_module_bg_color_3",
+			"label": "Цвет фона иконки",
+			"name": "social_module_3_bg_color",
+			"type": "color_picker",
+			"default_value": "#FFFFFF",
+			"wrapper": { "width": "33", "class": "", "id": "" }
+		},
+		{
+			"key": "field_social_module_style_3",
+			"label": "Стиль иконки",
+			"name": "social_module_3_style",
+			"type": "select",
+			"choices": {
+				"colored": "Colored",
+				"outlined": "Outlined",
+				"simple": "Simple"
+			},
+			"default_value": "colored",
+			"wrapper": { "width": "34", "class": "", "id": "" }
+		},
+
+		{
+			"key": "field_social_module_tab_4",
+			"label": "Соцсеть 4",
+			"name": "social_tab_4",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_social_module_label_4",
+			"label": "Название",
+			"name": "social_module_4_label",
+			"type": "text",
+			"instructions": "Короткое название (например Telegram, Instagram).",
+			"required": 0,
+			"wrapper": { "width": "50", "class": "", "id": "" }
+		},
+		{
+			"key": "field_social_module_url_4",
+			"label": "Ссылка",
+			"name": "social_module_4_url",
+			"type": "url",
+			"instructions": "Полная ссылка на профиль (https://...).",
+			"required": 0,
+			"wrapper": { "width": "50", "class": "", "id": "" }
+		},
+		{
+			"key": "field_social_module_icon_4",
+			"label": "Иконка",
+			"name": "social_module_4_icon",
+			"type": "image",
+			"instructions": "Выберите файл иконки (PNG/SVG).",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all",
+			"wrapper": { "width": "33", "class": "", "id": "" }
+		},
+		{
+			"key": "field_social_module_bg_color_4",
+			"label": "Цвет фона иконки",
+			"name": "social_module_4_bg_color",
+			"type": "color_picker",
+			"default_value": "#FFFFFF",
+			"wrapper": { "width": "33", "class": "", "id": "" }
+		},
+		{
+			"key": "field_social_module_style_4",
+			"label": "Стиль иконки",
+			"name": "social_module_4_style",
+			"type": "select",
+			"choices": {
+				"colored": "Colored",
+				"outlined": "Outlined",
+				"simple": "Simple"
+			},
+			"default_value": "colored",
+			"wrapper": { "width": "34", "class": "", "id": "" }
+		},
+
+		{
+			"key": "field_social_module_tab_5",
+			"label": "Соцсеть 5",
+			"name": "social_tab_5",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_social_module_label_5",
+			"label": "Название",
+			"name": "social_module_5_label",
+			"type": "text",
+			"instructions": "Короткое название (например Telegram, Instagram).",
+			"required": 0,
+			"wrapper": { "width": "50", "class": "", "id": "" }
+		},
+		{
+			"key": "field_social_module_url_5",
+			"label": "Ссылка",
+			"name": "social_module_5_url",
+			"type": "url",
+			"instructions": "Полная ссылка на профиль (https://...).",
+			"required": 0,
+			"wrapper": { "width": "50", "class": "", "id": "" }
+		},
+		{
+			"key": "field_social_module_icon_5",
+			"label": "Иконка",
+			"name": "social_module_5_icon",
+			"type": "image",
+			"instructions": "Выберите файл иконки (PNG/SVG).",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all",
+			"wrapper": { "width": "33", "class": "", "id": "" }
+		},
+		{
+			"key": "field_social_module_bg_color_5",
+			"label": "Цвет фона иконки",
+			"name": "social_module_5_bg_color",
+			"type": "color_picker",
+			"default_value": "#FFFFFF",
+			"wrapper": { "width": "33", "class": "", "id": "" }
+		},
+		{
+			"key": "field_social_module_style_5",
+			"label": "Стиль иконки",
+			"name": "social_module_5_style",
+			"type": "select",
+			"choices": {
+				"colored": "Colored",
+				"outlined": "Outlined",
+				"simple": "Simple"
+			},
+			"default_value": "colored",
+			"wrapper": { "width": "34", "class": "", "id": "" }
+		}
+	],
+	"location": [
+		[
+			{
+				"param": "options_page",
+				"operator": "==",
+				"value": "theme-settings"
+			}
+		]
+	],
+	"menu_order": 0,
+	"position": "normal",
+	"style": "default",
+	"label_placement": "top",
+	"instruction_placement": "label",
+	"hide_on_screen": "",
+	"active": true,
+	"description": "Группа полей для управления ссылками на соцсети (иконка, ссылка, цвет фона). Каждая соцсеть в отдельной вкладке, без использования repeater (ACF Free)."
+}

@@ -179,27 +179,38 @@
 							}
 						?>
 					</div>
+					<?php
+						// Показываем блок форматов только если есть хотя бы один валидный формат
+						$valid_formats = [];
+						if ( function_exists( 'get_field' ) ) {
+							$formats = (array) get_field( 'product_formats' );
+							foreach ( $formats as $key ) {
+								if ( empty( $moveat_formats_map[ $key ] ) ) {
+									continue;
+								}
+								$valid_formats[] = $key;
+							}
+						}
+						if ( ! empty( $valid_formats ) ) :
+					?>
 					<div class="product-page__formats" aria-label="Форматы получения товара">
-            <div class="product-page__formats-title">
+						<div class="product-page__formats-title">
 							Вы получаете:
 						</div>
 						<div class="product-page__formats-wrapper">
 							<?php
-								if ( function_exists('get_field') ) {
-									$formats = (array) get_field( 'product_formats' );
-									foreach ( $formats as $key ) {
-										if ( empty( $moveat_formats_map[ $key ] ) ) continue;
-										$icon = $moveat_formats_map[ $key ]['icon'];
-										$label = $moveat_formats_map[ $key ]['label'];
-										echo '<div class="product-page__format-item">';
-										echo '<img src="' . esc_url( $icon ) . '" alt="' . esc_attr( $label ) . '">';
-										echo '<div>' . esc_html( $label ) . '</div>';
-										echo '</div>';
-									}
+								foreach ( $valid_formats as $key ) {
+									$icon = $moveat_formats_map[ $key ]['icon'];
+									$label = $moveat_formats_map[ $key ]['label'];
+									echo '<div class="product-page__format-item">';
+									echo '<img src="' . esc_url( $icon ) . '" alt="' . esc_attr( $label ) . '">';
+									echo '<div>' . esc_html( $label ) . '</div>';
+									echo '</div>';
 								}
 							?>
 						</div>
-          </div>
+					</div>
+					<?php endif; ?>
           <div class="product-page__price">
             <span class="product-page__price-currency">$</span>
             <span class="product-page__price-value">

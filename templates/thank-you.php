@@ -61,14 +61,14 @@ $viber_icon    = $theme_uri . '/assets/images/icons/viber.png';
 						<polyline points="2,7 12,13 22,7"></polyline>
 					</svg>
 				</div>
-				<div class="thankyou-page__email-notice-content">
+				<!-- <div class="thankyou-page__email-notice-content">
 					<p class="thankyou-page__email-notice-text">
 						Подтверждение заказа отправлено на почту
 					</p>
 					<span class="thankyou-page__email-notice-address" id="thankyouEmail">
 						example@email.com
 					</span>
-				</div>
+				</div> -->
 			</div>
 
 			<!-- Divider -->
@@ -80,24 +80,8 @@ $viber_icon    = $theme_uri . '/assets/images/icons/viber.png';
 					Остались вопросы? Пишите — мы с радостью на них ответим!
 				</p>
 				<div class="thankyou-page__messengers-list">
-					<a
-						href="#"
-						class="thankyou-page__messenger-link thankyou-page__messenger-link--telegram"
-						aria-label="Telegram">
-						<img src="<?php echo esc_url( $telegram_icon ); ?>" alt="Telegram" />
-					</a>
-					<a
-						href="#"
-						class="thankyou-page__messenger-link thankyou-page__messenger-link--whatsapp"
-						aria-label="WhatsApp">
-						<img src="<?php echo esc_url( $whatsapp_icon ); ?>" alt="WhatsApp" />
-					</a>
-					<a
-						href="#"
-						class="thankyou-page__messenger-link thankyou-page__messenger-link--viber"
-						aria-label="Viber">
-						<img src="<?php echo esc_url( $viber_icon ); ?>" alt="Viber" />
-					</a>
+					<!-- Ссылки на мессенджеры -->
+					<?php get_template_part( 'template-parts/socials' ); ?>
 				</div>
 			</div>
 

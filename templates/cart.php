@@ -10,7 +10,7 @@ get_header();
 
 $theme_uri        = get_template_directory_uri();
 $theme_dir        = get_template_directory();
-$shop_url         = function_exists( 'wc_get_page_permalink' ) ? wc_get_page_permalink( 'shop' ) : home_url( '/' );
+$shop_url         = home_url( '/kursy/' );
 $checkout_url     = function_exists( 'wc_get_checkout_url' ) ? wc_get_checkout_url() : '#';
 $cart_icon        = $theme_uri . '/assets/images/icons/cart.png';
 $minus_icon       = $theme_uri . '/assets/images/icons/minus.png';
@@ -170,11 +170,11 @@ if ( $has_applied_coupon && $cart_discount_raw > 0 ) {
 				<div class="cart-page__summary-header">
 					<span class="cart-page__summary-label">Итоговая сумма</span>
 					<?php
-					/*
-					 * Блок скидки: показывается только если применён купон.
-					 * data-subtotal — сумма без скидки (для обновления через JS).
-					 * data-discount-chip — текст чипа скидки (например «-10%» или «-$5.00»).
-					 */
+						/*
+							Блок скидки: показывается только если применён купон.
+							data-subtotal — сумма без скидки (для обновления через JS).
+							data-discount-chip — текст чипа скидки (например «-10%» или «-$5.00»).
+						*/
 					?>
 					<div class="cart-page__summary-amount-discount<?php echo $has_applied_coupon ? '' : ' hidden'; ?>"
 						data-discount-block
@@ -198,10 +198,10 @@ if ( $has_applied_coupon && $cart_discount_raw > 0 ) {
 				</div>
 				<div class="cart-page__promo">
 					<?php
-					/*
-					 * Состояние 1 (нет купона): cart-page__promo-control видим, cart-page__promo-message-wrapper скрыт.
-					 * Состояние 2 (купон применён): cart-page__promo-control скрыт, cart-page__promo-message-wrapper видим.
-					 */
+						/*
+							Состояние 1 (нет купона): cart-page__promo-control видим, cart-page__promo-message-wrapper скрыт.
+							Состояние 2 (купон применён): cart-page__promo-control скрыт, cart-page__promo-message-wrapper видим.
+						*/
 					?>
 					<div class="cart-page__promo-control<?php echo $has_applied_coupon ? ' hidden' : ''; ?>">
 						<input
@@ -239,15 +239,8 @@ if ( $has_applied_coupon && $cart_discount_raw > 0 ) {
 				<div class="cart-page__payment-note">
 					<p class="cart-page__payment-note-text">По вопросам оплаты вы можете написать нам в мессенджеры</p>
 					<div class="cart-page__payment-messengers">
-						<a href="#" class="cart-page__messenger-link cart-page__messenger-link--telegram" aria-label="Telegram">
-							<img src="<?php echo esc_url( $telegram_icon ); ?>" alt="Telegram">
-						</a>
-						<a href="#" class="cart-page__messenger-link cart-page__messenger-link--whatsapp" aria-label="WhatsApp">
-							<img src="<?php echo esc_url( $whatsapp_icon ); ?>" alt="WhatsApp">
-						</a>
-						<a href="#" class="cart-page__messenger-link cart-page__messenger-link--viber" aria-label="Viber">
-							<img src="<?php echo esc_url( $viber_icon ); ?>" alt="Viber">
-						</a>
+						<!-- Ссылки на мессенджеры -->
+						<?php get_template_part( 'template-parts/socials' ); ?>
 					</div>
 				</div>
 			</div>

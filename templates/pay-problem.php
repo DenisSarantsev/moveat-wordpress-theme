@@ -47,15 +47,8 @@ $pay_order_key = isset( $_GET['order_key'] ) ? sanitize_text_field( $_GET['order
 			<div class="problem-pay-page__messengers">
 				<p class="problem-pay-page__messengers-title">Не получается оплатить? Напишите нам - мы поможем решить эту проблему:</p>
 				<div class="problem-pay-page__messengers-list">
-					<a href="#" class="problem-pay-page__messenger-link problem-pay-page__messenger-link--telegram" aria-label="Telegram">
-						<img src="<?php echo esc_url( $theme_uri . '/assets/images/icons/telegram.png' ); ?>" alt="Telegram">
-					</a>
-					<a href="#" class="problem-pay-page__messenger-link problem-pay-page__messenger-link--whatsapp" aria-label="WhatsApp">
-						<img src="<?php echo esc_url( $theme_uri . '/assets/images/icons/whatsapp.png' ); ?>" alt="WhatsApp">
-					</a>
-					<a href="#" class="problem-pay-page__messenger-link problem-pay-page__messenger-link--viber" aria-label="Viber">
-						<img src="<?php echo esc_url( $theme_uri . '/assets/images/icons/viber.png' ); ?>" alt="Viber">
-					</a>
+					<!-- Ссылки на мессенджеры -->
+					<?php get_template_part( 'template-parts/socials' ); ?>
 				</div>
 			</div>
 

@@ -467,15 +467,16 @@
 				while ($icon = get_field('other_variant_' . $i . '_icon')) :
 					$title = get_field('other_variant_' . $i . '_title');
 					$text  = get_field('other_variant_' . $i . '_text');
+					$link  = get_field('other_variant_' . $i . '_link');
 					if (!$title || !$text) { $i++; continue; }
 				?>
-					<div class="other-variants__card">
+						<a href="<?php echo esc_url( $link ); ?>" class="other-variants__card">
 						<div class="other-variants__icon-wrapper">
 							<img class="other-variants__icon" src="<?php echo esc_url($icon); ?>" alt="<?php echo esc_attr($title); ?>">
 						</div>
 						<h3 class="other-variants__card-title"><?php echo esc_html($title); ?></h3>
 						<p class="other-variants__card-text"><?php echo esc_html($text); ?></p>
-					</div>
+				</a>
 				<?php $i++; endwhile; ?>
 			</div>
 		</div>

@@ -118,15 +118,8 @@ $display_decimals = max(2, (int) wc_get_price_decimals());
 							Если у вас <span>карта российского банка,</span> свяжитесь с нами по одному из мессенджеров и мы поможем вам с оплатой.
 						</p>
 						<div class="payment-page__info-messengers">
-							<a href="#" class="payment-page__messenger-link payment-page__messenger-link--telegram" aria-label="Telegram">
-								<img src="<?php echo esc_url( $telegram_icon ); ?>" alt="Telegram">
-							</a>
-							<a href="#" class="payment-page__messenger-link payment-page__messenger-link--whatsapp" aria-label="WhatsApp">
-								<img src="<?php echo esc_url( $whatsapp_icon ); ?>" alt="WhatsApp">
-							</a>
-							<a href="#" class="payment-page__messenger-link payment-page__messenger-link--viber" aria-label="Viber">
-								<img src="<?php echo esc_url( $viber_icon ); ?>" alt="Viber">
-							</a>
+							<!-- Ссылки на мессенджеры -->
+							<?php get_template_part( 'template-parts/socials' ); ?>
 						</div>
 					</div>
 
@@ -134,7 +127,8 @@ $display_decimals = max(2, (int) wc_get_price_decimals());
 
 					<!-- Privacy note -->
 					<p class="payment-page__privacy-note">
-						Ваши личные данные будут использоваться для обработки ваших заказов, упрощения вашей работы с сайтом и для других целей, описанных в нашей <a href="#">политике конфиденциальности</a>.
+						Ваши личные данные будут использоваться для обработки ваших заказов, упрощения вашей работы с сайтом и для других целей, описанных в нашей 
+						<a href="https://moveat.expert/politika-konfidentsialnosti/">политике конфиденциальности</a>.
 					</p>
 
 					<!-- Terms checkbox -->
@@ -148,7 +142,7 @@ $display_decimals = max(2, (int) wc_get_price_decimals());
 							aria-required="true"
 						>
 						<label class="payment-page__checkbox-label" for="agreeTerms">
-							Я прочитал(а) и соглашаюсь с <a href="#">правилами сайта</a> <span>*</span>
+							Я прочитал(а) и соглашаюсь с <a href="https://moveat.expert/public-contract/">публичным договором (офертой)</a>
 						</label>
 					</div>
 
@@ -163,7 +157,7 @@ $display_decimals = max(2, (int) wc_get_price_decimals());
 					</button>
 
 					<!-- Back link -->
-					<a class="payment-page__back" href="javascript:history.back()">← Вернуться назад</a>
+					<!-- <a class="payment-page__back" href="javascript:history.back()">← Вернуться назад</a> -->
 
 				</div>
 			</div>
