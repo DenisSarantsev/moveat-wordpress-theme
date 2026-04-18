@@ -12,7 +12,7 @@
 		<?php endif; ?>
 		<style>
 			/* Cпиннер виден до загрузки JS */
-			[data-spinner] {
+			/* [data-spinner] {
 				position: fixed;
 				inset: 0;
 				background: #fff;
@@ -26,15 +26,15 @@
 				opacity: 0 !important;
 				pointer-events: none;
 				visibility: hidden;
-			}
+			} */
     </style>
     <?php wp_head(); ?>
 </head>
 
 <body>
-		<div id="spinner" data-spinner class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+		<!-- <div id="spinner" data-spinner class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
 			<div class="spinner-border text-primary" role="status"></div>
-		</div>
+		</div> -->
 
     <!-- Header Module -->
     <header class="header container-fluid fixed-top px-0 wow fadeIn" data-wow-delay="0.1s">

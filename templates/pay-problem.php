@@ -6,6 +6,23 @@
 
 defined( 'ABSPATH' ) || exit;
 
+// Надёжное серверное удаление флаговой куки перед отправкой заголовков
+$cookie_name = 'moveat_pending_order';
+if ( ! headers_sent() ) {
+	@setcookie( $cookie_name, '', time() - 3600, '/' );
+	$domain = parse_url( home_url(), PHP_URL_HOST );
+	if ( $domain ) {
+		@setcookie( $cookie_name, '', time() - 3600, '/', $domain );
+	}
+	if ( isset( $_COOKIE[ $cookie_name ] ) ) {
+		unset( $_COOKIE[ $cookie_name ] );
+	}
+} else {
+	if ( isset( $_COOKIE[ $cookie_name ] ) ) {
+		unset( $_COOKIE[ $cookie_name ] );
+	}
+}
+
 get_header();
 
 $theme_uri = get_template_directory_uri();
@@ -76,6 +93,26 @@ $pay_order_key = isset( $_GET['order_key'] ) ? sanitize_text_field( $_GET['order
 		</div>
 	</div>
 </main>
+
+<!-- Client-side fallback: удаляем куку (host-only и с domain) -->
+<script>
+(function clearMoveatPending() {
+	try {
+		var name = 'moveat_pending_order';
+		// Удаление host-only
+		document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT;';
+		// Попробуем удалить с доменом
+		try {
+			var domain = window.location.hostname;
+			document.cookie = name + '=; Path=/; Domain=' + domain + '; Expires=Thu, 01 Jan 1970 00:00:00 GMT;';
+		} catch (e) { /* ignore */ }
+		// Очистим локальный объект (если читается в JS)
+		try { window.moveatPendingOrder && delete window.moveatPendingOrder; } catch(e) {}
+	} catch (e) {
+		// noop
+	}
+})();
+</script>
 
 <?php get_footer();
 

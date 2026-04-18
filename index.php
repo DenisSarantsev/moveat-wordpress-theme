@@ -77,7 +77,7 @@
 					if (!$title) { $i++; continue; }
 				?>
 					<div class="trust__card">
-						<img src="<?php echo esc_url($icon); ?>" alt="<?php echo esc_attr($title); ?>">
+						<img loading="lazy" src="<?php echo esc_url($icon); ?>" alt="<?php echo esc_attr($title); ?>">
 						<h3 class="trust__card-title"><?php echo esc_html($title); ?></h3>
 					</div>
 				<?php $i++; endwhile; ?>
@@ -135,16 +135,16 @@
 				?>
 					<div class="problem__card section-visual-card<?php echo $card_class; ?>">
 						<?php if ($is_last) : ?>
-							<img class="section-visual-card__bg-element <?php echo esc_attr($bg['class']); ?>" src="<?php echo esc_url($bg['src']); ?>" alt="Полукруги">
+							<img loading="lazy" class="section-visual-card__bg-element <?php echo esc_attr($bg['class']); ?>" src="<?php echo esc_url($bg['src']); ?>" alt="Полукруги">
 							<div class="section-visual-card__icon-wrapper white">
-								<img class="section-visual-card__icon white" src="<?php echo esc_url($card['icon']); ?>" alt="<?php echo esc_attr($card['title']); ?>">
+								<img loading="lazy" class="section-visual-card__icon white" src="<?php echo esc_url($card['icon']); ?>" alt="<?php echo esc_attr($card['title']); ?>">
 							</div>
 							<h3 class="section-visual-card__title white"><?php echo esc_html($card['title']); ?></h3>
 							<p class="section-visual-card__description white"><?php echo esc_html($card['desc']); ?></p>
 						<?php else : ?>
-							<img class="section-visual-card__bg-element <?php echo esc_attr($bg['class']); ?>" src="<?php echo esc_url($bg['src']); ?>" alt="Полукруги">
+							<img loading="lazy" class="section-visual-card__bg-element <?php echo esc_attr($bg['class']); ?>" src="<?php echo esc_url($bg['src']); ?>" alt="Полукруги">
 							<div class="section-visual-card__icon-wrapper">
-								<img class="section-visual-card__icon" src="<?php echo esc_url($card['icon']); ?>" alt="<?php echo esc_attr($card['title']); ?>">
+								<img loading="lazy" class="section-visual-card__icon" src="<?php echo esc_url($card['icon']); ?>" alt="<?php echo esc_attr($card['title']); ?>">
 							</div>
 							<h3 class="section-visual-card__title"><?php echo esc_html($card['title']); ?></h3>
 							<p class="section-visual-card__description"><?php echo esc_html($card['desc']); ?></p>
@@ -239,7 +239,7 @@
 					<div class="team-item">
 						<div class="team-item__wrapper">
 							<div class="team-img">
-								<img src="<?php echo esc_url($photo); ?>" class="img-fluid" alt="<?php echo esc_attr($name); ?>">
+								<img loading="lazy" src="<?php echo esc_url($photo); ?>" class="img-fluid" alt="<?php echo esc_attr($name); ?>">
 							</div>
 							<div class="team-title">
 								<h4 class="mb-0"><?php echo esc_html($name); ?></h4>
@@ -302,7 +302,7 @@
 					<div class="how-it-works__card">
 						<div class="how-it-works__card-image-wrapper">
 							<div class="how-it-works__card-image-overlay"></div>
-							<img class="how-it-works__card-image" src="<?php echo esc_url($card_image); ?>" alt="<?php echo esc_attr($card_step); ?>">
+								<img loading="lazy" class="how-it-works__card-image" src="<?php echo esc_url($card_image); ?>" alt="<?php echo esc_attr($card_step); ?>">
 						</div>
 						<div class="how-it-works__card-content">
 							<div class="how-it-works__card-step"><?php echo esc_html($card_step); ?></div>
@@ -349,9 +349,9 @@
 						</div>
 						<p class="reviews__text mb-4"><?php echo nl2br(esc_html($text)); ?></p>
 						<div class="reviews__author d-flex align-items-center">
-							<?php if (!empty($avatar)) : ?>
-								<img class="reviews__author-avatar flex-shrink-0 rounded-circle" src="<?php echo esc_url($avatar); ?>" alt="<?php echo esc_attr($author_name ?: ''); ?>">
-							<?php endif; ?>
+								<?php if (!empty($avatar)) : ?>
+									<img loading="lazy" class="reviews__author-avatar flex-shrink-0 rounded-circle" src="<?php echo esc_url($avatar); ?>" alt="<?php echo esc_attr($author_name ?: ''); ?>">
+								<?php endif; ?>
 							<div class="reviews__author-info ms-3">
 								<?php if ($author_name) : ?>
 									<h5 class="reviews__author-name mb-1"><?php echo esc_html($author_name); ?></h5>
@@ -417,16 +417,16 @@
 					$bg         = $program_bg_elements[$idx % count($program_bg_elements)];
 				?>
 					<div class="program__card section-visual-card<?php echo $card_class; ?>">
-						<img class="section-visual-card__bg-element <?php echo esc_attr($bg['class']); ?>" src="<?php echo esc_url($bg['src']); ?>" alt="Полукруги">
+						<img loading="lazy" class="section-visual-card__bg-element <?php echo esc_attr($bg['class']); ?>" src="<?php echo esc_url($bg['src']); ?>" alt="Полукруги">
 						<?php if ($is_last) : ?>
 							<div class="section-visual-card__icon-wrapper white">
-								<img class="section-visual-card__icon white" src="<?php echo esc_url($card['icon']); ?>" alt="<?php echo esc_attr($card['title']); ?>">
+								<img loading="lazy" class="section-visual-card__icon white" src="<?php echo esc_url($card['icon']); ?>" alt="<?php echo esc_attr($card['title']); ?>">
 							</div>
 							<h3 class="section-visual-card__title white"><?php echo esc_html($card['title']); ?></h3>
 							<p class="section-visual-card__description white"><?php echo esc_html($card['desc']); ?></p>
 						<?php else : ?>
 							<div class="section-visual-card__icon-wrapper">
-								<img class="section-visual-card__icon" src="<?php echo esc_url($card['icon']); ?>" alt="<?php echo esc_attr($card['title']); ?>">
+								<img loading="lazy" class="section-visual-card__icon" src="<?php echo esc_url($card['icon']); ?>" alt="<?php echo esc_attr($card['title']); ?>">
 							</div>
 							<h3 class="section-visual-card__title"><?php echo esc_html($card['title']); ?></h3>
 							<p class="section-visual-card__description"><?php echo esc_html($card['desc']); ?></p>
@@ -448,7 +448,7 @@
 	?>
 	<div class="other-variants">
 		<div class="other-variants__bg" aria-hidden="true">
-			<img src="/assets/hero3-pjMiwMLC.jpg" alt="">
+            <img loading="lazy" src="/assets/hero3-pjMiwMLC.jpg" alt="">
 		</div>
 		<div class="other-variants__container">
 			<?php if ($ov_title || $ov_desc) : ?>
@@ -472,7 +472,7 @@
 				?>
 						<a href="<?php echo esc_url( $link ); ?>" class="other-variants__card">
 						<div class="other-variants__icon-wrapper">
-							<img class="other-variants__icon" src="<?php echo esc_url($icon); ?>" alt="<?php echo esc_attr($title); ?>">
+							<img loading="lazy" class="other-variants__icon" src="<?php echo esc_url($icon); ?>" alt="<?php echo esc_attr($title); ?>">
 						</div>
 						<h3 class="other-variants__card-title"><?php echo esc_html($title); ?></h3>
 						<p class="other-variants__card-text"><?php echo esc_html($text); ?></p>
@@ -512,7 +512,7 @@
 				?>
 					<div class="science__card">
 						<div class="science__bg-filter"></div>
-						<img class="science__card-image" src="<?php echo esc_url($image); ?>" alt="<?php echo esc_attr($title); ?>">
+							<img loading="lazy" class="science__card-image" src="<?php echo esc_url($image); ?>" alt="<?php echo esc_attr($title); ?>">
 						<div class="science__card-content">
 							<h3 class="science__card-title">
 								<a class="science__card-title" href="<?php echo esc_url($url); ?>"><?php echo esc_html($title); ?></a>
@@ -558,7 +558,7 @@
 							<div class="faq__item" data-faq-item>
 								<button class="faq__question" type="button" data-faq-trigger aria-expanded="false" aria-controls="faq-panel-<?php echo $i; ?>">
 									<h4 class="faq__question-title"><?php echo esc_html($question); ?></h4>
-									<img class="faq__icon" aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA+0lEQVR4nO2YwQ6CMBBE53/0c7rhoP/BUY/+syYQY70Q0AI72y3ZSThw6cyj0J0AhEKhUChUrhMa9rgDeAG4sgwACIAngAcj/JAvFoTk8F8fNYjzZOEh33daBvisNefx9lZRmjHQ2glZWPsCZTEgxCo8A8I8vCZEtfAaENXD74FwE34LhLvwayDchi+BcB/+3zRlT3H6Trh/8qUQTYTHwjvPbLEm4ZuA6Fr+iOXHUcms4ioqOefdQsiKIeUOQjZMWDcQsqMeVIcQhW5TDUIUi5k5BKNVJisIZiVObIhD/NjqDVplmkDctA16g0qcMoR6+EP8Xg+FQqHQ8TQCNxwr5J48PtQAAAAASUVORK5CYII=" alt="cross icon">
+									<img loading="lazy" class="faq__icon" aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA+0lEQVR4nO2YwQ6CMBBE53/0c7rhoP/BUY/+syYQY70Q0AI72y3ZSThw6cyj0J0AhEKhUChUrhMa9rgDeAG4sgwACIAngAcj/JAvFoTk8F8fNYjzZOEh33daBvisNefx9lZRmjHQ2glZWPsCZTEgxCo8A8I8vCZEtfAaENXD74FwE34LhLvwayDchi+BcB/+3zRlT3H6Trh/8qUQTYTHwjvPbLEm4ZuA6Fr+iOXHUcms4ioqOefdQsiKIeUOQjZMWDcQsqMeVIcQhW5TDUIUi5k5BKNVJisIZiVObIhD/NjqDVplmkDctA16g0qcMoR6+EP8Xg+FQqHQ8TQCNxwr5J48PtQAAAAASUVORK5CYII=" alt="cross icon">
 								</button>
 								<div class="faq__panel" id="faq-panel-<?php echo $i; ?>" data-faq-panel aria-hidden="true">
 									<div class="faq__answer">
@@ -572,7 +572,7 @@
 
 				<?php if ($faq_image) : ?>
 					<div class="faq__right">
-						<img class="faq__image" src="<?php echo esc_url($faq_image); ?>" alt="FAQ">
+							<img loading="lazy" class="faq__image" src="<?php echo esc_url($faq_image); ?>" alt="FAQ">
 					</div>
 				<?php endif; ?>
 			</div>

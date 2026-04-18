@@ -1,8 +1,6 @@
 @charset "UTF-8";
 @import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css";
 @import "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css";
-@import "https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap";
-@import "https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap";
 :root {
 	--iti-hover-color: rgba(0, 0, 0, 0.05);
 	--iti-border-color: #ccc;
@@ -11519,6 +11517,7 @@ fieldset:disabled .btn {
 	max-width: 100vw;
 	height: 100vh;
 	overflow: hidden;
+	background-color: #000;
 }
 .hero__wrapper {
 	position: relative;
@@ -11608,10 +11607,45 @@ fieldset:disabled .btn {
 		justify-content: center;
 	}
 }
+@keyframes heroFadeUp {
+	0% {
+		opacity: 0;
+		transform: translateY(18px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+@keyframes heroButtonPop {
+	0% {
+		opacity: 0;
+		transform: translateY(8px) scale(0.98);
+	}
+	60% {
+		opacity: 1;
+		transform: translateY(-4px) scale(1.04);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+	}
+}
+@keyframes heroImageFade {
+	0% {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
 .hero__left {
 	display: flex;
 	flex-direction: column;
 	align-items: start;
+	opacity: 0;
+	will-change: opacity;
+	animation: heroImageFade 0.2s ease both;
 	justify-content: center;
 	gap: 1.7rem;
 	height: 100%;
@@ -11648,6 +11682,9 @@ fieldset:disabled .btn {
 	text-align: left;
 	color: var(--font-light-color);
 	font-family: var(--title-font-family);
+	opacity: 0;
+	will-change: transform, opacity;
+	animation: heroFadeUp 0.9s cubic-bezier(0.2, 0.9, 0.2, 1) 0.18s both;
 }
 @media (max-width: 991.98px) {
 	.hero__title {
@@ -11669,6 +11706,9 @@ fieldset:disabled .btn {
 	opacity: 0.8;
 	text-align: left;
 	max-width: 600px;
+	opacity: 0;
+	will-change: transform, opacity;
+	animation: heroFadeUp 0.95s cubic-bezier(0.2, 0.9, 0.2, 1) 0.38s both;
 }
 @media (max-width: 991.98px) {
 	.hero__description {
@@ -11707,6 +11747,9 @@ fieldset:disabled .btn {
 	background-color: var(--primary-color);
 	border-color: var(--primary-color);
 	margin-left: 0.75rem;
+	opacity: 0;
+	will-change: transform, opacity;
+	animation: heroButtonPop 0.8s cubic-bezier(0.2, 0.9, 0.2, 1) 0.6s both;
 }
 @media (max-width: 575.98px) {
 	.hero__button--primary {
@@ -16611,6 +16654,97 @@ fieldset:disabled .btn {
 	text-decoration: none;
 	font-weight: 700;
 }
+.about-page {
+	padding: var(--section-standard-vartical-padding) 0;
+	background-color: #fff;
+}
+@media (max-width: 992px) {
+	.about-page {
+		padding: var(--section-compact-vartical-padding) 0;
+	}
+}
+@media (max-width: 768px) {
+	.about-page {
+		padding: var(--section-footer-vartical-padding) 0;
+	}
+}
+.about-page__container {
+	max-width: var(--max-width-content);
+	margin: 0 auto;
+	padding: 0 var(--horizontal-paddings-section);
+}
+.about-page__section {
+	display: grid;
+	grid-template-columns: 340px 1fr;
+	gap: 28px;
+	align-items: start;
+	margin-bottom: 40px;
+}
+@media (max-width: 992px) {
+	.about-page__section {
+		grid-template-columns: 220px 1fr;
+		gap: 20px;
+	}
+}
+@media (max-width: 768px) {
+	.about-page__section {
+		grid-template-columns: 1fr;
+		margin-bottom: 42px;
+		gap: 16px;
+	}
+}
+.about-page__section--reverse {
+	direction: rtl;
+}
+@media (max-width: 768px) {
+	.about-page__section--reverse {
+		direction: ltr;
+	}
+}
+.about-page__photo-wrapper {
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+.about-page__photo {
+	width: 100%;
+	height: 100%;
+	aspect-ratio: 1/1;
+	object-fit: cover;
+	border-radius: var(--standart-card-border-radius);
+	display: block;
+}
+.about-page__content {
+	font-size: var(--text-main-font-size);
+	line-height: var(--text-main-line-height);
+	color: var(--font-dark-color);
+}
+.about-page__name {
+	font-size: var(--h2-font-size);
+	font-weight: 700;
+	margin: 0 0 6px;
+}
+.about-page__role {
+	font-size: var(--text-small-font-size);
+	color: var(--font-subtitle-color);
+	margin: 0 0 12px;
+}
+.about-page__text {
+	margin: 0;
+	color: var(--font-subtitle-color);
+	word-break: break-word;
+}
+.about-page__text a {
+	color: #1d71d8;
+	text-decoration: underline;
+	text-underline-offset: 2px;
+	transition:
+		color 0.15s ease,
+		text-decoration-color 0.15s ease;
+}
+.about-page__text a:hover {
+	color: #1970db;
+}
 .primary-button {
 	display: inline-flex;
 	align-items: center;
@@ -17685,7 +17819,7 @@ fieldset:disabled .btn {
 	--h3-font-weight: 600;
 	--h4-font-size: 20px;
 	--h4-font-weight: 500;
-	--text-main-font-size: 18px;
+	--text-main-font-size: 16px;
 	--text-main-line-height: 1.6;
 	--text-secondary-font-size: 16px;
 	--text-secondary-opacity: 0.75;
@@ -17703,7 +17837,7 @@ fieldset:disabled .btn {
 		--h2-font-size: 30px;
 		--h3-font-size: 22px;
 		--h4-font-size: 19px;
-		--text-main-font-size: 17px;
+		--text-main-font-size: 15px;
 		--text-secondary-font-size: 15px;
 		--text-small-font-size: 13px;
 		--trust-number-font-size: 32px;
@@ -17718,7 +17852,7 @@ fieldset:disabled .btn {
 		--h2-font-size: 28px;
 		--h3-font-size: 21px;
 		--h4-font-size: 18px;
-		--text-main-font-size: 16px;
+		--text-main-font-size: 14px;
 		--text-secondary-font-size: 15px;
 		--text-small-font-size: 13px;
 		--trust-number-font-size: 30px;
@@ -17733,7 +17867,7 @@ fieldset:disabled .btn {
 		--h2-font-size: 24px;
 		--h3-font-size: 19px;
 		--h4-font-size: 17px;
-		--text-main-font-size: 15px;
+		--text-main-font-size: 14px;
 		--text-secondary-font-size: 14px;
 		--text-small-font-size: 12px;
 		--trust-number-font-size: 26px;

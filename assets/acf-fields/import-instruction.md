@@ -4,42 +4,42 @@
 
 Создавай файлы для ипорта в таком виде:
 {
-  "key": "group_1234567890",
-  "title": "Моя группа полей",
-  "fields": [
-    {
-      "key": "field_1111111111",
-      "label": "Заголовок",
-      "name": "title",
-      "type": "text"
-    },
-    {
-      "key": "field_2222222222",
-      "label": "Описание",
-      "name": "description",
-      "type": "textarea"
-    },
-    {
-      "key": "field_3333333333",
-      "label": "Картинка",
-      "name": "image",
-      "type": "image",
-      "return_format": "url",
-      "preview_size": "medium",
-      "library": "all"
-    }
-  ],
-  "location": [
-    [
-      {
-        "param": "post_type",
-        "operator": "==",
-        "value": "post"
-      }
-    ]
-  ],
-  "instruction_placement": "label",
-  "active": true
+"key": "group_1234567890",
+"title": "Моя группа полей",
+"fields": [
+{
+"key": "field_1111111111",
+"label": "Заголовок",
+"name": "title",
+"type": "text"
+},
+{
+"key": "field_2222222222",
+"label": "Описание",
+"name": "description",
+"type": "textarea"
+},
+{
+"key": "field_3333333333",
+"label": "Картинка",
+"name": "image",
+"type": "image",
+"return_format": "url",
+"preview_size": "medium",
+"library": "all"
+}
+],
+"location": [
+[
+{
+"param": "post_type",
+"operator": "==",
+"value": "post"
+}
+]
+],
+"instruction_placement": "label",
+"active": true
 }
 
 Поле "key" всегда пиши переводом на английский с нижним подчеркиванем.
@@ -51,4 +51,4 @@
 
 Если в поле должна содержаться картинка, то используй всегда URL изображения.
 
-
+Не используй повторитель, так как импользуется бесплатная версия плагина, в которой нет возможности подключать повторитель. Вместо этого, если нужно создать несколько одинаковых блоков, то просто создай несколько групп полей с разными названиями и ключами. Например, если нужно создать 3 блока ссылок в футере, то создай 3 группы полей: footer_links_block_1, footer_links_block_2 и footer_links_block_3.

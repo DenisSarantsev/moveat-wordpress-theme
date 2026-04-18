@@ -1,0 +1,564 @@
+{
+	"key": "group_about",
+	"title": "About",
+	"fields": [
+		{
+			"key": "field_about_title",
+			"label": "Заголовок страницы",
+			"name": "about_title",
+			"type": "text",
+			"instructions": "Заголовок страницы (опционально, переопределяет статический заголовок)",
+			"required": 0,
+			"wrapper": { "width": "100", "class": "", "id": "" },
+			"default_value": "О нас",
+			"placeholder": "О нас",
+			"maxlength": ""
+		},
+		{
+			"key": "field_tab_member_1",
+			"label": "Участник 1",
+			"name": "tab_member_1",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_member_1_photo",
+			"label": "Фото участника 1 (URL)",
+			"name": "member_1_photo",
+			"type": "image",
+			"instructions": "URL изображения участника. Укажите URL при импорте.",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_member_1_name",
+			"label": "Имя участника 1",
+			"name": "member_1_name",
+			"type": "text",
+			"instructions": "ФИО или имя участника",
+			"required": 0,
+			"default_value": "",
+			"placeholder": "Иван Иванов"
+		},
+		{
+			"key": "field_member_1_role",
+			"label": "Роль участника 1",
+			"name": "member_1_role",
+			"type": "text",
+			"instructions": "Должность/роль участника",
+			"required": 0,
+			"default_value": "",
+			"placeholder": "Главный диетолог"
+		},
+		{
+			"key": "field_member_1_bio",
+			"label": "Описание участника 1",
+			"name": "member_1_bio",
+			"type": "wysiwyg",
+			"instructions": "Короткое описание участника",
+			"required": 0,
+			"default_value": "",
+			"placeholder": "Короткое описание...",
+			"toolbar": "full",
+			"media_upload": 0
+		},
+
+		{
+			"key": "field_tab_member_2",
+			"label": "Участник 2",
+			"name": "tab_member_2",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_member_2_photo",
+			"label": "Фото участника 2 (URL)",
+			"name": "member_2_photo",
+			"type": "image",
+			"instructions": "URL изображения участника. Укажите URL при импорте.",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_member_2_name",
+			"label": "Имя участника 2",
+			"name": "member_2_name",
+			"type": "text",
+			"instructions": "ФИО или имя участника",
+			"required": 0,
+			"default_value": "",
+			"placeholder": "Иван Иванов"
+		},
+		{
+			"key": "field_member_2_role",
+			"label": "Роль участника 2",
+			"name": "member_2_role",
+			"type": "text",
+			"instructions": "Должность/роль участника",
+			"required": 0,
+			"default_value": "",
+			"placeholder": "Главный диетолог"
+		},
+		{
+			"key": "field_member_2_bio",
+			"label": "Описание участника 2",
+			"name": "member_2_bio",
+			"type": "wysiwyg",
+			"instructions": "Короткое описание участника",
+			"required": 0,
+			"default_value": "",
+			"placeholder": "Короткое описание...",
+			"toolbar": "full",
+			"media_upload": 0
+		},
+
+		{
+			"key": "field_tab_member_3",
+			"label": "Участник 3",
+			"name": "tab_member_3",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_member_3_photo",
+			"label": "Фото участника 3 (URL)",
+			"name": "member_3_photo",
+			"type": "image",
+			"instructions": "URL изображения участника. Укажите URL при импорте.",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_member_3_name",
+			"label": "Имя участника 3",
+			"name": "member_3_name",
+			"type": "text",
+			"instructions": "ФИО или имя участника",
+			"required": 0,
+			"default_value": "",
+			"placeholder": "Иван Иванов"
+		},
+		{
+			"key": "field_member_3_role",
+			"label": "Роль участника 3",
+			"name": "member_3_role",
+			"type": "text",
+			"instructions": "Должность/роль участника",
+			"required": 0,
+			"default_value": "",
+			"placeholder": "Главный диетолог"
+		},
+		{
+			"key": "field_member_3_bio",
+			"label": "Описание участника 3",
+			"name": "member_3_bio",
+			"type": "wysiwyg",
+			"instructions": "Короткое описание участника",
+			"required": 0,
+			"default_value": "",
+			"placeholder": "Короткое описание...",
+			"toolbar": "full",
+			"media_upload": 0
+		},
+
+		{
+			"key": "field_tab_member_4",
+			"label": "Участник 4",
+			"name": "tab_member_4",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_member_4_photo",
+			"label": "Фото участника 4 (URL)",
+			"name": "member_4_photo",
+			"type": "image",
+			"instructions": "URL изображения участника. Укажите URL при импорте.",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_member_4_name",
+			"label": "Имя участника 4",
+			"name": "member_4_name",
+			"type": "text",
+			"instructions": "ФИО или имя участника",
+			"required": 0,
+			"default_value": "",
+			"placeholder": "Иван Иванов"
+		},
+		{
+			"key": "field_member_4_role",
+			"label": "Роль участника 4",
+			"name": "member_4_role",
+			"type": "text",
+			"instructions": "Должность/роль участника",
+			"required": 0,
+			"default_value": "",
+			"placeholder": "Главный диетолог"
+		},
+		{
+			"key": "field_member_4_bio",
+			"label": "Описание участника 4",
+			"name": "member_4_bio",
+			"type": "wysiwyg",
+			"instructions": "Короткое описание участника",
+			"required": 0,
+			"default_value": "",
+			"placeholder": "Короткое описание...",
+			"toolbar": "full",
+			"media_upload": 0
+		},
+
+		{
+			"key": "field_tab_member_5",
+			"label": "Участник 5",
+			"name": "tab_member_5",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_member_5_photo",
+			"label": "Фото участника 5 (URL)",
+			"name": "member_5_photo",
+			"type": "image",
+			"instructions": "URL изображения участника. Укажите URL при импорте.",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_member_5_name",
+			"label": "Имя участника 5",
+			"name": "member_5_name",
+			"type": "text",
+			"instructions": "ФИО или имя участника",
+			"required": 0,
+			"default_value": "",
+			"placeholder": "Иван Иванов"
+		},
+		{
+			"key": "field_member_5_role",
+			"label": "Роль участника 5",
+			"name": "member_5_role",
+			"type": "text",
+			"instructions": "Должность/роль участника",
+			"required": 0,
+			"default_value": "",
+			"placeholder": "Главный диетолог"
+		},
+		{
+			"key": "field_member_5_bio",
+			"label": "Описание участника 5",
+			"name": "member_5_bio",
+			"type": "wysiwyg",
+			"instructions": "Короткое описание участника",
+			"required": 0,
+			"default_value": "",
+			"placeholder": "Короткое описание...",
+			"toolbar": "full",
+			"media_upload": 0
+		},
+
+		{
+			"key": "field_tab_member_6",
+			"label": "Участник 6",
+			"name": "tab_member_6",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_member_6_photo",
+			"label": "Фото участника 6 (URL)",
+			"name": "member_6_photo",
+			"type": "image",
+			"instructions": "URL изображения участника. Укажите URL при импорте.",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_member_6_name",
+			"label": "Имя участника 6",
+			"name": "member_6_name",
+			"type": "text",
+			"instructions": "ФИО или имя участника",
+			"required": 0,
+			"default_value": "",
+			"placeholder": "Иван Иванов"
+		},
+		{
+			"key": "field_member_6_role",
+			"label": "Роль участника 6",
+			"name": "member_6_role",
+			"type": "text",
+			"instructions": "Должность/роль участника",
+			"required": 0,
+			"default_value": "",
+			"placeholder": "Главный диетолог"
+		},
+		{
+			"key": "field_member_6_bio",
+			"label": "Описание участника 6",
+			"name": "member_6_bio",
+			"type": "wysiwyg",
+			"instructions": "Короткое описание участника",
+			"required": 0,
+			"default_value": "",
+			"placeholder": "Короткое описание...",
+			"toolbar": "full",
+			"media_upload": 0
+		},
+
+		{
+			"key": "field_tab_member_7",
+			"label": "Участник 7",
+			"name": "tab_member_7",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_member_7_photo",
+			"label": "Фото участника 7 (URL)",
+			"name": "member_7_photo",
+			"type": "image",
+			"instructions": "URL изображения участника. Укажите URL при импорте.",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_member_7_name",
+			"label": "Имя участника 7",
+			"name": "member_7_name",
+			"type": "text",
+			"instructions": "ФИО или имя участника",
+			"required": 0,
+			"default_value": "",
+			"placeholder": "Иван Иванов"
+		},
+		{
+			"key": "field_member_7_role",
+			"label": "Роль участника 7",
+			"name": "member_7_role",
+			"type": "text",
+			"instructions": "Должность/роль участника",
+			"required": 0,
+			"default_value": "",
+			"placeholder": "Главный диетолог"
+		},
+		{
+			"key": "field_member_7_bio",
+			"label": "Описание участника 7",
+			"name": "member_7_bio",
+			"type": "wysiwyg",
+			"instructions": "Короткое описание участника",
+			"required": 0,
+			"default_value": "",
+			"placeholder": "Короткое описание...",
+			"toolbar": "full",
+			"media_upload": 0
+		},
+
+		{
+			"key": "field_tab_member_8",
+			"label": "Участник 8",
+			"name": "tab_member_8",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_member_8_photo",
+			"label": "Фото участника 8 (URL)",
+			"name": "member_8_photo",
+			"type": "image",
+			"instructions": "URL изображения участника. Укажите URL при импорте.",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_member_8_name",
+			"label": "Имя участника 8",
+			"name": "member_8_name",
+			"type": "text",
+			"instructions": "ФИО или имя участника",
+			"required": 0,
+			"default_value": "",
+			"placeholder": "Иван Иванов"
+		},
+		{
+			"key": "field_member_8_role",
+			"label": "Роль участника 8",
+			"name": "member_8_role",
+			"type": "text",
+			"instructions": "Должность/роль участника",
+			"required": 0,
+			"default_value": "",
+			"placeholder": "Главный диетолог"
+		},
+		{
+			"key": "field_member_8_bio",
+			"label": "Описание участника 8",
+			"name": "member_8_bio",
+			"type": "wysiwyg",
+			"instructions": "Короткое описание участника",
+			"required": 0,
+			"default_value": "",
+			"placeholder": "Короткое описание...",
+			"toolbar": "full",
+			"media_upload": 0
+		},
+
+		{
+			"key": "field_tab_member_9",
+			"label": "Участник 9",
+			"name": "tab_member_9",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_member_9_photo",
+			"label": "Фото участника 9 (URL)",
+			"name": "member_9_photo",
+			"type": "image",
+			"instructions": "URL изображения участника. Укажите URL при импорте.",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_member_9_name",
+			"label": "Имя участника 9",
+			"name": "member_9_name",
+			"type": "text",
+			"instructions": "ФИО или имя участника",
+			"required": 0,
+			"default_value": "",
+			"placeholder": "Иван Иванов"
+		},
+		{
+			"key": "field_member_9_role",
+			"label": "Роль участника 9",
+			"name": "member_9_role",
+			"type": "text",
+			"instructions": "Должность/роль участника",
+			"required": 0,
+			"default_value": "",
+			"placeholder": "Главный диетолог"
+		},
+		{
+			"key": "field_member_9_bio",
+			"label": "Описание участника 9",
+			"name": "member_9_bio",
+			"type": "wysiwyg",
+			"instructions": "Короткое описание участника",
+			"required": 0,
+			"default_value": "",
+			"placeholder": "Короткое описание...",
+			"toolbar": "full",
+			"media_upload": 0
+		},
+
+		{
+			"key": "field_tab_member_10",
+			"label": "Участник 10",
+			"name": "tab_member_10",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_member_10_photo",
+			"label": "Фото участника 10 (URL)",
+			"name": "member_10_photo",
+			"type": "image",
+			"instructions": "URL изображения участника. Укажите URL при импорте.",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_member_10_name",
+			"label": "Имя участника 10",
+			"name": "member_10_name",
+			"type": "text",
+			"instructions": "ФИО или имя участника",
+			"required": 0,
+			"default_value": "",
+			"placeholder": "Иван Иванов"
+		},
+		{
+			"key": "field_member_10_role",
+			"label": "Роль участника 10",
+			"name": "member_10_role",
+			"type": "text",
+			"instructions": "Должность/роль участника",
+			"required": 0,
+			"default_value": "",
+			"placeholder": "Главный диетолог"
+		},
+		{
+			"key": "field_member_10_bio",
+			"label": "Описание участника 10",
+			"name": "member_10_bio",
+			"type": "wysiwyg",
+			"instructions": "Короткое описание участника",
+			"required": 0,
+			"default_value": "",
+			"placeholder": "Короткое описание...",
+			"toolbar": "full",
+			"media_upload": 0
+		}
+	],
+	"location": [
+		[
+			{
+				"param": "page_template",
+				"operator": "==",
+				"value": "templates/about.php"
+			}
+		]
+	],
+	"menu_order": 0,
+	"position": "normal",
+	"style": "default",
+	"label_placement": "top",
+	"instruction_placement": "label",
+	"hide_on_screen": "",
+	"active": true,
+	"description": "ACF fields for About page: title, subtitle and 10 member blocks with tabs (no repeater)"
+}
