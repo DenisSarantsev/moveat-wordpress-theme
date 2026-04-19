@@ -10,24 +10,6 @@
 		<?php if ( has_site_icon() ) : ?>
 			<link href="<?php echo esc_url( get_site_icon_url() ); ?>" rel="icon">
 		<?php endif; ?>
-		<style>
-			/* Cпиннер виден до загрузки JS */
-			/* [data-spinner] {
-				position: fixed;
-				inset: 0;
-				background: #fff;
-				z-index: 9999;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				transition: opacity 0.4s ease;
-			}
-			[data-spinner].hide {
-				opacity: 0 !important;
-				pointer-events: none;
-				visibility: hidden;
-			} */
-    </style>
     <?php wp_head(); ?>
 </head>
 
@@ -35,6 +17,11 @@
 		<!-- <div id="spinner" data-spinner class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
 			<div class="spinner-border text-primary" role="status"></div>
 		</div> -->
+
+		<!-- Render gtranslate inside a hidden container to keep functionality but hide UI -->
+		<div id="gtranslate-container" style="display:none !important;">
+			<?php echo do_shortcode('[google-translator]'); ?>
+		</div>
 
     <!-- Header Module -->
     <header class="header container-fluid fixed-top px-0 wow fadeIn" data-wow-delay="0.1s">
@@ -67,6 +54,55 @@
 						] );
 					?>
 					<div class="navbar-content__top-background"></div>
+
+					<!-- Language switcher -->
+					<div class="lang-switcher" tabindex="0" aria-label="Выбор языка">
+						<input type="radio" name="site-lang" id="lang-ru" checked hidden />
+						<input type="radio" name="site-lang" id="lang-uk" hidden />
+						<!-- Current (display controlled via CSS based on the checked input) -->
+						<div
+							class="lang-switcher__toggle"
+							role="button"
+							aria-haspopup="listbox">
+							<span class="lang-switcher__flag" aria-hidden="true"></span>
+							<span class="lang-switcher__code lang-switcher__code--ru">RU</span>
+							<span class="lang-switcher__code lang-switcher__code--uk">UA</span>
+							<svg
+								class="lang-switcher__arrow"
+								width="10"
+								height="6"
+								viewBox="0 0 10 6"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg"
+								aria-hidden="true">
+								<path
+									d="M1 1L5 5L9 1"
+									stroke="currentColor"
+									stroke-width="1.5"
+									stroke-linecap="round"
+									stroke-linejoin="round" />
+							</svg>
+						</div>
+						<ul class="lang-switcher__list" role="listbox" aria-label="Выбор языка">
+							<li>
+								<label for="lang-ru" class="lang-switcher__option">
+									<span class="lang-switcher__flag" aria-hidden="true"></span>
+									<span class="lang-switcher__option-code">RU</span>
+									<span class="lang-switcher__option-name">Русский</span>
+								</label>
+							</li>
+							<li>
+								<label for="lang-uk" class="lang-switcher__option">
+									<span
+										class="lang-switcher__flag lang-switcher__flag--uk"
+										aria-hidden="true"></span>
+									<span class="lang-switcher__option-code">UA</span>
+									<span class="lang-switcher__option-name">Українська</span>
+								</label>
+							</li>
+						</ul>
+					</div>
+
 					<div class="header-icons">
 						<!-- <a class="header-icon" href="">
 							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/search.png" alt="Search" class="img-fluid">
@@ -83,6 +119,7 @@
 						</a>
 					</div>
 				</div>
+
 				<div class="header__menu-icon">
 					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/mobile-menu.png" alt="mobile menu icon" class="header__mobile-menu-icon">
 					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/cross.png" alt="cross icon" class="header__cross-icon">
@@ -110,5 +147,32 @@
 				<button type="button" class="messages-container__message-close" aria-label="Закрыть уведомление" data-message-close>
 					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/cross.png' ); ?>" alt="Close" class="img-fluid">
 				</button>
+			</div>
+		</div>
+
+		<div class="lang-modal" id="lang-modal" role="dialog" aria-modal="true">
+			<div class="lang-modal__overlay" data-lang-modal-overlay></div>
+			<div class="lang-modal__dialog" role="document">
+				<button
+					class="lang-modal__close"
+					type="button"
+					aria-label="Закрыть"
+					data-lang-modal-close>
+					&times;
+				</button>
+				<div class="lang-modal__body">
+					<h3 class="lang-modal__title">Выберите язык</h3>
+					<p class="lang-modal__desc">
+						На каком языке вы хотите пользоваться сайтом?
+					</p>
+					<div class="lang-modal__actions">
+						<button class="lang-modal__btn ru" data-lang-select data-lang="ru">
+							Русский (RU)
+						</button>
+						<button class="lang-modal__btn uk" data-lang-select data-lang="uk">
+							Українська (UA)
+						</button>
+					</div>
+				</div>
 			</div>
 		</div>
