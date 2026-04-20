@@ -1,0 +1,1952 @@
+{
+	"key": "group_quest_results",
+	"title": "Quest Results",
+	"fields": [
+		{
+			"key": "field_tab_intro",
+			"label": "Вступительный блок",
+			"name": "questresult__title-block",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_quest_title",
+			"label": "Заголовок вступительного блока",
+			"name": "quest_title",
+			"type": "text",
+			"placeholder": "Заголовок"
+		},
+		{
+			"key": "field_quest_subtitle",
+			"label": "Подзаголовок вступительного блока",
+			"name": "quest_subtitle",
+			"type": "textarea",
+			"default_value": "Спасибо за ваши ответы...",
+			"placeholder": "Краткий текст"
+		},
+		{
+			"key": "field_quest_button_text",
+			"label": "Текст кнопки вступительного блока",
+			"name": "quest_button_text",
+			"type": "text",
+			"default_value": "Узнать результаты",
+			"placeholder": "Текст кнопки"
+		},
+
+		{
+			"key": "field_tab_general",
+			"label": "Общие выводы",
+			"name": "tab_general",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_general_conclusions_text1",
+			"label": "Текст общий вывод 1",
+			"name": "general-conclusions-text1",
+			"type": "wysiwyg",
+			"toolbar": "full",
+			"media_upload": 0,
+			"tabs": "visual"
+		},
+		{
+			"key": "field_general_conclusions_text2",
+			"label": "Текст общий вывод 2",
+			"name": "general-conclusions-text2",
+			"type": "wysiwyg",
+			"toolbar": "full",
+			"media_upload": 0,
+			"tabs": "visual"
+		},
+		{
+			"key": "field_general_conclusions_text3",
+			"label": "Текст общий вывод 3",
+			"name": "general-conclusions-text3",
+			"type": "wysiwyg",
+			"toolbar": "full",
+			"media_upload": 0,
+			"tabs": "visual"
+		},
+
+		{
+			"key": "field_tab_metabolic",
+			"label": "Риск метаболического расстройства",
+			"name": "tab_metabolic",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_metabolic_description",
+			"label": "Описание блока метаболическое нарушение",
+			"name": "metabolic-disorder-description",
+			"type": "wysiwyg",
+			"toolbar": "full",
+			"media_upload": 0,
+			"tabs": "visual"
+		},
+		{
+			"key": "field_metabolic_text1",
+			"label": "Текст блока метаболическое нарушение 1",
+			"name": "metabolic-disorder-text1",
+			"type": "wysiwyg",
+			"toolbar": "full",
+			"media_upload": 0,
+			"tabs": "visual"
+		},
+		{
+			"key": "field_metabolic_links_info",
+			"label": "Ссылки для блока метаболическое нарушение",
+			"name": "metabolic_links_info",
+			"type": "message",
+			"instructions": "Поля: metabolic-disorder-link-{n}_{i} и metabolic-disorder-text-{n}_{i} (n=1..3, i=1..5)"
+		},
+		{
+			"key": "field_md_link_1_1",
+			"label": "MD Link 1.1",
+			"name": "metabolic-disorder-link-1_1",
+			"type": "text"
+		},
+		{
+			"key": "field_md_text_1_1",
+			"label": "MD Text 1.1",
+			"name": "metabolic-disorder-text-1_1",
+			"type": "text"
+		},
+		{
+			"key": "field_md_link_1_2",
+			"label": "MD Link 1.2",
+			"name": "metabolic-disorder-link-1_2",
+			"type": "text"
+		},
+		{
+			"key": "field_md_text_1_2",
+			"label": "MD Text 1.2",
+			"name": "metabolic-disorder-text-1_2",
+			"type": "text"
+		},
+		{
+			"key": "field_md_link_1_3",
+			"label": "MD Link 1.3",
+			"name": "metabolic-disorder-link-1_3",
+			"type": "text"
+		},
+		{
+			"key": "field_md_text_1_3",
+			"label": "MD Text 1.3",
+			"name": "metabolic-disorder-text-1_3",
+			"type": "text"
+		},
+		{
+			"key": "field_md_link_1_4",
+			"label": "MD Link 1.4",
+			"name": "metabolic-disorder-link-1_4",
+			"type": "text"
+		},
+		{
+			"key": "field_md_text_1_4",
+			"label": "MD Text 1.4",
+			"name": "metabolic-disorder-text-1_4",
+			"type": "text"
+		},
+		{
+			"key": "field_md_link_1_5",
+			"label": "MD Link 1.5",
+			"name": "metabolic-disorder-link-1_5",
+			"type": "text"
+		},
+		{
+			"key": "field_md_text_1_5",
+			"label": "MD Text 1.5",
+			"name": "metabolic-disorder-text-1_5",
+			"type": "text"
+		},
+		{
+			"key": "field_metabolic_text2",
+			"label": "Текст блока метаболическое нарушение 2",
+			"name": "metabolic-disorder-text2",
+			"type": "wysiwyg",
+			"toolbar": "full",
+			"media_upload": 0,
+			"tabs": "visual"
+		},
+		{
+			"key": "field_md_link_2_1",
+			"label": "MD Link 2.1",
+			"name": "metabolic-disorder-link-2_1",
+			"type": "text"
+		},
+		{
+			"key": "field_md_text_2_1",
+			"label": "MD Text 2.1",
+			"name": "metabolic-disorder-text-2_1",
+			"type": "text"
+		},
+		{
+			"key": "field_md_link_2_2",
+			"label": "MD Link 2.2",
+			"name": "metabolic-disorder-link-2_2",
+			"type": "text"
+		},
+		{
+			"key": "field_md_text_2_2",
+			"label": "MD Text 2.2",
+			"name": "metabolic-disorder-text-2_2",
+			"type": "text"
+		},
+		{
+			"key": "field_md_link_2_3",
+			"label": "MD Link 2.3",
+			"name": "metabolic-disorder-link-2_3",
+			"type": "text"
+		},
+		{
+			"key": "field_md_text_2_3",
+			"label": "MD Text 2.3",
+			"name": "metabolic-disorder-text-2_3",
+			"type": "text"
+		},
+		{
+			"key": "field_md_link_2_4",
+			"label": "MD Link 2.4",
+			"name": "metabolic-disorder-link-2_4",
+			"type": "text"
+		},
+		{
+			"key": "field_md_text_2_4",
+			"label": "MD Text 2.4",
+			"name": "metabolic-disorder-text-2_4",
+			"type": "text"
+		},
+		{
+			"key": "field_md_link_2_5",
+			"label": "MD Link 2.5",
+			"name": "metabolic-disorder-link-2_5",
+			"type": "text"
+		},
+		{
+			"key": "field_md_text_2_5",
+			"label": "MD Text 2.5",
+			"name": "metabolic-disorder-text-2_5",
+			"type": "text"
+		},
+		{
+			"key": "field_metabolic_text3",
+			"label": "Текст блока метаболическое нарушение 3",
+			"name": "metabolic-disorder-text3",
+			"type": "wysiwyg",
+			"toolbar": "full",
+			"media_upload": 0,
+			"tabs": "visual"
+		},
+		{
+			"key": "field_md_link_3_1",
+			"label": "MD Link 3.1",
+			"name": "metabolic-disorder-link-3_1",
+			"type": "text"
+		},
+		{
+			"key": "field_md_text_3_1",
+			"label": "MD Text 3.1",
+			"name": "metabolic-disorder-text-3_1",
+			"type": "text"
+		},
+		{
+			"key": "field_md_link_3_2",
+			"label": "MD Link 3.2",
+			"name": "metabolic-disorder-link-3_2",
+			"type": "text"
+		},
+		{
+			"key": "field_md_text_3_2",
+			"label": "MD Text 3.2",
+			"name": "metabolic-disorder-text-3_2",
+			"type": "text"
+		},
+		{
+			"key": "field_md_link_3_3",
+			"label": "MD Link 3.3",
+			"name": "metabolic-disorder-link-3_3",
+			"type": "text"
+		},
+		{
+			"key": "field_md_text_3_3",
+			"label": "MD Text 3.3",
+			"name": "metabolic-disorder-text-3_3",
+			"type": "text"
+		},
+		{
+			"key": "field_md_link_3_4",
+			"label": "MD Link 3.4",
+			"name": "metabolic-disorder-link-3_4",
+			"type": "text"
+		},
+		{
+			"key": "field_md_text_3_4",
+			"label": "MD Text 3.4",
+			"name": "metabolic-disorder-text-3_4",
+			"type": "text"
+		},
+		{
+			"key": "field_md_link_3_5",
+			"label": "MD Link 3.5",
+			"name": "metabolic-disorder-link-3_5",
+			"type": "text"
+		},
+		{
+			"key": "field_md_text_3_5",
+			"label": "MD Text 3.5",
+			"name": "metabolic-disorder-text-3_5",
+			"type": "text"
+		},
+
+		{
+			"key": "field_tab_inflammation",
+			"label": "Системное воспаление",
+			"name": "tab_inflammation",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_inflam_description",
+			"label": "Описание блока 'Системное воспаление'",
+			"name": "systemic-inflammation-description",
+			"type": "wysiwyg",
+			"toolbar": "full",
+			"media_upload": 0,
+			"tabs": "visual"
+		},
+		{
+			"key": "field_inflam_text1",
+			"label": "Текст блока 'Системное воспаление' 1",
+			"name": "systemic-inflammation-text1",
+			"type": "wysiwyg",
+			"toolbar": "full",
+			"media_upload": 0,
+			"tabs": "visual"
+		},
+		{
+			"key": "field_inflam_links_info",
+			"label": "Ссылки блока 'Системное воспаление'",
+			"name": "systemic_inflammation_links_info",
+			"type": "message",
+			"instructions": "Поля: systemic-inflammation-link-{n}_{i} и systemic-inflammation-text-{n}_{i} (n=1..3, i=1..5)"
+		},
+		{
+			"key": "field_si_link_1_1",
+			"label": "SI Link 1.1",
+			"name": "systemic-inflammation-link-1_1",
+			"type": "text"
+		},
+		{
+			"key": "field_si_text_1_1",
+			"label": "SI Text 1.1",
+			"name": "systemic-inflammation-text-1_1",
+			"type": "text"
+		},
+		{
+			"key": "field_si_link_1_2",
+			"label": "SI Link 1.2",
+			"name": "systemic-inflammation-link-1_2",
+			"type": "text"
+		},
+		{
+			"key": "field_si_text_1_2",
+			"label": "SI Text 1.2",
+			"name": "systemic-inflammation-text-1_2",
+			"type": "text"
+		},
+		{
+			"key": "field_si_link_1_3",
+			"label": "SI Link 1.3",
+			"name": "systemic-inflammation-link-1_3",
+			"type": "text"
+		},
+		{
+			"key": "field_si_text_1_3",
+			"label": "SI Text 1.3",
+			"name": "systemic-inflammation-text-1_3",
+			"type": "text"
+		},
+		{
+			"key": "field_si_link_1_4",
+			"label": "SI Link 1.4",
+			"name": "systemic-inflammation-link-1_4",
+			"type": "text"
+		},
+		{
+			"key": "field_si_text_1_4",
+			"label": "SI Text 1.4",
+			"name": "systemic-inflammation-text-1_4",
+			"type": "text"
+		},
+		{
+			"key": "field_si_link_1_5",
+			"label": "SI Link 1.5",
+			"name": "systemic-inflammation-link-1_5",
+			"type": "text"
+		},
+		{
+			"key": "field_si_text_1_5",
+			"label": "SI Text 1.5",
+			"name": "systemic-inflammation-text-1_5",
+			"type": "text"
+		},
+
+		{
+			"key": "field_inflam_text2",
+			"label": "Текст блока 'Системное воспаление' 2",
+			"name": "systemic-inflammation-text2",
+			"type": "wysiwyg",
+			"toolbar": "full",
+			"media_upload": 0,
+			"tabs": "visual"
+		},
+		{
+			"key": "field_si_link_2_1",
+			"label": "SI Link 2.1",
+			"name": "systemic-inflammation-link-2_1",
+			"type": "text"
+		},
+		{
+			"key": "field_si_text_2_1",
+			"label": "SI Text 2.1",
+			"name": "systemic-inflammation-text-2_1",
+			"type": "text"
+		},
+		{
+			"key": "field_si_link_2_2",
+			"label": "SI Link 2.2",
+			"name": "systemic-inflammation-link-2_2",
+			"type": "text"
+		},
+		{
+			"key": "field_si_text_2_2",
+			"label": "SI Text 2.2",
+			"name": "systemic-inflammation-text-2_2",
+			"type": "text"
+		},
+		{
+			"key": "field_si_link_2_3",
+			"label": "SI Link 2.3",
+			"name": "systemic-inflammation-link-2_3",
+			"type": "text"
+		},
+		{
+			"key": "field_si_text_2_3",
+			"label": "SI Text 2.3",
+			"name": "systemic-inflammation-text-2_3",
+			"type": "text"
+		},
+		{
+			"key": "field_si_link_2_4",
+			"label": "SI Link 2.4",
+			"name": "systemic-inflammation-link-2_4",
+			"type": "text"
+		},
+		{
+			"key": "field_si_text_2_4",
+			"label": "SI Text 2.4",
+			"name": "systemic-inflammation-text-2_4",
+			"type": "text"
+		},
+		{
+			"key": "field_si_link_2_5",
+			"label": "SI Link 2.5",
+			"name": "systemic-inflammation-link-2_5",
+			"type": "text"
+		},
+		{
+			"key": "field_si_text_2_5",
+			"label": "SI Text 2.5",
+			"name": "systemic-inflammation-text-2_5",
+			"type": "text"
+		},
+
+		{
+			"key": "field_inflam_text3",
+			"label": "Текст блока 'Системное воспаление' 3",
+			"name": "systemic-inflammation-text3",
+			"type": "wysiwyg",
+			"toolbar": "full",
+			"media_upload": 0,
+			"tabs": "visual"
+		},
+		{
+			"key": "field_si_link_3_1",
+			"label": "SI Link 3.1",
+			"name": "systemic-inflammation-link-3_1",
+			"type": "text"
+		},
+		{
+			"key": "field_si_text_3_1",
+			"label": "SI Text 3.1",
+			"name": "systemic-inflammation-text-3_1",
+			"type": "text"
+		},
+		{
+			"key": "field_si_link_3_2",
+			"label": "SI Link 3.2",
+			"name": "systemic-inflammation-link-3_2",
+			"type": "text"
+		},
+		{
+			"key": "field_si_text_3_2",
+			"label": "SI Text 3.2",
+			"name": "systemic-inflammation-text-3_2",
+			"type": "text"
+		},
+		{
+			"key": "field_si_link_3_3",
+			"label": "SI Link 3.3",
+			"name": "systemic-inflammation-link-3_3",
+			"type": "text"
+		},
+		{
+			"key": "field_si_text_3_3",
+			"label": "SI Text 3.3",
+			"name": "systemic-inflammation-text-3_3",
+			"type": "text"
+		},
+		{
+			"key": "field_si_link_3_4",
+			"label": "SI Link 3.4",
+			"name": "systemic-inflammation-link-3_4",
+			"type": "text"
+		},
+		{
+			"key": "field_si_text_3_4",
+			"label": "SI Text 3.4",
+			"name": "systemic-inflammation-text-3_4",
+			"type": "text"
+		},
+		{
+			"key": "field_si_link_3_5",
+			"label": "SI Link 3.5",
+			"name": "systemic-inflammation-link-3_5",
+			"type": "text"
+		},
+		{
+			"key": "field_si_text_3_5",
+			"label": "SI Text 3.5",
+			"name": "systemic-inflammation-text-3_5",
+			"type": "text"
+		},
+
+		{
+			"key": "field_tab_acidification",
+			"label": "Уровень закисления",
+			"name": "tab_acidification",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_acid_description",
+			"label": "Описание блока 'Уровень закисления'",
+			"name": "acidification-level-description",
+			"type": "wysiwyg",
+			"toolbar": "full",
+			"media_upload": 0,
+			"tabs": "visual"
+		},
+		{
+			"key": "field_acid_text1",
+			"label": "Текст закисления 1",
+			"name": "acidification-level-text1",
+			"type": "wysiwyg",
+			"toolbar": "full",
+			"media_upload": 0,
+			"tabs": "visual"
+		},
+		{
+			"key": "field_acid_links_info",
+			"label": "Ссылки закисления",
+			"name": "acidification_links_info",
+			"type": "message",
+			"instructions": "Поля: acidification-level-link-{n}_{i} и acidification-level-text-{n}_{i} (n=1..3, i=1..5)"
+		},
+		{
+			"key": "field_ac_link_1_1",
+			"label": "AC Link 1.1",
+			"name": "acidification-level-link-1_1",
+			"type": "text"
+		},
+		{
+			"key": "field_ac_text_1_1",
+			"label": "AC Text 1.1",
+			"name": "acidification-level-text-1_1",
+			"type": "text"
+		},
+		{
+			"key": "field_ac_link_1_2",
+			"label": "AC Link 1.2",
+			"name": "acidification-level-link-1_2",
+			"type": "text"
+		},
+		{
+			"key": "field_ac_text_1_2",
+			"label": "AC Text 1.2",
+			"name": "acidification-level-text-1_2",
+			"type": "text"
+		},
+		{
+			"key": "field_ac_link_1_3",
+			"label": "AC Link 1.3",
+			"name": "acidification-level-link-1_3",
+			"type": "text"
+		},
+		{
+			"key": "field_ac_text_1_3",
+			"label": "AC Text 1.3",
+			"name": "acidification-level-text-1_3",
+			"type": "text"
+		},
+		{
+			"key": "field_ac_link_1_4",
+			"label": "AC Link 1.4",
+			"name": "acidification-level-link-1_4",
+			"type": "text"
+		},
+		{
+			"key": "field_ac_text_1_4",
+			"label": "AC Text 1.4",
+			"name": "acidification-level-text-1_4",
+			"type": "text"
+		},
+		{
+			"key": "field_ac_link_1_5",
+			"label": "AC Link 1.5",
+			"name": "acidification-level-link-1_5",
+			"type": "text"
+		},
+		{
+			"key": "field_ac_text_1_5",
+			"label": "AC Text 1.5",
+			"name": "acidification-level-text-1_5",
+			"type": "text"
+		},
+
+		{
+			"key": "field_acid_text2",
+			"label": "Текст закисления 2",
+			"name": "acidification-level-text2",
+			"type": "wysiwyg",
+			"toolbar": "full",
+			"media_upload": 0,
+			"tabs": "visual"
+		},
+		{
+			"key": "field_ac_link_2_1",
+			"label": "AC Link 2.1",
+			"name": "acidification-level-link-2_1",
+			"type": "text"
+		},
+		{
+			"key": "field_ac_text_2_1",
+			"label": "AC Text 2.1",
+			"name": "acidification-level-text-2_1",
+			"type": "text"
+		},
+		{
+			"key": "field_ac_link_2_2",
+			"label": "AC Link 2.2",
+			"name": "acidification-level-link-2_2",
+			"type": "text"
+		},
+		{
+			"key": "field_ac_text_2_2",
+			"label": "AC Text 2.2",
+			"name": "acidification-level-text-2_2",
+			"type": "text"
+		},
+		{
+			"key": "field_ac_link_2_3",
+			"label": "AC Link 2.3",
+			"name": "acidification-level-link-2_3",
+			"type": "text"
+		},
+		{
+			"key": "field_ac_text_2_3",
+			"label": "AC Text 2.3",
+			"name": "acidification-level-text-2_3",
+			"type": "text"
+		},
+		{
+			"key": "field_ac_link_2_4",
+			"label": "AC Link 2.4",
+			"name": "acidification-level-link-2_4",
+			"type": "text"
+		},
+		{
+			"key": "field_ac_text_2_4",
+			"label": "AC Text 2.4",
+			"name": "acidification-level-text-2_4",
+			"type": "text"
+		},
+		{
+			"key": "field_ac_link_2_5",
+			"label": "AC Link 2.5",
+			"name": "acidification-level-link-2_5",
+			"type": "text"
+		},
+		{
+			"key": "field_ac_text_2_5",
+			"label": "AC Text 2.5",
+			"name": "acidification-level-text-2_5",
+			"type": "text"
+		},
+
+		{
+			"key": "field_acid_text3",
+			"label": "Текст закисления 3",
+			"name": "acidification-level-text3",
+			"type": "wysiwyg",
+			"toolbar": "full",
+			"media_upload": 0,
+			"tabs": "visual"
+		},
+		{
+			"key": "field_ac_link_3_1",
+			"label": "AC Link 3.1",
+			"name": "acidification-level-link-3_1",
+			"type": "text"
+		},
+		{
+			"key": "field_ac_text_3_1",
+			"label": "AC Text 3.1",
+			"name": "acidification-level-text-3_1",
+			"type": "text"
+		},
+		{
+			"key": "field_ac_link_3_2",
+			"label": "AC Link 3.2",
+			"name": "acidification-level-link-3_2",
+			"type": "text"
+		},
+		{
+			"key": "field_ac_text_3_2",
+			"label": "AC Text 3.2",
+			"name": "acidification-level-text-3_2",
+			"type": "text"
+		},
+		{
+			"key": "field_ac_link_3_3",
+			"label": "AC Link 3.3",
+			"name": "acidification-level-link-3_3",
+			"type": "text"
+		},
+		{
+			"key": "field_ac_text_3_3",
+			"label": "AC Text 3.3",
+			"name": "acidification-level-text-3_3",
+			"type": "text"
+		},
+		{
+			"key": "field_ac_link_3_4",
+			"label": "AC Link 3.4",
+			"name": "acidification-level-link-3_4",
+			"type": "text"
+		},
+		{
+			"key": "field_ac_text_3_4",
+			"label": "AC Text 3.4",
+			"name": "acidification-level-text-3_4",
+			"type": "text"
+		},
+		{
+			"key": "field_ac_link_3_5",
+			"label": "AC Link 3.5",
+			"name": "acidification-level-link-3_5",
+			"type": "text"
+		},
+		{
+			"key": "field_ac_text_3_5",
+			"label": "AC Text 3.5",
+			"name": "acidification-level-text-3_5",
+			"type": "text"
+		},
+
+		{
+			"key": "field_tab_glycemic",
+			"label": "Гликемичность рациона",
+			"name": "tab_glycemic",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_gly_description",
+			"label": "Описание блока 'Гликемичность рациона'",
+			"name": "glycemic-level-description",
+			"type": "wysiwyg",
+			"toolbar": "full",
+			"media_upload": 0,
+			"tabs": "visual"
+		},
+		{
+			"key": "field_gly_text1",
+			"label": "Текст гликемичность 1",
+			"name": "glycemic-level-text1",
+			"type": "wysiwyg",
+			"toolbar": "full",
+			"media_upload": 0,
+			"tabs": "visual"
+		},
+		{
+			"key": "field_gly_links_info",
+			"label": "Ссылки гликемичность",
+			"name": "glycemic_links_info",
+			"type": "message",
+			"instructions": "Поля: glycemic-level-link-{n}_{i} и glycemic-level-text-{n}_{i} (n=1..3, i=1..5)"
+		},
+		{
+			"key": "field_gly_link_1_1",
+			"label": "GL Link 1.1",
+			"name": "glycemic-level-link-1_1",
+			"type": "text"
+		},
+		{
+			"key": "field_gly_text_1_1",
+			"label": "GL Text 1.1",
+			"name": "glycemic-level-text-1_1",
+			"type": "text"
+		},
+		{
+			"key": "field_gly_link_1_2",
+			"label": "GL Link 1.2",
+			"name": "glycemic-level-link-1_2",
+			"type": "text"
+		},
+		{
+			"key": "field_gly_text_1_2",
+			"label": "GL Text 1.2",
+			"name": "glycemic-level-text-1_2",
+			"type": "text"
+		},
+		{
+			"key": "field_gly_link_1_3",
+			"label": "GL Link 1.3",
+			"name": "glycemic-level-link-1_3",
+			"type": "text"
+		},
+		{
+			"key": "field_gly_text_1_3",
+			"label": "GL Text 1.3",
+			"name": "glycemic-level-text-1_3",
+			"type": "text"
+		},
+		{
+			"key": "field_gly_link_1_4",
+			"label": "GL Link 1.4",
+			"name": "glycemic-level-link-1_4",
+			"type": "text"
+		},
+		{
+			"key": "field_gly_text_1_4",
+			"label": "GL Text 1.4",
+			"name": "glycemic-level-text-1_4",
+			"type": "text"
+		},
+		{
+			"key": "field_gly_link_1_5",
+			"label": "GL Link 1.5",
+			"name": "glycemic-level-link-1_5",
+			"type": "text"
+		},
+		{
+			"key": "field_gly_text_1_5",
+			"label": "GL Text 1.5",
+			"name": "glycemic-level-text-1_5",
+			"type": "text"
+		},
+
+		{
+			"key": "field_gly_text2",
+			"label": "Текст гликемичность 2",
+			"name": "glycemic-level-text2",
+			"type": "wysiwyg",
+			"toolbar": "full",
+			"media_upload": 0,
+			"tabs": "visual"
+		},
+		{
+			"key": "field_gly_link_2_1",
+			"label": "GL Link 2.1",
+			"name": "glycemic-level-link-2_1",
+			"type": "text"
+		},
+		{
+			"key": "field_gly_text_2_1",
+			"label": "GL Text 2.1",
+			"name": "glycemic-level-text-2_1",
+			"type": "text"
+		},
+		{
+			"key": "field_gly_link_2_2",
+			"label": "GL Link 2.2",
+			"name": "glycemic-level-link-2_2",
+			"type": "text"
+		},
+		{
+			"key": "field_gly_text_2_2",
+			"label": "GL Text 2.2",
+			"name": "glycemic-level-text-2_2",
+			"type": "text"
+		},
+		{
+			"key": "field_gly_link_2_3",
+			"label": "GL Link 2.3",
+			"name": "glycemic-level-link-2_3",
+			"type": "text"
+		},
+		{
+			"key": "field_gly_text_2_3",
+			"label": "GL Text 2.3",
+			"name": "glycemic-level-text-2_3",
+			"type": "text"
+		},
+		{
+			"key": "field_gly_link_2_4",
+			"label": "GL Link 2.4",
+			"name": "glycemic-level-link-2_4",
+			"type": "text"
+		},
+		{
+			"key": "field_gly_text_2_4",
+			"label": "GL Text 2.4",
+			"name": "glycemic-level-text-2_4",
+			"type": "text"
+		},
+		{
+			"key": "field_gly_link_2_5",
+			"label": "GL Link 2.5",
+			"name": "glycemic-level-link-2_5",
+			"type": "text"
+		},
+		{
+			"key": "field_gly_text_2_5",
+			"label": "GL Text 2.5",
+			"name": "glycemic-level-text-2_5",
+			"type": "text"
+		},
+
+		{
+			"key": "field_gly_text3",
+			"label": "Текст гликемичность 3",
+			"name": "glycemic-level-text3",
+			"type": "wysiwyg",
+			"toolbar": "full",
+			"media_upload": 0,
+			"tabs": "visual"
+		},
+		{
+			"key": "field_gly_link_3_1",
+			"label": "GL Link 3.1",
+			"name": "glycemic-level-link-3_1",
+			"type": "text"
+		},
+		{
+			"key": "field_gly_text_3_1",
+			"label": "GL Text 3.1",
+			"name": "glycemic-level-text-3_1",
+			"type": "text"
+		},
+		{
+			"key": "field_gly_link_3_2",
+			"label": "GL Link 3.2",
+			"name": "glycemic-level-link-3_2",
+			"type": "text"
+		},
+		{
+			"key": "field_gly_text_3_2",
+			"label": "GL Text 3.2",
+			"name": "glycemic-level-text-3_2",
+			"type": "text"
+		},
+		{
+			"key": "field_gly_link_3_3",
+			"label": "GL Link 3.3",
+			"name": "glycemic-level-link-3_3",
+			"type": "text"
+		},
+		{
+			"key": "field_gly_text_3_3",
+			"label": "GL Text 3.3",
+			"name": "glycemic-level-text-3_3",
+			"type": "text"
+		},
+		{
+			"key": "field_gly_link_3_4",
+			"label": "GL Link 3.4",
+			"name": "glycemic-level-link-3_4",
+			"type": "text"
+		},
+		{
+			"key": "field_gly_text_3_4",
+			"label": "GL Text 3.4",
+			"name": "glycemic-level-text-3_4",
+			"type": "text"
+		},
+		{
+			"key": "field_gly_link_3_5",
+			"label": "GL Link 3.5",
+			"name": "glycemic-level-link-3_5",
+			"type": "text"
+		},
+		{
+			"key": "field_gly_text_3_5",
+			"label": "GL Text 3.5",
+			"name": "glycemic-level-text-3_5",
+			"type": "text"
+		},
+
+		{
+			"key": "field_tab_accelerated",
+			"label": "Риск ускоренного старения",
+			"name": "tab_accelerated_aging",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_accel_description",
+			"label": "Описание блока 'Риск ускоренного старения'",
+			"name": "accelerated-aging-description",
+			"type": "wysiwyg",
+			"toolbar": "full",
+			"media_upload": 0,
+			"tabs": "visual"
+		},
+		{
+			"key": "field_accel_text1",
+			"label": "Текст блока 'Риск ускоренного старения' 1",
+			"name": "accelerated-aging-text1",
+			"type": "wysiwyg",
+			"toolbar": "full",
+			"media_upload": 0,
+			"tabs": "visual"
+		},
+		{
+			"key": "field_accel_links_info",
+			"label": "Ссылки блока 'Риск ускоренного старения'",
+			"name": "accelerated-aging_links_info",
+			"type": "message",
+			"instructions": "Поля: accelerated-aging-link-{n}_{i} и accelerated-aging-text-{n}_{i} (n=1..3, i=1..5)"
+		},
+		{
+			"key": "field_accel_link_1_1",
+			"label": "AA Link 1.1",
+			"name": "accelerated-aging-link-1_1",
+			"type": "text"
+		},
+		{
+			"key": "field_accel_text_1_1",
+			"label": "AA Text 1.1",
+			"name": "accelerated-aging-text-1_1",
+			"type": "text"
+		},
+		{
+			"key": "field_accel_link_1_2",
+			"label": "AA Link 1.2",
+			"name": "accelerated-aging-link-1_2",
+			"type": "text"
+		},
+		{
+			"key": "field_accel_text_1_2",
+			"label": "AA Text 1.2",
+			"name": "accelerated-aging-text-1_2",
+			"type": "text"
+		},
+		{
+			"key": "field_accel_link_1_3",
+			"label": "AA Link 1.3",
+			"name": "accelerated-aging-link-1_3",
+			"type": "text"
+		},
+		{
+			"key": "field_accel_text_1_3",
+			"label": "AA Text 1.3",
+			"name": "accelerated-aging-text-1_3",
+			"type": "text"
+		},
+		{
+			"key": "field_accel_link_1_4",
+			"label": "AA Link 1.4",
+			"name": "accelerated-aging-link-1_4",
+			"type": "text"
+		},
+		{
+			"key": "field_accel_text_1_4",
+			"label": "AA Text 1.4",
+			"name": "accelerated-aging-text-1_4",
+			"type": "text"
+		},
+		{
+			"key": "field_accel_link_1_5",
+			"label": "AA Link 1.5",
+			"name": "accelerated-aging-link-1_5",
+			"type": "text"
+		},
+		{
+			"key": "field_accel_text_1_5",
+			"label": "AA Text 1.5",
+			"name": "accelerated-aging-text-1_5",
+			"type": "text"
+		},
+		{
+			"key": "field_accel_text2",
+			"label": "Текст блока 'Риск ускоренного старения' 2",
+			"name": "accelerated-aging-text2",
+			"type": "wysiwyg",
+			"toolbar": "full",
+			"media_upload": 0,
+			"tabs": "visual"
+		},
+		{
+			"key": "field_accel_link_2_1",
+			"label": "AA Link 2.1",
+			"name": "accelerated-aging-link-2_1",
+			"type": "text"
+		},
+		{
+			"key": "field_accel_text_2_1",
+			"label": "AA Text 2.1",
+			"name": "accelerated-aging-text-2_1",
+			"type": "text"
+		},
+		{
+			"key": "field_accel_link_2_2",
+			"label": "AA Link 2.2",
+			"name": "accelerated-aging-link-2_2",
+			"type": "text"
+		},
+		{
+			"key": "field_accel_text_2_2",
+			"label": "AA Text 2.2",
+			"name": "accelerated-aging-text-2_2",
+			"type": "text"
+		},
+		{
+			"key": "field_accel_link_2_3",
+			"label": "AA Link 2.3",
+			"name": "accelerated-aging-link-2_3",
+			"type": "text"
+		},
+		{
+			"key": "field_accel_text_2_3",
+			"label": "AA Text 2.3",
+			"name": "accelerated-aging-text-2_3",
+			"type": "text"
+		},
+		{
+			"key": "field_accel_link_2_4",
+			"label": "AA Link 2.4",
+			"name": "accelerated-aging-link-2_4",
+			"type": "text"
+		},
+		{
+			"key": "field_accel_text_2_4",
+			"label": "AA Text 2.4",
+			"name": "accelerated-aging-text-2_4",
+			"type": "text"
+		},
+		{
+			"key": "field_accel_link_2_5",
+			"label": "AA Link 2.5",
+			"name": "accelerated-aging-link-2_5",
+			"type": "text"
+		},
+		{
+			"key": "field_accel_text_2_5",
+			"label": "AA Text 2.5",
+			"name": "accelerated-aging-text-2_5",
+			"type": "text"
+		},
+		{
+			"key": "field_accel_text3",
+			"label": "Текст блока 'Риск ускоренного старения' 3",
+			"name": "accelerated-aging-text3",
+			"type": "wysiwyg",
+			"toolbar": "full",
+			"media_upload": 0,
+			"tabs": "visual"
+		},
+		{
+			"key": "field_accel_link_3_1",
+			"label": "AA Link 3.1",
+			"name": "accelerated-aging-link-3_1",
+			"type": "text"
+		},
+		{
+			"key": "field_accel_text_3_1",
+			"label": "AA Text 3.1",
+			"name": "accelerated-aging-text-3_1",
+			"type": "text"
+		},
+		{
+			"key": "field_accel_link_3_2",
+			"label": "AA Link 3.2",
+			"name": "accelerated-aging-link-3_2",
+			"type": "text"
+		},
+		{
+			"key": "field_accel_text_3_2",
+			"label": "AA Text 3.2",
+			"name": "accelerated-aging-text-3_2",
+			"type": "text"
+		},
+		{
+			"key": "field_accel_link_3_3",
+			"label": "AA Link 3.3",
+			"name": "accelerated-aging-link-3_3",
+			"type": "text"
+		},
+		{
+			"key": "field_accel_text_3_3",
+			"label": "AA Text 3.3",
+			"name": "accelerated-aging-text-3_3",
+			"type": "text"
+		},
+		{
+			"key": "field_accel_link_3_4",
+			"label": "AA Link 3.4",
+			"name": "accelerated-aging-link-3_4",
+			"type": "text"
+		},
+		{
+			"key": "field_accel_text_3_4",
+			"label": "AA Text 3.4",
+			"name": "accelerated-aging-text-3_4",
+			"type": "text"
+		},
+		{
+			"key": "field_accel_link_3_5",
+			"label": "AA Link 3.5",
+			"name": "accelerated-aging-link-3_5",
+			"type": "text"
+		},
+		{
+			"key": "field_accel_text_3_5",
+			"label": "AA Text 3.5",
+			"name": "accelerated-aging-text-3_5",
+			"type": "text"
+		},
+
+		{
+			"key": "field_tab_self_cleaning",
+			"label": "Нарушение способности организма к самоочищению",
+			"name": "tab_self_cleaning",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_sc_description",
+			"label": "Описание блока 'Нарушение способности организма к самоочищению'",
+			"name": "self-cleaning-description",
+			"type": "wysiwyg",
+			"toolbar": "full",
+			"media_upload": 0,
+			"tabs": "visual"
+		},
+		{
+			"key": "field_sc_text1",
+			"label": "Текст блока 'Нарушение способности организма к самоочищению' 1",
+			"name": "self-cleaning-text1",
+			"type": "wysiwyg",
+			"toolbar": "full",
+			"media_upload": 0,
+			"tabs": "visual"
+		},
+		{
+			"key": "field_sc_links_info",
+			"label": "Ссылки блока 'Нарушение способности организма к самоочищению'",
+			"name": "self-cleaning_links_info",
+			"type": "message",
+			"instructions": "Поля: self-cleaning-link-{n}_{i} и self-cleaning-text-{n}_{i} (n=1..3, i=1..5)"
+		},
+		{
+			"key": "field_sc_link_1_1",
+			"label": "SC Link 1.1",
+			"name": "self-cleaning-link-1_1",
+			"type": "text"
+		},
+		{
+			"key": "field_sc_text_1_1",
+			"label": "SC Text 1.1",
+			"name": "self-cleaning-text-1_1",
+			"type": "text"
+		},
+		{
+			"key": "field_sc_link_1_2",
+			"label": "SC Link 1.2",
+			"name": "self-cleaning-link-1_2",
+			"type": "text"
+		},
+		{
+			"key": "field_sc_text_1_2",
+			"label": "SC Text 1.2",
+			"name": "self-cleaning-text-1_2",
+			"type": "text"
+		},
+		{
+			"key": "field_sc_link_1_3",
+			"label": "SC Link 1.3",
+			"name": "self-cleaning-link-1_3",
+			"type": "text"
+		},
+		{
+			"key": "field_sc_text_1_3",
+			"label": "SC Text 1.3",
+			"name": "self-cleaning-text-1_3",
+			"type": "text"
+		},
+		{
+			"key": "field_sc_link_1_4",
+			"label": "SC Link 1.4",
+			"name": "self-cleaning-link-1_4",
+			"type": "text"
+		},
+		{
+			"key": "field_sc_text_1_4",
+			"label": "SC Text 1.4",
+			"name": "self-cleaning-text-1_4",
+			"type": "text"
+		},
+		{
+			"key": "field_sc_link_1_5",
+			"label": "SC Link 1.5",
+			"name": "self-cleaning-link-1_5",
+			"type": "text"
+		},
+		{
+			"key": "field_sc_text_1_5",
+			"label": "SC Text 1.5",
+			"name": "self-cleaning-text-1_5",
+			"type": "text"
+		},
+		{
+			"key": "field_sc_text2",
+			"label": "Текст блока 'Нарушение способности организма к самоочищению' 2",
+			"name": "self-cleaning-text2",
+			"type": "wysiwyg",
+			"toolbar": "full",
+			"media_upload": 0,
+			"tabs": "visual"
+		},
+		{
+			"key": "field_sc_link_2_1",
+			"label": "SC Link 2.1",
+			"name": "self-cleaning-link-2_1",
+			"type": "text"
+		},
+		{
+			"key": "field_sc_text_2_1",
+			"label": "SC Text 2.1",
+			"name": "self-cleaning-text-2_1",
+			"type": "text"
+		},
+		{
+			"key": "field_sc_link_2_2",
+			"label": "SC Link 2.2",
+			"name": "self-cleaning-link-2_2",
+			"type": "text"
+		},
+		{
+			"key": "field_sc_text_2_2",
+			"label": "SC Text 2.2",
+			"name": "self-cleaning-text-2_2",
+			"type": "text"
+		},
+		{
+			"key": "field_sc_link_2_3",
+			"label": "SC Link 2.3",
+			"name": "self-cleaning-link-2_3",
+			"type": "text"
+		},
+		{
+			"key": "field_sc_text_2_3",
+			"label": "SC Text 2.3",
+			"name": "self-cleaning-text-2_3",
+			"type": "text"
+		},
+		{
+			"key": "field_sc_link_2_4",
+			"label": "SC Link 2.4",
+			"name": "self-cleaning-link-2_4",
+			"type": "text"
+		},
+		{
+			"key": "field_sc_text_2_4",
+			"label": "SC Text 2.4",
+			"name": "self-cleaning-text-2_4",
+			"type": "text"
+		},
+		{
+			"key": "field_sc_link_2_5",
+			"label": "SC Link 2.5",
+			"name": "self-cleaning-link-2_5",
+			"type": "text"
+		},
+		{
+			"key": "field_sc_text_2_5",
+			"label": "SC Text 2.5",
+			"name": "self-cleaning-text-2_5",
+			"type": "text"
+		},
+		{
+			"key": "field_sc_text3",
+			"label": "Текст блока 'Нарушение способности организма к самоочищение' 3",
+			"name": "self-cleaning-text3",
+			"type": "wysiwyg",
+			"toolbar": "full",
+			"media_upload": 0,
+			"tabs": "visual"
+		},
+		{
+			"key": "field_sc_link_3_1",
+			"label": "SC Link 3.1",
+			"name": "self-cleaning-link-3_1",
+			"type": "text"
+		},
+		{
+			"key": "field_sc_text_3_1",
+			"label": "SC Text 3.1",
+			"name": "self-cleaning-text-3_1",
+			"type": "text"
+		},
+		{
+			"key": "field_sc_link_3_2",
+			"label": "SC Link 3.2",
+			"name": "self-cleaning-link-3_2",
+			"type": "text"
+		},
+		{
+			"key": "field_sc_text_3_2",
+			"label": "SC Text 3.2",
+			"name": "self-cleaning-text-3_2",
+			"type": "text"
+		},
+		{
+			"key": "field_sc_link_3_3",
+			"label": "SC Link 3.3",
+			"name": "self-cleaning-link-3_3",
+			"type": "text"
+		},
+		{
+			"key": "field_sc_text_3_3",
+			"label": "SC Text 3.3",
+			"name": "self-cleaning-text-3_3",
+			"type": "text"
+		},
+		{
+			"key": "field_sc_link_3_4",
+			"label": "SC Link 3.4",
+			"name": "self-cleaning-link-3_4",
+			"type": "text"
+		},
+		{
+			"key": "field_sc_text_3_4",
+			"label": "SC Text 3.4",
+			"name": "self-cleaning-text-3_4",
+			"type": "text"
+		},
+		{
+			"key": "field_sc_link_3_5",
+			"label": "SC Link 3.5",
+			"name": "self-cleaning-link-3_5",
+			"type": "text"
+		},
+		{
+			"key": "field_sc_text_3_5",
+			"label": "SC Text 3.5",
+			"name": "self-cleaning-text-3_5",
+			"type": "text"
+		},
+
+		{
+			"key": "field_tab_cancer_risk",
+			"label": "Риск раковых заболеваний",
+			"name": "tab_cancer_risk",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_cr_description",
+			"label": "Описание блока 'Риск раковых заболеваний'",
+			"name": "cancer-risk-description",
+			"type": "wysiwyg",
+			"toolbar": "full",
+			"media_upload": 0,
+			"tabs": "visual"
+		},
+		{
+			"key": "field_cr_text1",
+			"label": "Текст блока 'Риск раковых заболеваний' 1",
+			"name": "cancer-risk-text1",
+			"type": "wysiwyg",
+			"toolbar": "full",
+			"media_upload": 0,
+			"tabs": "visual"
+		},
+		{
+			"key": "field_cr_links_info",
+			"label": "Ссылки блока 'Риск раковых заболеваний'",
+			"name": "cancer-risk_links_info",
+			"type": "message",
+			"instructions": "Поля: cancer-risk-link-{n}_{i} и cancer-risk-text-{n}_{i} (n=1..3, i=1..5)"
+		},
+		{
+			"key": "field_cr_link_1_1",
+			"label": "CR Link 1.1",
+			"name": "cancer-risk-link-1_1",
+			"type": "text"
+		},
+		{
+			"key": "field_cr_text_1_1",
+			"label": "CR Text 1.1",
+			"name": "cancer-risk-text-1_1",
+			"type": "text"
+		},
+		{
+			"key": "field_cr_link_1_2",
+			"label": "CR Link 1.2",
+			"name": "cancer-risk-link-1_2",
+			"type": "text"
+		},
+		{
+			"key": "field_cr_text_1_2",
+			"label": "CR Text 1.2",
+			"name": "cancer-risk-text-1_2",
+			"type": "text"
+		},
+		{
+			"key": "field_cr_link_1_3",
+			"label": "CR Link 1.3",
+			"name": "cancer-risk-link-1_3",
+			"type": "text"
+		},
+		{
+			"key": "field_cr_text_1_3",
+			"label": "CR Text 1.3",
+			"name": "cancer-risk-text-1_3",
+			"type": "text"
+		},
+		{
+			"key": "field_cr_link_1_4",
+			"label": "CR Link 1.4",
+			"name": "cancer-risk-link-1_4",
+			"type": "text"
+		},
+		{
+			"key": "field_cr_text_1_4",
+			"label": "CR Text 1.4",
+			"name": "cancer-risk-text-1_4",
+			"type": "text"
+		},
+		{
+			"key": "field_cr_link_1_5",
+			"label": "CR Link 1.5",
+			"name": "cancer-risk-link-1_5",
+			"type": "text"
+		},
+		{
+			"key": "field_cr_text_1_5",
+			"label": "CR Text 1.5",
+			"name": "cancer-risk-text-1_5",
+			"type": "text"
+		},
+		{
+			"key": "field_cr_text2",
+			"label": "Текст блока 'Риск раковых заболеваний' 2",
+			"name": "cancer-risk-text2",
+			"type": "wysiwyg",
+			"toolbar": "full",
+			"media_upload": 0,
+			"tabs": "visual"
+		},
+		{
+			"key": "field_cr_link_2_1",
+			"label": "CR Link 2.1",
+			"name": "cancer-risk-link-2_1",
+			"type": "text"
+		},
+		{
+			"key": "field_cr_text_2_1",
+			"label": "CR Text 2.1",
+			"name": "cancer-risk-text-2_1",
+			"type": "text"
+		},
+		{
+			"key": "field_cr_link_2_2",
+			"label": "CR Link 2.2",
+			"name": "cancer-risk-link-2_2",
+			"type": "text"
+		},
+		{
+			"key": "field_cr_text_2_2",
+			"label": "CR Text 2.2",
+			"name": "cancer-risk-text-2_2",
+			"type": "text"
+		},
+		{
+			"key": "field_cr_link_2_3",
+			"label": "CR Link 2.3",
+			"name": "cancer-risk-link-2_3",
+			"type": "text"
+		},
+		{
+			"key": "field_cr_text_2_3",
+			"label": "CR Text 2.3",
+			"name": "cancer-risk-text-2_3",
+			"type": "text"
+		},
+		{
+			"key": "field_cr_link_2_4",
+			"label": "CR Link 2.4",
+			"name": "cancer-risk-link-2_4",
+			"type": "text"
+		},
+		{
+			"key": "field_cr_text_2_4",
+			"label": "CR Text 2.4",
+			"name": "cancer-risk-text-2_4",
+			"type": "text"
+		},
+		{
+			"key": "field_cr_link_2_5",
+			"label": "CR Link 2.5",
+			"name": "cancer-risk-link-2_5",
+			"type": "text"
+		},
+		{
+			"key": "field_cr_text_2_5",
+			"label": "CR Text 2.5",
+			"name": "cancer-risk-text-2_5",
+			"type": "text"
+		},
+		{
+			"key": "field_cr_text3",
+			"label": "Текст блока 'Риск раковых заболеваний' 3",
+			"name": "cancer-risk-text3",
+			"type": "wysiwyg",
+			"toolbar": "full",
+			"media_upload": 0,
+			"tabs": "visual"
+		},
+		{
+			"key": "field_cr_link_3_1",
+			"label": "CR Link 3.1",
+			"name": "cancer-risk-link-3_1",
+			"type": "text"
+		},
+		{
+			"key": "field_cr_text_3_1",
+			"label": "CR Text 3.1",
+			"name": "cancer-risk-text-3_1",
+			"type": "text"
+		},
+		{
+			"key": "field_cr_link_3_2",
+			"label": "CR Link 3.2",
+			"name": "cancer-risk-link-3_2",
+			"type": "text"
+		},
+		{
+			"key": "field_cr_text_3_2",
+			"label": "CR Text 3.2",
+			"name": "cancer-risk-text-3_2",
+			"type": "text"
+		},
+		{
+			"key": "field_cr_link_3_3",
+			"label": "CR Link 3.3",
+			"name": "cancer-risk-link-3_3",
+			"type": "text"
+		},
+		{
+			"key": "field_cr_text_3_3",
+			"label": "CR Text 3.3",
+			"name": "cancer-risk-text-3_3",
+			"type": "text"
+		},
+		{
+			"key": "field_cr_link_3_4",
+			"label": "CR Link 3.4",
+			"name": "cancer-risk-link-3_4",
+			"type": "text"
+		},
+		{
+			"key": "field_cr_text_3_4",
+			"label": "CR Text 3.4",
+			"name": "cancer-risk-text-3_4",
+			"type": "text"
+		},
+		{
+			"key": "field_cr_link_3_5",
+			"label": "CR Link 3.5",
+			"name": "cancer-risk-link-3_5",
+			"type": "text"
+		},
+		{
+			"key": "field_cr_text_3_5",
+			"label": "CR Text 3.5",
+			"name": "cancer-risk-text-3_5",
+			"type": "text"
+		},
+
+		{
+			"key": "field_tab_quantity_calories",
+			"label": "Количество пустых калорий в пище",
+			"name": "tab_quantity_calories",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_qc_description",
+			"label": "Описание блока 'Количество пустых калорий в пище'",
+			"name": "quantity-calories-description",
+			"type": "wysiwyg",
+			"toolbar": "full",
+			"media_upload": 0,
+			"tabs": "visual"
+		},
+		{
+			"key": "field_qc_text1",
+			"label": "Текст блока 'Количество пустых калорий в пище' 1",
+			"name": "quantity-calories-text1",
+			"type": "wysiwyg",
+			"toolbar": "full",
+			"media_upload": 0,
+			"tabs": "visual"
+		},
+		{
+			"key": "field_qc_links_info",
+			"label": "Ссылки блока 'Количество пустых калорий в пище'",
+			"name": "quantity-calories_links_info",
+			"type": "message",
+			"instructions": "Поля: quantity-calories-link-{n}_{i} и quantity-calories-text-{n}_{i} (n=1..3, i=1..5)"
+		},
+		{
+			"key": "field_qc_link_1_1",
+			"label": "QC Link 1.1",
+			"name": "quantity-calories-link-1_1",
+			"type": "text"
+		},
+		{
+			"key": "field_qc_text_1_1",
+			"label": "QC Text 1.1",
+			"name": "quantity-calories-text-1_1",
+			"type": "text"
+		},
+		{
+			"key": "field_qc_link_1_2",
+			"label": "QC Link 1.2",
+			"name": "quantity-calories-link-1_2",
+			"type": "text"
+		},
+		{
+			"key": "field_qc_text_1_2",
+			"label": "QC Text 1.2",
+			"name": "quantity-calories-text-1_2",
+			"type": "text"
+		},
+		{
+			"key": "field_qc_link_1_3",
+			"label": "QC Link 1.3",
+			"name": "quantity-calories-link-1_3",
+			"type": "text"
+		},
+		{
+			"key": "field_qc_text_1_3",
+			"label": "QC Text 1.3",
+			"name": "quantity-calories-text-1_3",
+			"type": "text"
+		},
+		{
+			"key": "field_qc_link_1_4",
+			"label": "QC Link 1.4",
+			"name": "quantity-calories-link-1_4",
+			"type": "text"
+		},
+		{
+			"key": "field_qc_text_1_4",
+			"label": "QC Text 1.4",
+			"name": "quantity-calories-text-1_4",
+			"type": "text"
+		},
+		{
+			"key": "field_qc_link_1_5",
+			"label": "QC Link 1.5",
+			"name": "quantity-calories-link-1_5",
+			"type": "text"
+		},
+		{
+			"key": "field_qc_text_1_5",
+			"label": "QC Text 1.5",
+			"name": "quantity-calories-text-1_5",
+			"type": "text"
+		},
+		{
+			"key": "field_qc_text2",
+			"label": "Текст блока 'Количество пустых калорий в пище' 2",
+			"name": "quantity-calories-text2",
+			"type": "wysiwyg",
+			"toolbar": "full",
+			"media_upload": 0,
+			"tabs": "visual"
+		},
+		{
+			"key": "field_qc_link_2_1",
+			"label": "QC Link 2.1",
+			"name": "quantity-calories-link-2_1",
+			"type": "text"
+		},
+		{
+			"key": "field_qc_text_2_1",
+			"label": "QC Text 2.1",
+			"name": "quantity-calories-text-2_1",
+			"type": "text"
+		},
+		{
+			"key": "field_qc_link_2_2",
+			"label": "QC Link 2.2",
+			"name": "quantity-calories-link-2_2",
+			"type": "text"
+		},
+		{
+			"key": "field_qc_text_2_2",
+			"label": "QC Text 2.2",
+			"name": "quantity-calories-text-2_2",
+			"type": "text"
+		},
+		{
+			"key": "field_qc_link_2_3",
+			"label": "QC Link 2.3",
+			"name": "quantity-calories-link-2_3",
+			"type": "text"
+		},
+		{
+			"key": "field_qc_text_2_3",
+			"label": "QC Text 2.3",
+			"name": "quantity-calories-text-2_3",
+			"type": "text"
+		},
+		{
+			"key": "field_qc_link_2_4",
+			"label": "QC Link 2.4",
+			"name": "quantity-calories-link-2_4",
+			"type": "text"
+		},
+		{
+			"key": "field_qc_text_2_4",
+			"label": "QC Text 2.4",
+			"name": "quantity-calories-text-2_4",
+			"type": "text"
+		},
+		{
+			"key": "field_qc_link_2_5",
+			"label": "QC Link 2.5",
+			"name": "quantity-calories-link-2_5",
+			"type": "text"
+		},
+		{
+			"key": "field_qc_text_2_5",
+			"label": "QC Text 2.5",
+			"name": "quantity-calories-text-2_5",
+			"type": "text"
+		},
+		{
+			"key": "field_qc_text3",
+			"label": "Текст блока 'Количество пустых калорий в пище' 3",
+			"name": "quantity-calories-text3",
+			"type": "wysiwyg",
+			"toolbar": "full",
+			"media_upload": 0,
+			"tabs": "visual"
+		},
+		{
+			"key": "field_qc_link_3_1",
+			"label": "QC Link 3.1",
+			"name": "quantity-calories-link-3_1",
+			"type": "text"
+		},
+		{
+			"key": "field_qc_text_3_1",
+			"label": "QC Text 3.1",
+			"name": "quantity-calories-text-3_1",
+			"type": "text"
+		},
+		{
+			"key": "field_qc_link_3_2",
+			"label": "QC Link 3.2",
+			"name": "quantity-calories-link-3_2",
+			"type": "text"
+		},
+		{
+			"key": "field_qc_text_3_2",
+			"label": "QC Text 3.2",
+			"name": "quantity-calories-text-3_2",
+			"type": "text"
+		},
+		{
+			"key": "field_qc_link_3_3",
+			"label": "QC Link 3.3",
+			"name": "quantity-calories-link-3_3",
+			"type": "text"
+		},
+		{
+			"key": "field_qc_text_3_3",
+			"label": "QC Text 3.3",
+			"name": "quantity-calories-text-3_3",
+			"type": "text"
+		},
+		{
+			"key": "field_qc_link_3_4",
+			"label": "QC Link 3.4",
+			"name": "quantity-calories-link-3_4",
+			"type": "text"
+		},
+		{
+			"key": "field_qc_text_3_4",
+			"label": "QC Text 3.4",
+			"name": "quantity-calories-text-3_4",
+			"type": "text"
+		},
+		{
+			"key": "field_qc_link_3_5",
+			"label": "QC Link 3.5",
+			"name": "quantity-calories-link-3_5",
+			"type": "text"
+		},
+		{
+			"key": "field_qc_text_3_5",
+			"label": "QC Text 3.5",
+			"name": "quantity-calories-text-3_5",
+			"type": "text"
+		}
+	],
+	"location": [
+		[
+			{
+				"param": "page_template",
+				"operator": "==",
+				"value": "templates/questionnaire-results.php"
+			}
+		]
+	],
+	"menu_order": 0,
+	"position": "normal",
+	"style": "default",
+	"label_placement": "top",
+	"instruction_placement": "label",
+	"hide_on_screen": "",
+	"active": true,
+	"description": "ACF поля для страницы с результатами опроса, который пользователи проходят в телеграм боте"
+}

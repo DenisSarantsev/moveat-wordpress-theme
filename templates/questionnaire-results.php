@@ -1,9 +1,9 @@
 <?php
 /*
- * Template Name: Результаты опроса в чат-боте
- * Template Post Type: post, page
- * Description: Шаблон страницы результатов опроса через чат-бот
- */
+ 	Template Name: Результаты опроса в чат-боте
+ 	Template Post Type: post, page
+ 	Description: Шаблон страницы результатов опроса через чат-бот
+*/
 get_header(); ?>
 <script>
 	// Определяем высоту хедера
@@ -27,7 +27,7 @@ get_header(); ?>
 			<div class="questresult__subtitle">
 				Спасибо за ваши ответы. Прежде, чем вы увидите ваши результаты, мы хотим настроить вас на серьёзный лад. Несмотря на кажущуюся простоту вопросов, сравнение содержимого вашей тарелки и состояния организма позволяет сделать достаточно обоснованные выводы о том, как ваше питание влияет на ваши моложавость, здоровье и энергичность.
 			</div>
-			<button class="questresult__button">
+			<button class="questresult__button primary-button">
 				Узнать результаты
 			</button>
 		</div>
@@ -38,40 +38,37 @@ get_header(); ?>
 			<div class="conclusions__subtitle average-text-container">
 					<?php the_field('general-conclusions-text1') ?>
 					<?php 
-						if( have_rows('general-conclusions-links-1') ):
-							while( have_rows('general-conclusions-links-1') ) : the_row(); ?>
-								<a href="<?php the_sub_field('general-conclusions-link-1') ?>" class="main-graphic__post-link">
-									<?php the_sub_field('general-conclusions-text-1') ?>
-								</a>
-							<?php 
-							endwhile;
-						endif;
+						for ($__i = 1; $__i <= 5; $__i++) {
+							$g_link = get_field("general-conclusions-link-1_{$__i}");
+							$g_text = get_field("general-conclusions-text-1_{$__i}");
+							if ( ! empty( $g_link ) && ! empty( $g_text ) ) {
+								echo '<a href="' . esc_url( $g_link ) . '" class="main-graphic__post-link">' . esc_html( $g_text ) . '</a>';
+							}
+						}
 					?>
 			</div>
 			<div class="conclusions__subtitle average-text-container">
 					<?php the_field('general-conclusions-text2') ?>
 					<?php 
-						if( have_rows('general-conclusions-links-2') ):
-							while( have_rows('general-conclusions-links-2') ) : the_row(); ?>
-								<a href="<?php the_sub_field('general-conclusions-link-2') ?>" class="main-graphic__post-link">
-									<?php the_sub_field('general-conclusions-text-2') ?>
-								</a>
-							<?php 
-							endwhile;
-						endif;
+						for ($__i = 1; $__i <= 5; $__i++) {
+							$g_link = get_field("general-conclusions-link-2_{$__i}");
+							$g_text = get_field("general-conclusions-text-2_{$__i}");
+							if ( ! empty( $g_link ) && ! empty( $g_text ) ) {
+								echo '<a href="' . esc_url( $g_link ) . '" class="main-graphic__post-link">' . esc_html( $g_text ) . '</a>';
+							}
+						}
 					?>
 			</div>		
 			<div class="conclusions__subtitle average-text-container">
 					<?php the_field('general-conclusions-text3') ?>
 					<?php 
-						if( have_rows('general-conclusions-links-3') ):
-							while( have_rows('general-conclusions-links-3') ) : the_row(); ?>
-								<a href="<?php the_sub_field('general-conclusions-link-3') ?>" class="main-graphic__post-link">
-									<?php the_sub_field('general-conclusions-text-3') ?>
-								</a>
-							<?php 
-							endwhile;
-						endif;
+						for ($__i = 1; $__i <= 5; $__i++) {
+							$g_link = get_field("general-conclusions-link-3_{$__i}");
+							$g_text = get_field("general-conclusions-text-3_{$__i}");
+							if ( ! empty( $g_link ) && ! empty( $g_text ) ) {
+								echo '<a href="' . esc_url( $g_link ) . '" class="main-graphic__post-link">' . esc_html( $g_text ) . '</a>';
+							}
+						}
 					?>
 			</div>	
 		</div>
@@ -89,6 +86,12 @@ get_header(); ?>
 	<h3 class="main-graphic__title">
 		Риск метаболического расстройства
 	</h3>
+	<?php
+		$__desc = get_field('metabolic-disorder-description');
+		if ( trim( $__desc ) !== '' ) {
+			echo '<div class="main-graphic__description">' . apply_filters('the_content', $__desc) . '</div>';
+		}
+	?>
 	<div class="main-graphic__graphic graphic">
 		<div class="graphic__container">
 			<div class="graphic__actual-number-container metab-syndrome-scale">
@@ -113,40 +116,37 @@ get_header(); ?>
 	<div class="main-graphic__result-description metab-text-container">
 		<?php the_field("metabolic-disorder-text1") ?>
 		<?php 
-			if( have_rows('metabolic-disorder-links-1') ):
-				while( have_rows('metabolic-disorder-links-1') ) : the_row(); ?>
-					<a href="<?php the_sub_field('metabolic-disorder-link-1') ?>" class="main-graphic__post-link">
-						<?php the_sub_field('metabolic-disorder-text-1') ?>
-					</a>
-				<?php 
-				endwhile;
-			endif;
+			for ($__i = 1; $__i <= 5; $__i++) {
+				$m_link = get_field("metabolic-disorder-link-1_{$__i}");
+				$m_text = get_field("metabolic-disorder-text-1_{$__i}");
+				if ( ! empty( $m_link ) && ! empty( $m_text ) ) {
+					echo '<a href="' . esc_url( $m_link ) . '" class="main-graphic__post-link">' . esc_html( $m_text ) . '</a>';
+				}
+			}
 		?>
 	</div>
 	<div class="main-graphic__result-description metab-text-container ">
 		<?php the_field("metabolic-disorder-text2") ?>
 		<?php 
-			if( have_rows('metabolic-disorder-links-2') ):
-				while( have_rows('metabolic-disorder-links-2') ) : the_row(); ?>
-					<a href="<?php the_sub_field('metabolic-disorder-link-2') ?>" class="main-graphic__post-link">
-						<?php the_sub_field('metabolic-disorder-text-2') ?>
-					</a>
-				<?php 
-				endwhile;
-			endif;
+			for ($__i = 1; $__i <= 5; $__i++) {
+				$m_link = get_field("metabolic-disorder-link-2_{$__i}");
+				$m_text = get_field("metabolic-disorder-text-2_{$__i}");
+				if ( ! empty( $m_link ) && ! empty( $m_text ) ) {
+					echo '<a href="' . esc_url( $m_link ) . '" class="main-graphic__post-link">' . esc_html( $m_text ) . '</a>';
+				}
+			}
 		?>
 	</div>
 	<div class="main-graphic__result-description metab-text-container ">
 		<?php the_field("metabolic-disorder-text3") ?>
 		<?php 
-			if( have_rows('metabolic-disorder-links-3') ):
-				while( have_rows('metabolic-disorder-links-3') ) : the_row(); ?>
-					<a href="<?php the_sub_field('metabolic-disorder-link-3') ?>" class="main-graphic__post-link">
-						<?php the_sub_field('metabolic-disorder-text-3') ?>
-					</a>
-				<?php 
-				endwhile;
-			endif;
+			for ($__i = 1; $__i <= 5; $__i++) {
+				$m_link = get_field("metabolic-disorder-link-3_{$__i}");
+				$m_text = get_field("metabolic-disorder-text-3_{$__i}");
+				if ( ! empty( $m_link ) && ! empty( $m_text ) ) {
+					echo '<a href="' . esc_url( $m_link ) . '" class="main-graphic__post-link">' . esc_html( $m_text ) . '</a>';
+				}
+			}
 		?>
 	</div>
 
@@ -158,6 +158,12 @@ get_header(); ?>
 				<h3 class="main-graphic__title">
 					Системное воспаление
 				</h3>
+			<?php
+				$__desc = get_field('systemic-inflammation-description');
+				if ( trim( $__desc ) !== '' ) {
+					echo '<div class="main-graphic__description">' . apply_filters('the_content', $__desc) . '</div>';
+				}
+			?>
 				<div class="main-graphic__graphic graphic">
 				<div class="graphic__container">
 						<div class="graphic__actual-number-container system-inflammation-scale">
@@ -182,40 +188,37 @@ get_header(); ?>
 				<div class="main-graphic__result-description inflammation-text-container">
 					<?php the_field('systemic-inflammation-text1') ?>
 					<?php 
-						if( have_rows('systemic-inflammation-links-1') ):
-							while( have_rows('systemic-inflammation-links-1') ) : the_row(); ?>
-								<a href="<?php the_sub_field('systemic-inflammation-link-1') ?>" class="main-graphic__post-link">
-									<?php the_sub_field('systemic-inflammation-text-1') ?>
-								</a>
-							<?php 
-							endwhile;
-						endif;
+						for ($__i = 1; $__i <= 5; $__i++) {
+							$s_link = get_field("systemic-inflammation-link-1_{$__i}");
+							$s_text = get_field("systemic-inflammation-text-1_{$__i}");
+							if ( ! empty( $s_link ) && ! empty( $s_text ) ) {
+								echo '<a href="' . esc_url( $s_link ) . '" class="main-graphic__post-link">' . esc_html( $s_text ) . '</a>';
+							}
+						}
 					?>
 				</div>
 				<div class="main-graphic__result-description inflammation-text-container ">
 					<?php the_field('systemic-inflammation-text2') ?>
 					<?php 
-						if( have_rows('systemic-inflammation-links-2') ):
-							while( have_rows('systemic-inflammation-links-2') ) : the_row(); ?>
-								<a href="<?php the_sub_field('systemic-inflammation-link-2') ?>" class="main-graphic__post-link">
-									<?php the_sub_field('systemic-inflammation-text-2') ?>
-								</a>
-							<?php 
-							endwhile;
-						endif;
+						for ($__i = 1; $__i <= 5; $__i++) {
+							$s_link = get_field("systemic-inflammation-link-2_{$__i}");
+							$s_text = get_field("systemic-inflammation-text-2_{$__i}");
+							if ( ! empty( $s_link ) && ! empty( $s_text ) ) {
+								echo '<a href="' . esc_url( $s_link ) . '" class="main-graphic__post-link">' . esc_html( $s_text ) . '</a>';
+							}
+						}
 					?>
 				</div>
 				<div class="main-graphic__result-description inflammation-text-container ">
 					<?php the_field('systemic-inflammation-text3') ?>
 					<?php 
-						if( have_rows('systemic-inflammation-links-3') ):
-							while( have_rows('systemic-inflammation-links-3') ) : the_row(); ?>
-								<a href="<?php the_sub_field('systemic-inflammation-link-3') ?>" class="main-graphic__post-link">
-									<?php the_sub_field('systemic-inflammation-text-3') ?>
-								</a>
-							<?php 
-							endwhile;
-						endif;
+						for ($__i = 1; $__i <= 5; $__i++) {
+							$s_link = get_field("systemic-inflammation-link-3_{$__i}");
+							$s_text = get_field("systemic-inflammation-text-3_{$__i}");
+							if ( ! empty( $s_link ) && ! empty( $s_text ) ) {
+								echo '<a href="' . esc_url( $s_link ) . '" class="main-graphic__post-link">' . esc_html( $s_text ) . '</a>';
+							}
+						}
 					?>
 				</div>
 			</div>
@@ -226,6 +229,12 @@ get_header(); ?>
 				<h3 class="main-graphic__title">
 					Уровень закисления
 				</h3>
+			<?php
+				$__desc = get_field('acidification-level-description');
+				if ( trim( $__desc ) !== '' ) {
+					echo '<div class="main-graphic__description">' . apply_filters('the_content', $__desc) . '</div>';
+				}
+			?>
 				<div class="main-graphic__graphic graphic">
 				<div class="graphic__container">
 						<div class="graphic__actual-number-container acidification-level-scale">
@@ -250,40 +259,37 @@ get_header(); ?>
 				<div class="main-graphic__result-description acidification-text-container">
 					<?php the_field('acidification-level-text1') ?>
 					<?php 
-						if( have_rows('acidification-level-links-1') ):
-							while( have_rows('acidification-level-links-1') ) : the_row(); ?>
-								<a href="<?php the_sub_field('acidification-level-link-1') ?>" class="main-graphic__post-link">
-									<?php the_sub_field('acidification-level-text-1') ?>
-								</a>
-							<?php 
-							endwhile;
-						endif;
+						for ($__i = 1; $__i <= 5; $__i++) {
+							$a_link = get_field("acidification-level-link-1_{$__i}");
+							$a_text = get_field("acidification-level-text-1_{$__i}");
+							if ( ! empty( $a_link ) && ! empty( $a_text ) ) {
+								echo '<a href="' . esc_url( $a_link ) . '" class="main-graphic__post-link">' . esc_html( $a_text ) . '</a>';
+							}
+						}
 					?>
 				</div>
 				<div class="main-graphic__result-description acidification-text-container">
 					<?php the_field('acidification-level-text2') ?>
 					<?php 
-						if( have_rows('acidification-level-links-2') ):
-							while( have_rows('acidification-level-links-2') ) : the_row(); ?>
-								<a href="<?php the_sub_field('acidification-level-link-2') ?>" class="main-graphic__post-link">
-									<?php the_sub_field('acidification-level-text-2') ?>
-								</a>
-							<?php 
-							endwhile;
-						endif;
+						for ($__i = 1; $__i <= 5; $__i++) {
+							$a_link = get_field("acidification-level-link-2_{$__i}");
+							$a_text = get_field("acidification-level-text-2_{$__i}");
+							if ( ! empty( $a_link ) && ! empty( $a_text ) ) {
+								echo '<a href="' . esc_url( $a_link ) . '" class="main-graphic__post-link">' . esc_html( $a_text ) . '</a>';
+							}
+						}
 					?>
 				</div>
 				<div class="main-graphic__result-description acidification-text-container">
 					<?php the_field('acidification-level-text3') ?>
 					<?php 
-						if( have_rows('acidification-level-links-3') ):
-							while( have_rows('acidification-level-links-3') ) : the_row(); ?>
-								<a href="<?php the_sub_field('acidification-level-link-3') ?>" class="main-graphic__post-link">
-									<?php the_sub_field('acidification-level-text-3') ?>
-								</a>
-							<?php 
-							endwhile;
-						endif;
+						for ($__i = 1; $__i <= 5; $__i++) {
+							$a_link = get_field("acidification-level-link-3_{$__i}");
+							$a_text = get_field("acidification-level-text-3_{$__i}");
+							if ( ! empty( $a_link ) && ! empty( $a_text ) ) {
+								echo '<a href="' . esc_url( $a_link ) . '" class="main-graphic__post-link">' . esc_html( $a_text ) . '</a>';
+							}
+						}
 					?>
 				</div>
 			</div>
@@ -294,6 +300,12 @@ get_header(); ?>
 				<h3 class="main-graphic__title">
 					Гликемичность рациона
 				</h3>
+			<?php
+				$__desc = get_field('glycemic-level-description');
+				if ( trim( $__desc ) !== '' ) {
+					echo '<div class="main-graphic__description">' . apply_filters('the_content', $__desc) . '</div>';
+				}
+			?>
 				<div class="main-graphic__graphic graphic">
 				<div class="graphic__container">
 						<div class="graphic__actual-number-container glycemic-level-scale">
@@ -318,40 +330,37 @@ get_header(); ?>
 				<div class="main-graphic__result-description glycemic-text-container">
 					<?php the_field('glycemic-level-text1') ?>
 					<?php 
-						if( have_rows('glycemic-level-links-1') ):
-							while( have_rows('glycemic-level-links-1') ) : the_row(); ?>
-								<a href="<?php the_sub_field('glycemic-level-link-1') ?>" class="main-graphic__post-link">
-									<?php the_sub_field('glycemic-level-text-1') ?>
-								</a>
-							<?php 
-							endwhile;
-						endif;
+						for ($__i = 1; $__i <= 5; $__i++) {
+							$g_link = get_field("glycemic-level-link-1_{$__i}");
+							$g_text = get_field("glycemic-level-text-1_{$__i}");
+							if ( ! empty( $g_link ) && ! empty( $g_text ) ) {
+								echo '<a href="' . esc_url( $g_link ) . '" class="main-graphic__post-link">' . esc_html( $g_text ) . '</a>';
+							}
+						}
 					?>
 				</div>
 				<div class="main-graphic__result-description glycemic-text-container">
 					<?php the_field('glycemic-level-text2') ?>
 					<?php 
-						if( have_rows('glycemic-level-links-2') ):
-							while( have_rows('glycemic-level-links-2') ) : the_row(); ?>
-								<a href="<?php the_sub_field('glycemic-level-link-2') ?>" class="main-graphic__post-link">
-									<?php the_sub_field('glycemic-level-text-2') ?>
-								</a>
-							<?php 
-							endwhile;
-						endif;
+						for ($__i = 1; $__i <= 5; $__i++) {
+							$g_link = get_field("glycemic-level-link-2_{$__i}");
+							$g_text = get_field("glycemic-level-text-2_{$__i}");
+							if ( ! empty( $g_link ) && ! empty( $g_text ) ) {
+								echo '<a href="' . esc_url( $g_link ) . '" class="main-graphic__post-link">' . esc_html( $g_text ) . '</a>';
+							}
+						}
 					?>
 				</div>
 				<div class="main-graphic__result-description glycemic-text-container">
 					<?php the_field('glycemic-level-text3') ?>
 					<?php 
-						if( have_rows('glycemic-level-links-3') ):
-							while( have_rows('glycemic-level-links-3') ) : the_row(); ?>
-								<a href="<?php the_sub_field('glycemic-level-link-3') ?>" class="main-graphic__post-link">
-									<?php the_sub_field('glycemic-level-text-3') ?>
-								</a>
-							<?php 
-							endwhile;
-						endif;
+						for ($__i = 1; $__i <= 5; $__i++) {
+							$g_link = get_field("glycemic-level-link-3_{$__i}");
+							$g_text = get_field("glycemic-level-text-3_{$__i}");
+							if ( ! empty( $g_link ) && ! empty( $g_text ) ) {
+								echo '<a href="' . esc_url( $g_link ) . '" class="main-graphic__post-link">' . esc_html( $g_text ) . '</a>';
+							}
+						}
 					?>
 				</div>
 			</div>
@@ -362,6 +371,12 @@ get_header(); ?>
 				<h3 class="main-graphic__title">
 					Риск ускоренного старения
 				</h3>
+			<?php
+				$__desc = get_field('accelerated-aging-description');
+				if ( trim( $__desc ) !== '' ) {
+					echo '<div class="main-graphic__description">' . apply_filters('the_content', $__desc) . '</div>';
+				}
+			?>
 				<div class="main-graphic__graphic graphic">
 				<div class="graphic__container">
 						<div class="graphic__actual-number-container accelerated-aging-scale">
@@ -386,40 +401,37 @@ get_header(); ?>
 				<div class="main-graphic__result-description accelerated-text-container">
 					<?php the_field('accelerated-aging-text1') ?>
 					<?php 
-						if( have_rows('accelerated-aging-links-1') ):
-							while( have_rows('accelerated-aging-links-1') ) : the_row(); ?>
-								<a href="<?php the_sub_field('accelerated-aging-link-1') ?>" class="main-graphic__post-link">
-									<?php the_sub_field('accelerated-aging-text-1') ?>
-								</a>
-							<?php 
-							endwhile;
-						endif;
+						for ($__i = 1; $__i <= 5; $__i++) {
+							$aa_link = get_field("accelerated-aging-link-1_{$__i}");
+							$aa_text = get_field("accelerated-aging-text-1_{$__i}");
+							if ( ! empty( $aa_link ) && ! empty( $aa_text ) ) {
+								echo '<a href="' . esc_url( $aa_link ) . '" class="main-graphic__post-link">' . esc_html( $aa_text ) . '</a>';
+							}
+						}
 					?>
 				</div>
 				<div class="main-graphic__result-description accelerated-text-container">
 					<?php the_field('accelerated-aging-text2') ?>
 					<?php 
-						if( have_rows('accelerated-aging-links-2') ):
-							while( have_rows('accelerated-aging-links-2') ) : the_row(); ?>
-								<a href="<?php the_sub_field('accelerated-aging-link-2') ?>" class="main-graphic__post-link">
-									<?php the_sub_field('accelerated-aging-text-2') ?>
-								</a>
-							<?php 
-							endwhile;
-						endif;
+						for ($__i = 1; $__i <= 5; $__i++) {
+							$aa_link = get_field("accelerated-aging-link-2_{$__i}");
+							$aa_text = get_field("accelerated-aging-text-2_{$__i}");
+							if ( ! empty( $aa_link ) && ! empty( $aa_text ) ) {
+								echo '<a href="' . esc_url( $aa_link ) . '" class="main-graphic__post-link">' . esc_html( $aa_text ) . '</a>';
+							}
+						}
 					?>
 				</div>
 				<div class="main-graphic__result-description accelerated-text-container">
 					<?php the_field('accelerated-aging-text3') ?>
 					<?php 
-						if( have_rows('accelerated-aging-links-3') ):
-							while( have_rows('accelerated-aging-links-3') ) : the_row(); ?>
-								<a href="<?php the_sub_field('accelerated-aging-link-3') ?>" class="main-graphic__post-link">
-									<?php the_sub_field('accelerated-aging-text-3') ?>
-								</a>
-							<?php 
-							endwhile;
-						endif;
+						for ($__i = 1; $__i <= 5; $__i++) {
+							$aa_link = get_field("accelerated-aging-link-3_{$__i}");
+							$aa_text = get_field("accelerated-aging-text-3_{$__i}");
+							if ( ! empty( $aa_link ) && ! empty( $aa_text ) ) {
+								echo '<a href="' . esc_url( $aa_link ) . '" class="main-graphic__post-link">' . esc_html( $aa_text ) . '</a>';
+							}
+						}
 					?>
 				</div>
 			</div>
@@ -430,6 +442,12 @@ get_header(); ?>
 				<h3 class="main-graphic__title">
 					Нарушение способности организма к самоочищению
 				</h3>
+			<?php
+				$__desc = get_field('self-cleaning-description');
+				if ( trim( $__desc ) !== '' ) {
+					echo '<div class="main-graphic__description">' . apply_filters('the_content', $__desc) . '</div>';
+				}
+			?>
 				<div class="main-graphic__graphic graphic">
 				<div class="graphic__container">
 						<div class="graphic__actual-number-container self-cleaning-scale">
@@ -453,41 +471,39 @@ get_header(); ?>
 				</div>
 				<div class="main-graphic__result-description self-cleaning-text-container">
 					<?php the_field('self-cleaning-text1') ?>
-					<?php 
-						if( have_rows('self-cleaning-links-1') ):
-							while( have_rows('self-cleaning-links-1') ) : the_row(); ?>
-								<a href="<?php the_sub_field('self-cleaning-link-1') ?>" class="main-graphic__post-link">
-									<?php the_sub_field('self-cleaning-text-1') ?>
-								</a>
-							<?php 
-							endwhile;
-						endif;
+					<?php
+					// Implemented properly below to avoid accidental parse conflicts
+					for ($__i = 1; $__i <= 5; $__i++) {
+						$sc_link = get_field("self-cleaning-link-1_{$__i}");
+						$sc_text = get_field("self-cleaning-text-1_{$__i}");
+						if ( ! empty( $sc_link ) && ! empty( $sc_text ) ) {
+							echo '<a href="' . esc_url( $sc_link ) . '" class="main-graphic__post-link">' . esc_html( $sc_text ) . '</a>';
+						}
+					}
 					?>
 				</div>
 				<div class="main-graphic__result-description self-cleaning-text-container">
 					<?php the_field('self-cleaning-text2') ?>
-					<?php 
-						if( have_rows('self-cleaning-links-2') ):
-							while( have_rows('self-cleaning-links-2') ) : the_row(); ?>
-								<a href="<?php the_sub_field('self-cleaning-link-2') ?>" class="main-graphic__post-link">
-									<?php the_sub_field('self-cleaning-text-2') ?>
-								</a>
-							<?php 
-							endwhile;
-						endif;
+					<?php
+					for ($__i = 1; $__i <= 5; $__i++) {
+						$sc_link = get_field("self-cleaning-link-2_{$__i}");
+						$sc_text = get_field("self-cleaning-text-2_{$__i}");
+						if ( ! empty( $sc_link ) && ! empty( $sc_text ) ) {
+							echo '<a href="' . esc_url( $sc_link ) . '" class="main-graphic__post-link">' . esc_html( $sc_text ) . '</a>';
+						}
+					}
 					?>
 				</div>
 				<div class="main-graphic__result-description self-cleaning-text-container">
 					<?php the_field('self-cleaning-text3') ?>
-					<?php 
-						if( have_rows('self-cleaning-links-3') ):
-							while( have_rows('self-cleaning-links-3') ) : the_row(); ?>
-								<a href="<?php the_sub_field('self-cleaning-link-3') ?>" class="main-graphic__post-link">
-									<?php the_sub_field('self-cleaning-text-3') ?>
-								</a>
-							<?php 
-							endwhile;
-						endif;
+					<?php
+					for ($__i = 1; $__i <= 5; $__i++) {
+						$sc_link = get_field("self-cleaning-link-3_{$__i}");
+						$sc_text = get_field("self-cleaning-text-3_{$__i}");
+						if ( ! empty( $sc_link ) && ! empty( $sc_text ) ) {
+							echo '<a href="' . esc_url( $sc_link ) . '" class="main-graphic__post-link">' . esc_html( $sc_text ) . '</a>';
+						}
+					}
 					?>
 				</div>
 			</div>
@@ -498,6 +514,12 @@ get_header(); ?>
 				<h3 class="main-graphic__title">
 					Риск раковых заболеваний
 				</h3>
+			<?php
+				$__desc = get_field('cancer-risk-description');
+				if ( trim( $__desc ) !== '' ) {
+					echo '<div class="main-graphic__description">' . apply_filters('the_content', $__desc) . '</div>';
+				}
+			?>
 				<div class="main-graphic__graphic graphic">
 				<div class="graphic__container">
 						<div class="graphic__actual-number-container cancer-risk-scale">
@@ -522,40 +544,37 @@ get_header(); ?>
 				<div class="main-graphic__result-description cancer-risk-text-container">
 					<?php the_field('cancer-risk-text1') ?>
 					<?php 
-						if( have_rows('cancer-risk-links-1') ):
-							while( have_rows('cancer-risk-links-1') ) : the_row(); ?>
-								<a href="<?php the_sub_field('cancer-risk-link-1') ?>" class="main-graphic__post-link">
-									<?php the_sub_field('cancer-risk-text-1') ?>
-								</a>
-							<?php 
-							endwhile;
-						endif;
+						for ($__i = 1; $__i <= 5; $__i++) {
+							$cr_link = get_field("cancer-risk-link-1_{$__i}");
+							$cr_text = get_field("cancer-risk-text-1_{$__i}");
+							if ( ! empty( $cr_link ) && ! empty( $cr_text ) ) {
+								echo '<a href="' . esc_url( $cr_link ) . '" class="main-graphic__post-link">' . esc_html( $cr_text ) . '</a>';
+							}
+						}
 					?>
 				</div>
 				<div class="main-graphic__result-description cancer-risk-text-container">
 					<?php the_field('cancer-risk-text2') ?>
 					<?php 
-						if( have_rows('cancer-risk-links-2') ):
-							while( have_rows('cancer-risk-links-2') ) : the_row(); ?>
-								<a href="<?php the_sub_field('cancer-risk-link-2') ?>" class="main-graphic__post-link">
-									<?php the_sub_field('cancer-risk-text-2') ?>
-								</a>
-							<?php 
-							endwhile;
-						endif;
+						for ($__i = 1; $__i <= 5; $__i++) {
+							$cr_link = get_field("cancer-risk-link-2_{$__i}");
+							$cr_text = get_field("cancer-risk-text-2_{$__i}");
+							if ( ! empty( $cr_link ) && ! empty( $cr_text ) ) {
+								echo '<a href="' . esc_url( $cr_link ) . '" class="main-graphic__post-link">' . esc_html( $cr_text ) . '</a>';
+							}
+						}
 					?>
 				</div>
 				<div class="main-graphic__result-description cancer-risk-text-container">
 					<?php the_field('cancer-risk-text3') ?>
 					<?php 
-						if( have_rows('cancer-risk-links-3') ):
-							while( have_rows('cancer-risk-links-3') ) : the_row(); ?>
-								<a href="<?php the_sub_field('cancer-risk-link-3') ?>" class="main-graphic__post-link">
-									<?php the_sub_field('cancer-risk-text-3') ?>
-								</a>
-							<?php 
-							endwhile;
-						endif;
+						for ($__i = 1; $__i <= 5; $__i++) {
+							$cr_link = get_field("cancer-risk-link-3_{$__i}");
+							$cr_text = get_field("cancer-risk-text-3_{$__i}");
+							if ( ! empty( $cr_link ) && ! empty( $cr_text ) ) {
+								echo '<a href="' . esc_url( $cr_link ) . '" class="main-graphic__post-link">' . esc_html( $cr_text ) . '</a>';
+							}
+						}
 					?>
 				</div>
 			</div>
@@ -566,6 +585,12 @@ get_header(); ?>
 				<h3 class="main-graphic__title">
 					Количество пустых калорий в пище
 				</h3>
+				<?php
+					$__desc = get_field('quantity-calories-description');
+					if ( trim( $__desc ) !== '' ) {
+						echo '<div class="main-graphic__description">' . apply_filters('the_content', $__desc) . '</div>';
+					}
+				?>
 				<div class="main-graphic__graphic graphic">
 				<div class="graphic__container">
 						<div class="graphic__actual-number-container quantity-calories-scale">
@@ -589,52 +614,57 @@ get_header(); ?>
 				</div>
 				<div class="main-graphic__result-description quantity-calories-text-container">
 					<?php the_field('quantity-calories-text1') ?>
-					<?php 
-						if( have_rows('quantity-calories-links-1') ):
-							while( have_rows('quantity-calories-links-1') ) : the_row(); ?>
-								<a href="<?php the_sub_field('quantity-calories-link-1') ?>" class="main-graphic__post-link">
-									<?php the_sub_field('quantity-calories-text-1') ?>
-								</a>
-							<?php 
-							endwhile;
-						endif;
+					<?php
+					for ($__i = 1; $__i <= 5; $__i++) {
+						$qc_link = get_field("quantity-calories-link-1_{$__i}");
+						$qc_text = get_field("quantity-calories-text-1_{$__i}");
+						if ( ! empty( $qc_link ) && ! empty( $qc_text ) ) {
+							echo '<a href="' . esc_url( $qc_link ) . '" class="main-graphic__post-link">' . esc_html( $qc_text ) . '</a>';
+						}
+					}
 					?>
 				</div>
 				<div class="main-graphic__result-description quantity-calories-text-container">
 					<?php the_field('quantity-calories-text2') ?>
-					<?php 
-						if( have_rows('quantity-calories-links-2') ):
-							while( have_rows('quantity-calories-links-2') ) : the_row(); ?>
-								<a href="<?php the_sub_field('quantity-calories-link-2') ?>" class="main-graphic__post-link">
-									<?php the_sub_field('quantity-calories-text-2') ?>
-								</a>
-							<?php 
-							endwhile;
-						endif;
+					<?php
+					for ($__i = 1; $__i <= 5; $__i++) {
+						$qc_link = get_field("quantity-calories-link-2_{$__i}");
+						$qc_text = get_field("quantity-calories-text-2_{$__i}");
+						if ( ! empty( $qc_link ) && ! empty( $qc_text ) ) {
+							echo '<a href="' . esc_url( $qc_link ) . '" class="main-graphic__post-link">' . esc_html( $qc_text ) . '</a>';
+						}
+					}
 					?>
 				</div>
 				<div class="main-graphic__result-description quantity-calories-text-container">
 					<?php the_field('quantity-calories-text3') ?>
-					<?php 
-						if( have_rows('quantity-calories-links-3') ):
-							while( have_rows('quantity-calories-links-3') ) : the_row(); ?>
-								<a href="<?php the_sub_field('quantity-calories-link-3') ?>" class="main-graphic__post-link">
-									<?php the_sub_field('quantity-calories-text-3') ?>
-								</a>
-							<?php 
-							endwhile;
-						endif;
+					<?php
+					for ($__i = 1; $__i <= 5; $__i++) {
+						$qc_link = get_field("quantity-calories-link-3_{$__i}");
+						$qc_text = get_field("quantity-calories-text-3_{$__i}");
+						if ( ! empty( $qc_link ) && ! empty( $qc_text ) ) {
+							echo '<a href="' . esc_url( $qc_link ) . '" class="main-graphic__post-link">' . esc_html( $qc_text ) . '</a>';
+						}
+					}
 					?>
 				</div>
 			</div>
 
-			<!-- Баннер внизу страницы -->
+			<!-- Контент из редактора -->
 			<?php
-				if( function_exists('get_field') ) {
-						$banner_shortcode = get_field('bottom-banner');
-						if( $banner_shortcode ) {
-								echo do_shortcode($banner_shortcode);
+				// Выводим весь контент записи/страницы вместо шорткода баннера,
+				// обернутый в контейнер, только если контент не пустой.
+				if ( have_posts() ) {
+					while ( have_posts() ) {
+						the_post();
+						ob_start();
+						the_content(); // возвращает уже отфильтрованный контент (wpautop, shortcodes и т.д.)
+						$processed = ob_get_clean();
+						// проверяем на пустой контент (без HTML)
+						if ( trim( strip_tags( $processed ) ) !== '' ) {
+							echo '<div class="quest-results-content">' . $processed . '</div>';
 						}
+					}
 				}
 			?>
 
@@ -749,6 +779,28 @@ firstBlockButton.addEventListener("click", () => {
 // Ссылка для теста
 // https://moveat.expert/resultat-kachestvo-pitaniya/?=average_score=2&average_score_text=2&metab_syndrome=38&metab_syndrome_text=2&inflamation=48&inflamation_text=3&acidification=26&acidification_text=2&glycemic_level=34&glycemic_level_text=1&risk_of_aging=39&risk_of_aging_text=3&cleanability=21&cleanability_text=2&cancer_risk=35&cancer_risk_text=2&empty_calories=22&empty_calories_text=3
 
+</script>
+
+<!-- Скролл при нажатии на кнопку в вступительном блоке -->
+<script>
+	document.addEventListener('DOMContentLoaded', function () {
+		const btn = document.querySelector('.questresult__button.primary-button');
+		const target = document.querySelector('.conclusions');
+		if (!btn || !target) return;
+		btn.addEventListener('click', function (e) {
+			e.preventDefault();
+			// try to account for fixed header height
+			const header = document.querySelector('[data-header]');
+			const headerHeight = header ? header.getBoundingClientRect().height : 0;
+			const top = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20; // 20px extra offset
+			window.scrollTo({ top: top, behavior: 'smooth' });
+			// set focus for accessibility
+			if (!target.hasAttribute('tabindex')) {
+				target.setAttribute('tabindex', '-1');
+			}
+			target.focus({ preventScroll: true });
+		});
+	});
 </script>
 
 <?php get_footer(); ?>
