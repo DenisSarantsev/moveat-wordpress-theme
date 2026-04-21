@@ -1,6 +1,6 @@
 <?php
 /*
-	Письмо клиенту о выполненном заказе
+	Письмо клиенту о неудавшемся заказе
 */
 ?>
 
@@ -49,7 +49,7 @@ if ( ! isset( $order ) || ! is_a( $order, 'WC_Order' ) ) {
 					padding:50px 20px 0px 20px;
 					text-align:center;
 				">
-					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/3d/green-check-mark.png' ); ?>" width="70" alt="Logo" 
+					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/3d/error.png' ); ?>" width="70" alt="Logo" 
 						style="
 							display:block;
 							margin:0 auto;
@@ -79,7 +79,7 @@ if ( ! isset( $order ) || ! is_a( $order, 'WC_Order' ) ) {
 						font-weight:bold;
 						text-align:center;
 					">
-					Заказ выполнен
+					Ошибка оплаты
 				</h1>
 				</td>
 			</tr>
@@ -91,12 +91,10 @@ if ( ! isset( $order ) || ! is_a( $order, 'WC_Order' ) ) {
 					<h2 style="margin:0;font-size:24px;font-weight:bold;text-align:center;">Номер заказа: <a href="<?php echo esc_url( $order->get_view_order_url() ); ?>" style="color:#ff7f13;text-decoration:underline;font-size:20px;font-weight:600;">#<?php echo esc_html( $order_number ); ?></a></h2>
 					<p style="margin:5px 0;color:#666;font-size:14px;text-align:center;padding:4px 0px;"><?php echo esc_html( $order_date ); ?></p>
 					<p style="margin:10px 0;color:#333;font-size:14px;text-align:center;line-height:140%;">
-						Ваш заказ в Школе здорового питания
-						Максима Погорелого отмечен у нас как
-						"выполненный".
+						К сожалению, ваш заказ не был выполнен.
 					</p>
 					<p style="margin:10px 0;color:#333;font-size:14px;text-align:center;line-height:140%;">
-						Для удобства давайте перейдем в чат одного из мессенджеров:
+						Для решения этой проблемы перейдите в чат одного из мессенджеров:
 					</p>
 					<!-- Иконки мессенджеров -->
 					<div style="
@@ -175,25 +173,13 @@ if ( ! isset( $order ) || ! is_a( $order, 'WC_Order' ) ) {
 						</a>
 					</div>
 					<p style="margin:10px 0;color:#333;font-size:14px;text-align:center;line-height:140%;">
-						Выбирайте удобный вам мессенджер для
-						общения. Напишите в первом сообщении ваши Фамилию и Имя, а также email.
+						В первом сообщении укажите ваши имя и фамилию, или ваш имейл, и сообщите менеджеру, что ваш заказ не удался.
+						И мы исправим эту оплошность.
+						Там вам помогут оформить заказ и еще вас ждет приятный бонус.
 					</p>
-					<?php if ( $needs_payment && $payment_url ) : ?>
-						<p style="margin:10px 0;">
-							<a href="<?php echo esc_url( $payment_url ); ?>" 
-								style="
-									background:#ff7f13;
-									color:#fff;
-									padding:10px 30px;
-									border-radius:6px;
-									text-decoration:none;
-									display:inline-block;
-									font-weight:bold;
-									">
-									ОПЛАТИТЬ ЗАКАЗ
-							</a>
-						</p>
-					<?php endif; ?>
+					<p style="margin:10px 0;color:#333;font-size:14px;text-align:center;line-height:140%;">
+						С уважением, Макс Погорелый и команда Moveat
+					</p>
 				</td>
 			</tr>
 			<tr>
