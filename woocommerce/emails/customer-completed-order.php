@@ -1,36 +1,8 @@
 <?php
 /*
 	Письмо клиенту о выполненном заказе
-				Для удобства давайте
-				перейдем в чат одного из мессенджеров
-				(WhatsApp, Viber, Telegram). Переходите по этой
-				ссылке: https://moveat.expert/contact-messengers/
-if ( ! defined( 'ABSPATH' ) ) {
-
-			<!-- Иконки мессенджеров -->
-			<div style="text-align:center;margin:12px 0 0;">
-				<a href="https://moveat.expert/contact-messengers/" style="display:inline-block;margin:0 8px;" target="_blank" rel="noopener">
-					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/3d/whatsapp.png' ); ?>" width="36" alt="WhatsApp" style="border:0;display:block;" />
-				</a>
-				<a href="https://moveat.expert/contact-messengers/" style="display:inline-block;margin:0 8px;" target="_blank" rel="noopener">
-					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/3d/viber.png' ); ?>" width="36" alt="Viber" style="border:0;display:block;" />
-				</a>
-				<a href="https://moveat.expert/contact-messengers/" style="display:inline-block;margin:0 8px;" target="_blank" rel="noopener">
-					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/3d/telegram.png' ); ?>" width="36" alt="Telegram" style="border:0;display:block;" />
-				</a>
-			</div>
-	exit;
-}
-
-$email_improvements_enabled = FeaturesUtil::feature_is_enabled( 'email_improvements' );
-
-/*
- * @hooked WC_Emails::email_header() Вывод шапки email
- */
-// do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
-
-
-	
+*/
+?>
 
 <?php
 // Рендерим HTML-письмо по предоставленной структуре и подставляем динамические данные заказа.
@@ -89,8 +61,8 @@ if ( ! isset( $order ) || ! is_a( $order, 'WC_Order' ) ) {
 							margin:0 auto;
 							border:0;
 							position:absolute;
-							top: 20px;
-							left:20px;
+							top: 24px;
+							left:24px;
 						" />
 				</td>
 			</tr>
@@ -136,7 +108,7 @@ if ( ! isset( $order ) || ! is_a( $order, 'WC_Order' ) ) {
 							align-items: center;
 							gap: 16px;
 						">
-						<a href="https://moveat.expert/contact-messengers/" 
+						<a href="https://www.instagram.com/max_pogorely/" 
 							style="
 								display:flex;
 								justify-content:center;
@@ -159,7 +131,7 @@ if ( ! isset( $order ) || ! is_a( $order, 'WC_Order' ) ) {
 									filter: invert(99%) sepia(99%) saturate(0%) hue-rotate(283deg) brightness(105%) contrast(101%);
 								"/>
 						</a>
-						<a href="https://moveat.expert/contact-messengers/" 
+						<a href="https://380991900483.wa.pulse.is/" 
 							style="
 								display:flex;
 								justify-content:center;
@@ -180,7 +152,7 @@ if ( ! isset( $order ) || ! is_a( $order, 'WC_Order' ) ) {
 								" 
 							/>
 						</a>
-						<a href="https://moveat.expert/contact-messengers/" 
+						<a href="https://t.me/MaxPogorelyBot" 
 							style="
 								display:flex;
 								justify-content:center;
@@ -251,6 +223,32 @@ if ( ! isset( $order ) || ! is_a( $order, 'WC_Order' ) ) {
 					<p style="text-align:right;margin-top:20px;font-size:16px;">К оплате: <strong><?php echo wp_kses_post( wc_price( $total_amount ) ); ?></strong></p>
 				</td>
 			</tr>
+
+			<tr>
+				<td style="padding:10px 20px;border-top:2px solid #efefef;border-bottom:2px solid #efefef;">
+					<?php
+					// Контактные данные покупателя
+					$billing_first = $order->get_billing_first_name();
+					$billing_last  = $order->get_billing_last_name();
+					$billing_phone = $order->get_billing_phone();
+					$billing_email = $order->get_billing_email();
+					?>
+					<?php if ( $billing_first || $billing_last || $billing_phone || $billing_email ) : ?>
+						<p style="margin:8px 0;color:#333;font-size:14px;text-align:center;line-height:1.4;">
+							<?php if ( $billing_first || $billing_last ) : ?>
+								<strong><?php echo esc_html( trim( $billing_first . ' ' . $billing_last ) ); ?></strong><br />
+							<?php endif; ?>
+							<?php if ( $billing_phone ) : ?>
+								Телефон: <a href="tel:<?php echo esc_attr( preg_replace( '/[^+0-9]/', '', $billing_phone ) ); ?>" style="color:#000;text-decoration:underline;"><?php echo esc_html( $billing_phone ); ?></a><br />
+							<?php endif; ?>
+							<?php if ( $billing_email ) : ?>
+								Email: <a href="mailto:<?php echo esc_attr( $billing_email ); ?>" style="color:#000;text-decoration:underline;"><?php echo esc_html( $billing_email ); ?></a>
+							<?php endif; ?>
+						</p>
+					<?php endif; ?>
+				</td>
+			</tr>
+
 			<tr>
 				<td style="padding:15px 20px;text-align:center;">
 					<p style="
