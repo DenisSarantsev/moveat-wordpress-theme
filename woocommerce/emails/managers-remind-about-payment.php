@@ -1,6 +1,7 @@
 <?php
 /*
-	Письмо клиенту о выполненном заказе
+	Напоминание клиенту об оплате
+	customer-remind-about-payment
 */
 ?>
 
@@ -23,7 +24,15 @@ if ( ! isset( $order ) || ! is_a( $order, 'WC_Order' ) ) {
 	$order_number    = $order->get_order_number();
 	$order_date      = $order->get_date_created() ? wc_format_datetime( $order->get_date_created() ) : '';
 	$needs_payment   = method_exists( $order, 'needs_payment' ) ? $order->needs_payment() : false;
-	$payment_url     = $needs_payment && method_exists( $order, 'get_checkout_payment_url' ) ? $order->get_checkout_payment_url() : '';
+	// Формируем ссылку на оплату в формате: https://example.com/order-pay/?order_id=ID&order_key=KEY
+	if ( $needs_payment ) {
+		$payment_url = add_query_arg( array(
+			'order_id'  => $order->get_id(),
+			'order_key' => $order->get_order_key(),
+		), home_url( '/order-pay/' ) );
+	} else {
+		$payment_url = '';
+	}
 	$subtotal_amount = $order->get_subtotal();
 	$discount_total  = $order->get_discount_total();
 	$total_amount    = $order->get_total();
@@ -49,7 +58,7 @@ if ( ! isset( $order ) || ! is_a( $order, 'WC_Order' ) ) {
 					padding:50px 20px 0px 20px;
 					text-align:center;
 				">
-					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/3d/green-check-mark.png' ); ?>" width="70" alt="Logo" 
+					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/3d/info.png' ); ?>" width="70" alt="Logo" 
 						style="
 							display:block;
 							margin:0 auto;
@@ -70,7 +79,7 @@ if ( ! isset( $order ) || ! is_a( $order, 'WC_Order' ) ) {
 						font-weight:bold;
 						text-align:center;
 					">
-					Заказ выполнен
+					Напоминание об оплате
 				</h1>
 				</td>
 			</tr>
@@ -82,37 +91,15 @@ if ( ! isset( $order ) || ! is_a( $order, 'WC_Order' ) ) {
 					<h2 style="margin:0;font-size:24px;font-weight:bold;text-align:center;">Номер заказа: <a href="<?php echo esc_url( $order->get_view_order_url() ); ?>" style="color:#ff7f13;text-decoration:underline;font-size:20px;font-weight:600;">#<?php echo esc_html( $order_number ); ?></a></h2>
 					<p style="margin:5px 0;color:#666;font-size:14px;text-align:center;padding:4px 0px;"><?php echo esc_html( $order_date ); ?></p>
 					<p style="margin:10px 0;color:#333;font-size:14px;text-align:center;line-height:140%;">
-						Ваш заказ в Школе здорового питания
-						Максима Погорелого отмечен у нас как
-						"выполненный".
+						Пользователю было отправлено сообщение с напоминанем об оплате
 					</p>
-					<p style="margin:10px 0;color:#333;font-size:14px;text-align:center;line-height:140%;">
-						Для удобства давайте перейдем в чат одного из мессенджеров:
-					</p>
-					<!-- Иконки мессенджеров -->
-					<table role="presentation" align="center" style="margin:12px auto 0;border-collapse:collapse;">
-						<tr>
-							<td style="padding:0 8px;text-align:center;">
-								<a href="https://380991900483.wa.pulse.is" target="_blank" rel="noopener" style="display:inline-block;width:54px;height:54px;background:#25d366;border-radius:50%;text-decoration:none;">
-									<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/white/whatsapp.png' ); ?>" width="32" height="32" alt="WhatsApp" style="display:block;margin:11px auto;border:0;" />
-								</a>
-							</td>
-							<td style="padding:0 8px;text-align:center;">
-								<a href="https://max-pogorely.vb.pulse.is" target="_blank" rel="noopener" style="display:inline-block;width:54px;height:54px;background:#7360f2;border-radius:50%;text-decoration:none;">
-									<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/white/viber.png' ); ?>" width="26" height="26" alt="Viber" style="display:block;margin:14px auto;border:0;" />
-								</a>
-							</td>
-							<td style="padding:0 8px;text-align:center;">
-								<a href="https://maxpogorelybot.tg.pulse.is" target="_blank" rel="noopener" style="display:inline-block;width:54px;height:54px;background:#24A1DE;border-radius:50%;text-decoration:none;">
-									<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/white/telegram.png' ); ?>" width="28" height="28" alt="Telegram" style="display:block;margin:13px auto;border:0;" />
-								</a>
-							</td>
-						</tr>
-					</table>
-					<p style="margin:10px 0;color:#333;font-size:14px;text-align:center;line-height:140%;">
-						Выбирайте удобный вам мессенджер для
-						общения. Напишите в первом сообщении ваши Фамилию и Имя, а также email.
-					</p>
+
+					<?php if ( $needs_payment && $payment_url ) : ?>
+						<p style="margin:10px 0;padding-top: 10px;color:#333;font-size:14px;text-align:center;line-height:140%;">
+							Ссылка для оплаты заказа: <a href="<?php echo esc_url( $payment_url ); ?>" style="color:#ff7f13;text-decoration:underline;" target="_blank" rel="noopener"><?php echo esc_html( $payment_url ); ?></a>
+						</p>
+					<?php endif; ?>
+
 				</td>
 			</tr>
 			<tr>
@@ -191,10 +178,4 @@ if ( ! isset( $order ) || ! is_a( $order, 'WC_Order' ) ) {
 	</div>
 
 	<?php
-	// Дополнительный контент, если он передан
-	// if ( $additional_content ) {
-	// 	echo wp_kses_post( wpautop( wptexturize( $additional_content ) ) );
-	// }
 }
-
-// do_action( 'woocommerce_email_footer', $email );

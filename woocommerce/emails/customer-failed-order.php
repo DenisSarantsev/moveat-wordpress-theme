@@ -55,15 +55,6 @@ if ( ! isset( $order ) || ! is_a( $order, 'WC_Order' ) ) {
 							margin:0 auto;
 							border:0;
 						" />
-					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/logo.png' ); ?>" width="80" alt="Logo" 
-						style="
-							display:block;
-							margin:0 auto;
-							border:0;
-							position:absolute;
-							top: 24px;
-							left:24px;
-						" />
 				</td>
 			</tr>
 			<tr>
@@ -97,81 +88,25 @@ if ( ! isset( $order ) || ! is_a( $order, 'WC_Order' ) ) {
 						Для решения этой проблемы перейдите в чат одного из мессенджеров:
 					</p>
 					<!-- Иконки мессенджеров -->
-					<div style="
-							text-align:center;
-							margin:12px 0 0;
-							display:flex;
-							flex-direction:center;
-							justify-content:center;
-							align-items: center;
-							gap: 16px;
-						">
-						<a href="https://www.instagram.com/max_pogorely/" 
-							style="
-								display:flex;
-								justify-content:center;
-								align-items:center;
-								margin:0px;
-								width:54px;
-								height:54px;
-								background:#25d366;
-								border-radius:50%;
-							" 
-							target="_blank" rel="noopener">
-							<img 
-								src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/whatsapp.png' ); ?>" 
-								width="32" 
-								alt="WhatsApp" 
-								style="
-									border:0;
-									display:block;
-									margin:0px;
-									filter: invert(99%) sepia(99%) saturate(0%) hue-rotate(283deg) brightness(105%) contrast(101%);
-								"/>
-						</a>
-						<a href="https://380991900483.wa.pulse.is/" 
-							style="
-								display:flex;
-								justify-content:center;
-								align-items:center;
-								margin:0px;
-								width:54px;
-								height:54px;
-								background:#7360f2;
-								border-radius:50%;
-							" 
-							target="_blank" rel="noopener">
-							<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/viber.png' ); ?>" width="26" alt="Viber" 
-								style="
-									border:0;
-									display:block;
-									margin:0px;
-									filter: invert(99%) sepia(99%) saturate(0%) hue-rotate(283deg) brightness(105%) contrast(101%);
-								" 
-							/>
-						</a>
-						<a href="https://t.me/MaxPogorelyBot" 
-							style="
-								display:flex;
-								justify-content:center;
-								align-items:center;
-								margin:0px;
-								width:54px;
-								height:54px;
-								background:#24A1DE;
-								border-radius:50%;
-							"  
-							target="_blank" rel="noopener">
-							<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/telegram.png' ); ?>" width="28" alt="Telegram" 
-								style="
-									border:0;
-									display:block;
-									margin:0px;
-									filter: invert(99%) sepia(99%) saturate(0%) hue-rotate(283deg) brightness(105%) contrast(101%);
-								" 
-							/>
-						</a>
-					</div>
+					<table role="presentation" align="center" style="margin:12px auto 0;border-collapse:collapse;">
+						<tr>
+							<td style="padding:0 8px;text-align:center;">
+								<a href="https://380991900483.wa.pulse.is" target="_blank" rel="noopener" style="display:inline-block;width:54px;height:54px;background:#25d366;border-radius:50%;text-decoration:none;">
+									<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/white/whatsapp.png' ); ?>" width="32" height="32" alt="WhatsApp" style="display:block;margin:11px auto;border:0;" />
+								</a>
+							</td>
+							<td style="padding:0 8px;text-align:center;">
+								<a href="https://max-pogorely.vb.pulse.is" target="_blank" rel="noopener" style="display:inline-block;width:54px;height:54px;background:#7360f2;border-radius:50%;text-decoration:none;">
+									<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/white/viber.png' ); ?>" width="26" height="26" alt="Viber" style="display:block;margin:14px auto;border:0;" />
+								</a>
+							</td>
+							<td style="padding:0 8px;text-align:center;">
+								<a href="https://maxpogorelybot.tg.pulse.is" target="_blank" rel="noopener" style="display:inline-block;width:54px;height:54px;background:#24A1DE;border-radius:50%;text-decoration:none;">
+									<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/white/telegram.png' ); ?>" width="28" height="28" alt="Telegram" style="display:block;margin:13px auto;border:0;" />
+								</a>
+							</td>
+						</tr>
+					</table>
 					<p style="margin:10px 0;color:#333;font-size:14px;text-align:center;line-height:140%;">
 						В первом сообщении укажите ваши имя и фамилию, или ваш имейл, и сообщите менеджеру, что ваш заказ не удался.
 						И мы исправим эту оплошность.

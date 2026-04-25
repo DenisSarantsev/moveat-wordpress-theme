@@ -17117,6 +17117,192 @@ fieldset:disabled .btn {
 	width: 100%;
 	text-align: left;
 }
+.page-deleted__wrapper {
+	height: 100%;
+	min-height: 100vh;
+	padding: 30px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 24px;
+	animation-name: fadeUp;
+	animation-duration: 0.9s;
+	animation-timing-function: cubic-bezier(0.2, 0.9, 0.2, 1);
+	animation-delay: 0s;
+	animation-fill-mode: both;
+}
+.page-deleted__image {
+	opacity: 0;
+	width: 100px;
+	animation-name: imageFade;
+	animation-duration: 0.2s;
+	animation-timing-function: ease;
+	animation-delay: 0.2s;
+	animation-fill-mode: both;
+}
+.page-deleted__title {
+	opacity: 0;
+	text-align: center;
+	font-weight: 600;
+	line-height: 1.15;
+	font-size: 42px;
+	animation-name: fadeUp;
+	animation-duration: 0.9s;
+	animation-timing-function: cubic-bezier(0.2, 0.9, 0.2, 1);
+	animation-delay: 0.28s;
+	animation-fill-mode: both;
+}
+.page-deleted__description {
+	opacity: 0;
+	text-align: center;
+	color: inherit;
+	max-width: 720px;
+	line-height: 120%;
+	animation-name: fadeUp;
+	animation-duration: 0.9s;
+	animation-timing-function: cubic-bezier(0.2, 0.9, 0.2, 1);
+	animation-delay: 0.38s;
+	animation-fill-mode: both;
+}
+@media (max-width: 1100px) {
+	.page-deleted__wrapper {
+		padding: 26px;
+		gap: 20px;
+	}
+	.page-deleted__image {
+		width: 80px;
+	}
+	.page-deleted__title {
+		font-size: 34px;
+	}
+	.page-deleted__description {
+		font-size: 16px;
+	}
+}
+@media (max-width: 768px) {
+	.page-deleted__wrapper {
+		padding: 20px;
+		gap: 18px;
+	}
+	.page-deleted__image {
+		width: 60px;
+	}
+	.page-deleted__title {
+		font-size: 28px;
+	}
+	.page-deleted__description {
+		font-size: 14px;
+	}
+}
+@media (max-width: 480px) {
+	.page-deleted__wrapper {
+		padding: 16px;
+		gap: 12px;
+	}
+	.page-deleted__image {
+		width: 54px;
+	}
+	.page-deleted__title {
+		font-size: 22px;
+	}
+	.page-deleted__description {
+		font-size: 13px;
+	}
+}
+.page-not-found__wrapper {
+	height: 100%;
+	min-height: 100vh;
+	padding: 30px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 24px;
+	animation-name: fadeUp;
+	animation-duration: 0.9s;
+	animation-timing-function: cubic-bezier(0.2, 0.9, 0.2, 1);
+	animation-delay: 0s;
+	animation-fill-mode: both;
+}
+.page-not-found__image {
+	opacity: 0;
+	width: 150px;
+	animation-name: imageFade;
+	animation-duration: 0.2s;
+	animation-timing-function: ease;
+	animation-delay: 0.2s;
+	animation-fill-mode: both;
+}
+.page-not-found__title {
+	opacity: 0;
+	text-align: center;
+	font-weight: 600;
+	line-height: 1.15;
+	font-size: 42px;
+	animation-name: fadeUp;
+	animation-duration: 0.9s;
+	animation-timing-function: cubic-bezier(0.2, 0.9, 0.2, 1);
+	animation-delay: 0.28s;
+	animation-fill-mode: both;
+}
+.page-not-found__description {
+	opacity: 0;
+	text-align: center;
+	color: inherit;
+	max-width: 720px;
+	line-height: 120%;
+	animation-name: fadeUp;
+	animation-duration: 0.9s;
+	animation-timing-function: cubic-bezier(0.2, 0.9, 0.2, 1);
+	animation-delay: 0.38s;
+	animation-fill-mode: both;
+}
+@media (max-width: 1100px) {
+	.page-deleted__wrapper {
+		padding: 26px;
+		gap: 20px;
+	}
+	.page-deleted__image {
+		width: 120px;
+	}
+	.page-deleted__title {
+		font-size: 34px;
+	}
+	.page-deleted__description {
+		font-size: 16px;
+	}
+}
+@media (max-width: 768px) {
+	.page-not-found__wrapper {
+		padding: 20px;
+		gap: 18px;
+	}
+	.page-not-found__image {
+		width: 85px;
+	}
+	.page-not-found__title {
+		font-size: 28px;
+	}
+	.page-not-found__description {
+		font-size: 14px;
+	}
+}
+@media (max-width: 480px) {
+	.page-not-found__wrapper {
+		padding: 16px;
+		gap: 12px;
+	}
+	.page-not-found__image {
+		width: 65px;
+	}
+	.page-not-found__title {
+		font-size: 22px;
+	}
+	.page-not-found__description {
+		font-size: 13px;
+	}
+}
 .primary-button {
 	display: inline-flex;
 	align-items: center;
@@ -18836,6 +19022,13 @@ fieldset:disabled .btn {
 	animation-fill-mode: both;
 	animation-timing-function: ease;
 }
+@media (prefers-reduced-motion: reduce) {
+	.anim-fade-up,
+	.anim-button-pop,
+	.anim-image-fade {
+		animation: none !important;
+	}
+}
 html {
 	scrollbar-width: none;
 	-ms-overflow-style: none;
@@ -18852,6 +19045,10 @@ body {
 	overflow-y: scroll;
 	scrollbar-width: none;
 	-ms-overflow-style: none;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 body::-webkit-scrollbar {
 	display: none;

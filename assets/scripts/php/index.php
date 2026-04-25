@@ -9,6 +9,8 @@ require_once __DIR__ . '/main/menu.php';
 require_once __DIR__ . '/main/logo.php';
 // Включает режим технического обслуживания и исключения.
 require_once __DIR__ . '/main/maintenance-mode.php';
+// Правила для показа 410 ошибки
+require_once __DIR__ . '/main/410-rules.php';
 
 // -------------- WooCommerce modules
 // Передает конфиг Woo Store API на фронтенд (baseUrl и nonce).
@@ -24,4 +26,8 @@ if ( class_exists( 'WooCommerce' ) ) {
 	require_once __DIR__ . '/woocommerce/api/create-order.php';
 	// Оплата заказа
 	require_once __DIR__ . '/woocommerce/api/pay-order.php';
+	// Напоминание об оплате (пользователю и менеджерам)
+	require_once __DIR__ . '/woocommerce/emails/reminders.php';
+	// Сообщение о выполненном заказе админу
+	require_once __DIR__ . '/woocommerce/emails/completed-order.php';
 }
