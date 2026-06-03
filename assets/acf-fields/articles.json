@@ -1,7 +1,45 @@
 {
 	"key": "group_articles",
-	"title": "Articles",
-	"fields": [],
+	"title": "Статьи",
+	"fields": [
+		{
+			"key": "field_articles_categories",
+			"label": "Рубрики для вывода статей",
+			"name": "articles_categories",
+			"type": "taxonomy",
+			"instructions": "Отметьте чекбоксами рубрики записей WordPress. На странице выводится общий список статей из выбранных рубрик, по дате публикации (сначала новые). В списке доступны все рубрики сайта.",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"taxonomy": "category",
+			"field_type": "checkbox",
+			"allow_null": 1,
+			"add_term": 0,
+			"save_terms": 0,
+			"load_terms": 0,
+			"return_format": "id",
+			"multiple": 0
+		},
+		{
+			"key": "field_articles_buttons_title",
+			"label": "Текст кнопки на карточке статьи",
+			"name": "articles_buttons_title",
+			"type": "text",
+			"instructions": "Подпись на кнопке в списке статей (одинаковая для всех карточек на этой странице).",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Читать статью",
+			"placeholder": "",
+			"maxlength": ""
+		}
+	],
 	"location": [
 		[
 			{
@@ -14,4 +52,3 @@
 	"instruction_placement": "label",
 	"active": true
 }
-

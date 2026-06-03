@@ -8,6 +8,12 @@
 
 	<!-- Page Header Start -->
 	<div class="hero-block">
+		<div class="hero-block__bg-wrapper">
+			<img
+				class="hero-block__bg-image"
+				src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/illustrations/vegetables.jpg' ); ?>"
+				alt="<?php echo esc_attr__( 'vegetables', 'moveat' ); ?>" />
+		</div>
 		<div class="hero-block__container">
 			<h1 class="hero-block__title"><?php echo esc_html( get_the_title() ); ?></h1>
 			<nav aria-label="breadcrumb no-padding animated slideInDown page-hero__breadcrumbs">
@@ -30,14 +36,42 @@
 			<div class="articles__grid">
 				<?php
 					$paged = max(1, get_query_var('paged'));
-					$query = new WP_Query([
-						'post_type'      => 'post',
-						'post_status'    => 'publish',
-						'posts_per_page' => 12,
-						'paged'          => $paged,
-					]);
+					$articles_page_id = get_queried_object_id();
+					$category_ids = [];
+					$articles_button_title = '';
+					if (function_exists('get_field')) {
+						$btn = get_field('articles_buttons_title', $articles_page_id);
+						if (is_string($btn)) {
+							$articles_button_title = trim($btn);
+						}
+						$acf_categories = get_field('articles_categories', $articles_page_id);
+						if (! empty($acf_categories)) {
+							$category_ids = is_array($acf_categories) ? $acf_categories : [ $acf_categories ];
+							$category_ids = array_values(
+								array_unique(
+									array_filter(array_map('absint', $category_ids))
+								)
+							);
+						}
+					}
+					if ($articles_button_title === '') {
+						$articles_button_title = 'Читать статью';
+					}
+
+					$query = null;
+					if (! empty($category_ids)) {
+						$query = new WP_Query([
+							'post_type'      => 'post',
+							'post_status'    => 'publish',
+							'posts_per_page' => 12,
+							'paged'          => $paged,
+							'category__in'   => $category_ids,
+							'orderby'        => 'date',
+							'order'          => 'DESC',
+						]);
+					}
 				?>
-				<?php if ($query->have_posts()) : ?>
+				<?php if (! empty($category_ids) && $query && $query->have_posts()) : ?>
 					<?php while ($query->have_posts()) : $query->the_post(); ?>
 						<a href="<?php the_permalink(); ?>" class="articles__card article-card">
 							<div class="article-card__top">
@@ -54,17 +88,17 @@
 								</div>
 							</div>
 							<div class="article-card__bottom">
-								<span class="article-card__button primary-button">Читать статью</span>
+								<span class="article-card__button primary-button"><?php echo esc_html($articles_button_title); ?></span>
 							</div>
 						</a>
 					<?php endwhile; wp_reset_postdata(); ?>
-				<?php else : ?>
+				<?php elseif (! empty($category_ids)) : ?>
 					<p>Статей пока нет.</p>
 				<?php endif; ?>
 			</div>
 		</div>
 		<?php
-			$total_pages = isset($query) ? (int) $query->max_num_pages : 0;
+			$total_pages = (isset($query) && $query instanceof WP_Query) ? (int) $query->max_num_pages : 0;
 			if ($total_pages > 1) :
 				$current = max(1, $paged);
 				$links = paginate_links([

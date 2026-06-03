@@ -1,0 +1,71 @@
+{
+	"key": "group_banner_books",
+	"title": "Баннер — Книги",
+	"fields": [
+		{
+			"key": "field_banner_books_title",
+			"label": "Заголовок",
+			"name": "banner_books_title",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": { "width": "", "class": "", "id": "" },
+			"default_value": "Книги о здоровом питании от Макса Погорелого",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_banner_books_subtitle",
+			"label": "Подзаголовок",
+			"name": "banner_books_subtitle",
+			"type": "textarea",
+			"instructions": "",
+			"required": 0,
+			"wrapper": { "width": "", "class": "", "id": "" },
+			"default_value": "Ценные знаний о питании и здоровье - в простой и понятной форме. Красиво оформлено, удобно читать прямо с телефона!",
+			"placeholder": "",
+			"maxlength": "",
+			"rows": 4,
+			"new_lines": ""
+		},
+		{
+			"key": "field_banner_books_cta_url",
+			"label": "Кнопка — ссылка",
+			"name": "banner_books_cta_url",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": { "width": "", "class": "", "id": "" },
+			"default_value": "#"
+		},
+		{
+			"key": "field_banner_books_cta_text",
+			"label": "Кнопка — текст",
+			"name": "banner_books_cta_text",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": { "width": "", "class": "", "id": "" },
+			"default_value": "Перейти на книжную полку",
+			"placeholder": "",
+			"maxlength": ""
+		}
+	],
+	"location": [
+		[
+			{
+				"param": "page_template",
+				"operator": "==",
+				"value": "templates/banners/banner-books.php"
+			}
+		]
+	],
+	"menu_order": 0,
+	"position": "normal",
+	"style": "default",
+	"label_placement": "top",
+	"instruction_placement": "label",
+	"hide_on_screen": "",
+	"active": true,
+	"description": "Поля баннера «Книги» (шаблон banner-books.php)."
+}

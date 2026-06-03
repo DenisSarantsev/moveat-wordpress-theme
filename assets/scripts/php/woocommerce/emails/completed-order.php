@@ -13,7 +13,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /*
 	Формирует HTML письма по шаблону и отправляет уведомление администраторам.
-	Также сохраняет локальную HTML-копию письма в wp-content для проверки.
 */
 function moveat_send_admin_completed_order_email( $order_id ) {
 	if ( ! $order_id ) {
@@ -30,10 +29,6 @@ function moveat_send_admin_completed_order_email( $order_id ) {
 	ob_start();
 	wc_get_template( 'emails/admin-completed-order.php', array( 'order' => $order ), '', get_template_directory() . '/woocommerce/' );
 	$html = ob_get_clean();
-
-	// Сохраняем локальную копию HTML-письма для отладки/проверки
-	$file = WP_CONTENT_DIR . "/admin-completed-order-{$order_id}.html";
-	@file_put_contents( $file, $html );
 
 	// Берём строковый email из глобальной переменной и формируем массив для wp_mail
 	global $moveat_admin_notification_email;

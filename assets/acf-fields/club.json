@@ -1,0 +1,976 @@
+{
+	"key": "group_club",
+	"title": "Страница «Клуб»",
+	"fields": [
+		{
+			"key": "field_tab_club_hero_intro",
+			"label": "Герой и вступление",
+			"name": "tab_club_hero_intro",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_club_hero_title",
+			"label": "Заголовок героя (H1)",
+			"name": "club_hero_title",
+			"type": "text",
+			"default_value": "Клуб Макса Погорелого"
+		},
+		{
+			"key": "field_club_breadcrumb_current",
+			"label": "Хлебные крошки — текущая страница",
+			"name": "club_breadcrumb_current",
+			"type": "text",
+			"default_value": "Клуб"
+		},
+		{
+			"key": "field_club_intro_image",
+			"label": "Вступление — изображение (URL)",
+			"name": "club_intro_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "large",
+			"library": "all"
+		},
+		{
+			"key": "field_club_intro_alt",
+			"label": "Вступление — alt изображения",
+			"name": "club_intro_alt",
+			"type": "text",
+			"default_value": "Клуб Макса Погорелого"
+		},
+		{
+			"key": "field_club_intro_lead",
+			"label": "Вступление — лид-текст",
+			"name": "club_intro_lead",
+			"type": "textarea",
+			"rows": 3,
+			"default_value": "Сообщество единомышленников со всего мира."
+		},
+		{
+			"key": "field_club_intro_text",
+			"label": "Вступление — текст",
+			"name": "club_intro_text",
+			"type": "textarea",
+			"rows": 3,
+			"default_value": "Помогаем питаться вкусно, сохранять молодость и энергичность."
+		},
+		{
+			"key": "field_club_intro_cta_text",
+			"label": "Вступление — текст кнопки",
+			"name": "club_intro_cta_text",
+			"type": "text",
+			"default_value": "Присоединиться к клубу"
+		},
+		{
+			"key": "field_tab_club_materials",
+			"label": "Эксклюзивные материалы",
+			"name": "tab_club_materials",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_club_materials_title",
+			"label": "Заголовок блока материалов",
+			"name": "club_materials_title",
+			"type": "text",
+			"default_value": "Эксклюзивные материалы только для членов клуба"
+		},
+		{
+			"key": "field_club_materials_figure_1_image",
+			"label": "Материалы — картинка 1 (URL)",
+			"name": "club_materials_figure_1_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all"
+		},
+		{
+			"key": "field_club_materials_figure_1_alt",
+			"label": "Материалы — alt картинки 1",
+			"name": "club_materials_figure_1_alt",
+			"type": "text",
+			"default_value": "Витамины и нутриенты"
+		},
+		{
+			"key": "field_club_materials_figure_2_image",
+			"label": "Материалы — картинка 2 (URL)",
+			"name": "club_materials_figure_2_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all"
+		},
+		{
+			"key": "field_club_materials_figure_2_alt",
+			"label": "Материалы — alt картинки 2",
+			"name": "club_materials_figure_2_alt",
+			"type": "text",
+			"default_value": "Продукты и питание"
+		},
+		{
+			"key": "field_club_material_item_1",
+			"label": "Пункт списка 1",
+			"name": "club_material_item_1",
+			"type": "text",
+			"default_value": "Рецепты"
+		},
+		{
+			"key": "field_club_material_item_2",
+			"label": "Пункт списка 2",
+			"name": "club_material_item_2",
+			"type": "text",
+			"default_value": "Видео с кухни Макса"
+		},
+		{
+			"key": "field_club_material_item_3",
+			"label": "Пункт списка 3",
+			"name": "club_material_item_3",
+			"type": "text",
+			"default_value": "Рекомендации БАДов"
+		},
+		{
+			"key": "field_club_material_item_4",
+			"label": "Пункт списка 4",
+			"name": "club_material_item_4",
+			"type": "text",
+			"default_value": "Режим дня, сон"
+		},
+		{
+			"key": "field_club_material_item_5",
+			"label": "Пункт списка 5",
+			"name": "club_material_item_5",
+			"type": "text",
+			"default_value": "Физические упражнения"
+		},
+		{
+			"key": "field_club_material_item_6",
+			"label": "Пункт списка 6",
+			"name": "club_material_item_6",
+			"type": "text",
+			"default_value": "Мотивация, сила воли"
+		},
+		{
+			"key": "field_club_material_item_7",
+			"label": "Пункт списка 7",
+			"name": "club_material_item_7",
+			"type": "text",
+			"default_value": "Разбор полезных продуктов"
+		},
+		{
+			"key": "field_tab_club_online",
+			"label": "Онлайн-общение",
+			"name": "tab_club_online",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_club_online_title",
+			"label": "Заголовок блока онлайн",
+			"name": "club_online_title",
+			"type": "text",
+			"default_value": "Онлайн-общение с Максом"
+		},
+		{
+			"key": "field_club_online_text",
+			"label": "Текст под заголовком",
+			"name": "club_online_text",
+			"type": "textarea",
+			"rows": 3,
+			"default_value": "Макс отвечает на все волнующие вас вопросы"
+		},
+		{
+			"key": "field_club_online_image",
+			"label": "Изображение блока онлайн (URL)",
+			"name": "club_online_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "large",
+			"library": "all"
+		},
+		{
+			"key": "field_club_online_image_alt",
+			"label": "Alt изображения онлайн",
+			"name": "club_online_image_alt",
+			"type": "text",
+			"default_value": "Макс на встрече с участниками клуба"
+		},
+		{
+			"key": "field_tab_club_community",
+			"label": "Сообщество на карте",
+			"name": "tab_club_community",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_club_community_title",
+			"label": "Заголовок сообщества",
+			"name": "club_community_title",
+			"type": "text",
+			"default_value": "Общение и поддержка единомышленников"
+		},
+		{
+			"key": "field_club_community_text",
+			"label": "Текст сообщества (строки через перенос)",
+			"name": "club_community_text",
+			"type": "textarea",
+			"rows": 4,
+			"default_value": "Закрытый телеграм-канал только для участников клуба.\nУчастники из 14 стран."
+		},
+		{
+			"key": "field_club_community_map_image",
+			"label": "Карта мира (URL)",
+			"name": "club_community_map_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "large",
+			"library": "all"
+		},
+		{
+			"key": "field_club_community_map_alt",
+			"label": "Alt карты",
+			"name": "club_community_map_alt",
+			"type": "text",
+			"default_value": "Участники клуба по всему миру"
+		},
+		{
+			"key": "field_tab_club_team_intro",
+			"label": "Команда",
+			"name": "tab_club_team_intro",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_club_team_heading",
+			"label": "Заголовок блока команды (H2)",
+			"name": "club_team_heading",
+			"type": "text",
+			"default_value": "Наша команда"
+		},
+		{
+			"key": "field_club_team_member_1_photo",
+			"label": "Фото 1",
+			"name": "club_team_member_1_photo",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all"
+		},
+		{
+			"key": "field_club_team_member_1_name",
+			"label": "Имя 1",
+			"name": "club_team_member_1_name",
+			"type": "text",
+			"default_value": "Макс Погорелый"
+		},
+		{
+			"key": "field_club_team_member_1_role",
+			"label": "Должность 1",
+			"name": "club_team_member_1_role",
+			"type": "text",
+			"default_value": "Руководитель клуба"
+		},
+		{
+			"key": "field_club_team_member_1_bio",
+			"label": "Био 1",
+			"name": "club_team_member_1_bio",
+			"type": "wysiwyg",
+			"toolbar": "full",
+			"media_upload": 0,
+			"default_value": "Нутрициолог, стаж 25 лет, кандидат наук. Ведущий программы «Обман веществ»."
+		},
+		{
+			"key": "field_club_team_member_2_photo",
+			"label": "Фото 2",
+			"name": "club_team_member_2_photo",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all"
+		},
+		{
+			"key": "field_club_team_member_2_name",
+			"label": "Имя 2",
+			"name": "club_team_member_2_name",
+			"type": "text",
+			"default_value": "Юлия Смиянова"
+		},
+		{
+			"key": "field_club_team_member_2_role",
+			"label": "Должность 2",
+			"name": "club_team_member_2_role",
+			"type": "text",
+			"default_value": "Врач эндокринолог-диетолог"
+		},
+		{
+			"key": "field_club_team_member_2_bio",
+			"label": "Био 2",
+			"name": "club_team_member_2_bio",
+			"type": "wysiwyg",
+			"toolbar": "full",
+			"media_upload": 0,
+			"default_value": "6 лет диетолог реабилитационного центра «Vidnova», преподаватель кафедры внутренней медицины СумДУ, врач-эндокринолог в клинике «Лазерхаус» и медцентре «Мій лікар»."
+		},
+		{
+			"key": "field_club_team_member_3_photo",
+			"label": "Фото 3",
+			"name": "club_team_member_3_photo",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all"
+		},
+		{
+			"key": "field_club_team_member_3_name",
+			"label": "Имя 3",
+			"name": "club_team_member_3_name",
+			"type": "text",
+			"default_value": "Кузьминская Елена"
+		},
+		{
+			"key": "field_club_team_member_3_role",
+			"label": "Должность 3",
+			"name": "club_team_member_3_role",
+			"type": "text",
+			"default_value": "Врач высшей категории по гигиене питания"
+		},
+		{
+			"key": "field_club_team_member_3_bio",
+			"label": "Био 3",
+			"name": "club_team_member_3_bio",
+			"type": "wysiwyg",
+			"toolbar": "full",
+			"media_upload": 0,
+			"default_value": "Стаж по специальности — 30 лет. Автор более 200 научных и научно-популярных работ, в том числе соавтор 4 учебников и 3 учебных пособий по диетологии и гигиене питания."
+		},
+		{
+			"key": "field_club_team_member_4_photo",
+			"label": "Фото 4",
+			"name": "club_team_member_4_photo",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all"
+		},
+		{
+			"key": "field_club_team_member_4_name",
+			"label": "Имя 4",
+			"name": "club_team_member_4_name",
+			"type": "text",
+			"default_value": "Елизавета Емельяненко"
+		},
+		{
+			"key": "field_club_team_member_4_role",
+			"label": "Должность 4",
+			"name": "club_team_member_4_role",
+			"type": "text",
+			"default_value": "Врач эндокринолог-диетолог"
+		},
+		{
+			"key": "field_club_team_member_4_bio",
+			"label": "Био 4",
+			"name": "club_team_member_4_bio",
+			"type": "wysiwyg",
+			"toolbar": "full",
+			"media_upload": 0,
+			"default_value": "Работает в Институте эндокринной патологии и областной больнице."
+		},
+		{
+			"key": "field_club_team_member_5_photo",
+			"label": "Фото 5",
+			"name": "club_team_member_5_photo",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all"
+		},
+		{
+			"key": "field_club_team_member_5_name",
+			"label": "Имя 5",
+			"name": "club_team_member_5_name",
+			"type": "text",
+			"default_value": "Валентина Терещенко"
+		},
+		{
+			"key": "field_club_team_member_5_role",
+			"label": "Должность 5",
+			"name": "club_team_member_5_role",
+			"type": "text",
+			"default_value": "Доктор общей практики"
+		},
+		{
+			"key": "field_club_team_member_5_bio",
+			"label": "Био 5",
+			"name": "club_team_member_5_bio",
+			"type": "wysiwyg",
+			"toolbar": "full",
+			"media_upload": 0,
+			"default_value": "Следит, чтобы все пациенты были довольны и достигали своих целей по здоровью."
+		},
+		{
+			"key": "field_club_team_member_6_photo",
+			"label": "Фото 6",
+			"name": "club_team_member_6_photo",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all"
+		},
+		{
+			"key": "field_club_team_member_6_name",
+			"label": "Имя 6",
+			"name": "club_team_member_6_name",
+			"type": "text",
+			"default_value": "Надежда Верцинская"
+		},
+		{
+			"key": "field_club_team_member_6_role",
+			"label": "Должность 6",
+			"name": "club_team_member_6_role",
+			"type": "text",
+			"default_value": "Руководитель отдела маркетинга и продаж"
+		},
+		{
+			"key": "field_club_team_member_6_bio",
+			"label": "Био 6",
+			"name": "club_team_member_6_bio",
+			"type": "wysiwyg",
+			"toolbar": "full",
+			"media_upload": 0,
+			"default_value": "Сохраняет тонны ценной информации по питанию и делает её доступной для клиентов. Волшебник YouTube-канала."
+		},
+		{
+			"key": "field_club_team_member_7_photo",
+			"label": "Фото 7",
+			"name": "club_team_member_7_photo",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all"
+		},
+		{
+			"key": "field_club_team_member_7_name",
+			"label": "Имя 7",
+			"name": "club_team_member_7_name",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_club_team_member_7_role",
+			"label": "Должность 7",
+			"name": "club_team_member_7_role",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_club_team_member_7_bio",
+			"label": "Био 7",
+			"name": "club_team_member_7_bio",
+			"type": "wysiwyg",
+			"toolbar": "full",
+			"media_upload": 0,
+			"default_value": ""
+		},
+		{
+			"key": "field_club_team_member_8_photo",
+			"label": "Фото 8",
+			"name": "club_team_member_8_photo",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all"
+		},
+		{
+			"key": "field_club_team_member_8_name",
+			"label": "Имя 8",
+			"name": "club_team_member_8_name",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_club_team_member_8_role",
+			"label": "Должность 8",
+			"name": "club_team_member_8_role",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_club_team_member_8_bio",
+			"label": "Био 8",
+			"name": "club_team_member_8_bio",
+			"type": "wysiwyg",
+			"toolbar": "full",
+			"media_upload": 0,
+			"default_value": ""
+		},
+		{
+			"key": "field_club_team_member_9_photo",
+			"label": "Фото 9",
+			"name": "club_team_member_9_photo",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all"
+		},
+		{
+			"key": "field_club_team_member_9_name",
+			"label": "Имя 9",
+			"name": "club_team_member_9_name",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_club_team_member_9_role",
+			"label": "Должность 9",
+			"name": "club_team_member_9_role",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_club_team_member_9_bio",
+			"label": "Био 9",
+			"name": "club_team_member_9_bio",
+			"type": "wysiwyg",
+			"toolbar": "full",
+			"media_upload": 0,
+			"default_value": ""
+		},
+		{
+			"key": "field_club_team_member_10_photo",
+			"label": "Фото 10",
+			"name": "club_team_member_10_photo",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all"
+		},
+		{
+			"key": "field_club_team_member_10_name",
+			"label": "Имя 10",
+			"name": "club_team_member_10_name",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_club_team_member_10_role",
+			"label": "Должность 10",
+			"name": "club_team_member_10_role",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_club_team_member_10_bio",
+			"label": "Био 10",
+			"name": "club_team_member_10_bio",
+			"type": "wysiwyg",
+			"toolbar": "full",
+			"media_upload": 0,
+			"default_value": ""
+		},
+		{
+			"key": "field_tab_club_pricing",
+			"label": "Участие и оплата",
+			"name": "tab_club_pricing",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_club_pricing_title",
+			"label": "Заголовок блока оплаты",
+			"name": "club_pricing_title",
+			"type": "text",
+			"default_value": "Стать участником клуба"
+		},
+		{
+			"key": "field_club_pricing_card_1_body",
+			"label": "Карточка оплаты 1 — текст",
+			"name": "club_pricing_card_1_body",
+			"type": "wysiwyg",
+			"toolbar": "basic",
+			"media_upload": 0,
+			"default_value": "<p>Для держателей американских, украинских и других европейских карт.<br />\nПодписка через банковскую карту.<br />\n<strong>15&nbsp;$ / месяц</strong></p>"
+		},
+		{
+			"key": "field_club_pricing_card_1_url",
+			"label": "Карточка оплаты 1 — ссылка",
+			"name": "club_pricing_card_1_url",
+			"type": "url",
+			"default_value": "https://moveat.expert/club-payment-paypal/"
+		},
+		{
+			"key": "field_club_pricing_card_1_btn",
+			"label": "Карточка оплаты 1 — кнопка",
+			"name": "club_pricing_card_1_btn",
+			"type": "text",
+			"default_value": "Оплатить"
+		},
+		{
+			"key": "field_club_pricing_card_2_body",
+			"label": "Карточка оплаты 2 — текст",
+			"name": "club_pricing_card_2_body",
+			"type": "wysiwyg",
+			"toolbar": "basic",
+			"media_upload": 0,
+			"default_value": "<p>Для держателей российских и белорусских банковских карт.<br />\nПодписка через Lava.Top.<br />\n<strong>1735&nbsp;руб. / месяц</strong></p>"
+		},
+		{
+			"key": "field_club_pricing_card_2_url",
+			"label": "Карточка оплаты 2 — ссылка",
+			"name": "club_pricing_card_2_url",
+			"type": "url",
+			"default_value": "https://app.lava.top/ru/products/82e7d326-e3f6-42df-aa19-5e8d5c79da20/939922ff-b328-497a-b92c-04fdd72696ff?currency=RUB"
+		},
+		{
+			"key": "field_club_pricing_card_2_btn",
+			"label": "Карточка оплаты 2 — кнопка",
+			"name": "club_pricing_card_2_btn",
+			"type": "text",
+			"default_value": "Оплатить"
+		},
+		{
+			"key": "field_tab_club_outreach",
+			"label": "Правила и мессенджеры",
+			"name": "tab_club_outreach",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_club_rules_link_text",
+			"label": "Текст ссылки на правила",
+			"name": "club_rules_link_text",
+			"type": "text",
+			"default_value": "Правила клуба"
+		},
+		{
+			"key": "field_club_rules_link_url",
+			"label": "URL правил клуба",
+			"name": "club_rules_link_url",
+			"type": "url",
+			"default_value": "https://moveat.expert/club-rules/"
+		},
+		{
+			"key": "field_club_outreach_text",
+			"label": "Текст про мессенджеры",
+			"name": "club_outreach_text",
+			"type": "textarea",
+			"rows": 4,
+			"default_value": "Мы всегда на связи — задавайте вопросы в мессенджерах.\nПосле оплаты напишите нам в Telegram, WhatsApp или Viber."
+		},
+		{
+			"key": "field_club_messengers_panel_title",
+			"label": "Мессенджеры — заголовок панели",
+			"name": "club_messengers_panel_title",
+			"type": "textarea",
+			"rows": 3,
+			"default_value": "Переходите в удобный мессенджер, где мы расскажем про клуб подробнее"
+		},
+		{
+			"key": "field_club_messenger_telegram_url",
+			"label": "Telegram — ссылка",
+			"name": "club_messenger_telegram_url",
+			"type": "url",
+			"default_value": "https://t.me/MaxPogorelyBot"
+		},
+		{
+			"key": "field_club_messenger_telegram_icon",
+			"label": "Telegram — иконка (URL)",
+			"name": "club_messenger_telegram_icon",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_club_messenger_telegram_label",
+			"label": "Telegram — alt иконки",
+			"name": "club_messenger_telegram_label",
+			"type": "text",
+			"default_value": "Telegram"
+		},
+		{
+			"key": "field_club_messenger_whatsapp_url",
+			"label": "WhatsApp — ссылка",
+			"name": "club_messenger_whatsapp_url",
+			"type": "url",
+			"default_value": "https://380991900483.wa.pulse.is/"
+		},
+		{
+			"key": "field_club_messenger_whatsapp_icon",
+			"label": "WhatsApp — иконка (URL)",
+			"name": "club_messenger_whatsapp_icon",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_club_messenger_whatsapp_label",
+			"label": "WhatsApp — alt иконки",
+			"name": "club_messenger_whatsapp_label",
+			"type": "text",
+			"default_value": "WhatsApp"
+		},
+		{
+			"key": "field_club_messenger_viber_url",
+			"label": "Viber — ссылка",
+			"name": "club_messenger_viber_url",
+			"type": "url",
+			"default_value": "viber://pa?chatURI=max_pogorely&context=657b4bccc151da5d54055ea2"
+		},
+		{
+			"key": "field_club_messenger_viber_icon",
+			"label": "Viber — иконка (URL)",
+			"name": "club_messenger_viber_icon",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_club_messenger_viber_label",
+			"label": "Viber — alt иконки",
+			"name": "club_messenger_viber_label",
+			"type": "text",
+			"default_value": "Viber"
+		},
+		{
+			"key": "field_tab_club_faq_intro",
+			"label": "FAQ",
+			"name": "tab_club_faq_intro",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_club_faq_title",
+			"label": "Заголовок FAQ",
+			"name": "club_faq_title",
+			"type": "text",
+			"default_value": "Вопросы и ответы"
+		},
+		{
+			"key": "field_club_faq_subtitle",
+			"label": "Подзаголовок FAQ",
+			"name": "club_faq_subtitle",
+			"type": "textarea",
+			"rows": 3,
+			"default_value": "Собрали частые вопросы о клубе — нажмите на вопрос, чтобы плавно раскрыть ответ."
+		},
+		{
+			"key": "field_club_faq_1_q",
+			"label": "Вопрос 1",
+			"name": "club_faq_1_question",
+			"type": "text",
+			"default_value": "Как вступить в клуб?"
+		},
+		{
+			"key": "field_club_faq_1_a",
+			"label": "Ответ 1",
+			"name": "club_faq_1_answer",
+			"type": "wysiwyg",
+			"toolbar": "basic",
+			"media_upload": 0,
+			"default_value": "<p>Сначала прочитайте правила клуба. Если вы согласны с правилами, оформляете подписку на Patreon или на Boosty. Затем пишите нам в мессенджер — мы добавляем вас в телеграм-канал и в телеграм-группу. Вы в клубе! Контакты мессенджеров, ссылки на оплату и правила клуба есть на этой странице.</p>"
+		},
+		{
+			"key": "field_club_faq_2_q",
+			"label": "Вопрос 2",
+			"name": "club_faq_2_question",
+			"type": "text",
+			"default_value": "Вы берёте всех в клуб, даже поклонников кето-диеты?"
+		},
+		{
+			"key": "field_club_faq_2_a",
+			"label": "Ответ 2",
+			"name": "club_faq_2_answer",
+			"type": "wysiwyg",
+			"toolbar": "basic",
+			"media_upload": 0,
+			"default_value": "<p>Да, мы рады всем, кто хочет поправить своё здоровье и кто готов меняться и развиваться.</p>"
+		},
+		{
+			"key": "field_club_faq_3_q",
+			"label": "Вопрос 3",
+			"name": "club_faq_3_question",
+			"type": "text",
+			"default_value": "Как можно выйти из клуба?"
+		},
+		{
+			"key": "field_club_faq_3_a",
+			"label": "Ответ 3",
+			"name": "club_faq_3_answer",
+			"type": "wysiwyg",
+			"toolbar": "basic",
+			"media_upload": 0,
+			"default_value": "<p>Выйти из клуба можно в любой момент: прекращаете подписку на Patreon или на Boosty (там, где оформляли подписку). Будем благодарны за обратную связь, почему вы решили покинуть клуб; уговаривать остаться не будем :)</p>"
+		},
+		{
+			"key": "field_club_faq_4_q",
+			"label": "Вопрос 4",
+			"name": "club_faq_4_question",
+			"type": "text",
+			"default_value": "В клубе Макс даёт индивидуальные рекомендации?"
+		},
+		{
+			"key": "field_club_faq_4_a",
+			"label": "Ответ 4",
+			"name": "club_faq_4_answer",
+			"type": "wysiwyg",
+			"toolbar": "basic",
+			"media_upload": 0,
+			"default_value": "<p>Макс даёт личные рекомендации только после того, как поймёт вашу ситуацию со всеми деталями. Для этого нужно заполнить анкету (спрашивайте в мессенджерах) и сдать анализы. Список анализов тоже спрашивайте в мессенджерах.</p>"
+		},
+		{
+			"key": "field_club_faq_5_q",
+			"label": "Вопрос 5",
+			"name": "club_faq_5_question",
+			"type": "text",
+			"default_value": "Можно ли задавать вопросы лично Максу?"
+		},
+		{
+			"key": "field_club_faq_5_a",
+			"label": "Ответ 5",
+			"name": "club_faq_5_answer",
+			"type": "wysiwyg",
+			"toolbar": "basic",
+			"media_upload": 0,
+			"default_value": "<p>Не просто можно: клуб создан в том числе для того, чтобы вы получали ответы лично от Макса письменно.</p>"
+		},
+		{
+			"key": "field_club_faq_6_q",
+			"label": "Вопрос 6",
+			"name": "club_faq_6_question",
+			"type": "text",
+			"default_value": "Можно заказывать статьи и обзоры на интересную мне тему?"
+		},
+		{
+			"key": "field_club_faq_6_a",
+			"label": "Ответ 6",
+			"name": "club_faq_6_answer",
+			"type": "wysiwyg",
+			"toolbar": "basic",
+			"media_upload": 0,
+			"default_value": "<p>Разумеется! Мы будем проводить регулярные опросы и голосования, чтобы готовить для вас информацию на интересующие именно вас темы.</p>"
+		},
+		{
+			"key": "field_club_faq_7_q",
+			"label": "Вопрос 7",
+			"name": "club_faq_7_question",
+			"type": "text",
+			"default_value": "Какая часть информации для членов клуба будет эксклюзивной?"
+		},
+		{
+			"key": "field_club_faq_7_a",
+			"label": "Ответ 7",
+			"name": "club_faq_7_answer",
+			"type": "wysiwyg",
+			"toolbar": "basic",
+			"media_upload": 0,
+			"default_value": "<p>Клуб — единственная площадка, на которой Макс будет постоянно давать ответы на личные вопросы. Материалы, которые публикуются в клубе, вначале будут закрытыми на 100%, а через некоторое время (от месяцев до года) не более трети из них будет попадать в открытый доступ.</p>"
+		},
+		{
+			"key": "field_club_faq_8_q",
+			"label": "Вопрос 8",
+			"name": "club_faq_8_question",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_club_faq_8_a",
+			"label": "Ответ 8",
+			"name": "club_faq_8_answer",
+			"type": "wysiwyg",
+			"toolbar": "basic",
+			"media_upload": 0,
+			"default_value": ""
+		},
+		{
+			"key": "field_club_faq_9_q",
+			"label": "Вопрос 9",
+			"name": "club_faq_9_question",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_club_faq_9_a",
+			"label": "Ответ 9",
+			"name": "club_faq_9_answer",
+			"type": "wysiwyg",
+			"toolbar": "basic",
+			"media_upload": 0,
+			"default_value": ""
+		},
+		{
+			"key": "field_club_faq_10_q",
+			"label": "Вопрос 10",
+			"name": "club_faq_10_question",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_club_faq_10_a",
+			"label": "Ответ 10",
+			"name": "club_faq_10_answer",
+			"type": "wysiwyg",
+			"toolbar": "basic",
+			"media_upload": 0,
+			"default_value": ""
+		},
+		{
+			"key": "field_club_faq_11_q",
+			"label": "Вопрос 11",
+			"name": "club_faq_11_question",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_club_faq_11_a",
+			"label": "Ответ 11",
+			"name": "club_faq_11_answer",
+			"type": "wysiwyg",
+			"toolbar": "basic",
+			"media_upload": 0,
+			"default_value": ""
+		},
+		{
+			"key": "field_club_faq_12_q",
+			"label": "Вопрос 12",
+			"name": "club_faq_12_question",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_club_faq_12_a",
+			"label": "Ответ 12",
+			"name": "club_faq_12_answer",
+			"type": "wysiwyg",
+			"toolbar": "basic",
+			"media_upload": 0,
+			"default_value": ""
+		}
+	],
+	"location": [
+		[
+			{
+				"param": "page_template",
+				"operator": "==",
+				"value": "templates/club.php"
+			}
+		]
+	],
+	"menu_order": 0,
+	"position": "normal",
+	"style": "default",
+	"label_placement": "top",
+	"instruction_placement": "label",
+	"hide_on_screen": "",
+	"active": true,
+	"description": "Поля страницы «Клуб»: вкладка «Команда» — до 10 участников (7–10 пустые по умолчанию); вкладка «FAQ» — заголовки и 12 пар вопрос/ответ на одном экране."
+}

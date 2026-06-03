@@ -1,0 +1,276 @@
+{
+	"key": "group_donations_page",
+	"title": "Страница донатов",
+	"fields": [
+		{
+			"key": "field_donations_tab_header",
+			"label": "Заголовок страницы",
+			"name": "donations_tab_header",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_donations_page_title",
+			"label": "Главный заголовок (H1)",
+			"name": "donations_page_title",
+			"type": "text",
+			"default_value": "Поддержать проект Moveat"
+		},
+		{
+			"key": "field_donations_page_subtitle",
+			"label": "Подзаголовок",
+			"name": "donations_page_subtitle",
+			"type": "textarea",
+			"rows": 3,
+			"default_value": "Выберите удобный способ регулярной поддержки или отправьте разовый донат. Каждый вклад помогает создавать полезный контент о здоровом питании."
+		},
+		{
+			"key": "field_donations_page_content",
+			"label": "Текст под блоками донатов",
+			"name": "donations_page_content",
+			"type": "wysiwyg",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"default_value": ""
+		},
+		{
+			"key": "field_donations_tab_onetime",
+			"label": "Единоразовый платеж",
+			"name": "donations_tab_onetime",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_donations_onetime_block_title",
+			"label": "Подзаголовок блока",
+			"name": "donations_onetime_block_title",
+			"type": "text",
+			"default_value": "Единоразовый платеж"
+		},
+		{
+			"key": "field_donations_onetime_button_text",
+			"label": "Текст на кнопке",
+			"name": "donations_onetime_button_text",
+			"type": "text",
+			"default_value": "Поддержать"
+		},
+		{
+			"key": "field_donations_onetime_messengers_message",
+			"label": "",
+			"name": "donations_onetime_messengers_message",
+			"type": "message",
+			"message": "Ссылки на мессенджеры в модальном окне единоразового платежа. Иконки задаются в теме. Пустая ссылка — мессенджер не показывается.",
+			"new_lines": "wpautop",
+			"esc_html": 0
+		},
+		{
+			"key": "field_donations_onetime_messenger_telegram_url",
+			"label": "Telegram — ссылка",
+			"name": "donations_onetime_messenger_telegram_url",
+			"type": "url",
+			"default_value": "https://t.me/MaxPogorelyBot"
+		},
+		{
+			"key": "field_donations_onetime_messenger_whatsapp_url",
+			"label": "WhatsApp — ссылка",
+			"name": "donations_onetime_messenger_whatsapp_url",
+			"type": "url",
+			"default_value": "https://380991900483.wa.pulse.is/"
+		},
+		{
+			"key": "field_donations_onetime_messenger_viber_url",
+			"label": "Viber — ссылка",
+			"name": "donations_onetime_messenger_viber_url",
+			"type": "url",
+			"default_value": "viber://pa?chatURI=max_pogorely&context=657b4bccc151da5d54055ea2"
+		},
+		{
+			"key": "field_donations_tab_subscriptions",
+			"label": "Подписки",
+			"name": "donations_tab_subscriptions",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_donations_subscriptions_block_title",
+			"label": "Подзаголовок блока",
+			"name": "donations_subscriptions_block_title",
+			"type": "text",
+			"default_value": "Подписки и спонсорство"
+		},
+		{
+			"key": "field_donations_subscription_youtube_message",
+			"label": "",
+			"name": "donations_subscription_youtube_message",
+			"type": "message",
+			"message": "YouTube",
+			"new_lines": "wpautop",
+			"esc_html": 0
+		},
+		{
+			"key": "field_donations_subscription_youtube_enabled",
+			"label": "YouTube — показывать на странице",
+			"name": "donations_subscription_youtube_enabled",
+			"type": "true_false",
+			"ui": 1,
+			"default_value": 1
+		},
+		{
+			"key": "field_donations_subscription_youtube_url",
+			"label": "YouTube — ссылка на подписку",
+			"name": "donations_subscription_youtube_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_donations_subscription_patreon_message",
+			"label": "",
+			"name": "donations_subscription_patreon_message",
+			"type": "message",
+			"message": "Patreon",
+			"new_lines": "wpautop",
+			"esc_html": 0
+		},
+		{
+			"key": "field_donations_subscription_patreon_enabled",
+			"label": "Patreon — показывать на странице",
+			"name": "donations_subscription_patreon_enabled",
+			"type": "true_false",
+			"ui": 1,
+			"default_value": 1
+		},
+		{
+			"key": "field_donations_subscription_patreon_url",
+			"label": "Patreon — ссылка на подписку",
+			"name": "donations_subscription_patreon_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_donations_subscription_paypal_message",
+			"label": "",
+			"name": "donations_subscription_paypal_message",
+			"type": "message",
+			"message": "PayPal",
+			"new_lines": "wpautop",
+			"esc_html": 0
+		},
+		{
+			"key": "field_donations_subscription_paypal_enabled",
+			"label": "PayPal — показывать на странице",
+			"name": "donations_subscription_paypal_enabled",
+			"type": "true_false",
+			"ui": 1,
+			"default_value": 1
+		},
+		{
+			"key": "field_donations_subscription_paypal_url",
+			"label": "PayPal — ссылка на подписку",
+			"name": "donations_subscription_paypal_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_donations_subscription_lava_top_message",
+			"label": "",
+			"name": "donations_subscription_lava_top_message",
+			"type": "message",
+			"message": "Lava.top",
+			"new_lines": "wpautop",
+			"esc_html": 0
+		},
+		{
+			"key": "field_donations_subscription_lava_top_enabled",
+			"label": "Lava.top — показывать на странице",
+			"name": "donations_subscription_lava_top_enabled",
+			"type": "true_false",
+			"ui": 1,
+			"default_value": 1
+		},
+		{
+			"key": "field_donations_subscription_lava_top_url",
+			"label": "Lava.top — ссылка на подписку",
+			"name": "donations_subscription_lava_top_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_donations_subscription_boosty_message",
+			"label": "",
+			"name": "donations_subscription_boosty_message",
+			"type": "message",
+			"message": "Boosty",
+			"new_lines": "wpautop",
+			"esc_html": 0
+		},
+		{
+			"key": "field_donations_subscription_boosty_enabled",
+			"label": "Boosty — показывать на странице",
+			"name": "donations_subscription_boosty_enabled",
+			"type": "true_false",
+			"ui": 1,
+			"default_value": 1
+		},
+		{
+			"key": "field_donations_subscription_boosty_url",
+			"label": "Boosty — ссылка на подписку",
+			"name": "donations_subscription_boosty_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_donations_subscription_usdt_message",
+			"label": "",
+			"name": "donations_subscription_usdt_message",
+			"type": "message",
+			"message": "USDT (TRC20)",
+			"new_lines": "wpautop",
+			"esc_html": 0
+		},
+		{
+			"key": "field_donations_subscription_usdt_enabled",
+			"label": "USDT — показывать на странице",
+			"name": "donations_subscription_usdt_enabled",
+			"type": "true_false",
+			"ui": 1,
+			"default_value": 1
+		},
+		{
+			"key": "field_donations_subscription_usdt_wallet",
+			"label": "USDT — номер кошелька",
+			"name": "donations_subscription_usdt_wallet",
+			"type": "text",
+			"default_value": "TXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+		},
+		{
+			"key": "field_donations_subscription_usdt_qr_image",
+			"label": "USDT — QR-код (URL)",
+			"name": "donations_subscription_usdt_qr_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all"
+		}
+	],
+	"location": [
+		[
+			{
+				"param": "page_template",
+				"operator": "==",
+				"value": "templates/donations-page.php"
+			}
+		]
+	],
+	"menu_order": 0,
+	"position": "normal",
+	"style": "default",
+	"label_placement": "top",
+	"instruction_placement": "label",
+	"hide_on_screen": "",
+	"active": true,
+	"description": "Страница донатов: заголовок, текст под блоками, единоразовый платеж (кнопка и мессенджеры в модалке), подписки (вкл/выкл, ссылки; для USDT — кошелёк и QR)."
+}

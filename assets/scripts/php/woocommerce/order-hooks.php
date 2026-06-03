@@ -1,4 +1,99 @@
 <?php
+
+defined( 'ABSPATH' ) || exit;
+
+/*
+	Парсит cookie moveat_pending_order (JS пишет encodeURIComponent(JSON)).
+*/
+function moveat_parse_pending_order_cookie() {
+	$result = array(
+		'order_id'  => 0,
+		'order_key' => '',
+	);
+
+	if ( empty( $_COOKIE['moveat_pending_order'] ) ) {
+		return $result;
+	}
+
+	$raw = wp_unslash( $_COOKIE['moveat_pending_order'] );
+	$data = json_decode( urldecode( $raw ), true );
+
+	if ( ! is_array( $data ) ) {
+		$data = json_decode( $raw, true );
+	}
+
+	if ( ! is_array( $data ) ) {
+		return $result;
+	}
+
+	if ( ! empty( $data['order_id'] ) ) {
+		$result['order_id'] = absint( $data['order_id'] );
+	}
+
+	if ( ! empty( $data['order_key'] ) ) {
+		$result['order_key'] = sanitize_text_field( (string) $data['order_key'] );
+	}
+
+	return $result;
+}
+
+/*
+	Возвращает заказ для страницы «Спасибо» по GET или cookie (до удаления cookie).
+*/
+function moveat_get_thankyou_order_from_request() {
+	$order_id  = isset( $_GET['order_id'] ) ? absint( $_GET['order_id'] ) : 0;
+	$order_key = isset( $_GET['order_key'] ) ? sanitize_text_field( wp_unslash( $_GET['order_key'] ) ) : '';
+
+	if ( ! $order_id || ! $order_key ) {
+		$pending   = moveat_parse_pending_order_cookie();
+		$order_id  = $pending['order_id'];
+		$order_key = $pending['order_key'];
+	}
+
+	if ( ! $order_id || ! $order_key || ! function_exists( 'wc_get_order' ) ) {
+		return false;
+	}
+
+	$order = wc_get_order( $order_id );
+
+	if ( ! $order || ! hash_equals( (string) $order->get_order_key(), (string) $order_key ) ) {
+		return false;
+	}
+
+	return $order;
+}
+
+/*
+	Проверяет, что заказ создан как донат.
+*/
+function moveat_is_donation_order( $order ) {
+	if ( ! $order || ! is_a( $order, 'WC_Order' ) ) {
+		return false;
+	}
+
+	return $order->get_meta( '_is_donation' ) === 'yes'
+		|| $order->get_created_via() === 'donation';
+}
+
+/*
+	URL страницы благодарности с параметрами заказа.
+*/
+function moveat_get_thankyou_page_url( $order ) {
+	$url = home_url( '/stranicza-spasibo/' );
+
+	if ( ! $order || ! is_a( $order, 'WC_Order' ) ) {
+		return $url;
+	}
+
+	return add_query_arg(
+		array(
+			'order_id'  => $order->get_id(),
+			'order_key' => $order->get_order_key(),
+		),
+		$url
+	);
+}
+
 /*
 	Заказы, созданные через cod, остаются в статусе "pending".
 	cod по умолчанию переводит заказ сразу в "processing" — отменяем это поведение,
@@ -69,10 +164,21 @@ add_action( 'template_redirect', function() {
 		return;
 	}
 
-	// Иначе перенаправляем пользователя на страницу спасибо — там уже будет
-	// серверная логика, которая проверит статус заказа и при неудаче отправит
-	// на /pay-problem/.
-	wp_safe_redirect( home_url( '/stranicza-spasibo/' ) );
+	// Иначе перенаправляем на страницу спасибо с order_id/order_key из cookie.
+	$pending = moveat_parse_pending_order_cookie();
+	$redirect_url = home_url( '/stranicza-spasibo/' );
+
+	if ( $pending['order_id'] && $pending['order_key'] ) {
+		$redirect_url = add_query_arg(
+			array(
+				'order_id'  => $pending['order_id'],
+				'order_key' => $pending['order_key'],
+			),
+			$redirect_url
+		);
+	}
+
+	wp_safe_redirect( $redirect_url );
 	exit;
 } );
 
@@ -95,9 +201,9 @@ add_action( 'template_redirect', function() {
 		return;
 	}
 
-	$raw = wp_unslash( $_COOKIE['moveat_pending_order'] );
-	$raw = urldecode( $raw );
-	$data = json_decode( $raw, true );
+	$pending   = moveat_parse_pending_order_cookie();
+	$order_id  = $pending['order_id'];
+	$order_key = $pending['order_key'];
 
 	// Функция для безопасного удаления cookie-флага
 	$clear_cookie = function() {
@@ -109,14 +215,6 @@ add_action( 'template_redirect', function() {
 		setcookie( 'moveat_pending_order', '', time() - 3600, '/' );
 		unset( $_COOKIE['moveat_pending_order'] );
 	};
-
-	if ( empty( $data ) || ! is_array( $data ) || empty( $data['order_id'] ) || empty( $data['order_key'] ) ) {
-		$clear_cookie();
-		return;
-	}
-
-	$order_id  = absint( $data['order_id'] );
-	$order_key = sanitize_text_field( $data['order_key'] );
 
 	if ( ! $order_id || ! $order_key ) {
 		$clear_cookie();
@@ -174,8 +272,15 @@ add_action( 'template_redirect', function() {
 		exit;
 	}
 
-	// Если заказ оплачен — просто удалить cookie
+	// Если заказ оплачен — дописываем order_id/order_key в URL, затем удаляем cookie
 	if ( $order->is_paid() || $order->has_status( array( 'processing', 'completed' ) ) ) {
+		$has_query_args = ! empty( $_GET['order_id'] ) && ! empty( $_GET['order_key'] );
+
+		if ( ! $has_query_args ) {
+			wp_safe_redirect( moveat_get_thankyou_page_url( $order ) );
+			exit;
+		}
+
 		$clear_cookie();
 		return;
 	}
@@ -244,7 +349,7 @@ add_filter( 'woocommerce_get_return_url', function( $return_url, $order ) {
 
 	// Если заказ оплачен или в статусах, соответствующих успешной оплате — перенаправляем
 	if ( $order->is_paid() || $order->has_status( array( 'processing', 'completed' ) ) ) {
-		return home_url( '/stranicza-spasibo/' );
+		return moveat_get_thankyou_page_url( $order );
 	}
 
 	// Не менять URL для неподтверждённых/неоплаченных заказов

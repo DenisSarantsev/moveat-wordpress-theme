@@ -10,7 +10,7 @@ get_header();
 
 $theme_uri        = get_template_directory_uri();
 $theme_dir        = get_template_directory();
-$shop_url         = home_url( '/kursy/' );
+$shop_url         = home_url( '/catalog/' );
 $checkout_url     = function_exists( 'wc_get_checkout_url' ) ? wc_get_checkout_url() : '#';
 $cart_icon        = $theme_uri . '/assets/images/icons/cart.png';
 $minus_icon       = $theme_uri . '/assets/images/icons/minus.png';
@@ -121,10 +121,7 @@ if ( $has_applied_coupon && $cart_discount_raw > 0 ) {
 						$quantity      = isset( $cart_item['quantity'] ) ? (int) $cart_item['quantity'] : 1;
 						$line_total    = $product_price * $quantity;
 						$line_uah      = $uah_rate > 0 ? $line_total * $uah_rate : 0;
-						$description   = get_post_field( 'post_excerpt', $product_id );
-						if ( ! $description ) {
-							$description = wp_trim_words( wp_strip_all_tags( get_post_field( 'post_content', $product_id ) ), 18 );
-						}
+						$short_description = apply_filters( 'woocommerce_short_description', $product->get_short_description() );
 						$image_html = $product->get_image( 'woocommerce_thumbnail', [ 'class' => 'cart-page__item-image' ] );
 						?>
 						<article class="cart-page__item" data-cart-item data-cart-item-key="<?php echo esc_attr( $cart_item_key ); ?>" data-product-id="<?php echo esc_attr( $product_id ); ?>">
@@ -139,7 +136,9 @@ if ( $has_applied_coupon && $cart_discount_raw > 0 ) {
 							</a>
 							<div class="cart-page__item-content">
 								<h3 class="cart-page__item-title"><a href="<?php echo esc_url( $product_url ); ?>"><?php echo esc_html( $product_name ); ?></a></h3>
-								<p class="cart-page__item-description"><?php echo esc_html( $description ); ?></p>
+								<div class="cart-page__item-description">
+									<?php echo wp_kses_post( wpautop( $short_description ) ); ?>
+								</div>
 							</div>
 							<div class="cart-page__item-qty" aria-label="Количество товара">
 								<button class="cart-page__qty-button" type="button" aria-label="Уменьшить количество" data-cart-action="decrease" aria-disabled="true">

@@ -1,0 +1,387 @@
+{
+	"key": "group_messengers_page",
+	"title": "Страница с мессенджерами",
+	"fields": [
+		{
+			"key": "field_messengers_page_tab_main",
+			"label": "Контент страницы",
+			"name": "messengers_page_tab_main",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_messengers_page_left_image",
+			"label": "Изображение слева (URL)",
+			"name": "messengers_page_left_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all"
+		},
+		{
+			"key": "field_messengers_page_left_image_alt",
+			"label": "Alt изображения слева",
+			"name": "messengers_page_left_image_alt",
+			"type": "text",
+			"default_value": ""
+		},
+		{
+			"key": "field_messengers_page_title",
+			"label": "Заголовок (H1)",
+			"name": "messengers_page_title",
+			"type": "text",
+			"default_value": "Пишите про ваши проблемы и цели. Подберу для вас оптимальное решение!"
+		},
+		{
+			"key": "field_messengers_page_body_text",
+			"label": "Текст справа под заголовком",
+			"name": "messengers_page_body_text",
+			"type": "textarea",
+			"rows": 6,
+			"default_value": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum ratione vitae pariatur iure hic veritatis, praesentium cupiditate nam, quia rerum autem! Sunt, consectetur reiciendis culpa nobis voluptatibus atque corrupti iusto! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum ratione vitae pariatur iure hic veritatis, praesentium cupiditate nam, quia rerum autem! Sunt, consectetur reiciendis culpa nobis voluptatibus atque corrupti iusto!"
+		},
+		{
+			"key": "field_messengers_page_messengers_caption",
+			"label": "Подпись над иконками мессенджеров",
+			"name": "messengers_page_messengers_caption",
+			"type": "text",
+			"default_value": "Выберите удобный мессенджер и напишите нам"
+		},
+		{
+			"key": "field_messengers_page_tab_social",
+			"label": "Иконки соцсетей",
+			"name": "messengers_page_tab_social",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_messengers_social_1_label",
+			"label": "Соцсеть 1 — подпись (aria и alt)",
+			"name": "messengers_social_1_label",
+			"type": "text",
+			"default_value": "Telegram",
+			"instructions": "Короткое название, например Telegram или Instagram."
+		},
+		{
+			"key": "field_messengers_social_1_icon",
+			"label": "Соцсеть 1 — иконка (URL)",
+			"name": "messengers_social_1_icon",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_messengers_social_1_wrapper_color",
+			"label": "Соцсеть 1 — цвет круга под иконкой",
+			"name": "messengers_social_1_wrapper_color",
+			"type": "color_picker",
+			"default_value": "#29a8e0"
+		},
+		{
+			"key": "field_messengers_social_1_url",
+			"label": "Соцсеть 1 — ссылка",
+			"name": "messengers_social_1_url",
+			"type": "url",
+			"default_value": "https://t.me/MaxPogorelyBot"
+		},
+		{
+			"key": "field_messengers_social_2_label",
+			"label": "Соцсеть 2 — подпись (aria и alt)",
+			"name": "messengers_social_2_label",
+			"type": "text",
+			"default_value": "WhatsApp",
+			"instructions": "Короткое название, например Telegram или Instagram."
+		},
+		{
+			"key": "field_messengers_social_2_icon",
+			"label": "Соцсеть 2 — иконка (URL)",
+			"name": "messengers_social_2_icon",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_messengers_social_2_wrapper_color",
+			"label": "Соцсеть 2 — цвет круга под иконкой",
+			"name": "messengers_social_2_wrapper_color",
+			"type": "color_picker",
+			"default_value": "#25d366"
+		},
+		{
+			"key": "field_messengers_social_2_url",
+			"label": "Соцсеть 2 — ссылка",
+			"name": "messengers_social_2_url",
+			"type": "url",
+			"default_value": "https://380991900483.wa.pulse.is/"
+		},
+		{
+			"key": "field_messengers_social_3_label",
+			"label": "Соцсеть 3 — подпись (aria и alt)",
+			"name": "messengers_social_3_label",
+			"type": "text",
+			"default_value": "Viber",
+			"instructions": "Короткое название, например Telegram или Instagram."
+		},
+		{
+			"key": "field_messengers_social_3_icon",
+			"label": "Соцсеть 3 — иконка (URL)",
+			"name": "messengers_social_3_icon",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_messengers_social_3_wrapper_color",
+			"label": "Соцсеть 3 — цвет круга под иконкой",
+			"name": "messengers_social_3_wrapper_color",
+			"type": "color_picker",
+			"default_value": "#7360f2"
+		},
+		{
+			"key": "field_messengers_social_3_url",
+			"label": "Соцсеть 3 — ссылка",
+			"name": "messengers_social_3_url",
+			"type": "url",
+			"default_value": "viber://pa?chatURI=max_pogorely&context=657b4bccc151da5d54055ea2"
+		},
+		{
+			"key": "field_messengers_social_4_label",
+			"label": "Соцсеть 4 — подпись (aria и alt)",
+			"name": "messengers_social_4_label",
+			"type": "text",
+			"default_value": "",
+			"instructions": "Короткое название, например Telegram или Instagram."
+		},
+		{
+			"key": "field_messengers_social_4_icon",
+			"label": "Соцсеть 4 — иконка (URL)",
+			"name": "messengers_social_4_icon",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_messengers_social_4_wrapper_color",
+			"label": "Соцсеть 4 — цвет круга под иконкой",
+			"name": "messengers_social_4_wrapper_color",
+			"type": "color_picker",
+			"default_value": "#FFFFFF"
+		},
+		{
+			"key": "field_messengers_social_4_url",
+			"label": "Соцсеть 4 — ссылка",
+			"name": "messengers_social_4_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_messengers_social_5_label",
+			"label": "Соцсеть 5 — подпись (aria и alt)",
+			"name": "messengers_social_5_label",
+			"type": "text",
+			"default_value": "",
+			"instructions": "Короткое название, например Telegram или Instagram."
+		},
+		{
+			"key": "field_messengers_social_5_icon",
+			"label": "Соцсеть 5 — иконка (URL)",
+			"name": "messengers_social_5_icon",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_messengers_social_5_wrapper_color",
+			"label": "Соцсеть 5 — цвет круга под иконкой",
+			"name": "messengers_social_5_wrapper_color",
+			"type": "color_picker",
+			"default_value": "#FFFFFF"
+		},
+		{
+			"key": "field_messengers_social_5_url",
+			"label": "Соцсеть 5 — ссылка",
+			"name": "messengers_social_5_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_messengers_social_6_label",
+			"label": "Соцсеть 6 — подпись (aria и alt)",
+			"name": "messengers_social_6_label",
+			"type": "text",
+			"default_value": "",
+			"instructions": "Короткое название, например Telegram или Instagram."
+		},
+		{
+			"key": "field_messengers_social_6_icon",
+			"label": "Соцсеть 6 — иконка (URL)",
+			"name": "messengers_social_6_icon",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_messengers_social_6_wrapper_color",
+			"label": "Соцсеть 6 — цвет круга под иконкой",
+			"name": "messengers_social_6_wrapper_color",
+			"type": "color_picker",
+			"default_value": "#FFFFFF"
+		},
+		{
+			"key": "field_messengers_social_6_url",
+			"label": "Соцсеть 6 — ссылка",
+			"name": "messengers_social_6_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_messengers_social_7_label",
+			"label": "Соцсеть 7 — подпись (aria и alt)",
+			"name": "messengers_social_7_label",
+			"type": "text",
+			"default_value": "",
+			"instructions": "Короткое название, например Telegram или Instagram."
+		},
+		{
+			"key": "field_messengers_social_7_icon",
+			"label": "Соцсеть 7 — иконка (URL)",
+			"name": "messengers_social_7_icon",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_messengers_social_7_wrapper_color",
+			"label": "Соцсеть 7 — цвет круга под иконкой",
+			"name": "messengers_social_7_wrapper_color",
+			"type": "color_picker",
+			"default_value": "#FFFFFF"
+		},
+		{
+			"key": "field_messengers_social_7_url",
+			"label": "Соцсеть 7 — ссылка",
+			"name": "messengers_social_7_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_messengers_social_8_label",
+			"label": "Соцсеть 8 — подпись (aria и alt)",
+			"name": "messengers_social_8_label",
+			"type": "text",
+			"default_value": "",
+			"instructions": "Короткое название, например Telegram или Instagram."
+		},
+		{
+			"key": "field_messengers_social_8_icon",
+			"label": "Соцсеть 8 — иконка (URL)",
+			"name": "messengers_social_8_icon",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_messengers_social_8_wrapper_color",
+			"label": "Соцсеть 8 — цвет круга под иконкой",
+			"name": "messengers_social_8_wrapper_color",
+			"type": "color_picker",
+			"default_value": "#FFFFFF"
+		},
+		{
+			"key": "field_messengers_social_8_url",
+			"label": "Соцсеть 8 — ссылка",
+			"name": "messengers_social_8_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_messengers_social_9_label",
+			"label": "Соцсеть 9 — подпись (aria и alt)",
+			"name": "messengers_social_9_label",
+			"type": "text",
+			"default_value": "",
+			"instructions": "Короткое название, например Telegram или Instagram."
+		},
+		{
+			"key": "field_messengers_social_9_icon",
+			"label": "Соцсеть 9 — иконка (URL)",
+			"name": "messengers_social_9_icon",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_messengers_social_9_wrapper_color",
+			"label": "Соцсеть 9 — цвет круга под иконкой",
+			"name": "messengers_social_9_wrapper_color",
+			"type": "color_picker",
+			"default_value": "#FFFFFF"
+		},
+		{
+			"key": "field_messengers_social_9_url",
+			"label": "Соцсеть 9 — ссылка",
+			"name": "messengers_social_9_url",
+			"type": "url",
+			"default_value": ""
+		},
+		{
+			"key": "field_messengers_social_10_label",
+			"label": "Соцсеть 10 — подпись (aria и alt)",
+			"name": "messengers_social_10_label",
+			"type": "text",
+			"default_value": "",
+			"instructions": "Короткое название, например Telegram или Instagram."
+		},
+		{
+			"key": "field_messengers_social_10_icon",
+			"label": "Соцсеть 10 — иконка (URL)",
+			"name": "messengers_social_10_icon",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all"
+		},
+		{
+			"key": "field_messengers_social_10_wrapper_color",
+			"label": "Соцсеть 10 — цвет круга под иконкой",
+			"name": "messengers_social_10_wrapper_color",
+			"type": "color_picker",
+			"default_value": "#FFFFFF"
+		},
+		{
+			"key": "field_messengers_social_10_url",
+			"label": "Соцсеть 10 — ссылка",
+			"name": "messengers_social_10_url",
+			"type": "url",
+			"default_value": ""
+		}
+	],
+	"location": [
+		[
+			{
+				"param": "page_template",
+				"operator": "==",
+				"value": "templates/messengers-page.php"
+			}
+		]
+	],
+	"menu_order": 0,
+	"position": "normal",
+	"style": "default",
+	"label_placement": "top",
+	"instruction_placement": "label",
+	"hide_on_screen": "",
+	"active": true,
+	"description": "Вкладка «Контент страницы» — текст, картинка и подпись к мессенджерам. Вкладка «Иконки соцсетей» — до 10 слотов (на экране показываются только позиции, где заполнены и ссылка, и иконка)."
+}

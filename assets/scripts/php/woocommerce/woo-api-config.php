@@ -10,6 +10,9 @@ add_action( 'wp_enqueue_scripts', function () {
 			'baseUrl'       => untrailingslashit( home_url( '/' ) ),
 			'nonce'         => wp_create_nonce( 'wp_rest' ),
 			'storeApiNonce' => wp_create_nonce( 'wc_store_api' ),
+			'cartUrl'       => get_permalink( 700 ) ?: ( function_exists( 'wc_get_cart_url' ) ? wc_get_cart_url() : home_url( '/cart/' ) ),
+			'thankYouUrl'   => home_url( '/stranicza-spasibo/' ),
+			'payProblemUrl' => home_url( '/pay-problem/' ),
 		]
 	);
 

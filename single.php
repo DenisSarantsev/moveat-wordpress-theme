@@ -18,7 +18,11 @@
 								<a href="<?php echo esc_url(home_url('/')); ?>">Главная</a>
 							</li>
 							<li class="breadcrumb-item product-breadcrumbs__item">
-								<a href="<?php echo esc_url($posts_page ?: home_url('/')); ?>">Статьи</a>
+								<?php if ($category_name && $category_link) : ?>
+									<a href="<?php echo esc_url($category_link); ?>"><?php echo esc_html($category_name); ?></a>
+								<?php else : ?>
+									<a href="<?php echo esc_url($posts_page ?: home_url('/')); ?>">Статьи</a>
+								<?php endif; ?>
 							</li>
 							<li class="breadcrumb-item product-breadcrumbs__item active" aria-current="page">
 								<?php echo esc_html(get_the_title()); ?>
@@ -73,40 +77,56 @@
 						<?php endif; ?>
 
 						<?php
-							// Поля блока «Поделиться» (берём из глобальной страницы настроек)
-							$share_title   = trim((string) get_field('share_title', GLOBAL_SETTINGS_PAGE_ID));
-							$socials_group = (array) get_field('share_socials_group', GLOBAL_SETTINGS_PAGE_ID);
+							// Блок «Поделиться»: ссылки вида sharer текущего материала (без привязки к URL профилей в ACF)
+							$share_title_acf = trim((string) get_field('share_title', GLOBAL_SETTINGS_PAGE_ID));
+							$share_heading   = $share_title_acf !== '' ? $share_title_acf : 'Поделиться';
 
-							// Собираем валидные соцсети (нужны и иконка, и ссылка)
-							$valid_socials = [];
-							$i = 1;
-							while ($i <= 10) {
-								$icon_url = isset($socials_group["social_{$i}_icon"]) ? trim((string) $socials_group["social_{$i}_icon"]) : '';
-								$link_url = isset($socials_group["social_{$i}_url"]) ? trim((string) $socials_group["social_{$i}_url"]) : '';
-								if ($icon_url && $link_url) {
-									$valid_socials[] = [
-										'icon' => $icon_url,
-										'url'  => $link_url,
-										'label'=> 'Social ' . $i,
-									];
-								}
-								$i++;
-							}
+							$article_share_url    = get_permalink();
+							$article_share_title  = wp_strip_all_tags(get_the_title());
+							$enc_share_url        = rawurlencode($article_share_url);
+							$enc_share_title      = rawurlencode($article_share_title);
+							$enc_share_wa_message = rawurlencode($article_share_title . ' ' . $article_share_url);
+							$icons_base_uri       = get_template_directory_uri() . '/assets/images/icons/';
 
-							// Показываем блок «Поделиться», если есть заголовок и хотя бы одна валидная соцсеть
-							if ($share_title && !empty($valid_socials)) :
+							$article_share_buttons = [
+								[
+									'label' => 'Поделиться в Telegram',
+									'url'   => 'https://t.me/share/url?url=' . $enc_share_url . '&text=' . $enc_share_title,
+									'icon'  => $icons_base_uri . 'telegram.png',
+								],
+								[
+									'label' => 'Поделиться в WhatsApp',
+									'url'   => 'https://api.whatsapp.com/send?text=' . $enc_share_wa_message,
+									'icon'  => $icons_base_uri . 'whatsapp.png',
+								],
+								[
+									'label' => 'Поделиться в Facebook',
+									'url'   => 'https://www.facebook.com/sharer/sharer.php?u=' . $enc_share_url,
+									'icon'  => $icons_base_uri . 'facebook.png',
+								],
+								[
+									'label' => 'Поделиться в X',
+									'url'   => 'https://twitter.com/intent/tweet?url=' . $enc_share_url . '&text=' . $enc_share_title,
+									'icon'  => $icons_base_uri . 'x.svg',
+								],
+							];
 						?>
 							<div class="article-page__share">
-								<h3><?php echo esc_html($share_title); ?></h3>
+								<h3><?php echo esc_html($share_heading); ?></h3>
 								<div class="article-page__share-buttons">
-									<?php foreach ($valid_socials as $social) : ?>
-										<a href="<?php echo esc_url($social['url']); ?>" aria-label="<?php echo esc_attr($social['label']); ?>">
-											<img src="<?php echo esc_url($social['icon']); ?>" alt="<?php echo esc_attr($social['label']); ?>">
+									<?php foreach ($article_share_buttons as $social) : ?>
+										<a
+											href="<?php echo esc_url($social['url']); ?>"
+											class="article-page__share-link"
+											target="_blank"
+											rel="noopener noreferrer"
+											aria-label="<?php echo esc_attr($social['label']); ?>"
+										>
+											<img src="<?php echo esc_url($social['icon']); ?>" alt="" width="18" height="18" loading="lazy" decoding="async">
 										</a>
 									<?php endforeach; ?>
 								</div>
 							</div>
-						<?php endif; ?>
 					</article>
 				</div>
 			</div>

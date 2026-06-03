@@ -1,8 +1,15 @@
 <?php
 // Регистрирует ACF-поля и их настройки для темы.
 require_once __DIR__ . '/acf/global-fields.php';
+// Хелперы тем отзывов и динамические чекбоксы ACF (словарь → отзывы).
+require_once __DIR__ . '/reviews/reviews-topic-helpers.php';
+require_once __DIR__ . '/reviews/acf-review-topics-choices.php';
 // Подключает регистрацию и настройки типа записей "articles".
 require_once __DIR__ . '/articles/post-type.php';
+// Тип записей «Баннеры».
+require_once __DIR__ . '/banners/post-type.php';
+// Шорткоды баннеров (шаблоны в templates/banners).
+require_once __DIR__ . '/banners/shortcodes.php';
 // Регистрирует меню и настройки навигации темы.
 require_once __DIR__ . '/main/menu.php';
 // Подключает поддержку и вывод логотипа сайта.
@@ -11,6 +18,8 @@ require_once __DIR__ . '/main/logo.php';
 require_once __DIR__ . '/main/maintenance-mode.php';
 // Правила для показа 410 ошибки
 require_once __DIR__ . '/main/410-rules.php';
+// Google AdSense и Google Analytics 4.
+require_once __DIR__ . '/google-scripts/setup.php';
 
 // -------------- WooCommerce modules
 // Передает конфиг Woo Store API на фронтенд (baseUrl и nonce).
@@ -24,6 +33,10 @@ if ( class_exists( 'WooCommerce' ) ) {
 	require_once __DIR__ . '/woocommerce/order-hooks.php';
 	// Создание заказа
 	require_once __DIR__ . '/woocommerce/api/create-order.php';
+	// Минимальная сумма доната (единый источник для API и шаблона)
+	require_once __DIR__ . '/woocommerce/donations-config.php';
+	// Создание заказа доната
+	require_once __DIR__ . '/woocommerce/api/create-donation-order.php';
 	// Оплата заказа
 	require_once __DIR__ . '/woocommerce/api/pay-order.php';
 	// Напоминание об оплате (пользователю и менеджерам)

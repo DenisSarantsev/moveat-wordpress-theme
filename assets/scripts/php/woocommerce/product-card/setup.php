@@ -1,12 +1,12 @@
 <?php
 defined( 'ABSPATH' ) || exit;
 
-// Ensure WooCommerce support.
+// Поддержка WooCommerce для темы.
 add_action( 'after_setup_theme', function () {
 	add_theme_support( 'woocommerce' );
 } );
 
-// Enqueue product-only assets
+// Подключение скриптов только на странице товара.
 add_action( 'wp_enqueue_scripts', function () {
 	if ( is_product() ) {
 		wp_enqueue_script(
@@ -16,7 +16,7 @@ add_action( 'wp_enqueue_scripts', function () {
 			null,
 			true
 		);
-		// Pass theme URI to JS for asset paths (e.g., close icon in lightbox)
+		// Передаём URI темы в JS для путей к ресурсам (напр. иконка закрытия в лайтбоксе).
 		wp_localize_script(
 			'moveat-product-page',
 			'MOVEAT_THEME',
@@ -27,13 +27,13 @@ add_action( 'wp_enqueue_scripts', function () {
 	}
 }, 20 );
 
-// Adjust WooCommerce hooks to use our template-tags rendering
+// Настройка хуков WooCommerce под наш вывод через хелперы template-tags.
 add_action( 'init', function () {
 	if ( ! function_exists( 'is_product' ) || ! is_woocommerce() ) {
 		return;
 	}
-	// We render gallery/summary ourselves in content-single-product.php via helpers.
-	// Optionally remove default single product summary parts if they appear duplicated.
+	// Галерею и зону сведений о товаре выводим сами в content-single-product.php через хелперы.
+	// Убираем стандартные части карточки товара, если они дублируют нашу вёрстку.
 	remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 10 );
 	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
 	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
@@ -45,9 +45,9 @@ require_once __DIR__ . '/template-tags.php';
 require_once __DIR__ . '/price.php';
 require_once __DIR__ . '/formats-map.php';
 
-// Route single Product to templates/product.php without extra template file
+// Страница одиночного товара → templates/product.php (без отдельного корневого файла шаблона).
 add_filter( 'template_include', function ( $template ) {
-	if ( function_exists('is_singular') && is_singular( 'product' ) ) {
+	if ( function_exists( 'is_singular' ) && is_singular( 'product' ) ) {
 		$custom = get_template_directory() . '/templates/product.php';
 		if ( file_exists( $custom ) ) {
 			return $custom;
@@ -55,3 +55,14 @@ add_filter( 'template_include', function ( $template ) {
 	}
 	return $template;
 }, 50 );
+
+// Архив категории товаров (ранее taxonomy-product_cat.php в корне темы).
+add_filter( 'template_include', function ( $template ) {
+	if ( function_exists( 'is_tax' ) && is_tax( 'product_cat' ) ) {
+		$custom = dirname( __DIR__ ) . '/taxonomy-product-cat.php';
+		if ( file_exists( $custom ) ) {
+			return $custom;
+		}
+	}
+	return $template;
+}, 99 );

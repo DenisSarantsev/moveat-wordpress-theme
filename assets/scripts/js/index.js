@@ -7,6 +7,8 @@ import "./woocommerce/update-quantity.js";
 import "./woocommerce/coupon-process.js";
 import { initCheckout } from "./woocommerce/checkout-process.js";
 import { initPaymentProcess } from "./woocommerce/payment-process.js";
+import { initDonationProcess } from "./woocommerce/donation-process.js";
+import { initPendingOrderRedirect } from "./woocommerce/pending-order-redirect.js";
 import { createWooApiLayer } from "./woocommerce/api/index.js";
 
 window.MOVEAT_API = window.MOVEAT_API || {};
@@ -17,3 +19,5 @@ window.MOVEAT_API.woocommerce = createWooApiLayer({
 
 initCheckout();
 initPaymentProcess();
+initDonationProcess();
+initPendingOrderRedirect();

@@ -6,6 +6,27 @@
 
 defined( 'ABSPATH' ) || exit;
 
+$is_donation_thankyou   = false;
+$thankyou_title         = __( 'Спасибо за покупку!', 'moveat' );
+$thankyou_subtitle      = __( 'Ваш заказ успешно оформлен и принят в обработку', 'moveat' );
+$thankyou_show_subtitle = true;
+$thankyou_primary_label = __( 'Продолжить покупки', 'moveat' );
+$thankyou_primary_url   = home_url( '/catalog/' );
+
+if ( function_exists( 'moveat_get_thankyou_order_from_request' ) ) {
+	$thankyou_order = moveat_get_thankyou_order_from_request();
+
+	if ( $thankyou_order && function_exists( 'moveat_is_donation_order' ) ) {
+		$is_donation_thankyou = moveat_is_donation_order( $thankyou_order );
+	}
+}
+
+if ( $is_donation_thankyou ) {
+	$thankyou_title         = __( 'Спасибо за поддержку!', 'moveat' );
+	$thankyou_show_subtitle = false;
+	$thankyou_primary_label = __( 'Школа здоровья', 'moveat' );
+}
+
 // Надёжное серверное удаление флаговой куки перед отправкой заголовков
 $cookie_name = 'moveat_pending_order';
 if ( ! headers_sent() ) {
@@ -53,10 +74,12 @@ $viber_icon    = $theme_uri . '/assets/images/icons/viber.png';
 
 			<!-- Heading -->
 			<div class="thankyou-page__heading">
-				<h1 class="thankyou-page__title">Спасибо за покупку!</h1>
+				<h1 class="thankyou-page__title"><?php echo esc_html( $thankyou_title ); ?></h1>
+				<?php if ( $thankyou_show_subtitle ) : ?>
 				<p class="thankyou-page__subtitle">
-					Ваш заказ успешно оформлен и принят в обработку
+					<?php echo esc_html( $thankyou_subtitle ); ?>
 				</p>
+				<?php endif; ?>
 			</div>
 
 			<!-- Divider -->
@@ -107,8 +130,8 @@ $viber_icon    = $theme_uri . '/assets/images/icons/viber.png';
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="secondary-button">
 					На главную
 				</a>
-				<a href="<?php echo esc_url( home_url( '/catalog/' ) ); ?>" class="primary-button">
-					Продолжить покупки
+				<a href="<?php echo esc_url( $thankyou_primary_url ); ?>" class="primary-button">
+					<?php echo esc_html( $thankyou_primary_label ); ?>
 				</a>
 			</div>
 

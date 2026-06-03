@@ -274,9 +274,6 @@ function moveat_send_payment_reminder_handler( $args ) {
     // Заголовки — указать, что отправляем HTML.
     $headers = array( 'Content-Type: text/html; charset=UTF-8' );
 
-    // Сохраняем HTML письма локально для проверки (prod-safe копия)
-    $customer_file = WP_CONTENT_DIR . "/reminder-order-{$order_id}-customer.html";
-    file_put_contents( $customer_file, $html );
     $sent_customer = wp_mail( $to, $subject, $html, $headers );
 
     // Отправляем уведомление менеджерам на фиксированный адрес с отдельным шаблоном.
@@ -292,9 +289,6 @@ function moveat_send_payment_reminder_handler( $args ) {
         $managers_subject .= ' (повторное напоминание)';
     }
 
-    // Сохраняем HTML менеджерского письма локально
-    $managers_file = WP_CONTENT_DIR . "/reminder-order-{$order_id}-managers.html";
-    file_put_contents( $managers_file, $managers_html );
     $sent_managers = wp_mail( $managers_email, $managers_subject, $managers_html, $headers );
 }
 

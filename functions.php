@@ -75,3 +75,7 @@ add_action('wp_head', 'moveat_preconnect_fonts', 1);
 // Подключаем дополнительные php скрипты из assets/scripts/php/index.php
 require_once get_template_directory() . '/assets/scripts/php/index.php';
 
+// ----------------------------------- Подключение title
+add_action('wp_head', function() {
+	echo '<title>' . get_bloginfo('name') . '</title>';
+}, 1);

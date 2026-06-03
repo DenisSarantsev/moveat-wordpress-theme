@@ -3,7 +3,6 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Moveat - Еда станет вашим лекарством!</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -48,42 +47,41 @@
 					<?php
 						wp_nav_menu( [
 							'theme_location' => 'header_menu',
-							'container'      => false,
-							'menu_class'     => 'navbar-nav ms-auto p-4 p-lg-0',
-							'fallback_cb'    => false,
 						] );
 					?>
 					<div class="navbar-content__top-background"></div>
+				</div>
 
-					<!-- Language switcher -->
-					<div class="lang-switcher" tabindex="0" aria-label="Выбор языка">
-						<input type="radio" name="site-lang" id="lang-ru" checked hidden />
-						<input type="radio" name="site-lang" id="lang-uk" hidden />
-						<!-- Current (display controlled via CSS based on the checked input) -->
-						<div
-							class="lang-switcher__toggle"
-							role="button"
-							aria-haspopup="listbox">
-							<span class="lang-switcher__flag" aria-hidden="true"></span>
-							<span class="lang-switcher__code lang-switcher__code--ru">RU</span>
-							<span class="lang-switcher__code lang-switcher__code--uk">UA</span>
-							<svg
-								class="lang-switcher__arrow"
-								width="10"
-								height="6"
-								viewBox="0 0 10 6"
-								fill="none"
-								xmlns="http://www.w3.org/2000/svg"
-								aria-hidden="true">
-								<path
-									d="M1 1L5 5L9 1"
-									stroke="currentColor"
-									stroke-width="1.5"
-									stroke-linecap="round"
-									stroke-linejoin="round" />
-							</svg>
-						</div>
-						<ul class="lang-switcher__list" role="listbox" aria-label="Выбор языка">
+				<!-- Language switcher -->
+				<div class="lang-switcher" data-nosnippet tabindex="0" aria-label="Выбор языка">
+					<input type="radio" name="site-lang" id="lang-ru" checked hidden />
+					<input type="radio" name="site-lang" id="lang-uk" hidden />
+					<!-- Current (display controlled via CSS based on the checked input) -->
+					<div
+						class="lang-switcher__toggle"
+						role="button"
+						aria-haspopup="listbox">
+						<span class="lang-switcher__flag" aria-hidden="true"></span>
+						<span class="lang-switcher__code lang-switcher__code--ru">RU</span>
+						<span class="lang-switcher__code lang-switcher__code--uk">UA</span>
+						<svg
+							class="lang-switcher__arrow"
+							width="10"
+							height="6"
+							viewBox="0 0 10 6"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg"
+							aria-hidden="true">
+							<path
+								d="M1 1L5 5L9 1"
+								stroke="currentColor"
+								stroke-width="1.5"
+								stroke-linecap="round"
+								stroke-linejoin="round" />
+						</svg>
+					</div>
+					<div class="lang-switcher__list" role="listbox" aria-label="Выбор языка">
+						<ul class="lang-switcher__list-inner">
 							<li>
 								<label for="lang-ru" class="lang-switcher__option">
 									<span class="lang-switcher__flag" aria-hidden="true"></span>
@@ -102,22 +100,22 @@
 							</li>
 						</ul>
 					</div>
+				</div>
 
-					<div class="header-icons">
-						<!-- <a class="header-icon" href="">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/search.png" alt="Search" class="img-fluid">
-						</a>
-						<a class="header-icon" href="">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/user.png" alt="User" class="img-fluid">
-						</a> -->
-						<?php
-							$moveat_cart_count = function_exists( 'WC' ) && WC()->cart ? (int) WC()->cart->get_cart_contents_count() : 0;
-						?>
-						<a class="header-icon cart" href="<?php echo esc_url( function_exists( 'wc_get_cart_url' ) ? wc_get_cart_url() : home_url( '/cart/' ) ); ?>">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/cart.png" alt="Shopping cart" class="img-fluid">
-							<div class="cart-count" data-cart-count <?php echo $moveat_cart_count > 0 ? '' : 'hidden'; ?>><?php echo esc_html( $moveat_cart_count ); ?></div>
-						</a>
-					</div>
+				<div class="header-icons">
+					<!-- <a class="header-icon" href="">
+						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/search.png" alt="Search" class="img-fluid">
+					</a>
+					<a class="header-icon" href="">
+						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/user.png" alt="User" class="img-fluid">
+					</a> -->
+					<?php
+						$moveat_cart_count = function_exists( 'WC' ) && WC()->cart ? (int) WC()->cart->get_cart_contents_count() : 0;
+					?>
+					<a class="header-icon cart" href="<?php echo esc_url( function_exists( 'wc_get_cart_url' ) ? wc_get_cart_url() : home_url( '/cart/' ) ); ?>">
+						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/cart.png" alt="Shopping cart" class="img-fluid">
+						<div class="cart-count" data-cart-count <?php echo $moveat_cart_count > 0 ? '' : 'hidden'; ?>><?php echo esc_html( $moveat_cart_count ); ?></div>
+					</a>
 				</div>
 
 				<div class="header__menu-icon">
@@ -127,7 +125,7 @@
 			</nav>
 		</header>
 
-		<div class="messages-container">
+		<div class="messages-container" data-nosnippet>
 			<div class="messages-container__message messages-container__message--success is-template">
 				<div class="messages-container__message-icon success-icon">
 					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/check.png' ); ?>" alt="Success" class="img-fluid">
@@ -150,7 +148,7 @@
 			</div>
 		</div>
 
-		<div class="lang-modal" id="lang-modal" role="dialog" aria-modal="true">
+		<div class="lang-modal" id="lang-modal" role="dialog" aria-modal="true" data-nosnippet>
 			<div class="lang-modal__overlay" data-lang-modal-overlay></div>
 			<div class="lang-modal__dialog" role="document">
 				<button

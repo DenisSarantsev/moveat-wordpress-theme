@@ -3,6 +3,20 @@
 		global $post;
 		$product = function_exists('wc_get_product') ? wc_get_product( $post ? $post->ID : 0 ) : null;
 		$theme_uri = get_template_directory_uri();
+		$cart_icon_filled = $theme_uri . '/assets/images/icons/filled/shopping-cart-filled.png';
+		$check_mark_icon  = $theme_uri . '/assets/images/icons/filled/check-mark-filled.png';
+		$cart_page_url    = get_permalink( 700 ) ?: ( function_exists( 'wc_get_cart_url' ) ? wc_get_cart_url() : home_url( '/cart/' ) );
+		$product_id       = $product ? $product->get_id() : 0;
+		$is_in_cart       = false;
+
+		if ( $product_id && function_exists( 'WC' ) && WC()->cart ) {
+			foreach ( WC()->cart->get_cart() as $cart_item ) {
+				if ( (int) $cart_item['product_id'] === (int) $product_id && (int) $cart_item['quantity'] > 0 ) {
+					$is_in_cart = true;
+					break;
+				}
+			}
+		}
 		$icons_base = $theme_uri . '/assets/icons/formats';
 		$fallback_icons = $theme_uri . '/assets/images/icons/colored';
 		$moveat_formats_map = [
@@ -226,8 +240,32 @@
 						<?php endif; ?>
           </div>
           <div class="product-page__buttons">
-            <a href="#" class="primary-button" data-product-action="buy-now" data-product-id="<?php echo esc_attr( $product ? $product->get_id() : 0 ); ?>">Купить</a>
-            <a href="#" class="secondary-button" data-add-to-cart data-product-action="add-to-cart" data-product-id="<?php echo esc_attr( $product ? $product->get_id() : 0 ); ?>">Добавить в корзину</a>
+            <a href="#" class="primary-button" data-product-action="buy-now" data-product-id="<?php echo esc_attr( $product_id ); ?>">Купить</a>
+						<?php if ( $is_in_cart ) : ?>
+							<a
+								href="<?php echo esc_url( $cart_page_url ); ?>"
+								class="product-page__added-to-cart proguct-page-button"
+								aria-label="Перейти в корзину"
+							>
+								<div class="product-page__added-to-cart_title">
+									<div class="product-page__added-to-cart_title-icons">
+										<img
+											src="<?php echo esc_url( $cart_icon_filled ); ?>"
+											alt="Товар добавлен в корзину" />
+										<div class="product-page__added-to-cart_cart-icon">
+											<img
+												src="<?php echo esc_url( $check_mark_icon ); ?>"
+												alt="Галочка" />
+										</div>
+									</div>
+									<div class="product-page__added-to-cart_title-text">
+										Товар добавлен в корзину
+									</div>
+								</div>
+							</a>
+						<?php else : ?>
+							<a href="#" class="secondary-button" data-add-to-cart data-product-action="add-to-cart" data-product-id="<?php echo esc_attr( $product_id ); ?>">Добавить в корзину</a>
+						<?php endif; ?>
 						<div class="product-page__tech"></div>
 						<div class="product-page__loader-wrapper">
 							<div class="loader disabled"></div>

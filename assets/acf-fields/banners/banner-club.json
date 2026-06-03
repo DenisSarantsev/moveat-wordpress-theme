@@ -1,0 +1,184 @@
+{
+	"key": "group_banner_club",
+	"title": "Баннер — Клуб",
+	"fields": [
+		{
+			"key": "field_banner_club_main_image",
+			"label": "Изображение (десктоп и мобильная копия в контенте)",
+			"name": "banner_club_main_image",
+			"type": "image",
+			"instructions": "Полный URL. Одно изображение используется для основного блока и для мобильной вставки в тексте.",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_banner_club_main_image_alt",
+			"label": "Alt основного изображения",
+			"name": "banner_club_main_image_alt",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": { "width": "", "class": "", "id": "" },
+			"default_value": "Клуб МАКСимального здоровья",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_banner_club_title",
+			"label": "Заголовок",
+			"name": "banner_club_title",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": { "width": "", "class": "", "id": "" },
+			"default_value": "Клуб МАКСимального здоровья",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_banner_club_subtitle",
+			"label": "Подзаголовок",
+			"name": "banner_club_subtitle",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": { "width": "", "class": "", "id": "" },
+			"default_value": "Есть вопросы о питании лично к Максу?",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_banner_club_description",
+			"label": "Описание",
+			"name": "banner_club_description",
+			"type": "textarea",
+			"instructions": "",
+			"required": 0,
+			"wrapper": { "width": "", "class": "", "id": "" },
+			"default_value": "Обсуждения, рецепты, личные рекомендации, поддержка единомышленников. Мы ждем вас в клубе!",
+			"placeholder": "",
+			"maxlength": "",
+			"rows": 4,
+			"new_lines": ""
+		},
+		{
+			"key": "field_banner_club_tab_messengers",
+			"label": "Messengers",
+			"name": "banner_club_tab_messengers",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_banner_club_messengers_instructions",
+			"label": "Мессенджеры",
+			"name": "banner_club_messengers_instructions",
+			"type": "message",
+			"instructions": "",
+			"required": 0,
+			"message": "Кнопка показывается только если заполнены и ссылка, и иконка. Чтобы скрыть канал — очистите одно из полей.",
+			"new_lines": "wpautop",
+			"esc_html": 1
+		},
+		{
+			"key": "field_banner_club_messengers_intro",
+			"label": "Текст над кнопками",
+			"name": "banner_club_messengers_intro",
+			"type": "textarea",
+			"instructions": "",
+			"required": 0,
+			"wrapper": { "width": "", "class": "", "id": "" },
+			"default_value": "Переходите в удобный мессенджер, где мы расскажем про клуб подробнее (стоимость, условия)",
+			"placeholder": "",
+			"maxlength": "",
+			"rows": 3,
+			"new_lines": ""
+		},
+		{
+			"key": "field_banner_club_link_telegram",
+			"label": "Telegram — ссылка",
+			"name": "banner_club_link_telegram",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": { "width": "", "class": "", "id": "" },
+			"default_value": ""
+		},
+		{
+			"key": "field_banner_club_icon_telegram",
+			"label": "Telegram — иконка (URL)",
+			"name": "banner_club_icon_telegram",
+			"type": "image",
+			"instructions": "Полный URL PNG/SVG иконки.",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_banner_club_link_whatsapp",
+			"label": "WhatsApp — ссылка",
+			"name": "banner_club_link_whatsapp",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": { "width": "", "class": "", "id": "" },
+			"default_value": ""
+		},
+		{
+			"key": "field_banner_club_icon_whatsapp",
+			"label": "WhatsApp — иконка (URL)",
+			"name": "banner_club_icon_whatsapp",
+			"type": "image",
+			"instructions": "Полный URL PNG/SVG иконки.",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_banner_club_link_viber",
+			"label": "Viber — ссылка",
+			"name": "banner_club_link_viber",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": { "width": "", "class": "", "id": "" },
+			"default_value": ""
+		},
+		{
+			"key": "field_banner_club_icon_viber",
+			"label": "Viber — иконка (URL)",
+			"name": "banner_club_icon_viber",
+			"type": "image",
+			"instructions": "Полный URL PNG/SVG иконки.",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all",
+			"mime_types": ""
+		}
+	],
+	"location": [
+		[
+			{
+				"param": "page_template",
+				"operator": "==",
+				"value": "templates/banners/banner-club.php"
+			}
+		]
+	],
+	"menu_order": 0,
+	"position": "normal",
+	"style": "default",
+	"label_placement": "top",
+	"instruction_placement": "label",
+	"hide_on_screen": "",
+	"active": true,
+	"description": "Поля баннера «Клуб» (шаблон banner-club.php)."
+}

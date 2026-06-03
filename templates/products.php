@@ -1,13 +1,16 @@
 <?php
 /*
-	Template Name: Школа здоровья
+	Template Name: Шаблон для вывода товаров
 	Template Post Type: page
 */
 
 get_header();
 
-$theme_uri = get_template_directory_uri();
-$cart_icon = $theme_uri . '/assets/images/icons/cart.png';
+$theme_uri        = get_template_directory_uri();
+$cart_icon        = $theme_uri . '/assets/images/icons/cart.png';
+$cart_icon_filled = $theme_uri . '/assets/images/icons/filled/shopping-cart-filled.png';
+$check_mark_icon  = $theme_uri . '/assets/images/icons/filled/check-mark-filled.png';
+$cart_page_url    = get_permalink( 700 ) ?: ( function_exists( 'wc_get_cart_url' ) ? wc_get_cart_url() : home_url( '/cart/' ) );
 
 $product_sections = [];
 
@@ -66,6 +69,12 @@ for ( $index = 1; $index <= 10; $index++ ) {
 ?>
 
 <div class="hero-block">
+	<div class="hero-block__bg-wrapper">
+		<img
+			class="hero-block__bg-image"
+			src="<?php echo esc_url( $theme_uri . '/assets/images/illustrations/vegetables.jpg' ); ?>"
+			alt="<?php echo esc_attr__( 'vegetables', 'moveat' ); ?>" />
+	</div>
 	<div class="hero-block__container">
 		<h1 class="hero-block__title"><?php the_title(); ?></h1>
 		<nav aria-label="breadcrumb no-padding animated slideInDown page-hero__breadcrumbs">
@@ -105,6 +114,19 @@ for ( $index = 1; $index <= 10; $index++ ) {
 					if ( ! $excerpt ) {
 						$excerpt = get_post_field( 'post_content', get_the_ID() );
 					}
+
+					$product_id  = get_the_ID();
+					$is_in_cart  = false;
+					$has_woo_cart = function_exists( 'WC' ) && WC()->cart;
+
+					if ( $has_woo_cart ) {
+						foreach ( WC()->cart->get_cart() as $cart_item ) {
+							if ( (int) $cart_item['product_id'] === (int) $product_id && (int) $cart_item['quantity'] > 0 ) {
+								$is_in_cart = true;
+								break;
+							}
+						}
+					}
 					?>
 					<div class="products__card product-card">
 						<div class="product-card__top">
@@ -137,19 +159,42 @@ for ( $index = 1; $index <= 10; $index++ ) {
 							</div>
 							<div class="product-card__buttons">
 								<a href="<?php the_permalink(); ?>" class="product-card__button primary-button">Подробнее</a>
-								<a
-									href="<?php echo esc_url( $product->add_to_cart_url() ); ?>"
-									data-quantity="1"
-									class="product-card__button product-card__button-cart"
-									data-product_id="<?php echo esc_attr( get_the_ID() ); ?>"
-									data-add-to-cart
-									data-product-action="add-to-cart"
-									data-product-id="<?php echo esc_attr( get_the_ID() ); ?>"
-									aria-label="<?php echo esc_attr( sprintf( 'Добавить "%s" в корзину', get_the_title() ) ); ?>"
-								>
-									<img class="product-card__button-cart-icon" src="<?php echo esc_url( $cart_icon ); ?>" alt="Cart">
-									<div class="loader disabled"></div>
-								</a>
+								<?php if ( $is_in_cart ) : ?>
+									<a
+										href="<?php echo esc_url( $cart_page_url ); ?>"
+										class="product-card__button product-card__button-cart added-to-cart-button"
+										aria-label="Перейти в корзину"
+									>
+										<div class="product-page__added-to-cart">
+											<div class="product-page__added-to-cart_title">
+												<div class="product-page__added-to-cart_title-icons">
+													<img
+														src="<?php echo esc_url( $cart_icon_filled ); ?>"
+														alt="Товар добавлен в корзину" />
+													<div class="product-page__added-to-cart_cart-icon">
+														<img
+															src="<?php echo esc_url( $check_mark_icon ); ?>"
+															alt="Галочка" />
+													</div>
+												</div>
+											</div>
+										</div>
+									</a>
+								<?php else : ?>
+									<a
+										href="<?php echo esc_url( $product->add_to_cart_url() ); ?>"
+										data-quantity="1"
+										class="product-card__button product-card__button-cart"
+										data-product_id="<?php echo esc_attr( $product_id ); ?>"
+										data-add-to-cart
+										data-product-action="add-to-cart"
+										data-product-id="<?php echo esc_attr( $product_id ); ?>"
+										aria-label="<?php echo esc_attr( sprintf( 'Добавить "%s" в корзину', get_the_title() ) ); ?>"
+									>
+										<img class="product-card__button-cart-icon" src="<?php echo esc_url( $cart_icon ); ?>" alt="Cart">
+										<div class="loader disabled"></div>
+									</a>
+								<?php endif; ?>
 							</div>
 						</div>
 					</div>

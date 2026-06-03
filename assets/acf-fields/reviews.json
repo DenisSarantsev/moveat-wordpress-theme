@@ -1,0 +1,5686 @@
+{
+	"key": "group_reviews_page",
+	"title": "Отзывы",
+	"fields": [
+		{
+			"key": "field_reviews_tab_filter",
+			"label": "Фильтр и сообщения",
+			"name": "reviews_tab_filter",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_reviews_filter_title",
+			"label": "Заголовок блока фильтра",
+			"name": "reviews_filter_title",
+			"type": "text",
+			"default_value": "Темы отзывов:",
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_filter_hint",
+			"label": "Подсказка под фильтром",
+			"name": "reviews_filter_hint",
+			"type": "textarea",
+			"default_value": "Отметьте одну или несколько тем. Показываются отзывы, где встречается хотя бы одна выбранная тема. Без выбора видны все отзывы.",
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_filter_select_all",
+			"label": "Текст кнопки «Выбрать все»",
+			"name": "reviews_filter_select_all",
+			"type": "text",
+			"default_value": "Выбрать все",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_filter_clear",
+			"label": "Текст кнопки «Очистить фильтр»",
+			"name": "reviews_filter_clear",
+			"type": "text",
+			"default_value": "Очистить фильтр",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_empty_message",
+			"label": "Текст, если по фильтру ничего не найдено",
+			"name": "reviews_empty_message",
+			"type": "textarea",
+			"default_value": "По выбранным темам пока нет отзывов. Снимите часть фильтров или очистите выбор полностью.",
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_tab_topics_list",
+			"label": "Список тем",
+			"name": "reviews_tab_topics_list",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_reviews_topics_vocabulary",
+			"label": "Общий список тем",
+			"name": "reviews_topics_vocabulary",
+			"type": "textarea",
+			"instructions": "Перечислите все темы для страницы отзывов. Каждая тема с новой строки или в одной строке через символ |. Список автоматически подставляется в чекбоксы «Темы отзыва» на вкладках отзывов.",
+			"default_value": "Питание\nЭнергия\nПоддержка\nСон\nСтресс\nРежим\nРезультат\nМотивация\nСемья\nГрафик\nТренировки\nВода\nПсихология",
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_tab_review_1",
+			"label": "Отзыв 1",
+			"name": "reviews_tab_review_1",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_reviews_review_1_reverse",
+			"label": "Расположение медиа справа (обратный порядок)",
+			"name": "review_1_reverse",
+			"type": "true_false",
+			"ui": 1,
+			"default_value": 0,
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_1_media_type",
+			"label": "Тип медиа",
+			"name": "review_1_media_type",
+			"type": "select",
+			"choices": {
+				"image": "Изображение",
+				"video": "Видео"
+			},
+			"default_value": "image",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_1_image",
+			"label": "Изображение",
+			"name": "review_1_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_1_image_alt",
+			"label": "Alt изображения",
+			"name": "review_1_image_alt",
+			"type": "text",
+			"default_value": "Ирина Николаева, участница программы",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_1_video_url",
+			"label": "URL видео (MP4)",
+			"name": "review_1_video_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_1_video_poster",
+			"label": "Постер видео",
+			"name": "review_1_video_poster",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_1_quote",
+			"label": "Текст отзыва",
+			"name": "review_1_quote",
+			"type": "textarea",
+			"default_value": "Структура питания наконец перестала восприниматься как диета. Отдельное спасибо за обратную связь в чате — чувствуешь себя не одна.",
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_1_social_type",
+			"label": "Соцсеть (иконка)",
+			"name": "review_1_social_type",
+			"type": "select",
+			"choices": {
+				"instagram": "Instagram",
+				"telegram": "Telegram",
+				"facebook": "Facebook",
+				"link": "Ссылка"
+			},
+			"default_value": "instagram",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_1_social_label",
+			"label": "Подпись ссылки",
+			"name": "review_1_social_label",
+			"type": "text",
+			"default_value": "Instagram",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_1_social_url",
+			"label": "Ссылка на соцсеть",
+			"name": "review_1_social_url",
+			"type": "url",
+			"default_value": "https://instagram.com/",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_1_city",
+			"label": "Город",
+			"name": "review_1_city",
+			"type": "text",
+			"default_value": "Киев",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_1_author",
+			"label": "Автор",
+			"name": "review_1_author",
+			"type": "text",
+			"default_value": "Ирина Николаева",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_1_topics",
+			"label": "Темы отзыва",
+			"name": "review_1_topics",
+			"type": "checkbox",
+			"instructions": "Отметьте одну или несколько тем из вкладки «Список тем». Если пунктов нет — сначала заполните «Общий список тем».",
+			"default_value": ["Питание", "Энергия", "Поддержка"],
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {},
+			"allow_custom": 0,
+			"layout": "vertical",
+			"toggle": 0,
+			"return_format": "value",
+			"save_custom": 0
+		},
+		{
+			"key": "field_reviews_tab_review_2",
+			"label": "Отзыв 2",
+			"name": "reviews_tab_review_2",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_reviews_review_2_reverse",
+			"label": "Расположение медиа справа (обратный порядок)",
+			"name": "review_2_reverse",
+			"type": "true_false",
+			"ui": 1,
+			"default_value": 1,
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_2_media_type",
+			"label": "Тип медиа",
+			"name": "review_2_media_type",
+			"type": "select",
+			"choices": {
+				"image": "Изображение",
+				"video": "Видео"
+			},
+			"default_value": "video",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_2_image",
+			"label": "Изображение",
+			"name": "review_2_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_2_image_alt",
+			"label": "Alt изображения",
+			"name": "review_2_image_alt",
+			"type": "text",
+			"default_value": "Олег Мельник",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_2_video_url",
+			"label": "URL видео (MP4)",
+			"name": "review_2_video_url",
+			"type": "url",
+			"default_value": "https://www.w3.org/WAI/content-assets/wcag-act-rules/test-assets/av/video/gizmo.mp4",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_2_video_poster",
+			"label": "Постер видео",
+			"name": "review_2_video_poster",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_2_quote",
+			"label": "Текст отзыва",
+			"name": "review_2_quote",
+			"type": "textarea",
+			"default_value": "Связала срывы с недосыпом — после корректировки режима вечерние перекусы почти пропали. Программа дала понятную опору без жёстких запретов.",
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_2_social_type",
+			"label": "Соцсеть (иконка)",
+			"name": "review_2_social_type",
+			"type": "select",
+			"choices": {
+				"instagram": "Instagram",
+				"telegram": "Telegram",
+				"facebook": "Facebook",
+				"link": "Ссылка"
+			},
+			"default_value": "telegram",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_2_social_label",
+			"label": "Подпись ссылки",
+			"name": "review_2_social_label",
+			"type": "text",
+			"default_value": "Telegram",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_2_social_url",
+			"label": "Ссылка на соцсеть",
+			"name": "review_2_social_url",
+			"type": "url",
+			"default_value": "https://t.me/",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_2_city",
+			"label": "Город",
+			"name": "review_2_city",
+			"type": "text",
+			"default_value": "Львов",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_2_author",
+			"label": "Автор",
+			"name": "review_2_author",
+			"type": "text",
+			"default_value": "Олег Мельник",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_2_topics",
+			"label": "Темы отзыва",
+			"name": "review_2_topics",
+			"type": "checkbox",
+			"instructions": "Отметьте одну или несколько тем из вкладки «Список тем». Если пунктов нет — сначала заполните «Общий список тем».",
+			"default_value": ["Сон", "Стресс", "Режим"],
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {},
+			"allow_custom": 0,
+			"layout": "vertical",
+			"toggle": 0,
+			"return_format": "value",
+			"save_custom": 0
+		},
+		{
+			"key": "field_reviews_tab_review_3",
+			"label": "Отзыв 3",
+			"name": "reviews_tab_review_3",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_reviews_review_3_reverse",
+			"label": "Расположение медиа справа (обратный порядок)",
+			"name": "review_3_reverse",
+			"type": "true_false",
+			"ui": 1,
+			"default_value": 0,
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_3_media_type",
+			"label": "Тип медиа",
+			"name": "review_3_media_type",
+			"type": "select",
+			"choices": {
+				"image": "Изображение",
+				"video": "Видео"
+			},
+			"default_value": "image",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_3_image",
+			"label": "Изображение",
+			"name": "review_3_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_3_image_alt",
+			"label": "Alt изображения",
+			"name": "review_3_image_alt",
+			"type": "text",
+			"default_value": "Анна Петренко",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_3_video_url",
+			"label": "URL видео (MP4)",
+			"name": "review_3_video_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_3_video_poster",
+			"label": "Постер видео",
+			"name": "review_3_video_poster",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_3_quote",
+			"label": "Текст отзыва",
+			"name": "review_3_quote",
+			"type": "textarea",
+			"default_value": "Через два месяца привычка собирать тарелку стала автоматической. Минус вес — приятный бонус к тому, что просто спокойнее отношусь к еде.",
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_3_social_type",
+			"label": "Соцсеть (иконка)",
+			"name": "review_3_social_type",
+			"type": "select",
+			"choices": {
+				"instagram": "Instagram",
+				"telegram": "Telegram",
+				"facebook": "Facebook",
+				"link": "Ссылка"
+			},
+			"default_value": "instagram",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_3_social_label",
+			"label": "Подпись ссылки",
+			"name": "review_3_social_label",
+			"type": "text",
+			"default_value": "Instagram",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_3_social_url",
+			"label": "Ссылка на соцсеть",
+			"name": "review_3_social_url",
+			"type": "url",
+			"default_value": "https://instagram.com/",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_3_city",
+			"label": "Город",
+			"name": "review_3_city",
+			"type": "text",
+			"default_value": "Харьков",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_3_author",
+			"label": "Автор",
+			"name": "review_3_author",
+			"type": "text",
+			"default_value": "Анна Петренко",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_3_topics",
+			"label": "Темы отзыва",
+			"name": "review_3_topics",
+			"type": "checkbox",
+			"instructions": "Отметьте одну или несколько тем из вкладки «Список тем». Если пунктов нет — сначала заполните «Общий список тем».",
+			"default_value": ["Питание", "Результат", "Мотивация"],
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {},
+			"allow_custom": 0,
+			"layout": "vertical",
+			"toggle": 0,
+			"return_format": "value",
+			"save_custom": 0
+		},
+		{
+			"key": "field_reviews_tab_review_4",
+			"label": "Отзыв 4",
+			"name": "reviews_tab_review_4",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_reviews_review_4_reverse",
+			"label": "Расположение медиа справа (обратный порядок)",
+			"name": "review_4_reverse",
+			"type": "true_false",
+			"ui": 1,
+			"default_value": 1,
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_4_media_type",
+			"label": "Тип медиа",
+			"name": "review_4_media_type",
+			"type": "select",
+			"choices": {
+				"image": "Изображение",
+				"video": "Видео"
+			},
+			"default_value": "image",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_4_image",
+			"label": "Изображение",
+			"name": "review_4_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_4_image_alt",
+			"label": "Alt изображения",
+			"name": "review_4_image_alt",
+			"type": "text",
+			"default_value": "Мария Коваль",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_4_video_url",
+			"label": "URL видео (MP4)",
+			"name": "review_4_video_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_4_video_poster",
+			"label": "Постер видео",
+			"name": "review_4_video_poster",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_4_quote",
+			"label": "Текст отзыва",
+			"name": "review_4_quote",
+			"type": "textarea",
+			"default_value": "Готовлю на семью — научилась адаптировать рецепты так, чтобы всем было вкусно и мне не приходилось готовить отдельно «свою» еду.",
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_4_social_type",
+			"label": "Соцсеть (иконка)",
+			"name": "review_4_social_type",
+			"type": "select",
+			"choices": {
+				"instagram": "Instagram",
+				"telegram": "Telegram",
+				"facebook": "Facebook",
+				"link": "Ссылка"
+			},
+			"default_value": "facebook",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_4_social_label",
+			"label": "Подпись ссылки",
+			"name": "review_4_social_label",
+			"type": "text",
+			"default_value": "Facebook",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_4_social_url",
+			"label": "Ссылка на соцсеть",
+			"name": "review_4_social_url",
+			"type": "url",
+			"default_value": "https://facebook.com/",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_4_city",
+			"label": "Город",
+			"name": "review_4_city",
+			"type": "text",
+			"default_value": "Одесса",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_4_author",
+			"label": "Автор",
+			"name": "review_4_author",
+			"type": "text",
+			"default_value": "Мария Коваль",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_4_topics",
+			"label": "Темы отзыва",
+			"name": "review_4_topics",
+			"type": "checkbox",
+			"instructions": "Отметьте одну или несколько тем из вкладки «Список тем». Если пунктов нет — сначала заполните «Общий список тем».",
+			"default_value": ["Семья", "Питание", "График"],
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {},
+			"allow_custom": 0,
+			"layout": "vertical",
+			"toggle": 0,
+			"return_format": "value",
+			"save_custom": 0
+		},
+		{
+			"key": "field_reviews_tab_review_5",
+			"label": "Отзыв 5",
+			"name": "reviews_tab_review_5",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_reviews_review_5_reverse",
+			"label": "Расположение медиа справа (обратный порядок)",
+			"name": "review_5_reverse",
+			"type": "true_false",
+			"ui": 1,
+			"default_value": 0,
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_5_media_type",
+			"label": "Тип медиа",
+			"name": "review_5_media_type",
+			"type": "select",
+			"choices": {
+				"image": "Изображение",
+				"video": "Видео"
+			},
+			"default_value": "image",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_5_image",
+			"label": "Изображение",
+			"name": "review_5_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_5_image_alt",
+			"label": "Alt изображения",
+			"name": "review_5_image_alt",
+			"type": "text",
+			"default_value": "Дмитрий Савченко",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_5_video_url",
+			"label": "URL видео (MP4)",
+			"name": "review_5_video_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_5_video_poster",
+			"label": "Постер видео",
+			"name": "review_5_video_poster",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_5_quote",
+			"label": "Текст отзыва",
+			"name": "review_5_quote",
+			"type": "textarea",
+			"default_value": "Раньше к вечеру «отключало». Водный режим и перераспределение углеводов дали ощутимый прилив сил — тренировки стали легче переноситься.",
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_5_social_type",
+			"label": "Соцсеть (иконка)",
+			"name": "review_5_social_type",
+			"type": "select",
+			"choices": {
+				"instagram": "Instagram",
+				"telegram": "Telegram",
+				"facebook": "Facebook",
+				"link": "Ссылка"
+			},
+			"default_value": "telegram",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_5_social_label",
+			"label": "Подпись ссылки",
+			"name": "review_5_social_label",
+			"type": "text",
+			"default_value": "Telegram",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_5_social_url",
+			"label": "Ссылка на соцсеть",
+			"name": "review_5_social_url",
+			"type": "url",
+			"default_value": "https://t.me/",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_5_city",
+			"label": "Город",
+			"name": "review_5_city",
+			"type": "text",
+			"default_value": "Днепр",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_5_author",
+			"label": "Автор",
+			"name": "review_5_author",
+			"type": "text",
+			"default_value": "Дмитрий Савченко",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_5_topics",
+			"label": "Темы отзыва",
+			"name": "review_5_topics",
+			"type": "checkbox",
+			"instructions": "Отметьте одну или несколько тем из вкладки «Список тем». Если пунктов нет — сначала заполните «Общий список тем».",
+			"default_value": ["Энергия", "Тренировки", "Вода"],
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {},
+			"allow_custom": 0,
+			"layout": "vertical",
+			"toggle": 0,
+			"return_format": "value",
+			"save_custom": 0
+		},
+		{
+			"key": "field_reviews_tab_review_6",
+			"label": "Отзыв 6",
+			"name": "reviews_tab_review_6",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_reviews_review_6_reverse",
+			"label": "Расположение медиа справа (обратный порядок)",
+			"name": "review_6_reverse",
+			"type": "true_false",
+			"ui": 1,
+			"default_value": 1,
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_6_media_type",
+			"label": "Тип медиа",
+			"name": "review_6_media_type",
+			"type": "select",
+			"choices": {
+				"image": "Изображение",
+				"video": "Видео"
+			},
+			"default_value": "video",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_6_image",
+			"label": "Изображение",
+			"name": "review_6_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_6_image_alt",
+			"label": "Alt изображения",
+			"name": "review_6_image_alt",
+			"type": "text",
+			"default_value": "Елена Ворона",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_6_video_url",
+			"label": "URL видео (MP4)",
+			"name": "review_6_video_url",
+			"type": "url",
+			"default_value": "https://www.w3.org/WAI/content-assets/wcag-act-rules/test-assets/av/video/gizmo.mp4",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_6_video_poster",
+			"label": "Постер видео",
+			"name": "review_6_video_poster",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_6_quote",
+			"label": "Текст отзыва",
+			"name": "review_6_quote",
+			"type": "textarea",
+			"default_value": "Честно признаюсь, шла за цифрами на весах, а в итоге больше ценю спокойствие вокруг еды и отношений с телом — это дорого стоит.",
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_6_social_type",
+			"label": "Соцсеть (иконка)",
+			"name": "review_6_social_type",
+			"type": "select",
+			"choices": {
+				"instagram": "Instagram",
+				"telegram": "Telegram",
+				"facebook": "Facebook",
+				"link": "Ссылка"
+			},
+			"default_value": "instagram",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_6_social_label",
+			"label": "Подпись ссылки",
+			"name": "review_6_social_label",
+			"type": "text",
+			"default_value": "Instagram",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_6_social_url",
+			"label": "Ссылка на соцсеть",
+			"name": "review_6_social_url",
+			"type": "url",
+			"default_value": "https://instagram.com/",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_6_city",
+			"label": "Город",
+			"name": "review_6_city",
+			"type": "text",
+			"default_value": "Запорожье",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_6_author",
+			"label": "Автор",
+			"name": "review_6_author",
+			"type": "text",
+			"default_value": "Елена Ворона",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_6_topics",
+			"label": "Темы отзыва",
+			"name": "review_6_topics",
+			"type": "checkbox",
+			"instructions": "Отметьте одну или несколько тем из вкладки «Список тем». Если пунктов нет — сначала заполните «Общий список тем».",
+			"default_value": ["Поддержка", "Результат", "Психология"],
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {},
+			"allow_custom": 0,
+			"layout": "vertical",
+			"toggle": 0,
+			"return_format": "value",
+			"save_custom": 0
+		},
+		{
+			"key": "field_reviews_tab_review_7",
+			"label": "Отзыв 7",
+			"name": "reviews_tab_review_7",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_reviews_review_7_reverse",
+			"label": "Расположение медиа справа (обратный порядок)",
+			"name": "review_7_reverse",
+			"type": "true_false",
+			"ui": 1,
+			"default_value": 0,
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_7_media_type",
+			"label": "Тип медиа",
+			"name": "review_7_media_type",
+			"type": "select",
+			"choices": {
+				"image": "Изображение",
+				"video": "Видео"
+			},
+			"default_value": "image",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_7_image",
+			"label": "Изображение",
+			"name": "review_7_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_7_image_alt",
+			"label": "Alt изображения",
+			"name": "review_7_image_alt",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_7_video_url",
+			"label": "URL видео (MP4)",
+			"name": "review_7_video_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_7_video_poster",
+			"label": "Постер видео",
+			"name": "review_7_video_poster",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_7_quote",
+			"label": "Текст отзыва",
+			"name": "review_7_quote",
+			"type": "textarea",
+			"default_value": "",
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_7_social_type",
+			"label": "Соцсеть (иконка)",
+			"name": "review_7_social_type",
+			"type": "select",
+			"choices": {
+				"instagram": "Instagram",
+				"telegram": "Telegram",
+				"facebook": "Facebook",
+				"link": "Ссылка"
+			},
+			"default_value": "instagram",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_7_social_label",
+			"label": "Подпись ссылки",
+			"name": "review_7_social_label",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_7_social_url",
+			"label": "Ссылка на соцсеть",
+			"name": "review_7_social_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_7_city",
+			"label": "Город",
+			"name": "review_7_city",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_7_author",
+			"label": "Автор",
+			"name": "review_7_author",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_7_topics",
+			"label": "Темы отзыва",
+			"name": "review_7_topics",
+			"type": "checkbox",
+			"instructions": "Отметьте одну или несколько тем из вкладки «Список тем». Если пунктов нет — сначала заполните «Общий список тем».",
+			"default_value": [],
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {},
+			"allow_custom": 0,
+			"layout": "vertical",
+			"toggle": 0,
+			"return_format": "value",
+			"save_custom": 0
+		},
+		{
+			"key": "field_reviews_tab_review_8",
+			"label": "Отзыв 8",
+			"name": "reviews_tab_review_8",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_reviews_review_8_reverse",
+			"label": "Расположение медиа справа (обратный порядок)",
+			"name": "review_8_reverse",
+			"type": "true_false",
+			"ui": 1,
+			"default_value": 0,
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_8_media_type",
+			"label": "Тип медиа",
+			"name": "review_8_media_type",
+			"type": "select",
+			"choices": {
+				"image": "Изображение",
+				"video": "Видео"
+			},
+			"default_value": "image",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_8_image",
+			"label": "Изображение",
+			"name": "review_8_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_8_image_alt",
+			"label": "Alt изображения",
+			"name": "review_8_image_alt",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_8_video_url",
+			"label": "URL видео (MP4)",
+			"name": "review_8_video_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_8_video_poster",
+			"label": "Постер видео",
+			"name": "review_8_video_poster",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_8_quote",
+			"label": "Текст отзыва",
+			"name": "review_8_quote",
+			"type": "textarea",
+			"default_value": "",
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_8_social_type",
+			"label": "Соцсеть (иконка)",
+			"name": "review_8_social_type",
+			"type": "select",
+			"choices": {
+				"instagram": "Instagram",
+				"telegram": "Telegram",
+				"facebook": "Facebook",
+				"link": "Ссылка"
+			},
+			"default_value": "instagram",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_8_social_label",
+			"label": "Подпись ссылки",
+			"name": "review_8_social_label",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_8_social_url",
+			"label": "Ссылка на соцсеть",
+			"name": "review_8_social_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_8_city",
+			"label": "Город",
+			"name": "review_8_city",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_8_author",
+			"label": "Автор",
+			"name": "review_8_author",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_8_topics",
+			"label": "Темы отзыва",
+			"name": "review_8_topics",
+			"type": "checkbox",
+			"instructions": "Отметьте одну или несколько тем из вкладки «Список тем». Если пунктов нет — сначала заполните «Общий список тем».",
+			"default_value": [],
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {},
+			"allow_custom": 0,
+			"layout": "vertical",
+			"toggle": 0,
+			"return_format": "value",
+			"save_custom": 0
+		},
+		{
+			"key": "field_reviews_tab_review_9",
+			"label": "Отзыв 9",
+			"name": "reviews_tab_review_9",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_reviews_review_9_reverse",
+			"label": "Расположение медиа справа (обратный порядок)",
+			"name": "review_9_reverse",
+			"type": "true_false",
+			"ui": 1,
+			"default_value": 0,
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_9_media_type",
+			"label": "Тип медиа",
+			"name": "review_9_media_type",
+			"type": "select",
+			"choices": {
+				"image": "Изображение",
+				"video": "Видео"
+			},
+			"default_value": "image",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_9_image",
+			"label": "Изображение",
+			"name": "review_9_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_9_image_alt",
+			"label": "Alt изображения",
+			"name": "review_9_image_alt",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_9_video_url",
+			"label": "URL видео (MP4)",
+			"name": "review_9_video_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_9_video_poster",
+			"label": "Постер видео",
+			"name": "review_9_video_poster",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_9_quote",
+			"label": "Текст отзыва",
+			"name": "review_9_quote",
+			"type": "textarea",
+			"default_value": "",
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_9_social_type",
+			"label": "Соцсеть (иконка)",
+			"name": "review_9_social_type",
+			"type": "select",
+			"choices": {
+				"instagram": "Instagram",
+				"telegram": "Telegram",
+				"facebook": "Facebook",
+				"link": "Ссылка"
+			},
+			"default_value": "instagram",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_9_social_label",
+			"label": "Подпись ссылки",
+			"name": "review_9_social_label",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_9_social_url",
+			"label": "Ссылка на соцсеть",
+			"name": "review_9_social_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_9_city",
+			"label": "Город",
+			"name": "review_9_city",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_9_author",
+			"label": "Автор",
+			"name": "review_9_author",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_9_topics",
+			"label": "Темы отзыва",
+			"name": "review_9_topics",
+			"type": "checkbox",
+			"instructions": "Отметьте одну или несколько тем из вкладки «Список тем». Если пунктов нет — сначала заполните «Общий список тем».",
+			"default_value": [],
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {},
+			"allow_custom": 0,
+			"layout": "vertical",
+			"toggle": 0,
+			"return_format": "value",
+			"save_custom": 0
+		},
+		{
+			"key": "field_reviews_tab_review_10",
+			"label": "Отзыв 10",
+			"name": "reviews_tab_review_10",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_reviews_review_10_reverse",
+			"label": "Расположение медиа справа (обратный порядок)",
+			"name": "review_10_reverse",
+			"type": "true_false",
+			"ui": 1,
+			"default_value": 0,
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_10_media_type",
+			"label": "Тип медиа",
+			"name": "review_10_media_type",
+			"type": "select",
+			"choices": {
+				"image": "Изображение",
+				"video": "Видео"
+			},
+			"default_value": "image",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_10_image",
+			"label": "Изображение",
+			"name": "review_10_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_10_image_alt",
+			"label": "Alt изображения",
+			"name": "review_10_image_alt",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_10_video_url",
+			"label": "URL видео (MP4)",
+			"name": "review_10_video_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_10_video_poster",
+			"label": "Постер видео",
+			"name": "review_10_video_poster",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_10_quote",
+			"label": "Текст отзыва",
+			"name": "review_10_quote",
+			"type": "textarea",
+			"default_value": "",
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_10_social_type",
+			"label": "Соцсеть (иконка)",
+			"name": "review_10_social_type",
+			"type": "select",
+			"choices": {
+				"instagram": "Instagram",
+				"telegram": "Telegram",
+				"facebook": "Facebook",
+				"link": "Ссылка"
+			},
+			"default_value": "instagram",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_10_social_label",
+			"label": "Подпись ссылки",
+			"name": "review_10_social_label",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_10_social_url",
+			"label": "Ссылка на соцсеть",
+			"name": "review_10_social_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_10_city",
+			"label": "Город",
+			"name": "review_10_city",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_10_author",
+			"label": "Автор",
+			"name": "review_10_author",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_10_topics",
+			"label": "Темы отзыва",
+			"name": "review_10_topics",
+			"type": "checkbox",
+			"instructions": "Отметьте одну или несколько тем из вкладки «Список тем». Если пунктов нет — сначала заполните «Общий список тем».",
+			"default_value": [],
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {},
+			"allow_custom": 0,
+			"layout": "vertical",
+			"toggle": 0,
+			"return_format": "value",
+			"save_custom": 0
+		},
+		{
+			"key": "field_reviews_tab_review_11",
+			"label": "Отзыв 11",
+			"name": "reviews_tab_review_11",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_reviews_review_11_reverse",
+			"label": "Расположение медиа справа (обратный порядок)",
+			"name": "review_11_reverse",
+			"type": "true_false",
+			"ui": 1,
+			"default_value": 0,
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_11_media_type",
+			"label": "Тип медиа",
+			"name": "review_11_media_type",
+			"type": "select",
+			"choices": {
+				"image": "Изображение",
+				"video": "Видео"
+			},
+			"default_value": "image",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_11_image",
+			"label": "Изображение",
+			"name": "review_11_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_11_image_alt",
+			"label": "Alt изображения",
+			"name": "review_11_image_alt",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_11_video_url",
+			"label": "URL видео (MP4)",
+			"name": "review_11_video_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_11_video_poster",
+			"label": "Постер видео",
+			"name": "review_11_video_poster",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_11_quote",
+			"label": "Текст отзыва",
+			"name": "review_11_quote",
+			"type": "textarea",
+			"default_value": "",
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_11_social_type",
+			"label": "Соцсеть (иконка)",
+			"name": "review_11_social_type",
+			"type": "select",
+			"choices": {
+				"instagram": "Instagram",
+				"telegram": "Telegram",
+				"facebook": "Facebook",
+				"link": "Ссылка"
+			},
+			"default_value": "instagram",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_11_social_label",
+			"label": "Подпись ссылки",
+			"name": "review_11_social_label",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_11_social_url",
+			"label": "Ссылка на соцсеть",
+			"name": "review_11_social_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_11_city",
+			"label": "Город",
+			"name": "review_11_city",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_11_author",
+			"label": "Автор",
+			"name": "review_11_author",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_11_topics",
+			"label": "Темы отзыва",
+			"name": "review_11_topics",
+			"type": "checkbox",
+			"instructions": "Отметьте одну или несколько тем из вкладки «Список тем». Если пунктов нет — сначала заполните «Общий список тем».",
+			"default_value": [],
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {},
+			"allow_custom": 0,
+			"layout": "vertical",
+			"toggle": 0,
+			"return_format": "value",
+			"save_custom": 0
+		},
+		{
+			"key": "field_reviews_tab_review_12",
+			"label": "Отзыв 12",
+			"name": "reviews_tab_review_12",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_reviews_review_12_reverse",
+			"label": "Расположение медиа справа (обратный порядок)",
+			"name": "review_12_reverse",
+			"type": "true_false",
+			"ui": 1,
+			"default_value": 0,
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_12_media_type",
+			"label": "Тип медиа",
+			"name": "review_12_media_type",
+			"type": "select",
+			"choices": {
+				"image": "Изображение",
+				"video": "Видео"
+			},
+			"default_value": "image",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_12_image",
+			"label": "Изображение",
+			"name": "review_12_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_12_image_alt",
+			"label": "Alt изображения",
+			"name": "review_12_image_alt",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_12_video_url",
+			"label": "URL видео (MP4)",
+			"name": "review_12_video_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_12_video_poster",
+			"label": "Постер видео",
+			"name": "review_12_video_poster",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_12_quote",
+			"label": "Текст отзыва",
+			"name": "review_12_quote",
+			"type": "textarea",
+			"default_value": "",
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_12_social_type",
+			"label": "Соцсеть (иконка)",
+			"name": "review_12_social_type",
+			"type": "select",
+			"choices": {
+				"instagram": "Instagram",
+				"telegram": "Telegram",
+				"facebook": "Facebook",
+				"link": "Ссылка"
+			},
+			"default_value": "instagram",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_12_social_label",
+			"label": "Подпись ссылки",
+			"name": "review_12_social_label",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_12_social_url",
+			"label": "Ссылка на соцсеть",
+			"name": "review_12_social_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_12_city",
+			"label": "Город",
+			"name": "review_12_city",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_12_author",
+			"label": "Автор",
+			"name": "review_12_author",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_12_topics",
+			"label": "Темы отзыва",
+			"name": "review_12_topics",
+			"type": "checkbox",
+			"instructions": "Отметьте одну или несколько тем из вкладки «Список тем». Если пунктов нет — сначала заполните «Общий список тем».",
+			"default_value": [],
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {},
+			"allow_custom": 0,
+			"layout": "vertical",
+			"toggle": 0,
+			"return_format": "value",
+			"save_custom": 0
+		},
+		{
+			"key": "field_reviews_tab_review_13",
+			"label": "Отзыв 13",
+			"name": "reviews_tab_review_13",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_reviews_review_13_reverse",
+			"label": "Расположение медиа справа (обратный порядок)",
+			"name": "review_13_reverse",
+			"type": "true_false",
+			"ui": 1,
+			"default_value": 0,
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_13_media_type",
+			"label": "Тип медиа",
+			"name": "review_13_media_type",
+			"type": "select",
+			"choices": {
+				"image": "Изображение",
+				"video": "Видео"
+			},
+			"default_value": "image",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_13_image",
+			"label": "Изображение",
+			"name": "review_13_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_13_image_alt",
+			"label": "Alt изображения",
+			"name": "review_13_image_alt",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_13_video_url",
+			"label": "URL видео (MP4)",
+			"name": "review_13_video_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_13_video_poster",
+			"label": "Постер видео",
+			"name": "review_13_video_poster",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_13_quote",
+			"label": "Текст отзыва",
+			"name": "review_13_quote",
+			"type": "textarea",
+			"default_value": "",
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_13_social_type",
+			"label": "Соцсеть (иконка)",
+			"name": "review_13_social_type",
+			"type": "select",
+			"choices": {
+				"instagram": "Instagram",
+				"telegram": "Telegram",
+				"facebook": "Facebook",
+				"link": "Ссылка"
+			},
+			"default_value": "instagram",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_13_social_label",
+			"label": "Подпись ссылки",
+			"name": "review_13_social_label",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_13_social_url",
+			"label": "Ссылка на соцсеть",
+			"name": "review_13_social_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_13_city",
+			"label": "Город",
+			"name": "review_13_city",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_13_author",
+			"label": "Автор",
+			"name": "review_13_author",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_13_topics",
+			"label": "Темы отзыва",
+			"name": "review_13_topics",
+			"type": "checkbox",
+			"instructions": "Отметьте одну или несколько тем из вкладки «Список тем». Если пунктов нет — сначала заполните «Общий список тем».",
+			"default_value": [],
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {},
+			"allow_custom": 0,
+			"layout": "vertical",
+			"toggle": 0,
+			"return_format": "value",
+			"save_custom": 0
+		},
+		{
+			"key": "field_reviews_tab_review_14",
+			"label": "Отзыв 14",
+			"name": "reviews_tab_review_14",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_reviews_review_14_reverse",
+			"label": "Расположение медиа справа (обратный порядок)",
+			"name": "review_14_reverse",
+			"type": "true_false",
+			"ui": 1,
+			"default_value": 0,
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_14_media_type",
+			"label": "Тип медиа",
+			"name": "review_14_media_type",
+			"type": "select",
+			"choices": {
+				"image": "Изображение",
+				"video": "Видео"
+			},
+			"default_value": "image",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_14_image",
+			"label": "Изображение",
+			"name": "review_14_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_14_image_alt",
+			"label": "Alt изображения",
+			"name": "review_14_image_alt",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_14_video_url",
+			"label": "URL видео (MP4)",
+			"name": "review_14_video_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_14_video_poster",
+			"label": "Постер видео",
+			"name": "review_14_video_poster",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_14_quote",
+			"label": "Текст отзыва",
+			"name": "review_14_quote",
+			"type": "textarea",
+			"default_value": "",
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_14_social_type",
+			"label": "Соцсеть (иконка)",
+			"name": "review_14_social_type",
+			"type": "select",
+			"choices": {
+				"instagram": "Instagram",
+				"telegram": "Telegram",
+				"facebook": "Facebook",
+				"link": "Ссылка"
+			},
+			"default_value": "instagram",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_14_social_label",
+			"label": "Подпись ссылки",
+			"name": "review_14_social_label",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_14_social_url",
+			"label": "Ссылка на соцсеть",
+			"name": "review_14_social_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_14_city",
+			"label": "Город",
+			"name": "review_14_city",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_14_author",
+			"label": "Автор",
+			"name": "review_14_author",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_14_topics",
+			"label": "Темы отзыва",
+			"name": "review_14_topics",
+			"type": "checkbox",
+			"instructions": "Отметьте одну или несколько тем из вкладки «Список тем». Если пунктов нет — сначала заполните «Общий список тем».",
+			"default_value": [],
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {},
+			"allow_custom": 0,
+			"layout": "vertical",
+			"toggle": 0,
+			"return_format": "value",
+			"save_custom": 0
+		},
+		{
+			"key": "field_reviews_tab_review_15",
+			"label": "Отзыв 15",
+			"name": "reviews_tab_review_15",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_reviews_review_15_reverse",
+			"label": "Расположение медиа справа (обратный порядок)",
+			"name": "review_15_reverse",
+			"type": "true_false",
+			"ui": 1,
+			"default_value": 0,
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_15_media_type",
+			"label": "Тип медиа",
+			"name": "review_15_media_type",
+			"type": "select",
+			"choices": {
+				"image": "Изображение",
+				"video": "Видео"
+			},
+			"default_value": "image",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_15_image",
+			"label": "Изображение",
+			"name": "review_15_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_15_image_alt",
+			"label": "Alt изображения",
+			"name": "review_15_image_alt",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_15_video_url",
+			"label": "URL видео (MP4)",
+			"name": "review_15_video_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_15_video_poster",
+			"label": "Постер видео",
+			"name": "review_15_video_poster",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_15_quote",
+			"label": "Текст отзыва",
+			"name": "review_15_quote",
+			"type": "textarea",
+			"default_value": "",
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_15_social_type",
+			"label": "Соцсеть (иконка)",
+			"name": "review_15_social_type",
+			"type": "select",
+			"choices": {
+				"instagram": "Instagram",
+				"telegram": "Telegram",
+				"facebook": "Facebook",
+				"link": "Ссылка"
+			},
+			"default_value": "instagram",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_15_social_label",
+			"label": "Подпись ссылки",
+			"name": "review_15_social_label",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_15_social_url",
+			"label": "Ссылка на соцсеть",
+			"name": "review_15_social_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_15_city",
+			"label": "Город",
+			"name": "review_15_city",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_15_author",
+			"label": "Автор",
+			"name": "review_15_author",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_15_topics",
+			"label": "Темы отзыва",
+			"name": "review_15_topics",
+			"type": "checkbox",
+			"instructions": "Отметьте одну или несколько тем из вкладки «Список тем». Если пунктов нет — сначала заполните «Общий список тем».",
+			"default_value": [],
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {},
+			"allow_custom": 0,
+			"layout": "vertical",
+			"toggle": 0,
+			"return_format": "value",
+			"save_custom": 0
+		},
+		{
+			"key": "field_reviews_tab_review_16",
+			"label": "Отзыв 16",
+			"name": "reviews_tab_review_16",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_reviews_review_16_reverse",
+			"label": "Расположение медиа справа (обратный порядок)",
+			"name": "review_16_reverse",
+			"type": "true_false",
+			"ui": 1,
+			"default_value": 0,
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_16_media_type",
+			"label": "Тип медиа",
+			"name": "review_16_media_type",
+			"type": "select",
+			"choices": {
+				"image": "Изображение",
+				"video": "Видео"
+			},
+			"default_value": "image",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_16_image",
+			"label": "Изображение",
+			"name": "review_16_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_16_image_alt",
+			"label": "Alt изображения",
+			"name": "review_16_image_alt",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_16_video_url",
+			"label": "URL видео (MP4)",
+			"name": "review_16_video_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_16_video_poster",
+			"label": "Постер видео",
+			"name": "review_16_video_poster",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_16_quote",
+			"label": "Текст отзыва",
+			"name": "review_16_quote",
+			"type": "textarea",
+			"default_value": "",
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_16_social_type",
+			"label": "Соцсеть (иконка)",
+			"name": "review_16_social_type",
+			"type": "select",
+			"choices": {
+				"instagram": "Instagram",
+				"telegram": "Telegram",
+				"facebook": "Facebook",
+				"link": "Ссылка"
+			},
+			"default_value": "instagram",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_16_social_label",
+			"label": "Подпись ссылки",
+			"name": "review_16_social_label",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_16_social_url",
+			"label": "Ссылка на соцсеть",
+			"name": "review_16_social_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_16_city",
+			"label": "Город",
+			"name": "review_16_city",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_16_author",
+			"label": "Автор",
+			"name": "review_16_author",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_16_topics",
+			"label": "Темы отзыва",
+			"name": "review_16_topics",
+			"type": "checkbox",
+			"instructions": "Отметьте одну или несколько тем из вкладки «Список тем». Если пунктов нет — сначала заполните «Общий список тем».",
+			"default_value": [],
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {},
+			"allow_custom": 0,
+			"layout": "vertical",
+			"toggle": 0,
+			"return_format": "value",
+			"save_custom": 0
+		},
+		{
+			"key": "field_reviews_tab_review_17",
+			"label": "Отзыв 17",
+			"name": "reviews_tab_review_17",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_reviews_review_17_reverse",
+			"label": "Расположение медиа справа (обратный порядок)",
+			"name": "review_17_reverse",
+			"type": "true_false",
+			"ui": 1,
+			"default_value": 0,
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_17_media_type",
+			"label": "Тип медиа",
+			"name": "review_17_media_type",
+			"type": "select",
+			"choices": {
+				"image": "Изображение",
+				"video": "Видео"
+			},
+			"default_value": "image",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_17_image",
+			"label": "Изображение",
+			"name": "review_17_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_17_image_alt",
+			"label": "Alt изображения",
+			"name": "review_17_image_alt",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_17_video_url",
+			"label": "URL видео (MP4)",
+			"name": "review_17_video_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_17_video_poster",
+			"label": "Постер видео",
+			"name": "review_17_video_poster",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_17_quote",
+			"label": "Текст отзыва",
+			"name": "review_17_quote",
+			"type": "textarea",
+			"default_value": "",
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_17_social_type",
+			"label": "Соцсеть (иконка)",
+			"name": "review_17_social_type",
+			"type": "select",
+			"choices": {
+				"instagram": "Instagram",
+				"telegram": "Telegram",
+				"facebook": "Facebook",
+				"link": "Ссылка"
+			},
+			"default_value": "instagram",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_17_social_label",
+			"label": "Подпись ссылки",
+			"name": "review_17_social_label",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_17_social_url",
+			"label": "Ссылка на соцсеть",
+			"name": "review_17_social_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_17_city",
+			"label": "Город",
+			"name": "review_17_city",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_17_author",
+			"label": "Автор",
+			"name": "review_17_author",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_17_topics",
+			"label": "Темы отзыва",
+			"name": "review_17_topics",
+			"type": "checkbox",
+			"instructions": "Отметьте одну или несколько тем из вкладки «Список тем». Если пунктов нет — сначала заполните «Общий список тем».",
+			"default_value": [],
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {},
+			"allow_custom": 0,
+			"layout": "vertical",
+			"toggle": 0,
+			"return_format": "value",
+			"save_custom": 0
+		},
+		{
+			"key": "field_reviews_tab_review_18",
+			"label": "Отзыв 18",
+			"name": "reviews_tab_review_18",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_reviews_review_18_reverse",
+			"label": "Расположение медиа справа (обратный порядок)",
+			"name": "review_18_reverse",
+			"type": "true_false",
+			"ui": 1,
+			"default_value": 0,
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_18_media_type",
+			"label": "Тип медиа",
+			"name": "review_18_media_type",
+			"type": "select",
+			"choices": {
+				"image": "Изображение",
+				"video": "Видео"
+			},
+			"default_value": "image",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_18_image",
+			"label": "Изображение",
+			"name": "review_18_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_18_image_alt",
+			"label": "Alt изображения",
+			"name": "review_18_image_alt",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_18_video_url",
+			"label": "URL видео (MP4)",
+			"name": "review_18_video_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_18_video_poster",
+			"label": "Постер видео",
+			"name": "review_18_video_poster",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_18_quote",
+			"label": "Текст отзыва",
+			"name": "review_18_quote",
+			"type": "textarea",
+			"default_value": "",
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_18_social_type",
+			"label": "Соцсеть (иконка)",
+			"name": "review_18_social_type",
+			"type": "select",
+			"choices": {
+				"instagram": "Instagram",
+				"telegram": "Telegram",
+				"facebook": "Facebook",
+				"link": "Ссылка"
+			},
+			"default_value": "instagram",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_18_social_label",
+			"label": "Подпись ссылки",
+			"name": "review_18_social_label",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_18_social_url",
+			"label": "Ссылка на соцсеть",
+			"name": "review_18_social_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_18_city",
+			"label": "Город",
+			"name": "review_18_city",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_18_author",
+			"label": "Автор",
+			"name": "review_18_author",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_18_topics",
+			"label": "Темы отзыва",
+			"name": "review_18_topics",
+			"type": "checkbox",
+			"instructions": "Отметьте одну или несколько тем из вкладки «Список тем». Если пунктов нет — сначала заполните «Общий список тем».",
+			"default_value": [],
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {},
+			"allow_custom": 0,
+			"layout": "vertical",
+			"toggle": 0,
+			"return_format": "value",
+			"save_custom": 0
+		},
+		{
+			"key": "field_reviews_tab_review_19",
+			"label": "Отзыв 19",
+			"name": "reviews_tab_review_19",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_reviews_review_19_reverse",
+			"label": "Расположение медиа справа (обратный порядок)",
+			"name": "review_19_reverse",
+			"type": "true_false",
+			"ui": 1,
+			"default_value": 0,
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_19_media_type",
+			"label": "Тип медиа",
+			"name": "review_19_media_type",
+			"type": "select",
+			"choices": {
+				"image": "Изображение",
+				"video": "Видео"
+			},
+			"default_value": "image",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_19_image",
+			"label": "Изображение",
+			"name": "review_19_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_19_image_alt",
+			"label": "Alt изображения",
+			"name": "review_19_image_alt",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_19_video_url",
+			"label": "URL видео (MP4)",
+			"name": "review_19_video_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_19_video_poster",
+			"label": "Постер видео",
+			"name": "review_19_video_poster",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_19_quote",
+			"label": "Текст отзыва",
+			"name": "review_19_quote",
+			"type": "textarea",
+			"default_value": "",
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_19_social_type",
+			"label": "Соцсеть (иконка)",
+			"name": "review_19_social_type",
+			"type": "select",
+			"choices": {
+				"instagram": "Instagram",
+				"telegram": "Telegram",
+				"facebook": "Facebook",
+				"link": "Ссылка"
+			},
+			"default_value": "instagram",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_19_social_label",
+			"label": "Подпись ссылки",
+			"name": "review_19_social_label",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_19_social_url",
+			"label": "Ссылка на соцсеть",
+			"name": "review_19_social_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_19_city",
+			"label": "Город",
+			"name": "review_19_city",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_19_author",
+			"label": "Автор",
+			"name": "review_19_author",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_19_topics",
+			"label": "Темы отзыва",
+			"name": "review_19_topics",
+			"type": "checkbox",
+			"instructions": "Отметьте одну или несколько тем из вкладки «Список тем». Если пунктов нет — сначала заполните «Общий список тем».",
+			"default_value": [],
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {},
+			"allow_custom": 0,
+			"layout": "vertical",
+			"toggle": 0,
+			"return_format": "value",
+			"save_custom": 0
+		},
+		{
+			"key": "field_reviews_tab_review_20",
+			"label": "Отзыв 20",
+			"name": "reviews_tab_review_20",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_reviews_review_20_reverse",
+			"label": "Расположение медиа справа (обратный порядок)",
+			"name": "review_20_reverse",
+			"type": "true_false",
+			"ui": 1,
+			"default_value": 0,
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_20_media_type",
+			"label": "Тип медиа",
+			"name": "review_20_media_type",
+			"type": "select",
+			"choices": {
+				"image": "Изображение",
+				"video": "Видео"
+			},
+			"default_value": "image",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_20_image",
+			"label": "Изображение",
+			"name": "review_20_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_20_image_alt",
+			"label": "Alt изображения",
+			"name": "review_20_image_alt",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_20_video_url",
+			"label": "URL видео (MP4)",
+			"name": "review_20_video_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_20_video_poster",
+			"label": "Постер видео",
+			"name": "review_20_video_poster",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_20_quote",
+			"label": "Текст отзыва",
+			"name": "review_20_quote",
+			"type": "textarea",
+			"default_value": "",
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_20_social_type",
+			"label": "Соцсеть (иконка)",
+			"name": "review_20_social_type",
+			"type": "select",
+			"choices": {
+				"instagram": "Instagram",
+				"telegram": "Telegram",
+				"facebook": "Facebook",
+				"link": "Ссылка"
+			},
+			"default_value": "instagram",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_20_social_label",
+			"label": "Подпись ссылки",
+			"name": "review_20_social_label",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_20_social_url",
+			"label": "Ссылка на соцсеть",
+			"name": "review_20_social_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_20_city",
+			"label": "Город",
+			"name": "review_20_city",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_20_author",
+			"label": "Автор",
+			"name": "review_20_author",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_20_topics",
+			"label": "Темы отзыва",
+			"name": "review_20_topics",
+			"type": "checkbox",
+			"instructions": "Отметьте одну или несколько тем из вкладки «Список тем». Если пунктов нет — сначала заполните «Общий список тем».",
+			"default_value": [],
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {},
+			"allow_custom": 0,
+			"layout": "vertical",
+			"toggle": 0,
+			"return_format": "value",
+			"save_custom": 0
+		},
+		{
+			"key": "field_reviews_tab_review_21",
+			"label": "Отзыв 21",
+			"name": "reviews_tab_review_21",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_reviews_review_21_reverse",
+			"label": "Расположение медиа справа (обратный порядок)",
+			"name": "review_21_reverse",
+			"type": "true_false",
+			"ui": 1,
+			"default_value": 0,
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_21_media_type",
+			"label": "Тип медиа",
+			"name": "review_21_media_type",
+			"type": "select",
+			"choices": {
+				"image": "Изображение",
+				"video": "Видео"
+			},
+			"default_value": "image",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_21_image",
+			"label": "Изображение",
+			"name": "review_21_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_21_image_alt",
+			"label": "Alt изображения",
+			"name": "review_21_image_alt",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_21_video_url",
+			"label": "URL видео (MP4)",
+			"name": "review_21_video_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_21_video_poster",
+			"label": "Постер видео",
+			"name": "review_21_video_poster",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_21_quote",
+			"label": "Текст отзыва",
+			"name": "review_21_quote",
+			"type": "textarea",
+			"default_value": "",
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_21_social_type",
+			"label": "Соцсеть (иконка)",
+			"name": "review_21_social_type",
+			"type": "select",
+			"choices": {
+				"instagram": "Instagram",
+				"telegram": "Telegram",
+				"facebook": "Facebook",
+				"link": "Ссылка"
+			},
+			"default_value": "instagram",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_21_social_label",
+			"label": "Подпись ссылки",
+			"name": "review_21_social_label",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_21_social_url",
+			"label": "Ссылка на соцсеть",
+			"name": "review_21_social_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_21_city",
+			"label": "Город",
+			"name": "review_21_city",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_21_author",
+			"label": "Автор",
+			"name": "review_21_author",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_21_topics",
+			"label": "Темы отзыва",
+			"name": "review_21_topics",
+			"type": "checkbox",
+			"instructions": "Отметьте одну или несколько тем из вкладки «Список тем». Если пунктов нет — сначала заполните «Общий список тем».",
+			"default_value": [],
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {},
+			"allow_custom": 0,
+			"layout": "vertical",
+			"toggle": 0,
+			"return_format": "value",
+			"save_custom": 0
+		},
+		{
+			"key": "field_reviews_tab_review_22",
+			"label": "Отзыв 22",
+			"name": "reviews_tab_review_22",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_reviews_review_22_reverse",
+			"label": "Расположение медиа справа (обратный порядок)",
+			"name": "review_22_reverse",
+			"type": "true_false",
+			"ui": 1,
+			"default_value": 0,
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_22_media_type",
+			"label": "Тип медиа",
+			"name": "review_22_media_type",
+			"type": "select",
+			"choices": {
+				"image": "Изображение",
+				"video": "Видео"
+			},
+			"default_value": "image",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_22_image",
+			"label": "Изображение",
+			"name": "review_22_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_22_image_alt",
+			"label": "Alt изображения",
+			"name": "review_22_image_alt",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_22_video_url",
+			"label": "URL видео (MP4)",
+			"name": "review_22_video_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_22_video_poster",
+			"label": "Постер видео",
+			"name": "review_22_video_poster",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_22_quote",
+			"label": "Текст отзыва",
+			"name": "review_22_quote",
+			"type": "textarea",
+			"default_value": "",
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_22_social_type",
+			"label": "Соцсеть (иконка)",
+			"name": "review_22_social_type",
+			"type": "select",
+			"choices": {
+				"instagram": "Instagram",
+				"telegram": "Telegram",
+				"facebook": "Facebook",
+				"link": "Ссылка"
+			},
+			"default_value": "instagram",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_22_social_label",
+			"label": "Подпись ссылки",
+			"name": "review_22_social_label",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_22_social_url",
+			"label": "Ссылка на соцсеть",
+			"name": "review_22_social_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_22_city",
+			"label": "Город",
+			"name": "review_22_city",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_22_author",
+			"label": "Автор",
+			"name": "review_22_author",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_22_topics",
+			"label": "Темы отзыва",
+			"name": "review_22_topics",
+			"type": "checkbox",
+			"instructions": "Отметьте одну или несколько тем из вкладки «Список тем». Если пунктов нет — сначала заполните «Общий список тем».",
+			"default_value": [],
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {},
+			"allow_custom": 0,
+			"layout": "vertical",
+			"toggle": 0,
+			"return_format": "value",
+			"save_custom": 0
+		},
+		{
+			"key": "field_reviews_tab_review_23",
+			"label": "Отзыв 23",
+			"name": "reviews_tab_review_23",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_reviews_review_23_reverse",
+			"label": "Расположение медиа справа (обратный порядок)",
+			"name": "review_23_reverse",
+			"type": "true_false",
+			"ui": 1,
+			"default_value": 0,
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_23_media_type",
+			"label": "Тип медиа",
+			"name": "review_23_media_type",
+			"type": "select",
+			"choices": {
+				"image": "Изображение",
+				"video": "Видео"
+			},
+			"default_value": "image",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_23_image",
+			"label": "Изображение",
+			"name": "review_23_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_23_image_alt",
+			"label": "Alt изображения",
+			"name": "review_23_image_alt",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_23_video_url",
+			"label": "URL видео (MP4)",
+			"name": "review_23_video_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_23_video_poster",
+			"label": "Постер видео",
+			"name": "review_23_video_poster",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_23_quote",
+			"label": "Текст отзыва",
+			"name": "review_23_quote",
+			"type": "textarea",
+			"default_value": "",
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_23_social_type",
+			"label": "Соцсеть (иконка)",
+			"name": "review_23_social_type",
+			"type": "select",
+			"choices": {
+				"instagram": "Instagram",
+				"telegram": "Telegram",
+				"facebook": "Facebook",
+				"link": "Ссылка"
+			},
+			"default_value": "instagram",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_23_social_label",
+			"label": "Подпись ссылки",
+			"name": "review_23_social_label",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_23_social_url",
+			"label": "Ссылка на соцсеть",
+			"name": "review_23_social_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_23_city",
+			"label": "Город",
+			"name": "review_23_city",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_23_author",
+			"label": "Автор",
+			"name": "review_23_author",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_23_topics",
+			"label": "Темы отзыва",
+			"name": "review_23_topics",
+			"type": "checkbox",
+			"instructions": "Отметьте одну или несколько тем из вкладки «Список тем». Если пунктов нет — сначала заполните «Общий список тем».",
+			"default_value": [],
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {},
+			"allow_custom": 0,
+			"layout": "vertical",
+			"toggle": 0,
+			"return_format": "value",
+			"save_custom": 0
+		},
+		{
+			"key": "field_reviews_tab_review_24",
+			"label": "Отзыв 24",
+			"name": "reviews_tab_review_24",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_reviews_review_24_reverse",
+			"label": "Расположение медиа справа (обратный порядок)",
+			"name": "review_24_reverse",
+			"type": "true_false",
+			"ui": 1,
+			"default_value": 0,
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_24_media_type",
+			"label": "Тип медиа",
+			"name": "review_24_media_type",
+			"type": "select",
+			"choices": {
+				"image": "Изображение",
+				"video": "Видео"
+			},
+			"default_value": "image",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_24_image",
+			"label": "Изображение",
+			"name": "review_24_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_24_image_alt",
+			"label": "Alt изображения",
+			"name": "review_24_image_alt",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_24_video_url",
+			"label": "URL видео (MP4)",
+			"name": "review_24_video_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_24_video_poster",
+			"label": "Постер видео",
+			"name": "review_24_video_poster",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_24_quote",
+			"label": "Текст отзыва",
+			"name": "review_24_quote",
+			"type": "textarea",
+			"default_value": "",
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_24_social_type",
+			"label": "Соцсеть (иконка)",
+			"name": "review_24_social_type",
+			"type": "select",
+			"choices": {
+				"instagram": "Instagram",
+				"telegram": "Telegram",
+				"facebook": "Facebook",
+				"link": "Ссылка"
+			},
+			"default_value": "instagram",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_24_social_label",
+			"label": "Подпись ссылки",
+			"name": "review_24_social_label",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_24_social_url",
+			"label": "Ссылка на соцсеть",
+			"name": "review_24_social_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_24_city",
+			"label": "Город",
+			"name": "review_24_city",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_24_author",
+			"label": "Автор",
+			"name": "review_24_author",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_24_topics",
+			"label": "Темы отзыва",
+			"name": "review_24_topics",
+			"type": "checkbox",
+			"instructions": "Отметьте одну или несколько тем из вкладки «Список тем». Если пунктов нет — сначала заполните «Общий список тем».",
+			"default_value": [],
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {},
+			"allow_custom": 0,
+			"layout": "vertical",
+			"toggle": 0,
+			"return_format": "value",
+			"save_custom": 0
+		},
+		{
+			"key": "field_reviews_tab_review_25",
+			"label": "Отзыв 25",
+			"name": "reviews_tab_review_25",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_reviews_review_25_reverse",
+			"label": "Расположение медиа справа (обратный порядок)",
+			"name": "review_25_reverse",
+			"type": "true_false",
+			"ui": 1,
+			"default_value": 0,
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_25_media_type",
+			"label": "Тип медиа",
+			"name": "review_25_media_type",
+			"type": "select",
+			"choices": {
+				"image": "Изображение",
+				"video": "Видео"
+			},
+			"default_value": "image",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_25_image",
+			"label": "Изображение",
+			"name": "review_25_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_25_image_alt",
+			"label": "Alt изображения",
+			"name": "review_25_image_alt",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_25_video_url",
+			"label": "URL видео (MP4)",
+			"name": "review_25_video_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_25_video_poster",
+			"label": "Постер видео",
+			"name": "review_25_video_poster",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_25_quote",
+			"label": "Текст отзыва",
+			"name": "review_25_quote",
+			"type": "textarea",
+			"default_value": "",
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_25_social_type",
+			"label": "Соцсеть (иконка)",
+			"name": "review_25_social_type",
+			"type": "select",
+			"choices": {
+				"instagram": "Instagram",
+				"telegram": "Telegram",
+				"facebook": "Facebook",
+				"link": "Ссылка"
+			},
+			"default_value": "instagram",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_25_social_label",
+			"label": "Подпись ссылки",
+			"name": "review_25_social_label",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_25_social_url",
+			"label": "Ссылка на соцсеть",
+			"name": "review_25_social_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_25_city",
+			"label": "Город",
+			"name": "review_25_city",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_25_author",
+			"label": "Автор",
+			"name": "review_25_author",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_25_topics",
+			"label": "Темы отзыва",
+			"name": "review_25_topics",
+			"type": "checkbox",
+			"instructions": "Отметьте одну или несколько тем из вкладки «Список тем». Если пунктов нет — сначала заполните «Общий список тем».",
+			"default_value": [],
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {},
+			"allow_custom": 0,
+			"layout": "vertical",
+			"toggle": 0,
+			"return_format": "value",
+			"save_custom": 0
+		},
+		{
+			"key": "field_reviews_tab_review_26",
+			"label": "Отзыв 26",
+			"name": "reviews_tab_review_26",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_reviews_review_26_reverse",
+			"label": "Расположение медиа справа (обратный порядок)",
+			"name": "review_26_reverse",
+			"type": "true_false",
+			"ui": 1,
+			"default_value": 0,
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_26_media_type",
+			"label": "Тип медиа",
+			"name": "review_26_media_type",
+			"type": "select",
+			"choices": {
+				"image": "Изображение",
+				"video": "Видео"
+			},
+			"default_value": "image",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_26_image",
+			"label": "Изображение",
+			"name": "review_26_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_26_image_alt",
+			"label": "Alt изображения",
+			"name": "review_26_image_alt",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_26_video_url",
+			"label": "URL видео (MP4)",
+			"name": "review_26_video_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_26_video_poster",
+			"label": "Постер видео",
+			"name": "review_26_video_poster",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_26_quote",
+			"label": "Текст отзыва",
+			"name": "review_26_quote",
+			"type": "textarea",
+			"default_value": "",
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_26_social_type",
+			"label": "Соцсеть (иконка)",
+			"name": "review_26_social_type",
+			"type": "select",
+			"choices": {
+				"instagram": "Instagram",
+				"telegram": "Telegram",
+				"facebook": "Facebook",
+				"link": "Ссылка"
+			},
+			"default_value": "instagram",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_26_social_label",
+			"label": "Подпись ссылки",
+			"name": "review_26_social_label",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_26_social_url",
+			"label": "Ссылка на соцсеть",
+			"name": "review_26_social_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_26_city",
+			"label": "Город",
+			"name": "review_26_city",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_26_author",
+			"label": "Автор",
+			"name": "review_26_author",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_26_topics",
+			"label": "Темы отзыва",
+			"name": "review_26_topics",
+			"type": "checkbox",
+			"instructions": "Отметьте одну или несколько тем из вкладки «Список тем». Если пунктов нет — сначала заполните «Общий список тем».",
+			"default_value": [],
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {},
+			"allow_custom": 0,
+			"layout": "vertical",
+			"toggle": 0,
+			"return_format": "value",
+			"save_custom": 0
+		},
+		{
+			"key": "field_reviews_tab_review_27",
+			"label": "Отзыв 27",
+			"name": "reviews_tab_review_27",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_reviews_review_27_reverse",
+			"label": "Расположение медиа справа (обратный порядок)",
+			"name": "review_27_reverse",
+			"type": "true_false",
+			"ui": 1,
+			"default_value": 0,
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_27_media_type",
+			"label": "Тип медиа",
+			"name": "review_27_media_type",
+			"type": "select",
+			"choices": {
+				"image": "Изображение",
+				"video": "Видео"
+			},
+			"default_value": "image",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_27_image",
+			"label": "Изображение",
+			"name": "review_27_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_27_image_alt",
+			"label": "Alt изображения",
+			"name": "review_27_image_alt",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_27_video_url",
+			"label": "URL видео (MP4)",
+			"name": "review_27_video_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_27_video_poster",
+			"label": "Постер видео",
+			"name": "review_27_video_poster",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_27_quote",
+			"label": "Текст отзыва",
+			"name": "review_27_quote",
+			"type": "textarea",
+			"default_value": "",
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_27_social_type",
+			"label": "Соцсеть (иконка)",
+			"name": "review_27_social_type",
+			"type": "select",
+			"choices": {
+				"instagram": "Instagram",
+				"telegram": "Telegram",
+				"facebook": "Facebook",
+				"link": "Ссылка"
+			},
+			"default_value": "instagram",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_27_social_label",
+			"label": "Подпись ссылки",
+			"name": "review_27_social_label",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_27_social_url",
+			"label": "Ссылка на соцсеть",
+			"name": "review_27_social_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_27_city",
+			"label": "Город",
+			"name": "review_27_city",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_27_author",
+			"label": "Автор",
+			"name": "review_27_author",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_27_topics",
+			"label": "Темы отзыва",
+			"name": "review_27_topics",
+			"type": "checkbox",
+			"instructions": "Отметьте одну или несколько тем из вкладки «Список тем». Если пунктов нет — сначала заполните «Общий список тем».",
+			"default_value": [],
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {},
+			"allow_custom": 0,
+			"layout": "vertical",
+			"toggle": 0,
+			"return_format": "value",
+			"save_custom": 0
+		},
+		{
+			"key": "field_reviews_tab_review_28",
+			"label": "Отзыв 28",
+			"name": "reviews_tab_review_28",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_reviews_review_28_reverse",
+			"label": "Расположение медиа справа (обратный порядок)",
+			"name": "review_28_reverse",
+			"type": "true_false",
+			"ui": 1,
+			"default_value": 0,
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_28_media_type",
+			"label": "Тип медиа",
+			"name": "review_28_media_type",
+			"type": "select",
+			"choices": {
+				"image": "Изображение",
+				"video": "Видео"
+			},
+			"default_value": "image",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_28_image",
+			"label": "Изображение",
+			"name": "review_28_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_28_image_alt",
+			"label": "Alt изображения",
+			"name": "review_28_image_alt",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_28_video_url",
+			"label": "URL видео (MP4)",
+			"name": "review_28_video_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_28_video_poster",
+			"label": "Постер видео",
+			"name": "review_28_video_poster",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_28_quote",
+			"label": "Текст отзыва",
+			"name": "review_28_quote",
+			"type": "textarea",
+			"default_value": "",
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_28_social_type",
+			"label": "Соцсеть (иконка)",
+			"name": "review_28_social_type",
+			"type": "select",
+			"choices": {
+				"instagram": "Instagram",
+				"telegram": "Telegram",
+				"facebook": "Facebook",
+				"link": "Ссылка"
+			},
+			"default_value": "instagram",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_28_social_label",
+			"label": "Подпись ссылки",
+			"name": "review_28_social_label",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_28_social_url",
+			"label": "Ссылка на соцсеть",
+			"name": "review_28_social_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_28_city",
+			"label": "Город",
+			"name": "review_28_city",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_28_author",
+			"label": "Автор",
+			"name": "review_28_author",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_28_topics",
+			"label": "Темы отзыва",
+			"name": "review_28_topics",
+			"type": "checkbox",
+			"instructions": "Отметьте одну или несколько тем из вкладки «Список тем». Если пунктов нет — сначала заполните «Общий список тем».",
+			"default_value": [],
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {},
+			"allow_custom": 0,
+			"layout": "vertical",
+			"toggle": 0,
+			"return_format": "value",
+			"save_custom": 0
+		},
+		{
+			"key": "field_reviews_tab_review_29",
+			"label": "Отзыв 29",
+			"name": "reviews_tab_review_29",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_reviews_review_29_reverse",
+			"label": "Расположение медиа справа (обратный порядок)",
+			"name": "review_29_reverse",
+			"type": "true_false",
+			"ui": 1,
+			"default_value": 0,
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_29_media_type",
+			"label": "Тип медиа",
+			"name": "review_29_media_type",
+			"type": "select",
+			"choices": {
+				"image": "Изображение",
+				"video": "Видео"
+			},
+			"default_value": "image",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_29_image",
+			"label": "Изображение",
+			"name": "review_29_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_29_image_alt",
+			"label": "Alt изображения",
+			"name": "review_29_image_alt",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_29_video_url",
+			"label": "URL видео (MP4)",
+			"name": "review_29_video_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_29_video_poster",
+			"label": "Постер видео",
+			"name": "review_29_video_poster",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_29_quote",
+			"label": "Текст отзыва",
+			"name": "review_29_quote",
+			"type": "textarea",
+			"default_value": "",
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_29_social_type",
+			"label": "Соцсеть (иконка)",
+			"name": "review_29_social_type",
+			"type": "select",
+			"choices": {
+				"instagram": "Instagram",
+				"telegram": "Telegram",
+				"facebook": "Facebook",
+				"link": "Ссылка"
+			},
+			"default_value": "instagram",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_29_social_label",
+			"label": "Подпись ссылки",
+			"name": "review_29_social_label",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_29_social_url",
+			"label": "Ссылка на соцсеть",
+			"name": "review_29_social_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_29_city",
+			"label": "Город",
+			"name": "review_29_city",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_29_author",
+			"label": "Автор",
+			"name": "review_29_author",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_29_topics",
+			"label": "Темы отзыва",
+			"name": "review_29_topics",
+			"type": "checkbox",
+			"instructions": "Отметьте одну или несколько тем из вкладки «Список тем». Если пунктов нет — сначала заполните «Общий список тем».",
+			"default_value": [],
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {},
+			"allow_custom": 0,
+			"layout": "vertical",
+			"toggle": 0,
+			"return_format": "value",
+			"save_custom": 0
+		},
+		{
+			"key": "field_reviews_tab_review_30",
+			"label": "Отзыв 30",
+			"name": "reviews_tab_review_30",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_reviews_review_30_reverse",
+			"label": "Расположение медиа справа (обратный порядок)",
+			"name": "review_30_reverse",
+			"type": "true_false",
+			"ui": 1,
+			"default_value": 0,
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_30_media_type",
+			"label": "Тип медиа",
+			"name": "review_30_media_type",
+			"type": "select",
+			"choices": {
+				"image": "Изображение",
+				"video": "Видео"
+			},
+			"default_value": "image",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_30_image",
+			"label": "Изображение",
+			"name": "review_30_image",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_30_image_alt",
+			"label": "Alt изображения",
+			"name": "review_30_image_alt",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_30_video_url",
+			"label": "URL видео (MP4)",
+			"name": "review_30_video_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_30_video_poster",
+			"label": "Постер видео",
+			"name": "review_30_video_poster",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_30_quote",
+			"label": "Текст отзыва",
+			"name": "review_30_quote",
+			"type": "textarea",
+			"default_value": "",
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_30_social_type",
+			"label": "Соцсеть (иконка)",
+			"name": "review_30_social_type",
+			"type": "select",
+			"choices": {
+				"instagram": "Instagram",
+				"telegram": "Telegram",
+				"facebook": "Facebook",
+				"link": "Ссылка"
+			},
+			"default_value": "instagram",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_30_social_label",
+			"label": "Подпись ссылки",
+			"name": "review_30_social_label",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "33",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_30_social_url",
+			"label": "Ссылка на соцсеть",
+			"name": "review_30_social_url",
+			"type": "url",
+			"default_value": "",
+			"wrapper": {
+				"width": "34",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_30_city",
+			"label": "Город",
+			"name": "review_30_city",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_30_author",
+			"label": "Автор",
+			"name": "review_30_author",
+			"type": "text",
+			"default_value": "",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_reviews_review_30_topics",
+			"label": "Темы отзыва",
+			"name": "review_30_topics",
+			"type": "checkbox",
+			"instructions": "Отметьте одну или несколько тем из вкладки «Список тем». Если пунктов нет — сначала заполните «Общий список тем».",
+			"default_value": [],
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {},
+			"allow_custom": 0,
+			"layout": "vertical",
+			"toggle": 0,
+			"return_format": "value",
+			"save_custom": 0
+		}
+	],
+	"location": [
+		[
+			{
+				"param": "page_template",
+				"operator": "==",
+				"value": "templates/reviews.php"
+			}
+		]
+	],
+	"instruction_placement": "label",
+	"active": true
+}

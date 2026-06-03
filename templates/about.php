@@ -16,6 +16,12 @@ $about_title = get_field( 'about_title' );
 ?>
 
 <div class="hero-block">
+	<div class="hero-block__bg-wrapper">
+		<img
+			class="hero-block__bg-image"
+			src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/illustrations/vegetables.jpg' ); ?>"
+			alt="<?php echo esc_attr__( 'vegetables', 'moveat' ); ?>" />
+	</div>
 	<div class="hero-block__container">
 		<h1 class="hero-block__title"><?php echo esc_html( $about_title ?: 'Наша команда' ); ?></h1>
 		<nav aria-label="breadcrumb no-padding animated slideInDown page-hero__breadcrumbs">

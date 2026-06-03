@@ -483,6 +483,72 @@
 	</div>
 
 	<?php
+		$fq_photo    = get_field('final_question_photo');
+		$fq_name     = get_field('final_question_name');
+		$fq_role     = get_field('final_question_role');
+		$fq_title    = get_field('final_question_title');
+		$fq_text     = get_field('final_question_text');
+		$fq_btn_text = get_field('final_question_button_text');
+		$fq_btn_url  = get_field('final_question_button_url');
+		$fq_show     = $fq_photo || $fq_name || $fq_role || $fq_title || $fq_text || ($fq_btn_text && $fq_btn_url);
+	?>
+	<?php if ($fq_show) : ?>
+	<div class="razion-final-question white">
+		<div class="razion-final-question__wrapper max-block-width wrapper-paddings">
+			<div class="razion-final-question__left">
+				<div class="razion-final-question__left_green-bg"></div>
+				<div class="razion-final-question__left_content">
+					<?php if ($fq_photo) : ?>
+						<img
+							loading="lazy"
+							src="<?php echo esc_url($fq_photo); ?>"
+							alt="<?php echo esc_attr($fq_name ?: ''); ?>"
+							class="razion-final-question__left_image"
+						/>
+					<?php endif; ?>
+					<?php if ($fq_name || $fq_role) : ?>
+						<div class="razion-final-question__left_info">
+							<?php if ($fq_name) : ?>
+								<div class="razion-final-question__left_info-title">
+									<?php echo esc_html($fq_name); ?>
+								</div>
+							<?php endif; ?>
+							<?php if ($fq_role) : ?>
+								<div class="razion-final-question__left_info-subtitle">
+									<?php echo esc_html($fq_role); ?>
+								</div>
+							<?php endif; ?>
+						</div>
+					<?php endif; ?>
+				</div>
+			</div>
+			<div class="razion-final-question__right">
+				<div class="razion-final-question__right_content">
+					<div class="razion-final-question__right_green-bg white"></div>
+					<div class="razion-final-question__right_white-bg"></div>
+					<?php if ($fq_title) : ?>
+						<h3 class="razion-final-question__right_title dark"><?php echo esc_html($fq_title); ?></h3>
+					<?php endif; ?>
+					<?php if ($fq_text) : ?>
+						<div class="razion-final-question__right_text dark">
+							<?php echo wp_kses_post(wpautop(esc_html($fq_text))); ?>
+						</div>
+					<?php endif; ?>
+					<?php if ($fq_btn_text && $fq_btn_url) : ?>
+						<a
+							href="<?php echo esc_url($fq_btn_url); ?>"
+							class="razion-final-question__right_button"
+							target="_blank"
+							rel="noopener noreferrer"
+						><?php echo esc_html($fq_btn_text); ?></a>
+					<?php endif; ?>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php endif; ?>
+
+	<?php
 	$science_title = get_field('science_title');
 	$science_desc  = get_field('science_description');
 	?>

@@ -74,20 +74,32 @@ $pay_order_key = isset( $_GET['order_key'] ) ? sanitize_text_field( $_GET['order
 			<!-- Action -->
 			<div class="problem-pay-page__actions">
 				<?php
-				// Если знаем order_id и order_key — вернём пользователя на страницу выбора платежного метода для этого заказа
-				if ( $pay_order_id ) {
-					$retry_url = add_query_arg(
-						array(
-							'order_id' => $pay_order_id,
-							'order_key' => $pay_order_key,
-						),
-						home_url( '/order-pay/' )
-					);
-				} else {
-					$retry_url = wc_get_checkout_url();
+				$retry_label = __( 'Вернуться на страницу оплаты', 'moveat' );
+				$retry_url   = function_exists( 'wc_get_checkout_url' ) ? wc_get_checkout_url() : home_url( '/' );
+
+				if ( $pay_order_id && $pay_order_key && function_exists( 'wc_get_order' ) ) {
+					$order = wc_get_order( $pay_order_id );
+
+					if ( $order && hash_equals( (string) $order->get_order_key(), (string) $pay_order_key ) ) {
+						$is_donation = $order->get_meta( '_is_donation' ) === 'yes'
+							|| $order->get_created_via() === 'donation';
+
+						if ( $is_donation ) {
+							$retry_label = __( 'Вернуться на страницу для донатов', 'moveat' );
+							$retry_url   = get_permalink( 2081 ) ?: home_url( '/' );
+						} else {
+							$retry_url = add_query_arg(
+								array(
+									'order_id'  => $pay_order_id,
+									'order_key' => $pay_order_key,
+								),
+								home_url( '/order-pay/' )
+							);
+						}
+					}
 				}
 				?>
-				<a href="<?php echo esc_url( $retry_url ); ?>" class="primary-button problem-pay-page__retry-button">Вернуться на страницу оплаты</a>
+				<a href="<?php echo esc_url( $retry_url ); ?>" class="primary-button problem-pay-page__retry-button"><?php echo esc_html( $retry_label ); ?></a>
 			</div>
 
 		</div>

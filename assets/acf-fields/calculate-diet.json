@@ -1,0 +1,4691 @@
+{
+	"key": "group_calculate_diet_page",
+	"title": "Расчет рациона питания",
+	"fields": [
+		{
+			"key": "field_cd_tab_start",
+			"label": "Стартовый блок",
+			"name": "cd_tab_start",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_cd_start_title",
+			"label": "Заголовок (h1)",
+			"name": "cd_start_title",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Еда станет вашим лекарством!",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_start_subtitle",
+			"label": "Подзаголовок (h2)",
+			"name": "cd_start_subtitle",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Убираем проблемы",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_problem_cat_1_title",
+			"label": "Группа вопросов 1 — заголовок (h3)",
+			"name": "cd_problem_cat_1_title",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Обмен веществ",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_problem_cat_1_item_1",
+			"label": "Группа 1 — пункт списка 1",
+			"name": "cd_problem_cat_1_item_1",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "лишний вес",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_problem_cat_1_item_2",
+			"label": "Группа 1 — пункт списка 2",
+			"name": "cd_problem_cat_1_item_2",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "преддиабет",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_problem_cat_1_item_3",
+			"label": "Группа 1 — пункт списка 3",
+			"name": "cd_problem_cat_1_item_3",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "высокий сахар",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_problem_cat_1_item_4",
+			"label": "Группа 1 — пункт списка 4",
+			"name": "cd_problem_cat_1_item_4",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "высокий холестирин",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_problem_cat_1_item_5",
+			"label": "Группа 1 — пункт списка 5",
+			"name": "cd_problem_cat_1_item_5",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_problem_cat_1_item_6",
+			"label": "Группа 1 — пункт списка 6",
+			"name": "cd_problem_cat_1_item_6",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_problem_cat_2_title",
+			"label": "Группа вопросов 2 — заголовок (h3)",
+			"name": "cd_problem_cat_2_title",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Самочувствие",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_problem_cat_2_item_1",
+			"label": "Группа 2 — пункт списка 1",
+			"name": "cd_problem_cat_2_item_1",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "не хватает энергии",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_problem_cat_2_item_2",
+			"label": "Группа 2 — пункт списка 2",
+			"name": "cd_problem_cat_2_item_2",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "аутоимунные заболевания",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_problem_cat_2_item_3",
+			"label": "Группа 2 — пункт списка 3",
+			"name": "cd_problem_cat_2_item_3",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "плохой сон",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_problem_cat_2_item_4",
+			"label": "Группа 2 — пункт списка 4",
+			"name": "cd_problem_cat_2_item_4",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_problem_cat_2_item_5",
+			"label": "Группа 2 — пункт списка 5",
+			"name": "cd_problem_cat_2_item_5",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_problem_cat_2_item_6",
+			"label": "Группа 2 — пункт списка 6",
+			"name": "cd_problem_cat_2_item_6",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_problem_cat_3_title",
+			"label": "Группа вопросов 3 — заголовок (h3)",
+			"name": "cd_problem_cat_3_title",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Пищеварение и иммунитет",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_problem_cat_3_item_1",
+			"label": "Группа 3 — пункт списка 1",
+			"name": "cd_problem_cat_3_item_1",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "проблемы с ЖКТ",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_problem_cat_3_item_2",
+			"label": "Группа 3 — пункт списка 2",
+			"name": "cd_problem_cat_3_item_2",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "аллергии",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_problem_cat_3_item_3",
+			"label": "Группа 3 — пункт списка 3",
+			"name": "cd_problem_cat_3_item_3",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_problem_cat_3_item_4",
+			"label": "Группа 3 — пункт списка 4",
+			"name": "cd_problem_cat_3_item_4",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_problem_cat_3_item_5",
+			"label": "Группа 3 — пункт списка 5",
+			"name": "cd_problem_cat_3_item_5",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_problem_cat_3_item_6",
+			"label": "Группа 3 — пункт списка 6",
+			"name": "cd_problem_cat_3_item_6",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_problem_cat_4_title",
+			"label": "Группа вопросов 4 — заголовок (h3)",
+			"name": "cd_problem_cat_4_title",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Воспаления и боли",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_problem_cat_4_item_1",
+			"label": "Группа 4 — пункт списка 1",
+			"name": "cd_problem_cat_4_item_1",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "подагра",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_problem_cat_4_item_2",
+			"label": "Группа 4 — пункт списка 2",
+			"name": "cd_problem_cat_4_item_2",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "артрит",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_problem_cat_4_item_3",
+			"label": "Группа 4 — пункт списка 3",
+			"name": "cd_problem_cat_4_item_3",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "головные боли",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_problem_cat_4_item_4",
+			"label": "Группа 4 — пункт списка 4",
+			"name": "cd_problem_cat_4_item_4",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "проблемная кожа",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_problem_cat_4_item_5",
+			"label": "Группа 4 — пункт списка 5",
+			"name": "cd_problem_cat_4_item_5",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_problem_cat_4_item_6",
+			"label": "Группа 4 — пункт списка 6",
+			"name": "cd_problem_cat_4_item_6",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_ask_banner_title",
+			"label": "Блок «задать вопрос» — заголовок",
+			"name": "cd_ask_banner_title",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "А мне поможет рацион питания?",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_ask_banner_url",
+			"label": "Блок «задать вопрос» — ссылка",
+			"name": "cd_ask_banner_url",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "https://t.me/MaxPogorelyBot",
+			"placeholder": ""
+		},
+		{
+			"key": "field_cd_ask_banner_anchor",
+			"label": "Блок «задать вопрос» — текст ссылки",
+			"name": "cd_ask_banner_anchor_text",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Задать вопрос доктору",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_phys_photo",
+			"label": "Фото эксперта (URL)",
+			"name": "cd_phys_photo",
+			"type": "image",
+			"instructions": "",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_cd_phys_photo_alt",
+			"label": "Фото эксперта — alt",
+			"name": "cd_phys_photo_alt",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Макс Погорелый",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_phys_name",
+			"label": "Подпись: имя",
+			"name": "cd_phys_name",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Макс Погорелый",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_phys_role",
+			"label": "Подпись: статус",
+			"name": "cd_phys_role",
+			"type": "textarea",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Диетолог, кандидат наук стаж 25 лет",
+			"placeholder": "",
+			"maxlength": "",
+			"rows": 3,
+			"new_lines": "br"
+		},
+		{
+			"key": "field_cd_tab_body_system",
+			"label": "Блок «Организм»",
+			"name": "cd_tab_body_system",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_cd_body_sys_title",
+			"label": "Заголовок секции",
+			"name": "cd_body_sys_title",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Организм сложная система",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_body_card_title",
+			"label": "Карточка слева — заголовок",
+			"name": "cd_body_card_title",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Мы не упрощаем",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_body_card_lead",
+			"label": "Карточка — верхний абзац",
+			"name": "cd_body_card_lead",
+			"type": "textarea",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "мы находим причины болезней, объясняем и убираем проблему",
+			"placeholder": "",
+			"maxlength": "",
+			"rows": 4,
+			"new_lines": "br"
+		},
+		{
+			"key": "field_cd_body_card_bottom",
+			"label": "Карточка — нижний абзац",
+			"name": "cd_body_card_bottom",
+			"type": "textarea",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Объясним 100 важных деталей именно для вас",
+			"placeholder": "",
+			"maxlength": "",
+			"rows": 4,
+			"new_lines": "br"
+		},
+		{
+			"key": "field_cd_body_sys_image",
+			"label": "Иллюстрация справа (URL)",
+			"name": "cd_body_sys_image",
+			"type": "image",
+			"instructions": "",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_cd_body_sys_image_alt",
+			"label": "Иллюстрация — alt",
+			"name": "cd_body_sys_image_alt",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Организм сложная система",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_tab_cases",
+			"label": "Слайдер кейсов",
+			"name": "cd_tab_cases",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_cd_case_slide_1",
+			"label": "Кейс 1 — текст слайда (редактор)",
+			"name": "cd_case_slide_1",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "<p data-start=\"58\" data-end=\"104\">\n\t\t\t\t\t\t\t\t\t\t<strong data-start=\"58\" data-end=\"104\"\n\t\t\t\t\t\t\t\t\t\t\t>ИСТОРИЯ №1<br data-start=\"70\" data-end=\"73\" />ПОДАГРА,\n\t\t\t\t\t\t\t\t\t\t\tДАВЛЕНИЕ, ХОЛЕСТЕРИН</strong\n\t\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t<p data-start=\"106\" data-end=\"180\">\n\t\t\t\t\t\t\t\t\t\t<a\n\t\t\t\t\t\t\t\t\t\t\thref=\"https://https://moveat.expert/wp-content/uploads/man_face.png\"\n\t\t\t\t\t\t\t\t\t\t\t><img\n\t\t\t\t\t\t\t\t\t\t\t\tclass=\"alignnone wp-image-17656\"\n\t\t\t\t\t\t\t\t\t\t\t\tsrc=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2033%2033'%3E%3C/svg%3E\"\n\t\t\t\t\t\t\t\t\t\t\t\talt=\"\"\n\t\t\t\t\t\t\t\t\t\t\t\twidth=\"33\"\n\t\t\t\t\t\t\t\t\t\t\t\theight=\"33\"\n\t\t\t\t\t\t\t\t\t\t\t\tdata-lazy-src=\"https://https://moveat.expert/wp-content/uploads/man_face.png\" /><noscript\n\t\t\t\t\t\t\t\t\t\t\t\t><img\n\t\t\t\t\t\t\t\t\t\t\t\t\tclass=\"alignnone wp-image-17656\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tsrc=\"https://https://moveat.expert/wp-content/uploads/man_face.png\"\n\t\t\t\t\t\t\t\t\t\t\t\t\talt=\"\"\n\t\t\t\t\t\t\t\t\t\t\t\t\twidth=\"33\"\n\t\t\t\t\t\t\t\t\t\t\t\t\theight=\"33\" /></noscript></a\n\t\t\t\t\t\t\t\t\t\t>48 лет: подагра, давление до 200/100, аллергия, повышен\n\t\t\t\t\t\t\t\t\t\tхолестерин\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t<p data-start=\"182\" data-end=\"282\">\n\t\t\t\t\t\t\t\t\t\t<strong data-start=\"185\" data-end=\"199\">\n\t\t\t\t\t\t\t\t\t\t\t<a\n\t\t\t\t\t\t\t\t\t\t\t\thref=\"https://https://moveat.expert/wp-content/uploads/magn_glass.png\"\n\t\t\t\t\t\t\t\t\t\t\t\t><img\n\t\t\t\t\t\t\t\t\t\t\t\t\tclass=\"alignnone wp-image-17657\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tsrc=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2030%2030'%3E%3C/svg%3E\"\n\t\t\t\t\t\t\t\t\t\t\t\t\talt=\"\"\n\t\t\t\t\t\t\t\t\t\t\t\t\twidth=\"30\"\n\t\t\t\t\t\t\t\t\t\t\t\t\theight=\"30\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tdata-lazy-src=\"https://https://moveat.expert/wp-content/uploads/magn_glass.png\" /><noscript\n\t\t\t\t\t\t\t\t\t\t\t\t\t><img\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tclass=\"alignnone wp-image-17657\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tsrc=\"https://https://moveat.expert/wp-content/uploads/magn_glass.png\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\talt=\"\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\twidth=\"30\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\theight=\"30\" /></noscript\n\t\t\t\t\t\t\t\t\t\t\t\t>&nbsp;</a\n\t\t\t\t\t\t\t\t\t\t\t>Что нашли:</strong\n\t\t\t\t\t\t\t\t\t\t>&nbsp;питание с избытком пуринов и щавелевой кислоты,\n\t\t\t\t\t\t\t\t\t\tизбыток животных жиров, алкоголь\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t<p data-start=\"284\" data-end=\"449\">\n\t\t\t\t\t\t\t\t\t\t<strong data-start=\"284\" data-end=\"300\">Как помогли:</strong\n\t\t\t\t\t\t\t\t\t\t>&nbsp;определили ключевые пищевые триггеры, заменили на\n\t\t\t\t\t\t\t\t\t\tпродукты, снижающие мочевую кислоту. Рекомендован рацион с\n\t\t\t\t\t\t\t\t\t\tоптимальной антиоксидантной нагрузкой\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t<p data-start=\"451\" data-end=\"545\">\n\t\t\t\t\t\t\t\t\t\t<a\n\t\t\t\t\t\t\t\t\t\t\thref=\"https://https://moveat.expert/wp-content/uploads/green_checkbox.png\"\n\t\t\t\t\t\t\t\t\t\t\t><img\n\t\t\t\t\t\t\t\t\t\t\t\tclass=\"alignnone wp-image-17658\"\n\t\t\t\t\t\t\t\t\t\t\t\tsrc=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3C/svg%3E\"\n\t\t\t\t\t\t\t\t\t\t\t\talt=\"\"\n\t\t\t\t\t\t\t\t\t\t\t\twidth=\"32\"\n\t\t\t\t\t\t\t\t\t\t\t\theight=\"32\"\n\t\t\t\t\t\t\t\t\t\t\t\tdata-lazy-src=\"https://https://moveat.expert/wp-content/uploads/green_checkbox.png\" /><noscript\n\t\t\t\t\t\t\t\t\t\t\t\t><img\n\t\t\t\t\t\t\t\t\t\t\t\t\tclass=\"alignnone wp-image-17658\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tsrc=\"https://https://moveat.expert/wp-content/uploads/green_checkbox.png\"\n\t\t\t\t\t\t\t\t\t\t\t\t\talt=\"\"\n\t\t\t\t\t\t\t\t\t\t\t\t\twidth=\"32\"\n\t\t\t\t\t\t\t\t\t\t\t\t\theight=\"32\" /></noscript></a\n\t\t\t\t\t\t\t\t\t\t>Через 6 месяцев — минус 17 кг, нормализовалось давление,\n\t\t\t\t\t\t\t\t\t\tхолестерин, приступов подагры нет\n\t\t\t\t\t\t\t\t\t</p>",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_case_slide_2",
+			"label": "Кейс 2 — текст слайда (редактор)",
+			"name": "cd_case_slide_2",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "<p data-start=\"47\" data-end=\"100\">\n\t\t\t\t\t\t\t\t\t\t<strong data-start=\"47\" data-end=\"98\"\n\t\t\t\t\t\t\t\t\t\t\t>ИСТОРИЯ №2<br data-start=\"59\" data-end=\"62\" />ХРОНИЧЕСКАЯ\n\t\t\t\t\t\t\t\t\t\t\tУСТАЛОСТЬ И ЛИШНИЙ ВЕС</strong\n\t\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t<p data-start=\"102\" data-end=\"157\">\n\t\t\t\t\t\t\t\t\t\t<a\n\t\t\t\t\t\t\t\t\t\t\thref=\"https://https://moveat.expert/wp-content/uploads/tired.png\"\n\t\t\t\t\t\t\t\t\t\t\t><img\n\t\t\t\t\t\t\t\t\t\t\t\tclass=\"alignnone wp-image-17660\"\n\t\t\t\t\t\t\t\t\t\t\t\tsrc=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2030%2030'%3E%3C/svg%3E\"\n\t\t\t\t\t\t\t\t\t\t\t\talt=\"\"\n\t\t\t\t\t\t\t\t\t\t\t\twidth=\"30\"\n\t\t\t\t\t\t\t\t\t\t\t\theight=\"30\"\n\t\t\t\t\t\t\t\t\t\t\t\tdata-lazy-src=\"https://https://moveat.expert/wp-content/uploads/tired.png\" /><noscript\n\t\t\t\t\t\t\t\t\t\t\t\t><img\n\t\t\t\t\t\t\t\t\t\t\t\t\tclass=\"alignnone wp-image-17660\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tsrc=\"https://https://moveat.expert/wp-content/uploads/tired.png\"\n\t\t\t\t\t\t\t\t\t\t\t\t\talt=\"\"\n\t\t\t\t\t\t\t\t\t\t\t\t\twidth=\"30\"\n\t\t\t\t\t\t\t\t\t\t\t\t\theight=\"30\" /></noscript></a\n\t\t\t\t\t\t\t\t\t\t>слабость по утрам, набор веса, низкая концентрация\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t<p data-start=\"159\" data-end=\"242\">\n\t\t\t\t\t\t\t\t\t\t<strong data-start=\"162\" data-end=\"176\"\n\t\t\t\t\t\t\t\t\t\t\t><a\n\t\t\t\t\t\t\t\t\t\t\t\thref=\"https://https://moveat.expert/wp-content/uploads/magn_glass.png\"\n\t\t\t\t\t\t\t\t\t\t\t\t><img\n\t\t\t\t\t\t\t\t\t\t\t\t\tclass=\"alignnone wp-image-17657\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tsrc=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2029%2029'%3E%3C/svg%3E\"\n\t\t\t\t\t\t\t\t\t\t\t\t\talt=\"\"\n\t\t\t\t\t\t\t\t\t\t\t\t\twidth=\"29\"\n\t\t\t\t\t\t\t\t\t\t\t\t\theight=\"29\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tdata-lazy-src=\"https://https://moveat.expert/wp-content/uploads/magn_glass.png\" /><noscript\n\t\t\t\t\t\t\t\t\t\t\t\t\t><img\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tclass=\"alignnone wp-image-17657\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tsrc=\"https://https://moveat.expert/wp-content/uploads/magn_glass.png\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\talt=\"\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\twidth=\"29\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\theight=\"29\" /></noscript\n\t\t\t\t\t\t\t\t\t\t\t\t>&nbsp;</a\n\t\t\t\t\t\t\t\t\t\t\t>Что нашли:</strong\n\t\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t\tотсутствие полноценного завтрака, основной приём пищи —\n\t\t\t\t\t\t\t\t\t\tвечером\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t<p data-start=\"244\" data-end=\"467\">\n\t\t\t\t\t\t\t\t\t\t<strong data-start=\"244\" data-end=\"260\"\n\t\t\t\t\t\t\t\t\t\t\t>Как помогли:</strong\n\t\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t\tрекомендован рацион с учётом особенностей её метаболизма:\n\t\t\t\t\t\t\t\t\t\tакцент на плотный завтрак, умеренный обед и лёгкий ужин.\n\t\t\t\t\t\t\t\t\t\tЧтобы задействовать утреннюю активность обмена веществ и\n\t\t\t\t\t\t\t\t\t\tснизить вечернее накопление жира\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t<p data-start=\"469\" data-end=\"543\">\n\t\t\t\t\t\t\t\t\t\t<a\n\t\t\t\t\t\t\t\t\t\t\thref=\"https://https://moveat.expert/wp-content/uploads/green_checkbox.png\"\n\t\t\t\t\t\t\t\t\t\t\t><img\n\t\t\t\t\t\t\t\t\t\t\t\tclass=\"alignnone wp-image-17658\"\n\t\t\t\t\t\t\t\t\t\t\t\tsrc=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2030%2030'%3E%3C/svg%3E\"\n\t\t\t\t\t\t\t\t\t\t\t\talt=\"\"\n\t\t\t\t\t\t\t\t\t\t\t\twidth=\"30\"\n\t\t\t\t\t\t\t\t\t\t\t\theight=\"30\"\n\t\t\t\t\t\t\t\t\t\t\t\tdata-lazy-src=\"https://https://moveat.expert/wp-content/uploads/green_checkbox.png\" /><noscript\n\t\t\t\t\t\t\t\t\t\t\t\t><img\n\t\t\t\t\t\t\t\t\t\t\t\t\tclass=\"alignnone wp-image-17658\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tsrc=\"https://https://moveat.expert/wp-content/uploads/green_checkbox.png\"\n\t\t\t\t\t\t\t\t\t\t\t\t\talt=\"\"\n\t\t\t\t\t\t\t\t\t\t\t\t\twidth=\"30\"\n\t\t\t\t\t\t\t\t\t\t\t\t\theight=\"30\" /></noscript></a\n\t\t\t\t\t\t\t\t\t\t>Через месяц — больше энергии, минус 2,5 кг, без изнуряющих\n\t\t\t\t\t\t\t\t\t\tограничений\n\t\t\t\t\t\t\t\t\t</p>",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_case_slide_3",
+			"label": "Кейс 3 — текст слайда (редактор)",
+			"name": "cd_case_slide_3",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "<p data-start=\"48\" data-end=\"98\">\n\t\t\t\t\t\t\t\t\t\t<strong data-start=\"48\" data-end=\"96\"\n\t\t\t\t\t\t\t\t\t\t\t>ИСТОРИЯ №3<br data-start=\"60\" data-end=\"63\" />УХУДШЕНИЕ\n\t\t\t\t\t\t\t\t\t\t\tЗРЕНИЯ И СУХОСТЬ ГЛАЗ</strong\n\t\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t<p data-start=\"100\" data-end=\"151\">\n\t\t\t\t\t\t\t\t\t\t<a\n\t\t\t\t\t\t\t\t\t\t\thref=\"https://https://moveat.expert/wp-content/uploads/woman_face.png\"\n\t\t\t\t\t\t\t\t\t\t\t><img\n\t\t\t\t\t\t\t\t\t\t\t\tclass=\"alignnone wp-image-17662\"\n\t\t\t\t\t\t\t\t\t\t\t\tsrc=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2033%2033'%3E%3C/svg%3E\"\n\t\t\t\t\t\t\t\t\t\t\t\talt=\"\"\n\t\t\t\t\t\t\t\t\t\t\t\twidth=\"33\"\n\t\t\t\t\t\t\t\t\t\t\t\theight=\"33\"\n\t\t\t\t\t\t\t\t\t\t\t\tdata-lazy-src=\"https://https://moveat.expert/wp-content/uploads/woman_face.png\" /><noscript\n\t\t\t\t\t\t\t\t\t\t\t\t><img\n\t\t\t\t\t\t\t\t\t\t\t\t\tclass=\"alignnone wp-image-17662\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tsrc=\"https://https://moveat.expert/wp-content/uploads/woman_face.png\"\n\t\t\t\t\t\t\t\t\t\t\t\t\talt=\"\"\n\t\t\t\t\t\t\t\t\t\t\t\t\twidth=\"33\"\n\t\t\t\t\t\t\t\t\t\t\t\t\theight=\"33\" /></noscript></a\n\t\t\t\t\t\t\t\t\t\t>62 года: ухудшение зрения, особенно вечером\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t<p data-start=\"153\" data-end=\"268\">\n\t\t\t\t\t\t\t\t\t\t<strong data-start=\"156\" data-end=\"170\"\n\t\t\t\t\t\t\t\t\t\t\t><a\n\t\t\t\t\t\t\t\t\t\t\t\thref=\"https://https://moveat.expert/wp-content/uploads/magn_glass.png\"\n\t\t\t\t\t\t\t\t\t\t\t\t><img\n\t\t\t\t\t\t\t\t\t\t\t\t\tclass=\"alignnone wp-image-17657\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tsrc=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2033%2033'%3E%3C/svg%3E\"\n\t\t\t\t\t\t\t\t\t\t\t\t\talt=\"\"\n\t\t\t\t\t\t\t\t\t\t\t\t\twidth=\"33\"\n\t\t\t\t\t\t\t\t\t\t\t\t\theight=\"33\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tdata-lazy-src=\"https://https://moveat.expert/wp-content/uploads/magn_glass.png\" /><noscript\n\t\t\t\t\t\t\t\t\t\t\t\t\t><img\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tclass=\"alignnone wp-image-17657\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tsrc=\"https://https://moveat.expert/wp-content/uploads/magn_glass.png\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\talt=\"\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\twidth=\"33\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\theight=\"33\" /></noscript\n\t\t\t\t\t\t\t\t\t\t\t\t>&nbsp;</a\n\t\t\t\t\t\t\t\t\t\t\t>Что нашли:</strong\n\t\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t\tнедостаток специфических антиоксидантов в рационе и по\n\t\t\t\t\t\t\t\t\t\tанализам (лютеин, зеаксантин, витамин С)\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t<p data-start=\"270\" data-end=\"383\">\n\t\t\t\t\t\t\t\t\t\t<strong data-start=\"270\" data-end=\"286\"\n\t\t\t\t\t\t\t\t\t\t\t>Как помогли:</strong\n\t\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t\tна диагностике рекомендован рацион с морской рыбой, киви,\n\t\t\t\t\t\t\t\t\t\tчёрной смородиной, листовыми овощами\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t<p data-start=\"385\" data-end=\"449\">\n\t\t\t\t\t\t\t\t\t\t<a\n\t\t\t\t\t\t\t\t\t\t\thref=\"https://https://moveat.expert/wp-content/uploads/green_checkbox.png\"\n\t\t\t\t\t\t\t\t\t\t\t><img\n\t\t\t\t\t\t\t\t\t\t\t\tclass=\"alignnone wp-image-17658\"\n\t\t\t\t\t\t\t\t\t\t\t\tsrc=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2031%2031'%3E%3C/svg%3E\"\n\t\t\t\t\t\t\t\t\t\t\t\talt=\"\"\n\t\t\t\t\t\t\t\t\t\t\t\twidth=\"31\"\n\t\t\t\t\t\t\t\t\t\t\t\theight=\"31\"\n\t\t\t\t\t\t\t\t\t\t\t\tdata-lazy-src=\"https://https://moveat.expert/wp-content/uploads/green_checkbox.png\" /><noscript\n\t\t\t\t\t\t\t\t\t\t\t\t><img\n\t\t\t\t\t\t\t\t\t\t\t\t\tclass=\"alignnone wp-image-17658\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tsrc=\"https://https://moveat.expert/wp-content/uploads/green_checkbox.png\"\n\t\t\t\t\t\t\t\t\t\t\t\t\talt=\"\"\n\t\t\t\t\t\t\t\t\t\t\t\t\twidth=\"31\"\n\t\t\t\t\t\t\t\t\t\t\t\t\theight=\"31\" /></noscript></a\n\t\t\t\t\t\t\t\t\t\t>Через 3 недели — снизилась сухость глаз, улучшение по\n\t\t\t\t\t\t\t\t\t\tзрению\n\t\t\t\t\t\t\t\t\t</p>",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_case_slide_4",
+			"label": "Кейс 4 — текст слайда (редактор)",
+			"name": "cd_case_slide_4",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "<p data-start=\"50\" data-end=\"103\">\n\t\t\t\t\t\t\t\t\t\t<strong data-start=\"50\" data-end=\"101\"\n\t\t\t\t\t\t\t\t\t\t\t>ИСТОРИЯ №4<br data-start=\"62\" data-end=\"65\" />ЧАСТЫЕ\n\t\t\t\t\t\t\t\t\t\t\tПРОСТУДЫ И НИЗКИЙ ИММУНИТЕТ</strong\n\t\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t<p data-start=\"105\" data-end=\"153\">\n\t\t\t\t\t\t\t\t\t\t<a\n\t\t\t\t\t\t\t\t\t\t\thref=\"https://https://moveat.expert/wp-content/uploads/wapor.png\"\n\t\t\t\t\t\t\t\t\t\t\t><img\n\t\t\t\t\t\t\t\t\t\t\t\tclass=\"alignnone wp-image-17664\"\n\t\t\t\t\t\t\t\t\t\t\t\tsrc=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2029%2029'%3E%3C/svg%3E\"\n\t\t\t\t\t\t\t\t\t\t\t\talt=\"\"\n\t\t\t\t\t\t\t\t\t\t\t\twidth=\"29\"\n\t\t\t\t\t\t\t\t\t\t\t\theight=\"29\"\n\t\t\t\t\t\t\t\t\t\t\t\tdata-lazy-src=\"https://https://moveat.expert/wp-content/uploads/wapor.png\" /><noscript\n\t\t\t\t\t\t\t\t\t\t\t\t><img\n\t\t\t\t\t\t\t\t\t\t\t\t\tclass=\"alignnone wp-image-17664\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tsrc=\"https://https://moveat.expert/wp-content/uploads/wapor.png\"\n\t\t\t\t\t\t\t\t\t\t\t\t\talt=\"\"\n\t\t\t\t\t\t\t\t\t\t\t\t\twidth=\"29\"\n\t\t\t\t\t\t\t\t\t\t\t\t\theight=\"29\" /></noscript></a\n\t\t\t\t\t\t\t\t\t\t>35 лет: простуды 1–2 раза в месяц, слабость\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t<p data-start=\"155\" data-end=\"240\">\n\t\t\t\t\t\t\t\t\t\t<strong data-start=\"158\" data-end=\"172\"\n\t\t\t\t\t\t\t\t\t\t\t><a\n\t\t\t\t\t\t\t\t\t\t\t\thref=\"https://https://moveat.expert/wp-content/uploads/magn_glass.png\"\n\t\t\t\t\t\t\t\t\t\t\t\t><img\n\t\t\t\t\t\t\t\t\t\t\t\t\tclass=\"alignnone wp-image-17657\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tsrc=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2028%2028'%3E%3C/svg%3E\"\n\t\t\t\t\t\t\t\t\t\t\t\t\talt=\"\"\n\t\t\t\t\t\t\t\t\t\t\t\t\twidth=\"28\"\n\t\t\t\t\t\t\t\t\t\t\t\t\theight=\"28\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tdata-lazy-src=\"https://https://moveat.expert/wp-content/uploads/magn_glass.png\" /><noscript\n\t\t\t\t\t\t\t\t\t\t\t\t\t><img\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tclass=\"alignnone wp-image-17657\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tsrc=\"https://https://moveat.expert/wp-content/uploads/magn_glass.png\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\talt=\"\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\twidth=\"28\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\theight=\"28\" /></noscript\n\t\t\t\t\t\t\t\t\t\t\t\t>&nbsp;</a\n\t\t\t\t\t\t\t\t\t\t\t>Что нашли:</strong\n\t\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t\tизбыток сахаров в рационе, включая фруктозу и «здоровые\n\t\t\t\t\t\t\t\t\t\tсладости»\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t<p data-start=\"242\" data-end=\"438\">\n\t\t\t\t\t\t\t\t\t\t<strong data-start=\"242\" data-end=\"258\"\n\t\t\t\t\t\t\t\t\t\t\t>Как помогли:</strong\n\t\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t\tустановлена связь между избытком сахара и снижением\n\t\t\t\t\t\t\t\t\t\tактивности иммунных клеток на 30–50%. Рекомендован рацион с\n\t\t\t\t\t\t\t\t\t\tустойчивыми углеводами и антиоксидантами для поддержки\n\t\t\t\t\t\t\t\t\t\tиммунитета\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t<p data-start=\"440\" data-end=\"481\">\n\t\t\t\t\t\t\t\t\t\t<a\n\t\t\t\t\t\t\t\t\t\t\thref=\"https://https://moveat.expert/wp-content/uploads/green_checkbox.png\"\n\t\t\t\t\t\t\t\t\t\t\t><img\n\t\t\t\t\t\t\t\t\t\t\t\tclass=\"alignnone wp-image-17658\"\n\t\t\t\t\t\t\t\t\t\t\t\tsrc=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2033%2033'%3E%3C/svg%3E\"\n\t\t\t\t\t\t\t\t\t\t\t\talt=\"\"\n\t\t\t\t\t\t\t\t\t\t\t\twidth=\"33\"\n\t\t\t\t\t\t\t\t\t\t\t\theight=\"33\"\n\t\t\t\t\t\t\t\t\t\t\t\tdata-lazy-src=\"https://https://moveat.expert/wp-content/uploads/green_checkbox.png\" /><noscript\n\t\t\t\t\t\t\t\t\t\t\t\t><img\n\t\t\t\t\t\t\t\t\t\t\t\t\tclass=\"alignnone wp-image-17658\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tsrc=\"https://https://moveat.expert/wp-content/uploads/green_checkbox.png\"\n\t\t\t\t\t\t\t\t\t\t\t\t\talt=\"\"\n\t\t\t\t\t\t\t\t\t\t\t\t\twidth=\"33\"\n\t\t\t\t\t\t\t\t\t\t\t\t\theight=\"33\" /></noscript></a\n\t\t\t\t\t\t\t\t\t\t>Следующие полгода — ни одной простуды\n\t\t\t\t\t\t\t\t\t</p>",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_case_slide_5",
+			"label": "Кейс 5 — текст слайда (редактор)",
+			"name": "cd_case_slide_5",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "<p data-start=\"46\" data-end=\"93\">\n\t\t\t\t\t\t\t\t\t\t<strong data-start=\"46\" data-end=\"91\"\n\t\t\t\t\t\t\t\t\t\t\t>ИСТОРИЯ №5<br data-start=\"58\" data-end=\"61\" />СТРАХ\n\t\t\t\t\t\t\t\t\t\t\tДИАБЕТА ПОСЛЕ COVID-19</strong\n\t\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t<p data-start=\"95\" data-end=\"165\">\n\t\t\t\t\t\t\t\t\t\t<a\n\t\t\t\t\t\t\t\t\t\t\thref=\"https://https://moveat.expert/wp-content/uploads/tired.png\"\n\t\t\t\t\t\t\t\t\t\t\t><img\n\t\t\t\t\t\t\t\t\t\t\t\tclass=\"alignnone wp-image-17660\"\n\t\t\t\t\t\t\t\t\t\t\t\tsrc=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2027%2027'%3E%3C/svg%3E\"\n\t\t\t\t\t\t\t\t\t\t\t\talt=\"\"\n\t\t\t\t\t\t\t\t\t\t\t\twidth=\"27\"\n\t\t\t\t\t\t\t\t\t\t\t\theight=\"27\"\n\t\t\t\t\t\t\t\t\t\t\t\tdata-lazy-src=\"https://https://moveat.expert/wp-content/uploads/tired.png\" /><noscript\n\t\t\t\t\t\t\t\t\t\t\t\t><img\n\t\t\t\t\t\t\t\t\t\t\t\t\tclass=\"alignnone wp-image-17660\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tsrc=\"https://https://moveat.expert/wp-content/uploads/tired.png\"\n\t\t\t\t\t\t\t\t\t\t\t\t\talt=\"\"\n\t\t\t\t\t\t\t\t\t\t\t\t\twidth=\"27\"\n\t\t\t\t\t\t\t\t\t\t\t\t\theight=\"27\" /></noscript></a\n\t\t\t\t\t\t\t\t\t\t>после COVID-19, жалобы на высокий сахар, усталость, страх\n\t\t\t\t\t\t\t\t\t\tдиабета\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t<p data-start=\"167\" data-end=\"250\">\n\t\t\t\t\t\t\t\t\t\t<strong data-start=\"170\" data-end=\"184\"\n\t\t\t\t\t\t\t\t\t\t\t><a\n\t\t\t\t\t\t\t\t\t\t\t\thref=\"https://https://moveat.expert/wp-content/uploads/magn_glass.png\"\n\t\t\t\t\t\t\t\t\t\t\t\t><img\n\t\t\t\t\t\t\t\t\t\t\t\t\tclass=\"alignnone wp-image-17657\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tsrc=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2028%2028'%3E%3C/svg%3E\"\n\t\t\t\t\t\t\t\t\t\t\t\t\talt=\"\"\n\t\t\t\t\t\t\t\t\t\t\t\t\twidth=\"28\"\n\t\t\t\t\t\t\t\t\t\t\t\t\theight=\"28\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tdata-lazy-src=\"https://https://moveat.expert/wp-content/uploads/magn_glass.png\" /><noscript\n\t\t\t\t\t\t\t\t\t\t\t\t\t><img\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tclass=\"alignnone wp-image-17657\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tsrc=\"https://https://moveat.expert/wp-content/uploads/magn_glass.png\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\talt=\"\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\twidth=\"28\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\theight=\"28\" /></noscript\n\t\t\t\t\t\t\t\t\t\t\t\t>&nbsp;</a\n\t\t\t\t\t\t\t\t\t\t\t>Что нашли:</strong\n\t\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t\tнестабильный сахар после болезни, питание с быстрыми\n\t\t\t\t\t\t\t\t\t\tуглеводами\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t<p data-start=\"252\" data-end=\"350\">\n\t\t\t\t\t\t\t\t\t\t<strong data-start=\"252\" data-end=\"268\"\n\t\t\t\t\t\t\t\t\t\t\t>Как помогли:</strong\n\t\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t\tрекомендован рацион для стабилизации сахара, усиление\n\t\t\t\t\t\t\t\t\t\tантиоксидантной поддержки\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t<p data-start=\"352\" data-end=\"422\">\n\t\t\t\t\t\t\t\t\t\t<a\n\t\t\t\t\t\t\t\t\t\t\thref=\"https://https://moveat.expert/wp-content/uploads/green_checkbox.png\"\n\t\t\t\t\t\t\t\t\t\t\t><img\n\t\t\t\t\t\t\t\t\t\t\t\tclass=\"alignnone wp-image-17658\"\n\t\t\t\t\t\t\t\t\t\t\t\tsrc=\"data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2035%2035'%3E%3C/svg%3E\"\n\t\t\t\t\t\t\t\t\t\t\t\talt=\"\"\n\t\t\t\t\t\t\t\t\t\t\t\twidth=\"35\"\n\t\t\t\t\t\t\t\t\t\t\t\theight=\"35\"\n\t\t\t\t\t\t\t\t\t\t\t\tdata-lazy-src=\"https://https://moveat.expert/wp-content/uploads/green_checkbox.png\" /><noscript\n\t\t\t\t\t\t\t\t\t\t\t\t><img\n\t\t\t\t\t\t\t\t\t\t\t\t\tclass=\"alignnone wp-image-17658\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tsrc=\"https://https://moveat.expert/wp-content/uploads/green_checkbox.png\"\n\t\t\t\t\t\t\t\t\t\t\t\t\talt=\"\"\n\t\t\t\t\t\t\t\t\t\t\t\t\twidth=\"35\"\n\t\t\t\t\t\t\t\t\t\t\t\t\theight=\"35\" /></noscript></a\n\t\t\t\t\t\t\t\t\t\t>Через 1,5 месяца — сахар в пределах нормы, самочувствие\n\t\t\t\t\t\t\t\t\t\tулучшилось\n\t\t\t\t\t\t\t\t\t</p>",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_case_slide_6",
+			"label": "Кейс 6 — текст слайда (редактор)",
+			"name": "cd_case_slide_6",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_case_slide_7",
+			"label": "Кейс 7 — текст слайда (редактор)",
+			"name": "cd_case_slide_7",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_case_slide_8",
+			"label": "Кейс 8 — текст слайда (редактор)",
+			"name": "cd_case_slide_8",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_tab_faq_products",
+			"label": "FAQ «Индивидуальный рацион»",
+			"name": "cd_tab_fp",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_cd_fp_title",
+			"label": "Заголовок секции",
+			"name": "cd_fp_title",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Индивидуальный рацион",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_fp_subtitle",
+			"label": "Подзаголовок",
+			"name": "cd_fp_subtitle",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Ваша личная энциклопедия здоровья",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_fp_prompt",
+			"label": "Подсказка",
+			"name": "cd_fp_prompt",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Откройте раздел, посмотрите что внутри",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_fp_download_anchor",
+			"label": "Кнопка — текст",
+			"name": "cd_fp_download_anchor",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Скачать пример рациона",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_fp_download_url",
+			"label": "Кнопка — URL",
+			"name": "cd_fp_download_url",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "https://t.me/MaxPogorelyBot",
+			"placeholder": ""
+		},
+		{
+			"key": "field_cd_fp_faq_q_1",
+			"label": "Вопрос 1",
+			"name": "cd_fp_faq_q_1",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_fp_faq_a_1",
+			"label": "Ответ 1 (редактор)",
+			"name": "cd_fp_faq_a_1",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_fp_faq_q_2",
+			"label": "Вопрос 2",
+			"name": "cd_fp_faq_q_2",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_fp_faq_a_2",
+			"label": "Ответ 2 (редактор)",
+			"name": "cd_fp_faq_a_2",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_fp_faq_q_3",
+			"label": "Вопрос 3",
+			"name": "cd_fp_faq_q_3",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_fp_faq_a_3",
+			"label": "Ответ 3 (редактор)",
+			"name": "cd_fp_faq_a_3",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_fp_faq_q_4",
+			"label": "Вопрос 4",
+			"name": "cd_fp_faq_q_4",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_fp_faq_a_4",
+			"label": "Ответ 4 (редактор)",
+			"name": "cd_fp_faq_a_4",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_fp_faq_q_5",
+			"label": "Вопрос 5",
+			"name": "cd_fp_faq_q_5",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_fp_faq_a_5",
+			"label": "Ответ 5 (редактор)",
+			"name": "cd_fp_faq_a_5",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_fp_faq_q_6",
+			"label": "Вопрос 6",
+			"name": "cd_fp_faq_q_6",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_fp_faq_a_6",
+			"label": "Ответ 6 (редактор)",
+			"name": "cd_fp_faq_a_6",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_fp_faq_q_7",
+			"label": "Вопрос 7",
+			"name": "cd_fp_faq_q_7",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_fp_faq_a_7",
+			"label": "Ответ 7 (редактор)",
+			"name": "cd_fp_faq_a_7",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_fp_faq_q_8",
+			"label": "Вопрос 8",
+			"name": "cd_fp_faq_q_8",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_fp_faq_a_8",
+			"label": "Ответ 8 (редактор)",
+			"name": "cd_fp_faq_a_8",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_fp_faq_q_9",
+			"label": "Вопрос 9",
+			"name": "cd_fp_faq_q_9",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_fp_faq_a_9",
+			"label": "Ответ 9 (редактор)",
+			"name": "cd_fp_faq_a_9",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_fp_faq_q_10",
+			"label": "Вопрос 10",
+			"name": "cd_fp_faq_q_10",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_fp_faq_a_10",
+			"label": "Ответ 10 (редактор)",
+			"name": "cd_fp_faq_a_10",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_tab_reviews",
+			"label": "Отзывы со слайдера",
+			"name": "cd_tab_reviews",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_cd_rev_title",
+			"label": "Заголовок секции",
+			"name": "cd_rev_title",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Отзывы",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_rev_more_url",
+			"label": "Ссылка «Больше отзывов»",
+			"name": "cd_rev_more_url",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "https://moveat.expert/reviews/",
+			"placeholder": ""
+		},
+		{
+			"key": "field_cd_rev_more_label",
+			"label": "Подпись ссылки под отзывом",
+			"name": "cd_rev_more_label",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Больше отзывов",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_review_1_photo",
+			"label": "Отзыв 1 — фото (URL)",
+			"name": "cd_review_1_photo",
+			"type": "image",
+			"instructions": "",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_cd_review_1_photo_alt",
+			"label": "Отзыв 1 — alt фото",
+			"name": "cd_review_1_photo_alt",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Ольга Благодарова",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_review_1_author",
+			"label": "Отзыв 1 — автор",
+			"name": "cd_review_1_author",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Ольга Благодарова",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_review_1_text",
+			"label": "Отзыв 1 — текст",
+			"name": "cd_review_1_text",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\tЯ каждые полгода голодала для очищения (многолетняя\n\t\t\t\t\t\t\t\t\t\t\t\t\tпривычка). <br />При росте 162 (наверное, а то и\n\t\t\t\t\t\t\t\t\t\t\t\t\tменьше уже!)) когда-то была 164) я весила 55-56. Это\n\t\t\t\t\t\t\t\t\t\t\t\t\tне так много, но я всегда ощущала себя лучше при 52-53\n\t\t\t\t\t\t\t\t\t\t\t\t\tпосле голодовки. Но при выходе эти кг быстро\n\t\t\t\t\t\t\t\t\t\t\t\t\tвозвращались, буквально за 3-4 дня(( и меня это\n\t\t\t\t\t\t\t\t\t\t\t\t\tогорчало. Но с “лишним” весом никогда не боролась,\n\t\t\t\t\t\t\t\t\t\t\t\t\tкритично он мне не мешал.<br />Так вот, уже несколько\n\t\t\t\t\t\t\t\t\t\t\t\t\tмесяцев начала питаться по вашей картинке, причем\n\t\t\t\t\t\t\t\t\t\t\t\t\tпродукты не поменяла, поменяла их употребление по\n\t\t\t\t\t\t\t\t\t\t\t\t\tчасам в течение дня и друг с другом и вуаля!<br />Я\n\t\t\t\t\t\t\t\t\t\t\t\t\tуже третий месяц!!! не набираю свои лишние\n\t\t\t\t\t\t\t\t\t\t\t\t\tкилограммы!<br />Сейчас мой вес 52!! (НЮ по утрам –\n\t\t\t\t\t\t\t\t\t\t\t\t\tтак вообще 51+)<br />Сейчас чувствую себя превосходно\n\t\t\t\t\t\t\t\t\t\t\t\t\tи теперь совсем ничего не мешает!<br />Благо дарю за\n\t\t\t\t\t\t\t\t\t\t\t\t\tваш труд, за вашу любовь к своему делу, за вашу\n\t\t\t\t\t\t\t\t\t\t\t\t\tнепредвзятость и умение менять мнение, когда поступает\n\t\t\t\t\t\t\t\t\t\t\t\t\tновая информация!\n\t\t\t\t\t\t\t\t\t\t\t\t</p>",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_review_1_primary_btn",
+			"label": "Отзыв 1 — основная кнопка под текстом",
+			"name": "cd_review_1_primary_btn",
+			"type": "true_false",
+			"instructions": "",
+			"required": 0,
+			"default_value": 1,
+			"ui": 1,
+			"message": ""
+		},
+		{
+			"key": "field_cd_review_2_photo",
+			"label": "Отзыв 2 — фото (URL)",
+			"name": "cd_review_2_photo",
+			"type": "image",
+			"instructions": "",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_cd_review_2_photo_alt",
+			"label": "Отзыв 2 — alt фото",
+			"name": "cd_review_2_photo_alt",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Виктория (Харьков)",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_review_2_author",
+			"label": "Отзыв 2 — автор",
+			"name": "cd_review_2_author",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Виктория (Харьков)",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_review_2_text",
+			"label": "Отзыв 2 — текст",
+			"name": "cd_review_2_text",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\tМне хотели поставить нехороший диагноз по женской\n\t\t\t\t\t\t\t\t\t\t\t\t\tчасти и предложили все удалить. Но я тяжело расстаюсь\n\t\t\t\t\t\t\t\t\t\t\t\t\tсо своими органами ) Я начала питаться по\n\t\t\t\t\t\t\t\t\t\t\t\t\tрекомендациям Макса. Через полгода этот диагноз сняли,\n\t\t\t\t\t\t\t\t\t\t\t\t\tа ещё через год ушли сопутствующие диагнозы: миома,\n\t\t\t\t\t\t\t\t\t\t\t\t\tфиброма, спаечная болезнь.\n\t\t\t\t\t\t\t\t\t\t\t\t</p>",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_review_2_primary_btn",
+			"label": "Отзыв 2 — основная кнопка под текстом",
+			"name": "cd_review_2_primary_btn",
+			"type": "true_false",
+			"instructions": "",
+			"required": 0,
+			"default_value": 0,
+			"ui": 1,
+			"message": ""
+		},
+		{
+			"key": "field_cd_review_3_photo",
+			"label": "Отзыв 3 — фото (URL)",
+			"name": "cd_review_3_photo",
+			"type": "image",
+			"instructions": "",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_cd_review_3_photo_alt",
+			"label": "Отзыв 3 — alt фото",
+			"name": "cd_review_3_photo_alt",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Инесса (Львов)",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_review_3_author",
+			"label": "Отзыв 3 — автор",
+			"name": "cd_review_3_author",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Инесса (Львов)",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_review_3_text",
+			"label": "Отзыв 3 — текст",
+			"name": "cd_review_3_text",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\tПолгода назад я заказала Максу индивидуальный рацион и\n\t\t\t\t\t\t\t\t\t\t\t\t\tвнесла очередные правки в свое питание. Кроме того,\n\t\t\t\t\t\t\t\t\t\t\t\t\tрешилась отказаться от глютена. Думала, что будет\n\t\t\t\t\t\t\t\t\t\t\t\t\tсложно, но мой организм уже был готов. <br />Каков же\n\t\t\t\t\t\t\t\t\t\t\t\t\tрезультат полугодовой безглютеновой диеты? Первое, что\n\t\t\t\t\t\t\t\t\t\t\t\t\tзаметила – скинула лишний жир, особенно на животе. Это\n\t\t\t\t\t\t\t\t\t\t\t\t\tоколо 1-1,5 кг, которые долгое время не поддавались\n\t\t\t\t\t\t\t\t\t\t\t\t\tфизическим упражнениям. Почти избавилась от проблем с\n\t\t\t\t\t\t\t\t\t\t\t\t\tжелчным пузырем. Иммунитет явно усилился, что особенно\n\t\t\t\t\t\t\t\t\t\t\t\t\tактуально после перенесенного короновируса.\n\t\t\t\t\t\t\t\t\t\t\t\t\t<br />Конечно, для полной картины оздоровления нужно\n\t\t\t\t\t\t\t\t\t\t\t\t\tеще урегулировать свой режим и добавить физических\n\t\t\t\t\t\t\t\t\t\t\t\t\tактивностей на свежем воздухе. Но в общем, благодаря\n\t\t\t\t\t\t\t\t\t\t\t\t\tпереходу на более качественное питание и добавив\n\t\t\t\t\t\t\t\t\t\t\t\t\tфизические нагрузки, за последние несколько лет я\n\t\t\t\t\t\t\t\t\t\t\t\t\tстала значительно сильнее, энергичнее и лучше выгляжу,\n\t\t\t\t\t\t\t\t\t\t\t\t\tчем лет десять назад. Ура!<br />Короче, в такой\n\t\t\t\t\t\t\t\t\t\t\t\t\tсложной и запутанной в наше время теме питания, без\n\t\t\t\t\t\t\t\t\t\t\t\t\tпрофессионального проводника, такого как Максим\n\t\t\t\t\t\t\t\t\t\t\t\t\tПогорелый, было бы очень сложно это сделать! Это факт!\n\t\t\t\t\t\t\t\t\t\t\t\t\tСпасибо, Макс!!!\n\t\t\t\t\t\t\t\t\t\t\t\t</p>",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_review_3_primary_btn",
+			"label": "Отзыв 3 — основная кнопка под текстом",
+			"name": "cd_review_3_primary_btn",
+			"type": "true_false",
+			"instructions": "",
+			"required": 0,
+			"default_value": 0,
+			"ui": 1,
+			"message": ""
+		},
+		{
+			"key": "field_cd_review_4_photo",
+			"label": "Отзыв 4 — фото (URL)",
+			"name": "cd_review_4_photo",
+			"type": "image",
+			"instructions": "",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_cd_review_4_photo_alt",
+			"label": "Отзыв 4 — alt фото",
+			"name": "cd_review_4_photo_alt",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Филипп (Москва)",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_review_4_author",
+			"label": "Отзыв 4 — автор",
+			"name": "cd_review_4_author",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Филипп (Москва)",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_review_4_text",
+			"label": "Отзыв 4 — текст",
+			"name": "cd_review_4_text",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\tМаксим, у меня отличные результаты от вашего курса по\n\t\t\t\t\t\t\t\t\t\t\t\t\tизбавлению от аутоимунных заболеваний! Пишу этот\n\t\t\t\t\t\t\t\t\t\t\t\t\tотзыв, потому что очень вам благодарен и потому что\n\t\t\t\t\t\t\t\t\t\t\t\t\tэтот курс может значительно улучшить качество жизни\n\t\t\t\t\t\t\t\t\t\t\t\t\tдругим людям с такими же проблемами.<br />У меня\n\t\t\t\t\t\t\t\t\t\t\t\t\tхронический атопический дерматит и плюс я аллергик.<br />Я\n\t\t\t\t\t\t\t\t\t\t\t\t\tстолкнулся с тем, что мой атопический дерматит\n\t\t\t\t\t\t\t\t\t\t\t\t\t(высыпания и трещины на коже) никогда не проходит до\n\t\t\t\t\t\t\t\t\t\t\t\t\tконца, даже с использованием гормональных мазей. А\n\t\t\t\t\t\t\t\t\t\t\t\t\tесли я еще активно занимаюсь спортом и часто мою руки\n\t\t\t\t\t\t\t\t\t\t\t\t\tили просто контактирую с водой – то трещины и\n\t\t\t\t\t\t\t\t\t\t\t\t\tвысыпания на коже еще больше прогрессируют и мешают\n\t\t\t\t\t\t\t\t\t\t\t\t\tжить.<br />Я все время пользовался гормональными\n\t\t\t\t\t\t\t\t\t\t\t\t\tмазями, увлажняющими кремами 2 раза в день и старался\n\t\t\t\t\t\t\t\t\t\t\t\t\tвообще не мочить руки без крайней необходимости – и\n\t\t\t\t\t\t\t\t\t\t\t\t\tвсе равно до конца это не проходило практически\n\t\t\t\t\t\t\t\t\t\t\t\t\tникогда.<br />В итоге я полностью перешел на питание\n\t\t\t\t\t\t\t\t\t\t\t\t\tпо вашим рекоммендациям по аутоимунной диете –\n\t\t\t\t\t\t\t\t\t\t\t\t\tатопический дерматит прошел у меня на 97-98%, при этом\n\t\t\t\t\t\t\t\t\t\t\t\t\tя вообще теперь не пользуюсь никакими гормональными и\n\t\t\t\t\t\t\t\t\t\t\t\t\tувлажняющими мазями и сколько угодно мою и мочу руки\n\t\t\t\t\t\t\t\t\t\t\t\t\t(основное высыпание всегда на руках у меня), а также\n\t\t\t\t\t\t\t\t\t\t\t\t\t6-7 раз в неделю тренируюсь. <br />И как бонус вообще\n\t\t\t\t\t\t\t\t\t\t\t\t\tсильно улучшилось состояние кожи на всем теле, прошли\n\t\t\t\t\t\t\t\t\t\t\t\t\tпрыщи и улучшилось здоровье (эта диета в целом\n\t\t\t\t\t\t\t\t\t\t\t\t\tявляется полезной для всех я считаю).<br />Это\n\t\t\t\t\t\t\t\t\t\t\t\t\tсупер-крутой результат, и жаль что я этого не знал\n\t\t\t\t\t\t\t\t\t\t\t\t\t10-15 лет назад, и все это время мучился с этой\n\t\t\t\t\t\t\t\t\t\t\t\t\tпроблемой.<br />Да, неподготовленному человеку будет\n\t\t\t\t\t\t\t\t\t\t\t\t\tслегка стрессово в первое время перейти полностью на\n\t\t\t\t\t\t\t\t\t\t\t\t\tэту диету – но оно того стоит на 100%!<br />Максим,\n\t\t\t\t\t\t\t\t\t\t\t\t\tбольшое вам спасибо – вы делаете очень полезную\n\t\t\t\t\t\t\t\t\t\t\t\t\tработу!\n\t\t\t\t\t\t\t\t\t\t\t\t</p>",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_review_4_primary_btn",
+			"label": "Отзыв 4 — основная кнопка под текстом",
+			"name": "cd_review_4_primary_btn",
+			"type": "true_false",
+			"instructions": "",
+			"required": 0,
+			"default_value": 0,
+			"ui": 1,
+			"message": ""
+		},
+		{
+			"key": "field_cd_review_5_photo",
+			"label": "Отзыв 5 — фото (URL)",
+			"name": "cd_review_5_photo",
+			"type": "image",
+			"instructions": "",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_cd_review_5_photo_alt",
+			"label": "Отзыв 5 — alt фото",
+			"name": "cd_review_5_photo_alt",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Наталия (Киев)",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_review_5_author",
+			"label": "Отзыв 5 — автор",
+			"name": "cd_review_5_author",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Наталия (Киев)",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_review_5_text",
+			"label": "Отзыв 5 — текст",
+			"name": "cd_review_5_text",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\tВ наше время есть огромное количество методик для\n\t\t\t\t\t\t\t\t\t\t\t\t\tвсех, кто хочет похудеть. Многие худеют, но\n\t\t\t\t\t\t\t\t\t\t\t\t\tбольшинство снова набирают вес. Вот этого я боялась,\n\t\t\t\t\t\t\t\t\t\t\t\t\tкогда похудела. Как потом не набрать вес, вопрос не\n\t\t\t\t\t\t\t\t\t\t\t\t\tменее важный, чем сброс килограммов. Как справиться с\n\t\t\t\t\t\t\t\t\t\t\t\t\tпривычками в питании, с которыми я жила всю свою\n\t\t\t\t\t\t\t\t\t\t\t\t\tсознательную жизнь, кушала себе вкусно и поправлялась\n\t\t\t\t\t\t\t\t\t\t\t\t\tпотихоньку из года в год, Благодаря рекомендациям\n\t\t\t\t\t\t\t\t\t\t\t\t\tМакса я научилась кушать вкусно и правильно. Я –\n\t\t\t\t\t\t\t\t\t\t\t\t\tгурманкой была и гурманкой с измененным питанием\n\t\t\t\t\t\t\t\t\t\t\t\t\tостаюсь. И за весом теперь не слежу, ну если раз в 2\n\t\t\t\t\t\t\t\t\t\t\t\t\tнедели стану на весы для поднятия настроения, что еще\n\t\t\t\t\t\t\t\t\t\t\t\t\tодну зависимость я победила!\n\t\t\t\t\t\t\t\t\t\t\t\t</p>",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_review_5_primary_btn",
+			"label": "Отзыв 5 — основная кнопка под текстом",
+			"name": "cd_review_5_primary_btn",
+			"type": "true_false",
+			"instructions": "",
+			"required": 0,
+			"default_value": 0,
+			"ui": 1,
+			"message": ""
+		},
+		{
+			"key": "field_cd_review_6_photo",
+			"label": "Отзыв 6 — фото (URL)",
+			"name": "cd_review_6_photo",
+			"type": "image",
+			"instructions": "",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_cd_review_6_photo_alt",
+			"label": "Отзыв 6 — alt фото",
+			"name": "cd_review_6_photo_alt",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Иван",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_review_6_author",
+			"label": "Отзыв 6 — автор",
+			"name": "cd_review_6_author",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Иван",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_review_6_text",
+			"label": "Отзыв 6 — текст",
+			"name": "cd_review_6_text",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\tЯ так благодарен вашей команде с Максом во главе) мне\n\t\t\t\t\t\t\t\t\t\t\t\t\t30 и я с ног на голову за два года перевернул свою\n\t\t\t\t\t\t\t\t\t\t\t\t\tжизнь!<br />Теперь квашу капустку, пью оливыч,\n\t\t\t\t\t\t\t\t\t\t\t\t\tнизкожировая кисломолочка, и прочее прочее\n\t\t\t\t\t\t\t\t\t\t\t\t\tпрочее))))<br />Спасибо, что Вы есть!\n\t\t\t\t\t\t\t\t\t\t\t\t</p>",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_review_6_primary_btn",
+			"label": "Отзыв 6 — основная кнопка под текстом",
+			"name": "cd_review_6_primary_btn",
+			"type": "true_false",
+			"instructions": "",
+			"required": 0,
+			"default_value": 0,
+			"ui": 1,
+			"message": ""
+		},
+		{
+			"key": "field_cd_review_7_photo",
+			"label": "Отзыв 7 — фото (URL)",
+			"name": "cd_review_7_photo",
+			"type": "image",
+			"instructions": "",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_cd_review_7_photo_alt",
+			"label": "Отзыв 7 — alt фото",
+			"name": "cd_review_7_photo_alt",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Игорь Ярухин",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_review_7_author",
+			"label": "Отзыв 7 — автор",
+			"name": "cd_review_7_author",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Игорь Ярухин",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_review_7_text",
+			"label": "Отзыв 7 — текст",
+			"name": "cd_review_7_text",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "<p>\n\t\t\t\t\t\t\t\t\t\t\t\t\tМой топ невероятных чудес с помощью знаний Макса\n\t\t\t\t\t\t\t\t\t\t\t\t\tПогорелого: <br />1.Ликвидировал наглухо!! Нехилый\n\t\t\t\t\t\t\t\t\t\t\t\t\tжировой гепатоз (узи ежегодно) <br />2.Улучшил\n\t\t\t\t\t\t\t\t\t\t\t\t\tзрение-опять, как в младости стал (в свои 60 лет) без\n\t\t\t\t\t\t\t\t\t\t\t\t\tпроблем водить машину в сумерках и ночью даже без\n\t\t\t\t\t\t\t\t\t\t\t\t\t“шоферских”очков. <br />3.Ушел со статинов на\n\t\t\t\t\t\t\t\t\t\t\t\t\tпрекрасный холестериновый профиль без статинов(и даже\n\t\t\t\t\t\t\t\t\t\t\t\t\tсоотношение аполипопротеинов В и А прекрасное)\n\t\t\t\t\t\t\t\t\t\t\t\t\t<br />4.Снизил вес на 13 кг<br />5.Выкинул креон из\n\t\t\t\t\t\t\t\t\t\t\t\t\tжизни <br />6.Стал после многих лет впервые на\n\t\t\t\t\t\t\t\t\t\t\t\t\tтонометре иногда видеть 120 (до этого вопреки\n\t\t\t\t\t\t\t\t\t\t\t\t\tмноголетним усилиям участкового терапевта и\n\t\t\t\t\t\t\t\t\t\t\t\t\tкардиологов и смене гипотензивных и 2 р в день\n\t\t\t\t\t\t\t\t\t\t\t\t\tнесколько лет ниже 130-140 не видал)\n\t\t\t\t\t\t\t\t\t\t\t\t</p>",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_review_7_primary_btn",
+			"label": "Отзыв 7 — основная кнопка под текстом",
+			"name": "cd_review_7_primary_btn",
+			"type": "true_false",
+			"instructions": "",
+			"required": 0,
+			"default_value": 0,
+			"ui": 1,
+			"message": ""
+		},
+		{
+			"key": "field_cd_review_8_photo",
+			"label": "Отзыв 8 — фото (URL)",
+			"name": "cd_review_8_photo",
+			"type": "image",
+			"instructions": "",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_cd_review_8_photo_alt",
+			"label": "Отзыв 8 — alt фото",
+			"name": "cd_review_8_photo_alt",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_review_8_author",
+			"label": "Отзыв 8 — автор",
+			"name": "cd_review_8_author",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_review_8_text",
+			"label": "Отзыв 8 — текст",
+			"name": "cd_review_8_text",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_review_8_primary_btn",
+			"label": "Отзыв 8 — основная кнопка под текстом",
+			"name": "cd_review_8_primary_btn",
+			"type": "true_false",
+			"instructions": "",
+			"required": 0,
+			"default_value": 0,
+			"ui": 1,
+			"message": ""
+		},
+		{
+			"key": "field_cd_review_9_photo",
+			"label": "Отзыв 9 — фото (URL)",
+			"name": "cd_review_9_photo",
+			"type": "image",
+			"instructions": "",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_cd_review_9_photo_alt",
+			"label": "Отзыв 9 — alt фото",
+			"name": "cd_review_9_photo_alt",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_review_9_author",
+			"label": "Отзыв 9 — автор",
+			"name": "cd_review_9_author",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_review_9_text",
+			"label": "Отзыв 9 — текст",
+			"name": "cd_review_9_text",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_review_9_primary_btn",
+			"label": "Отзыв 9 — основная кнопка под текстом",
+			"name": "cd_review_9_primary_btn",
+			"type": "true_false",
+			"instructions": "",
+			"required": 0,
+			"default_value": 0,
+			"ui": 1,
+			"message": ""
+		},
+		{
+			"key": "field_cd_review_10_photo",
+			"label": "Отзыв 10 — фото (URL)",
+			"name": "cd_review_10_photo",
+			"type": "image",
+			"instructions": "",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_cd_review_10_photo_alt",
+			"label": "Отзыв 10 — alt фото",
+			"name": "cd_review_10_photo_alt",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_review_10_author",
+			"label": "Отзыв 10 — автор",
+			"name": "cd_review_10_author",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_review_10_text",
+			"label": "Отзыв 10 — текст",
+			"name": "cd_review_10_text",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_review_10_primary_btn",
+			"label": "Отзыв 10 — основная кнопка под текстом",
+			"name": "cd_review_10_primary_btn",
+			"type": "true_false",
+			"instructions": "",
+			"required": 0,
+			"default_value": 0,
+			"ui": 1,
+			"message": ""
+		},
+		{
+			"key": "field_cd_review_11_photo",
+			"label": "Отзыв 11 — фото (URL)",
+			"name": "cd_review_11_photo",
+			"type": "image",
+			"instructions": "",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_cd_review_11_photo_alt",
+			"label": "Отзыв 11 — alt фото",
+			"name": "cd_review_11_photo_alt",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_review_11_author",
+			"label": "Отзыв 11 — автор",
+			"name": "cd_review_11_author",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_review_11_text",
+			"label": "Отзыв 11 — текст",
+			"name": "cd_review_11_text",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_review_11_primary_btn",
+			"label": "Отзыв 11 — основная кнопка под текстом",
+			"name": "cd_review_11_primary_btn",
+			"type": "true_false",
+			"instructions": "",
+			"required": 0,
+			"default_value": 0,
+			"ui": 1,
+			"message": ""
+		},
+		{
+			"key": "field_cd_tab_video_review",
+			"label": "Видео-отзыв",
+			"name": "cd_tab_video",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_cd_video_thumb",
+			"label": "Превью (URL)",
+			"name": "cd_video_thumb",
+			"type": "image",
+			"instructions": "",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_cd_video_thumb_alt",
+			"label": "Превью — alt",
+			"name": "cd_video_thumb_alt",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "video-review",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_video_watch_url",
+			"label": "Ссылка на видео",
+			"name": "cd_video_watch_url",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "https://www.youtube.com/watch?v=N5opl97w3Y8",
+			"placeholder": ""
+		},
+		{
+			"key": "field_cd_video_quote",
+			"label": "Цитата",
+			"name": "cd_video_quote",
+			"type": "textarea",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "«За полгода убрал подагру, снизил давление, вес и холестерин!»",
+			"placeholder": "",
+			"maxlength": "",
+			"rows": 4,
+			"new_lines": "br"
+		},
+		{
+			"key": "field_cd_video_guest",
+			"label": "Подпись",
+			"name": "cd_video_guest",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Интервью с Алексеем",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_video_btn_label",
+			"label": "Кнопка у видео — текст",
+			"name": "cd_video_btn_label",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Смотреть видео",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_video_extra_url",
+			"label": "Кнопка внизу — ссылка",
+			"name": "cd_video_extra_url",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "https://moveat.expert/reviews/",
+			"placeholder": ""
+		},
+		{
+			"key": "field_cd_video_extra_label",
+			"label": "Кнопка внизу — текст",
+			"name": "cd_video_extra_label",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Смотреть еще отзывы",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_tab_team",
+			"label": "Команда",
+			"name": "cd_tab_team",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_cd_team_title",
+			"label": "Заголовок секции",
+			"name": "cd_team_title",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Команда врачей",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_team_intro",
+			"label": "Текст под заголовком",
+			"name": "cd_team_intro",
+			"type": "textarea",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Мы предлагаем комплексные решения для вашего здоровья и образа жизни",
+			"placeholder": "",
+			"maxlength": "",
+			"rows": 4,
+			"new_lines": "br"
+		},
+		{
+			"key": "field_cd_team_1_photo",
+			"label": "Участник 1 — фото",
+			"name": "cd_team_1_photo",
+			"type": "image",
+			"instructions": "",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_cd_team_1_name",
+			"label": "Участник 1 — имя",
+			"name": "cd_team_1_name",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_team_1_role",
+			"label": "Участник 1 — должность",
+			"name": "cd_team_1_role",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_team_1_url_fb",
+			"label": "Участник 1 — Facebook",
+			"name": "cd_team_1_url_fb",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": ""
+		},
+		{
+			"key": "field_cd_team_1_url_tw",
+			"label": "Участник 1 — Twitter",
+			"name": "cd_team_1_url_tw",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": ""
+		},
+		{
+			"key": "field_cd_team_1_url_li",
+			"label": "Участник 1 — LinkedIn",
+			"name": "cd_team_1_url_li",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": ""
+		},
+		{
+			"key": "field_cd_team_1_url_ig",
+			"label": "Участник 1 — Instagram",
+			"name": "cd_team_1_url_ig",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": ""
+		},
+		{
+			"key": "field_cd_team_2_photo",
+			"label": "Участник 2 — фото",
+			"name": "cd_team_2_photo",
+			"type": "image",
+			"instructions": "",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_cd_team_2_name",
+			"label": "Участник 2 — имя",
+			"name": "cd_team_2_name",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_team_2_role",
+			"label": "Участник 2 — должность",
+			"name": "cd_team_2_role",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_team_2_url_fb",
+			"label": "Участник 2 — Facebook",
+			"name": "cd_team_2_url_fb",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": ""
+		},
+		{
+			"key": "field_cd_team_2_url_tw",
+			"label": "Участник 2 — Twitter",
+			"name": "cd_team_2_url_tw",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": ""
+		},
+		{
+			"key": "field_cd_team_2_url_li",
+			"label": "Участник 2 — LinkedIn",
+			"name": "cd_team_2_url_li",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": ""
+		},
+		{
+			"key": "field_cd_team_2_url_ig",
+			"label": "Участник 2 — Instagram",
+			"name": "cd_team_2_url_ig",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": ""
+		},
+		{
+			"key": "field_cd_team_3_photo",
+			"label": "Участник 3 — фото",
+			"name": "cd_team_3_photo",
+			"type": "image",
+			"instructions": "",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_cd_team_3_name",
+			"label": "Участник 3 — имя",
+			"name": "cd_team_3_name",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_team_3_role",
+			"label": "Участник 3 — должность",
+			"name": "cd_team_3_role",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_team_3_url_fb",
+			"label": "Участник 3 — Facebook",
+			"name": "cd_team_3_url_fb",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": ""
+		},
+		{
+			"key": "field_cd_team_3_url_tw",
+			"label": "Участник 3 — Twitter",
+			"name": "cd_team_3_url_tw",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": ""
+		},
+		{
+			"key": "field_cd_team_3_url_li",
+			"label": "Участник 3 — LinkedIn",
+			"name": "cd_team_3_url_li",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": ""
+		},
+		{
+			"key": "field_cd_team_3_url_ig",
+			"label": "Участник 3 — Instagram",
+			"name": "cd_team_3_url_ig",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": ""
+		},
+		{
+			"key": "field_cd_team_4_photo",
+			"label": "Участник 4 — фото",
+			"name": "cd_team_4_photo",
+			"type": "image",
+			"instructions": "",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_cd_team_4_name",
+			"label": "Участник 4 — имя",
+			"name": "cd_team_4_name",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_team_4_role",
+			"label": "Участник 4 — должность",
+			"name": "cd_team_4_role",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_team_4_url_fb",
+			"label": "Участник 4 — Facebook",
+			"name": "cd_team_4_url_fb",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": ""
+		},
+		{
+			"key": "field_cd_team_4_url_tw",
+			"label": "Участник 4 — Twitter",
+			"name": "cd_team_4_url_tw",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": ""
+		},
+		{
+			"key": "field_cd_team_4_url_li",
+			"label": "Участник 4 — LinkedIn",
+			"name": "cd_team_4_url_li",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": ""
+		},
+		{
+			"key": "field_cd_team_4_url_ig",
+			"label": "Участник 4 — Instagram",
+			"name": "cd_team_4_url_ig",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": ""
+		},
+		{
+			"key": "field_cd_team_5_photo",
+			"label": "Участник 5 — фото",
+			"name": "cd_team_5_photo",
+			"type": "image",
+			"instructions": "",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_cd_team_5_name",
+			"label": "Участник 5 — имя",
+			"name": "cd_team_5_name",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_team_5_role",
+			"label": "Участник 5 — должность",
+			"name": "cd_team_5_role",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_team_5_url_fb",
+			"label": "Участник 5 — Facebook",
+			"name": "cd_team_5_url_fb",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": ""
+		},
+		{
+			"key": "field_cd_team_5_url_tw",
+			"label": "Участник 5 — Twitter",
+			"name": "cd_team_5_url_tw",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": ""
+		},
+		{
+			"key": "field_cd_team_5_url_li",
+			"label": "Участник 5 — LinkedIn",
+			"name": "cd_team_5_url_li",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": ""
+		},
+		{
+			"key": "field_cd_team_5_url_ig",
+			"label": "Участник 5 — Instagram",
+			"name": "cd_team_5_url_ig",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": ""
+		},
+		{
+			"key": "field_cd_team_6_photo",
+			"label": "Участник 6 — фото",
+			"name": "cd_team_6_photo",
+			"type": "image",
+			"instructions": "",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_cd_team_6_name",
+			"label": "Участник 6 — имя",
+			"name": "cd_team_6_name",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_team_6_role",
+			"label": "Участник 6 — должность",
+			"name": "cd_team_6_role",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_team_6_url_fb",
+			"label": "Участник 6 — Facebook",
+			"name": "cd_team_6_url_fb",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": ""
+		},
+		{
+			"key": "field_cd_team_6_url_tw",
+			"label": "Участник 6 — Twitter",
+			"name": "cd_team_6_url_tw",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": ""
+		},
+		{
+			"key": "field_cd_team_6_url_li",
+			"label": "Участник 6 — LinkedIn",
+			"name": "cd_team_6_url_li",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": ""
+		},
+		{
+			"key": "field_cd_team_6_url_ig",
+			"label": "Участник 6 — Instagram",
+			"name": "cd_team_6_url_ig",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": ""
+		},
+		{
+			"key": "field_cd_team_7_photo",
+			"label": "Участник 7 — фото",
+			"name": "cd_team_7_photo",
+			"type": "image",
+			"instructions": "",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_cd_team_7_name",
+			"label": "Участник 7 — имя",
+			"name": "cd_team_7_name",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_team_7_role",
+			"label": "Участник 7 — должность",
+			"name": "cd_team_7_role",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_team_7_url_fb",
+			"label": "Участник 7 — Facebook",
+			"name": "cd_team_7_url_fb",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": ""
+		},
+		{
+			"key": "field_cd_team_7_url_tw",
+			"label": "Участник 7 — Twitter",
+			"name": "cd_team_7_url_tw",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": ""
+		},
+		{
+			"key": "field_cd_team_7_url_li",
+			"label": "Участник 7 — LinkedIn",
+			"name": "cd_team_7_url_li",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": ""
+		},
+		{
+			"key": "field_cd_team_7_url_ig",
+			"label": "Участник 7 — Instagram",
+			"name": "cd_team_7_url_ig",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": ""
+		},
+		{
+			"key": "field_cd_team_8_photo",
+			"label": "Участник 8 — фото",
+			"name": "cd_team_8_photo",
+			"type": "image",
+			"instructions": "",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_cd_team_8_name",
+			"label": "Участник 8 — имя",
+			"name": "cd_team_8_name",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_team_8_role",
+			"label": "Участник 8 — должность",
+			"name": "cd_team_8_role",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_team_8_url_fb",
+			"label": "Участник 8 — Facebook",
+			"name": "cd_team_8_url_fb",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": ""
+		},
+		{
+			"key": "field_cd_team_8_url_tw",
+			"label": "Участник 8 — Twitter",
+			"name": "cd_team_8_url_tw",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": ""
+		},
+		{
+			"key": "field_cd_team_8_url_li",
+			"label": "Участник 8 — LinkedIn",
+			"name": "cd_team_8_url_li",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": ""
+		},
+		{
+			"key": "field_cd_team_8_url_ig",
+			"label": "Участник 8 — Instagram",
+			"name": "cd_team_8_url_ig",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": ""
+		},
+		{
+			"key": "field_cd_team_9_photo",
+			"label": "Участник 9 — фото",
+			"name": "cd_team_9_photo",
+			"type": "image",
+			"instructions": "",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_cd_team_9_name",
+			"label": "Участник 9 — имя",
+			"name": "cd_team_9_name",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_team_9_role",
+			"label": "Участник 9 — должность",
+			"name": "cd_team_9_role",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_team_9_url_fb",
+			"label": "Участник 9 — Facebook",
+			"name": "cd_team_9_url_fb",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": ""
+		},
+		{
+			"key": "field_cd_team_9_url_tw",
+			"label": "Участник 9 — Twitter",
+			"name": "cd_team_9_url_tw",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": ""
+		},
+		{
+			"key": "field_cd_team_9_url_li",
+			"label": "Участник 9 — LinkedIn",
+			"name": "cd_team_9_url_li",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": ""
+		},
+		{
+			"key": "field_cd_team_9_url_ig",
+			"label": "Участник 9 — Instagram",
+			"name": "cd_team_9_url_ig",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": ""
+		},
+		{
+			"key": "field_cd_tab_pricing",
+			"label": "Стоимость",
+			"name": "cd_tab_pricing",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_cd_price_title",
+			"label": "Заголовок блока",
+			"name": "cd_price_title",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Стоимость",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_price_1_subtitle",
+			"label": "Карточка 1 — описание",
+			"name": "cd_price_1_subtitle",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Индивидуальний рацион с рассмотрением анализов",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_price_1_cost",
+			"label": "Карточка 1 — цена",
+			"name": "cd_price_1_cost",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "130$",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_price_1_more_url",
+			"label": "Карточка 1 — ссылка",
+			"name": "cd_price_1_more_url",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "https://moveat.expert/product/rashet-raziona/",
+			"placeholder": ""
+		},
+		{
+			"key": "field_cd_price_2_subtitle",
+			"label": "Карточка 2 — описание",
+			"name": "cd_price_2_subtitle",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Индивидуальний рацион без анализов",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_price_2_cost",
+			"label": "Карточка 2 — цена",
+			"name": "cd_price_2_cost",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "99$",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_price_2_more_url",
+			"label": "Карточка 2 — ссылка",
+			"name": "cd_price_2_more_url",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "https://moveat.expert/product/rashet-raziona/",
+			"placeholder": ""
+		},
+		{
+			"key": "field_cd_price_3_subtitle",
+			"label": "Карточка 3 — описание",
+			"name": "cd_price_3_subtitle",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Первичная диагностика",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_price_3_cost",
+			"label": "Карточка 3 — цена",
+			"name": "cd_price_3_cost",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "35$",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_price_3_more_url",
+			"label": "Карточка 3 — ссылка",
+			"name": "cd_price_3_more_url",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "https://moveat.expert/product/rashet-raziona/",
+			"placeholder": ""
+		},
+		{
+			"key": "field_cd_price_4_subtitle",
+			"label": "Карточка 4 — описание",
+			"name": "cd_price_4_subtitle",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_price_4_cost",
+			"label": "Карточка 4 — цена",
+			"name": "cd_price_4_cost",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_price_4_more_url",
+			"label": "Карточка 4 — ссылка",
+			"name": "cd_price_4_more_url",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": ""
+		},
+		{
+			"key": "field_cd_price_5_subtitle",
+			"label": "Карточка 5 — описание",
+			"name": "cd_price_5_subtitle",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_price_5_cost",
+			"label": "Карточка 5 — цена",
+			"name": "cd_price_5_cost",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_price_5_more_url",
+			"label": "Карточка 5 — ссылка",
+			"name": "cd_price_5_more_url",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": ""
+		},
+		{
+			"key": "field_cd_tab_barrier",
+			"label": "Блок «Я сам разберусь»",
+			"name": "cd_tab_barrier",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_cd_barrier_title",
+			"label": "Заголовок",
+			"name": "cd_barrier_title",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Я сам разберусь…",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_barrier_top",
+			"label": "Верхний текст",
+			"name": "cd_barrier_top",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "<p>Допустим вы решили всё изучить самостоятельно.</p><p>Потратите минимум 1 год, набьёте шишки,проверите на себе и может быть найдете&nbsp;</p><p>причину проблем и решение.&nbsp;&nbsp;</p>",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_barrier_bottom",
+			"label": "Нижний текст",
+			"name": "cd_barrier_bottom",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "<p>Будьте осторожны с ИИ (ChatGPT, Grok)! Он часто выдаёт непроверенную информацию.</p><p>ЭТО ОПАСНО ДЛЯ ЗДОРОВЬЯ.</p>",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_barrier_image",
+			"label": "Изображение справа",
+			"name": "cd_barrier_image",
+			"type": "image",
+			"instructions": "",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_cd_barrier_img_alt",
+			"label": "Alt изображения",
+			"name": "cd_barrier_img_alt",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Я сам разберусь…",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_tab_qa",
+			"label": "Вопросы и ответы",
+			"name": "cd_tab_qa",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_cd_qa_title",
+			"label": "Заголовок",
+			"name": "cd_qa_title",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Вопросы - Ответы",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_qa_subtitle",
+			"label": "Подзаголовок",
+			"name": "cd_qa_subtitle",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Частые вопросы о программе",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_qa_prompt",
+			"label": "Подсказка",
+			"name": "cd_qa_prompt",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Откройте раздел, посмотрите что внутри",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_qa_q_1",
+			"label": "Вопрос 1",
+			"name": "cd_qa_q_1",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_qa_a_1",
+			"label": "Ответ 1",
+			"name": "cd_qa_a_1",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_qa_q_2",
+			"label": "Вопрос 2",
+			"name": "cd_qa_q_2",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_qa_a_2",
+			"label": "Ответ 2",
+			"name": "cd_qa_a_2",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_qa_q_3",
+			"label": "Вопрос 3",
+			"name": "cd_qa_q_3",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_qa_a_3",
+			"label": "Ответ 3",
+			"name": "cd_qa_a_3",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_qa_q_4",
+			"label": "Вопрос 4",
+			"name": "cd_qa_q_4",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_qa_a_4",
+			"label": "Ответ 4",
+			"name": "cd_qa_a_4",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_qa_q_5",
+			"label": "Вопрос 5",
+			"name": "cd_qa_q_5",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_qa_a_5",
+			"label": "Ответ 5",
+			"name": "cd_qa_a_5",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_qa_q_6",
+			"label": "Вопрос 6",
+			"name": "cd_qa_q_6",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_qa_a_6",
+			"label": "Ответ 6",
+			"name": "cd_qa_a_6",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_qa_q_7",
+			"label": "Вопрос 7",
+			"name": "cd_qa_q_7",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_qa_a_7",
+			"label": "Ответ 7",
+			"name": "cd_qa_a_7",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_qa_q_8",
+			"label": "Вопрос 8",
+			"name": "cd_qa_q_8",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_qa_a_8",
+			"label": "Ответ 8",
+			"name": "cd_qa_a_8",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_qa_q_9",
+			"label": "Вопрос 9",
+			"name": "cd_qa_q_9",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_qa_a_9",
+			"label": "Ответ 9",
+			"name": "cd_qa_a_9",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_qa_q_10",
+			"label": "Вопрос 10",
+			"name": "cd_qa_q_10",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_qa_a_10",
+			"label": "Ответ 10",
+			"name": "cd_qa_a_10",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_qa_q_11",
+			"label": "Вопрос 11",
+			"name": "cd_qa_q_11",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_qa_a_11",
+			"label": "Ответ 11",
+			"name": "cd_qa_a_11",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_qa_q_12",
+			"label": "Вопрос 12",
+			"name": "cd_qa_q_12",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_qa_a_12",
+			"label": "Ответ 12",
+			"name": "cd_qa_a_12",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_qa_q_13",
+			"label": "Вопрос 13",
+			"name": "cd_qa_q_13",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_qa_a_13",
+			"label": "Ответ 13",
+			"name": "cd_qa_a_13",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_qa_q_14",
+			"label": "Вопрос 14",
+			"name": "cd_qa_q_14",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_qa_a_14",
+			"label": "Ответ 14",
+			"name": "cd_qa_a_14",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_qa_q_15",
+			"label": "Вопрос 15",
+			"name": "cd_qa_q_15",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_qa_a_15",
+			"label": "Ответ 15",
+			"name": "cd_qa_a_15",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_qa_q_16",
+			"label": "Вопрос 16",
+			"name": "cd_qa_q_16",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_qa_a_16",
+			"label": "Ответ 16",
+			"name": "cd_qa_a_16",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_qa_q_17",
+			"label": "Вопрос 17",
+			"name": "cd_qa_q_17",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_qa_a_17",
+			"label": "Ответ 17",
+			"name": "cd_qa_a_17",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_qa_q_18",
+			"label": "Вопрос 18",
+			"name": "cd_qa_q_18",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_qa_a_18",
+			"label": "Ответ 18",
+			"name": "cd_qa_a_18",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_qa_q_19",
+			"label": "Вопрос 19",
+			"name": "cd_qa_q_19",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_qa_a_19",
+			"label": "Ответ 19",
+			"name": "cd_qa_a_19",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_qa_q_20",
+			"label": "Вопрос 20",
+			"name": "cd_qa_q_20",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_qa_a_20",
+			"label": "Ответ 20",
+			"name": "cd_qa_a_20",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_qa_q_21",
+			"label": "Вопрос 21",
+			"name": "cd_qa_q_21",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_qa_a_21",
+			"label": "Ответ 21",
+			"name": "cd_qa_a_21",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_qa_q_22",
+			"label": "Вопрос 22",
+			"name": "cd_qa_q_22",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_qa_a_22",
+			"label": "Ответ 22",
+			"name": "cd_qa_a_22",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_qa_q_23",
+			"label": "Вопрос 23",
+			"name": "cd_qa_q_23",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_qa_a_23",
+			"label": "Ответ 23",
+			"name": "cd_qa_a_23",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_qa_q_24",
+			"label": "Вопрос 24",
+			"name": "cd_qa_q_24",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_qa_a_24",
+			"label": "Ответ 24",
+			"name": "cd_qa_a_24",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_qa_q_25",
+			"label": "Вопрос 25",
+			"name": "cd_qa_q_25",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_qa_a_25",
+			"label": "Ответ 25",
+			"name": "cd_qa_a_25",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_qa_q_26",
+			"label": "Вопрос 26",
+			"name": "cd_qa_q_26",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_qa_a_26",
+			"label": "Ответ 26",
+			"name": "cd_qa_a_26",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_tab_final_cta",
+			"label": "Финальный блок",
+			"name": "cd_tab_final",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_cd_final_photo",
+			"label": "Фото (URL)",
+			"name": "cd_final_photo",
+			"type": "image",
+			"instructions": "",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_cd_final_photo_alt",
+			"label": "Alt фото",
+			"name": "cd_final_photo_alt",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Валентина Терещенко",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_final_name",
+			"label": "ФИО",
+			"name": "cd_final_name",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Валентина Терещенко",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_final_role",
+			"label": "Специальность",
+			"name": "cd_final_role",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Доктор общей практики",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_final_heading",
+			"label": "Заголовок блока",
+			"name": "cd_final_heading",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "А мне поможет лечебный рацион?",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_cd_final_intro",
+			"label": "Текст блока",
+			"name": "cd_final_intro",
+			"type": "wysiwyg",
+			"instructions": "",
+			"required": 0,
+			"default_value": "<p>Пишите о ваших проблемах, мы посмотрим можно ли это исправить питанием.</p><p>Задавайте мне ваши вопросы!</p>",
+			"tabs": "visual",
+			"toolbar": "full",
+			"media_upload": 1,
+			"delay": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_cd_final_btn_url",
+			"label": "Кнопка — ссылка",
+			"name": "cd_final_btn_url",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "https://t.me/MaxPogorelyBot",
+			"placeholder": ""
+		},
+		{
+			"key": "field_cd_final_btn_label",
+			"label": "Кнопка — текст",
+			"name": "cd_final_btn_label",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Задать вопрос",
+			"placeholder": "",
+			"maxlength": ""
+		}
+	],
+	"location": [
+		[
+			{
+				"param": "page_template",
+				"operator": "==",
+				"value": "templates/calculate-diet.php"
+			}
+		]
+	],
+	"menu_order": 0,
+	"position": "normal",
+	"style": "default",
+	"label_placement": "top",
+	"instruction_placement": "label",
+	"hide_on_screen": "",
+	"active": true,
+	"description": "Поля шаблона страницы «Расчет рациона питания» (templates/calculate-diet.php). Импортируйте JSON через ACF."
+}

@@ -1,0 +1,137 @@
+<?php
+defined( 'ABSPATH' ) || exit;
+
+$term = get_queried_object();
+if ( ! $term instanceof WP_Term || 'category' !== $term->taxonomy ) {
+	return;
+}
+
+$paged            = max( 1, get_query_var( 'paged' ) );
+$category_ids     = [ (int) $term->term_id ];
+$articles_page_id = 0;
+$articles_pages   = get_posts(
+	[
+		'post_type'      => 'page',
+		'posts_per_page' => 1,
+		'fields'         => 'ids',
+		'no_found_rows'  => true,
+		'meta_key'       => '_wp_page_template',
+		'meta_value'     => 'templates/articles.php',
+	]
+);
+if ( ! empty( $articles_pages[0] ) ) {
+	$articles_page_id = (int) $articles_pages[0];
+}
+
+$articles_button_title = '';
+if ( function_exists( 'get_field' ) && $articles_page_id > 0 ) {
+	$btn = get_field( 'articles_buttons_title', $articles_page_id );
+	if ( is_string( $btn ) ) {
+		$articles_button_title = trim( $btn );
+	}
+}
+if ( $articles_button_title === '' ) {
+	$articles_button_title = 'Читать статью';
+}
+
+$query = null;
+if ( ! empty( $category_ids ) ) {
+	$query = new WP_Query(
+		[
+			'post_type'      => 'post',
+			'post_status'    => 'publish',
+			'posts_per_page' => 12,
+			'paged'          => $paged,
+			'category__in'   => $category_ids,
+			'orderby'        => 'date',
+			'order'          => 'DESC',
+		]
+	);
+}
+?>
+
+<!-- Page Header Start -->
+<div class="hero-block">
+	<div class="hero-block__bg-wrapper">
+		<img
+			class="hero-block__bg-image"
+			src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/illustrations/vegetables.jpg' ); ?>"
+			alt="<?php echo esc_attr__( 'vegetables', 'moveat' ); ?>" />
+	</div>
+	<div class="hero-block__container">
+		<h1 class="hero-block__title"><?php echo esc_html( $term->name ); ?></h1>
+		<nav aria-label="breadcrumb no-padding animated slideInDown page-hero__breadcrumbs">
+			<ol class="breadcrumb no-padding page-hero__breadcrumbs-list">
+				<li class="breadcrumb-item page-hero__breadcrumbs-item white">
+					<a class="text-body" href="<?php echo esc_url( home_url( '/' ) ); ?>">Главная</a>
+				</li>
+				<li class="breadcrumb-item page-hero__breadcrumbs-item white">
+					<span class="text-body"><?php echo esc_html( $term->name ); ?></span>
+				</li>
+			</ol>
+		</nav>
+	</div>
+</div>
+<!-- Page Header End -->
+
+<!-- Articles Start -->
+<div class="articles">
+	<div class="articles__container max-width-limiter">
+		<div class="articles__grid">
+			<?php if ( ! empty( $category_ids ) && $query && $query->have_posts() ) : ?>
+				<?php while ( $query->have_posts() ) : $query->the_post(); ?>
+					<a href="<?php the_permalink(); ?>" class="articles__card article-card">
+						<div class="article-card__top">
+							<div class="article-card__image-wrapper">
+								<?php
+								$thumb_url = get_the_post_thumbnail_url( get_the_ID(), 'large' );
+								if ( $thumb_url ) :
+									?>
+									<img class="article-card__image" src="<?php echo esc_url( $thumb_url ); ?>" alt="<?php echo esc_attr( get_the_title() ); ?>">
+								<?php endif; ?>
+							</div>
+							<div class="article-card__content">
+								<h3 class="article-card__title"><?php the_title(); ?></h3>
+							</div>
+						</div>
+						<div class="article-card__bottom">
+							<span class="article-card__button primary-button"><?php echo esc_html( $articles_button_title ); ?></span>
+						</div>
+					</a>
+				<?php endwhile;
+				wp_reset_postdata(); ?>
+			<?php elseif ( ! empty( $category_ids ) ) : ?>
+				<p>Статей пока нет.</p>
+			<?php endif; ?>
+		</div>
+	</div>
+	<?php
+	$total_pages = ( isset( $query ) && $query instanceof WP_Query ) ? (int) $query->max_num_pages : 0;
+	if ( $total_pages > 1 ) :
+		$current = max( 1, $paged );
+		$links   = paginate_links(
+			[
+				'base'      => get_pagenum_link( 1 ) . '%_%',
+				'format'    => 'page/%#%/',
+				'current'   => $current,
+				'total'     => $total_pages,
+				'prev_text' => 'Предыдущая',
+				'next_text' => 'Следующая',
+				'type'      => 'array',
+			]
+		);
+		?>
+		<?php if ( ! empty( $links ) && is_array( $links ) ) : ?>
+			<div class="pagination max-width-limiter">
+				<?php foreach ( $links as $link_html ) : ?>
+					<?php
+					$is_active   = strpos( $link_html, 'current' ) !== false ? ' is-active' : '';
+					$link_clean = preg_replace( '/class="[^"]*"/', '', $link_html );
+					?>
+					<span class="pagination__item<?php echo $is_active; ?>"><?php echo $link_clean; ?></span>
+				<?php endforeach; ?>
+			</div>
+		<?php endif; ?>
+	<?php endif; ?>
+</div>
+<!-- Articles End -->

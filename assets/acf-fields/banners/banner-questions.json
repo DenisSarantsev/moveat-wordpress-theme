@@ -1,0 +1,148 @@
+{
+	"key": "group_banner_questions",
+	"title": "Баннер — Вопросы",
+	"fields": [
+		{
+			"key": "field_banner_questions_title",
+			"label": "Заголовок",
+			"name": "banner_questions_title",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": { "width": "", "class": "", "id": "" },
+			"default_value": "Есть вопросы? Будем рады ответить!",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_banner_questions_description",
+			"label": "Описание",
+			"name": "banner_questions_description",
+			"type": "textarea",
+			"instructions": "",
+			"required": 0,
+			"wrapper": { "width": "", "class": "", "id": "" },
+			"default_value": "По всем вопросам пишите нам в мессенджеры. В рабочие дни мы отвечаем очень быстро. В выходные немного медленнее, но ваше сообщение точно дойдет, не потеряется и будет обработано!",
+			"placeholder": "",
+			"maxlength": "",
+			"rows": 5,
+			"new_lines": ""
+		},
+		{
+			"key": "field_banner_questions_tab_messengers",
+			"label": "Messengers",
+			"name": "banner_questions_tab_messengers",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_banner_questions_messengers_instructions",
+			"label": "Мессенджеры",
+			"name": "banner_questions_messengers_instructions",
+			"type": "message",
+			"instructions": "",
+			"required": 0,
+			"message": "Кнопка показывается только если заполнены и ссылка, и иконка. Чтобы скрыть канал — очистите одно из полей.",
+			"new_lines": "wpautop",
+			"esc_html": 1
+		},
+		{
+			"key": "field_banner_questions_messengers_intro",
+			"label": "Текст над кнопками",
+			"name": "banner_questions_messengers_intro",
+			"type": "textarea",
+			"instructions": "",
+			"required": 0,
+			"wrapper": { "width": "", "class": "", "id": "" },
+			"default_value": "Выберите удобный мессенджер",
+			"placeholder": "",
+			"maxlength": "",
+			"rows": 2,
+			"new_lines": ""
+		},
+		{
+			"key": "field_banner_questions_link_telegram",
+			"label": "Telegram — ссылка",
+			"name": "banner_questions_link_telegram",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": { "width": "", "class": "", "id": "" },
+			"default_value": ""
+		},
+		{
+			"key": "field_banner_questions_icon_telegram",
+			"label": "Telegram — иконка (URL)",
+			"name": "banner_questions_icon_telegram",
+			"type": "image",
+			"instructions": "Полный URL PNG/SVG иконки.",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_banner_questions_link_whatsapp",
+			"label": "WhatsApp — ссылка",
+			"name": "banner_questions_link_whatsapp",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": { "width": "", "class": "", "id": "" },
+			"default_value": ""
+		},
+		{
+			"key": "field_banner_questions_icon_whatsapp",
+			"label": "WhatsApp — иконка (URL)",
+			"name": "banner_questions_icon_whatsapp",
+			"type": "image",
+			"instructions": "Полный URL PNG/SVG иконки.",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_banner_questions_link_viber",
+			"label": "Viber — ссылка",
+			"name": "banner_questions_link_viber",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": { "width": "", "class": "", "id": "" },
+			"default_value": ""
+		},
+		{
+			"key": "field_banner_questions_icon_viber",
+			"label": "Viber — иконка (URL)",
+			"name": "banner_questions_icon_viber",
+			"type": "image",
+			"instructions": "Полный URL PNG/SVG иконки.",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all",
+			"mime_types": ""
+		}
+	],
+	"location": [
+		[
+			{
+				"param": "page_template",
+				"operator": "==",
+				"value": "templates/banners/banner-questions.php"
+			}
+		]
+	],
+	"menu_order": 0,
+	"position": "normal",
+	"style": "default",
+	"label_placement": "top",
+	"instruction_placement": "label",
+	"hide_on_screen": "",
+	"active": true,
+	"description": "Поля баннера «Вопросы» (шаблон banner-questions.php)."
+}

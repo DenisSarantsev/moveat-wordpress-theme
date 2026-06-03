@@ -67,9 +67,7 @@ function toggleCardButtonLoaderState(button, isLoading) {
 }
 
 // Переключает лоадер в блоке кнопок на странице товара.
-function toggleProductPageButtonLoaderState(button, isLoading) {
-	if (!button) return;
-	const buttonsBlock = button.closest(".product-page__buttons");
+function setProductPageLoaderState(buttonsBlock, isLoading) {
 	if (!buttonsBlock) return;
 	const loader = buttonsBlock.querySelector(".loader");
 	if (!loader) return;
@@ -78,7 +76,13 @@ function toggleProductPageButtonLoaderState(button, isLoading) {
 		loader.classList.remove("disabled");
 		return;
 	}
+
 	loader.classList.add("disabled");
+}
+
+function toggleProductPageButtonLoaderState(button, isLoading) {
+	if (!button) return;
+	setProductPageLoaderState(button.closest(".product-page__buttons"), isLoading);
 }
 
 // Подключает обработчики добавления в корзину на карточках товаров.
@@ -103,6 +107,7 @@ function bindProductCardAddToCart() {
 			try {
 				toggleCardButtonLoaderState(button, true);
 				await addToCartUseCase(productId, quantity, button);
+				handleProductCardAddedToCart(button);
 			} catch (error) {
 				// Выводим ошибку в консоль, чтобы не прерывать работу интерфейса.
 				console.error(error);
@@ -111,6 +116,112 @@ function bindProductCardAddToCart() {
 			}
 		});
 	});
+}
+
+// Возвращает URI темы для построения путей к иконкам карточки товара.
+function getProductCardThemeUri(button) {
+	const themeUri = window.MOVEAT_THEME && window.MOVEAT_THEME.themeUri;
+	if (themeUri) {
+		return themeUri;
+	}
+
+	const cartIcon = button && button.querySelector(".product-card__button-cart-icon");
+	if (!cartIcon || !cartIcon.src) {
+		return "";
+	}
+
+	return cartIcon.src.replace(/\/assets\/images\/icons\/cart\.png(?:\?.*)?$/, "");
+}
+
+// Возвращает URL страницы корзины.
+function getCartPageUrl() {
+	if (window.MOVEAT_WOO_API_CONFIG && window.MOVEAT_WOO_API_CONFIG.cartUrl) {
+		return window.MOVEAT_WOO_API_CONFIG.cartUrl;
+	}
+
+	return "/cart/";
+}
+
+// Заменяет кнопку добавления в корзину на индикатор «товар уже в корзине».
+function handleProductCardAddedToCart(button) {
+	if (!button || button.classList.contains("added-to-cart-button")) {
+		return;
+	}
+
+	const themeUri = getProductCardThemeUri(button);
+	if (!themeUri) {
+		return;
+	}
+
+	const cartIconFilled = `${themeUri}/assets/images/icons/filled/shopping-cart-filled.png`;
+	const checkMarkIcon = `${themeUri}/assets/images/icons/filled/check-mark-filled.png`;
+
+	const addedState = document.createElement("a");
+	addedState.href = getCartPageUrl();
+	addedState.className =
+		"product-card__button product-card__button-cart added-to-cart-button";
+	addedState.setAttribute("aria-label", "Перейти в корзину");
+	addedState.innerHTML = `
+		<div class="product-page__added-to-cart">
+			<div class="product-page__added-to-cart_title">
+				<div class="product-page__added-to-cart_title-icons">
+					<img src="${cartIconFilled}" alt="Товар добавлен в корзину" />
+					<div class="product-page__added-to-cart_cart-icon">
+						<img src="${checkMarkIcon}" alt="Галочка" />
+					</div>
+				</div>
+			</div>
+		</div>
+	`;
+
+	button.replaceWith(addedState);
+}
+
+// Возвращает URI темы для построения путей к иконкам на странице товара.
+function getProductPageThemeUri() {
+	if (window.MOVEAT_THEME && window.MOVEAT_THEME.themeUri) {
+		return window.MOVEAT_THEME.themeUri;
+	}
+
+	return "";
+}
+
+// Заменяет кнопку «Добавить в корзину» на странице товара на индикатор «товар уже в корзине».
+function handleProductPageAddedToCart(button) {
+	if (
+		!button ||
+		button.getAttribute("data-product-action") !== "add-to-cart"
+	) {
+		return;
+	}
+
+	const themeUri = getProductPageThemeUri();
+	if (!themeUri) {
+		return;
+	}
+
+	const cartIconFilled = `${themeUri}/assets/images/icons/filled/shopping-cart-filled.png`;
+	const checkMarkIcon = `${themeUri}/assets/images/icons/filled/check-mark-filled.png`;
+
+	const addedState = document.createElement("a");
+	addedState.href = getCartPageUrl();
+	addedState.className = "product-page__added-to-cart proguct-page-button";
+	addedState.setAttribute("aria-label", "Перейти в корзину");
+	addedState.innerHTML = `
+		<div class="product-page__added-to-cart_title">
+			<div class="product-page__added-to-cart_title-icons">
+				<img src="${cartIconFilled}" alt="Товар добавлен в корзину" />
+				<div class="product-page__added-to-cart_cart-icon">
+					<img src="${checkMarkIcon}" alt="Галочка" />
+				</div>
+			</div>
+			<div class="product-page__added-to-cart_title-text">
+				Товар добавлен в корзину
+			</div>
+		</div>
+	`;
+
+	button.replaceWith(addedState);
 }
 
 // Подключает обработчики кнопок на странице одного товара.
@@ -136,6 +247,8 @@ function bindProductPageAddToCart() {
 			const quantity = toPositiveInt(button.getAttribute("data-quantity"), 1);
 			if (!productId) return;
 
+			const buttonsBlock = button.closest(".product-page__buttons");
+
 			try {
 				if (action === "add-to-cart") {
 					button.classList.add("unactive");
@@ -143,7 +256,9 @@ function bindProductPageAddToCart() {
 				}
 				await addToCartUseCase(productId, quantity, button);
 
-				if (action === "buy-now") {
+				if (action === "add-to-cart") {
+					handleProductPageAddedToCart(button);
+				} else if (action === "buy-now") {
 					const checkoutUrl =
 						(window.MOVEAT_THEME && window.MOVEAT_THEME.checkoutUrl) ||
 						(window.MOVEAT_API && window.MOVEAT_API.woocommerceCheckoutUrl) ||
@@ -155,8 +270,10 @@ function bindProductPageAddToCart() {
 				console.error(error);
 			} finally {
 				if (action === "add-to-cart") {
-					button.classList.remove("unactive");
-					toggleProductPageButtonLoaderState(button, false);
+					if (document.body.contains(button)) {
+						button.classList.remove("unactive");
+					}
+					setProductPageLoaderState(buttonsBlock, false);
 				}
 			}
 		});
