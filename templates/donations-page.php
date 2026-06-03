@@ -556,6 +556,7 @@ $donations_min_amount_label = moveat_format_donation_amount( $donations_min_amou
 								<span>$0</span>
 							</div>
 						</div>
+						<div class="loader white" aria-hidden="true"></div>
 					</button>
 				</div>
 			</div>

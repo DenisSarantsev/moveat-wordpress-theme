@@ -1,6 +1,9 @@
 /*
-	Модуль страницы донатов.
+	Модуль страницы донатов (тема WordPress).
 	Создаёт заказ с fee-позицией, инициирует оплату через pay-order и редирект на шлюз.
+
+	UI формы и прелоадер кнопки — в бандле moveat-new (donations.ts),
+	через window.MOVEAT_DONATIONS.setSubmitLoading.
 */
 
 import { showSystemMessage } from "../modules/system-message.js";
@@ -13,7 +16,9 @@ const roundDonationAmount = (value) => {
 const getMinDonationAmount = () => {
 	const root = document.querySelector("[data-donations-min-amount]");
 	const parsed = Number(root?.getAttribute("data-donations-min-amount"));
-	return Number.isFinite(parsed) && parsed > 0 ? roundDonationAmount(parsed) : 5;
+	return Number.isFinite(parsed) && parsed > 0
+		? roundDonationAmount(parsed)
+		: 5;
 };
 
 const DONATION_GATEWAY_MAP = {
@@ -23,7 +28,9 @@ const DONATION_GATEWAY_MAP = {
 
 const submitButton = document.querySelector("[data-donations-submit]");
 const methodsContainer = document.querySelector("[data-donations-methods]");
-const customAmountInput = document.querySelector("[data-donations-custom-amount]");
+const customAmountInput = document.querySelector(
+	"[data-donations-custom-amount]",
+);
 const firstNameInput = document.querySelector("[data-donations-firstname]");
 const lastNameInput = document.querySelector("[data-donations-lastname]");
 const phoneInput = document.querySelector("[data-donations-phone]");
@@ -83,21 +90,38 @@ const getSelectedMethod = () => {
 };
 
 const setLoading = (isLoading) => {
+	if (window.MOVEAT_DONATIONS?.setSubmitLoading) {
+		window.MOVEAT_DONATIONS.setSubmitLoading(isLoading);
+		return;
+	}
+
 	if (!submitButton) return;
 
-	submitButton.classList.toggle("loading", isLoading);
+	submitButton.classList.toggle("is-loading", isLoading);
 	submitButton.disabled = isLoading;
+	submitButton.classList.toggle("unactive", isLoading);
+	submitButton.setAttribute("aria-busy", isLoading ? "true" : "false");
+};
+
+const getPhoneForOrder = () => {
+	if (window.MOVEAT_DONATIONS?.getPhoneNumber) {
+		return window.MOVEAT_DONATIONS.getPhoneNumber();
+	}
+
+	return phoneInput?.value.trim() ?? "";
 };
 
 const handleDonationSubmit = async () => {
 	if (!submitButton || submitButton.disabled) return;
+
+	if (window.MOVEAT_DONATIONS?.getIsSubmitting?.()) return;
 
 	const method = getSelectedMethod();
 	const amount = getSelectedAmount();
 	const minDonationAmount = getMinDonationAmount();
 	const firstName = firstNameInput?.value.trim() ?? "";
 	const lastName = lastNameInput?.value.trim() ?? "";
-	const phone = phoneInput?.value.trim() ?? "";
+	const phone = getPhoneForOrder();
 	const email = emailInput?.value.trim() ?? "";
 	const gatewaySlug = resolveDonationGateway(method);
 
@@ -113,8 +137,8 @@ const handleDonationSubmit = async () => {
 	}
 
 	const api = window.MOVEAT_API?.woocommerce;
-	if (!api) {
-		showSystemMessage("API не инициализирован.", "error");
+	if (!api?.httpClient?.post || !api?.checkout?.payOrder) {
+		showSystemMessage("error", "API не инициализирован.");
 		return;
 	}
 
@@ -135,8 +159,8 @@ const handleDonationSubmit = async () => {
 
 		if (!orderResult?.id || !orderResult?.order_key) {
 			showSystemMessage(
-				"Не удалось создать заказ доната. Попробуйте позже.",
 				"error",
+				"Не удалось создать заказ доната. Попробуйте позже.",
 			);
 			return;
 		}
@@ -155,14 +179,14 @@ const handleDonationSubmit = async () => {
 		}
 
 		showSystemMessage(
-			"Не удалось получить ссылку на оплату. Попробуйте позже.",
 			"error",
+			"Не удалось получить ссылку на оплату. Попробуйте позже.",
 		);
 	} catch (err) {
 		console.error("[donation-process] submit error:", err);
 		showSystemMessage(
-			err?.message ?? "Ошибка при инициации оплаты доната.",
 			"error",
+			err?.message ?? "Ошибка при инициации оплаты доната.",
 		);
 	} finally {
 		setLoading(false);

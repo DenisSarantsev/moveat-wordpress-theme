@@ -22884,12 +22884,33 @@ main:has(> section.razion-start-block:first-child) > section:nth-of-type(22) {
 	justify-content: center;
 	align-items: center;
 }
+.donations__submit > .loader {
+	display: none;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	z-index: 1;
+}
+.donations__submit.is-loading {
+	pointer-events: none;
+	cursor: wait;
+}
+.donations__submit.is-loading .donations__submit_inner {
+	opacity: 0;
+}
+.donations__submit.is-loading > .loader {
+	display: block;
+}
 .donations__submit_inner {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	width: 100%;
 	gap: 8px;
+	transition: opacity 0.2s ease;
 }
 .donations__submit_text {
 	white-space: nowrap;
