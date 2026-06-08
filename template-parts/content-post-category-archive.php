@@ -6,33 +6,11 @@ if ( ! $term instanceof WP_Term || 'category' !== $term->taxonomy ) {
 	return;
 }
 
-$paged            = max( 1, get_query_var( 'paged' ) );
-$category_ids     = [ (int) $term->term_id ];
-$articles_page_id = 0;
-$articles_pages   = get_posts(
-	[
-		'post_type'      => 'page',
-		'posts_per_page' => 1,
-		'fields'         => 'ids',
-		'no_found_rows'  => true,
-		'meta_key'       => '_wp_page_template',
-		'meta_value'     => 'templates/articles.php',
-	]
-);
-if ( ! empty( $articles_pages[0] ) ) {
-	$articles_page_id = (int) $articles_pages[0];
-}
+$paged        = max( 1, get_query_var( 'paged' ) );
+$category_ids = [ (int) $term->term_id ];
 
-$articles_button_title = '';
-if ( function_exists( 'get_field' ) && $articles_page_id > 0 ) {
-	$btn = get_field( 'articles_buttons_title', $articles_page_id );
-	if ( is_string( $btn ) ) {
-		$articles_button_title = trim( $btn );
-	}
-}
-if ( $articles_button_title === '' ) {
-	$articles_button_title = 'Читать статью';
-}
+// Подпись кнопки берём из единого источника — поля рубрики на странице глобальных настроек.
+$articles_button_title = moveat_get_category_button_title( $term->term_id );
 
 $query = null;
 if ( ! empty( $category_ids ) ) {

@@ -1,6 +1,8 @@
 <?php
 // Регистрирует ACF-поля и их настройки для темы.
 require_once __DIR__ . '/acf/global-fields.php';
+// Группа «Рубрики — текст кнопок» на странице глобальных настроек + хелперы подписи кнопок.
+require_once __DIR__ . '/acf/category-buttons.php';
 // Хелперы тем отзывов и динамические чекбоксы ACF (словарь → отзывы).
 require_once __DIR__ . '/reviews/reviews-topic-helpers.php';
 require_once __DIR__ . '/reviews/acf-review-topics-choices.php';
@@ -43,4 +45,6 @@ if ( class_exists( 'WooCommerce' ) ) {
 	require_once __DIR__ . '/woocommerce/emails/reminders.php';
 	// Сообщение о выполненном заказе админу
 	require_once __DIR__ . '/woocommerce/emails/completed-order.php';
+	// Подтверждение доната донатору
+	require_once __DIR__ . '/woocommerce/emails/donation-completed-order.php';
 }

@@ -254,6 +254,694 @@
 			"return_format": "url",
 			"preview_size": "medium",
 			"library": "all"
+		},
+		{
+			"key": "field_donations_tab_email",
+			"label": "Email",
+			"name": "donations_tab_email",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_donations_email_message",
+			"label": "",
+			"name": "donations_email_message",
+			"type": "message",
+			"message": "Тексты письма, которое отправляется донатору после успешной оплаты.",
+			"new_lines": "wpautop",
+			"esc_html": 0
+		},
+		{
+			"key": "field_donations_email_subject",
+			"label": "Тема письма",
+			"name": "donations_email_subject",
+			"type": "text",
+			"default_value": "Спасибо! Вы помогаете проекту Moveat развиваться ❤️"
+		},
+		{
+			"key": "field_donations_email_greeting",
+			"label": "Приветствие",
+			"name": "donations_email_greeting",
+			"type": "text",
+			"default_value": "Здравствуйте!"
+		},
+		{
+			"key": "field_donations_email_thanks",
+			"label": "Строка благодарности",
+			"name": "donations_email_thanks",
+			"type": "text",
+			"default_value": "Спасибо за вашу поддержку ❤️"
+		},
+		{
+			"key": "field_donations_email_intro",
+			"label": "Основной текст",
+			"name": "donations_email_intro",
+			"type": "textarea",
+			"rows": 4,
+			"default_value": "Такие переводы помогают нам продолжать делать то, что мы считаем важным: выпускать полезные материалы о здоровье, объяснять сложное простым языком и помогать людям лучше понимать свой организм."
+		},
+		{
+			"key": "field_donations_email_details_title",
+			"label": "Заголовок блока «Детали поддержки»",
+			"name": "donations_email_details_title",
+			"type": "text",
+			"default_value": "Детали поддержки:"
+		},
+		{
+			"key": "field_donations_email_label_amount",
+			"label": "Подпись «Сумма»",
+			"name": "donations_email_label_amount",
+			"type": "text",
+			"default_value": "Сумма:"
+		},
+		{
+			"key": "field_donations_email_label_date",
+			"label": "Подпись «Дата»",
+			"name": "donations_email_label_date",
+			"type": "text",
+			"default_value": "Дата:"
+		},
+		{
+			"key": "field_donations_email_label_payment",
+			"label": "Подпись «Способ оплаты»",
+			"name": "donations_email_label_payment",
+			"type": "text",
+			"default_value": "Способ оплаты:"
+		},
+		{
+			"key": "field_donations_email_outro_thanks",
+			"label": "Текст перед подписью",
+			"name": "donations_email_outro_thanks",
+			"type": "text",
+			"default_value": "Спасибо, что вы с нами."
+		},
+		{
+			"key": "field_donations_email_signoff_line",
+			"label": "Строка подписи",
+			"name": "donations_email_signoff_line",
+			"type": "text",
+			"default_value": "С уважением,"
+		},
+		{
+			"key": "field_donations_email_signoff_team",
+			"label": "Подпись команды",
+			"name": "donations_email_signoff_team",
+			"type": "text",
+			"default_value": "Команда Moveat"
+		},
+		{
+			"key": "field_donations_email_socials_title",
+			"label": "Заголовок блока соцсетей",
+			"name": "donations_email_socials_title",
+			"type": "text",
+			"default_value": "Следите за новыми материалами:"
+		},
+		{
+			"key": "field_donations_email_footer",
+			"label": "Текст в подвале письма",
+			"name": "donations_email_footer",
+			"type": "text",
+			"default_value": "Moveat"
+		},
+		{
+			"key": "field_donations_email_socials_message",
+			"label": "",
+			"name": "donations_email_socials_message",
+			"type": "message",
+			"message": "Соцсети в письме (иконки в кружках). В письмо попадают только заполненные: нужны ссылка и иконка.",
+			"new_lines": "wpautop",
+			"esc_html": 0
+		},
+		{
+			"key": "field_donations_email_social_1_message",
+			"label": "",
+			"name": "donations_email_social_1_message",
+			"type": "message",
+			"message": "Соцсеть 1",
+			"new_lines": "wpautop",
+			"esc_html": 0
+		},
+		{
+			"key": "field_donations_email_social_1_label",
+			"label": "Название (подпись / aria-label)",
+			"name": "donations_email_social_1_label",
+			"type": "text",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_donations_email_social_1_url",
+			"label": "Ссылка",
+			"name": "donations_email_social_1_url",
+			"type": "url",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_donations_email_social_1_icon",
+			"label": "Иконка",
+			"name": "donations_email_social_1_icon",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_donations_email_social_1_bg_color",
+			"label": "Цвет фона кружка",
+			"name": "donations_email_social_1_bg_color",
+			"type": "color_picker",
+			"default_value": "#ff7f13",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_donations_email_social_2_message",
+			"label": "",
+			"name": "donations_email_social_2_message",
+			"type": "message",
+			"message": "Соцсеть 2",
+			"new_lines": "wpautop",
+			"esc_html": 0
+		},
+		{
+			"key": "field_donations_email_social_2_label",
+			"label": "Название (подпись / aria-label)",
+			"name": "donations_email_social_2_label",
+			"type": "text",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_donations_email_social_2_url",
+			"label": "Ссылка",
+			"name": "donations_email_social_2_url",
+			"type": "url",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_donations_email_social_2_icon",
+			"label": "Иконка",
+			"name": "donations_email_social_2_icon",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_donations_email_social_2_bg_color",
+			"label": "Цвет фона кружка",
+			"name": "donations_email_social_2_bg_color",
+			"type": "color_picker",
+			"default_value": "#ff7f13",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_donations_email_social_3_message",
+			"label": "",
+			"name": "donations_email_social_3_message",
+			"type": "message",
+			"message": "Соцсеть 3",
+			"new_lines": "wpautop",
+			"esc_html": 0
+		},
+		{
+			"key": "field_donations_email_social_3_label",
+			"label": "Название (подпись / aria-label)",
+			"name": "donations_email_social_3_label",
+			"type": "text",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_donations_email_social_3_url",
+			"label": "Ссылка",
+			"name": "donations_email_social_3_url",
+			"type": "url",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_donations_email_social_3_icon",
+			"label": "Иконка",
+			"name": "donations_email_social_3_icon",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_donations_email_social_3_bg_color",
+			"label": "Цвет фона кружка",
+			"name": "donations_email_social_3_bg_color",
+			"type": "color_picker",
+			"default_value": "#ff7f13",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_donations_email_social_4_message",
+			"label": "",
+			"name": "donations_email_social_4_message",
+			"type": "message",
+			"message": "Соцсеть 4",
+			"new_lines": "wpautop",
+			"esc_html": 0
+		},
+		{
+			"key": "field_donations_email_social_4_label",
+			"label": "Название (подпись / aria-label)",
+			"name": "donations_email_social_4_label",
+			"type": "text",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_donations_email_social_4_url",
+			"label": "Ссылка",
+			"name": "donations_email_social_4_url",
+			"type": "url",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_donations_email_social_4_icon",
+			"label": "Иконка",
+			"name": "donations_email_social_4_icon",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_donations_email_social_4_bg_color",
+			"label": "Цвет фона кружка",
+			"name": "donations_email_social_4_bg_color",
+			"type": "color_picker",
+			"default_value": "#ff7f13",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_donations_email_social_5_message",
+			"label": "",
+			"name": "donations_email_social_5_message",
+			"type": "message",
+			"message": "Соцсеть 5",
+			"new_lines": "wpautop",
+			"esc_html": 0
+		},
+		{
+			"key": "field_donations_email_social_5_label",
+			"label": "Название (подпись / aria-label)",
+			"name": "donations_email_social_5_label",
+			"type": "text",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_donations_email_social_5_url",
+			"label": "Ссылка",
+			"name": "donations_email_social_5_url",
+			"type": "url",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_donations_email_social_5_icon",
+			"label": "Иконка",
+			"name": "donations_email_social_5_icon",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_donations_email_social_5_bg_color",
+			"label": "Цвет фона кружка",
+			"name": "donations_email_social_5_bg_color",
+			"type": "color_picker",
+			"default_value": "#ff7f13",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_donations_email_social_6_message",
+			"label": "",
+			"name": "donations_email_social_6_message",
+			"type": "message",
+			"message": "Соцсеть 6",
+			"new_lines": "wpautop",
+			"esc_html": 0
+		},
+		{
+			"key": "field_donations_email_social_6_label",
+			"label": "Название (подпись / aria-label)",
+			"name": "donations_email_social_6_label",
+			"type": "text",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_donations_email_social_6_url",
+			"label": "Ссылка",
+			"name": "donations_email_social_6_url",
+			"type": "url",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_donations_email_social_6_icon",
+			"label": "Иконка",
+			"name": "donations_email_social_6_icon",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_donations_email_social_6_bg_color",
+			"label": "Цвет фона кружка",
+			"name": "donations_email_social_6_bg_color",
+			"type": "color_picker",
+			"default_value": "#ff7f13",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_donations_email_social_7_message",
+			"label": "",
+			"name": "donations_email_social_7_message",
+			"type": "message",
+			"message": "Соцсеть 7",
+			"new_lines": "wpautop",
+			"esc_html": 0
+		},
+		{
+			"key": "field_donations_email_social_7_label",
+			"label": "Название (подпись / aria-label)",
+			"name": "donations_email_social_7_label",
+			"type": "text",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_donations_email_social_7_url",
+			"label": "Ссылка",
+			"name": "donations_email_social_7_url",
+			"type": "url",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_donations_email_social_7_icon",
+			"label": "Иконка",
+			"name": "donations_email_social_7_icon",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_donations_email_social_7_bg_color",
+			"label": "Цвет фона кружка",
+			"name": "donations_email_social_7_bg_color",
+			"type": "color_picker",
+			"default_value": "#ff7f13",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_donations_email_social_8_message",
+			"label": "",
+			"name": "donations_email_social_8_message",
+			"type": "message",
+			"message": "Соцсеть 8",
+			"new_lines": "wpautop",
+			"esc_html": 0
+		},
+		{
+			"key": "field_donations_email_social_8_label",
+			"label": "Название (подпись / aria-label)",
+			"name": "donations_email_social_8_label",
+			"type": "text",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_donations_email_social_8_url",
+			"label": "Ссылка",
+			"name": "donations_email_social_8_url",
+			"type": "url",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_donations_email_social_8_icon",
+			"label": "Иконка",
+			"name": "donations_email_social_8_icon",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_donations_email_social_8_bg_color",
+			"label": "Цвет фона кружка",
+			"name": "donations_email_social_8_bg_color",
+			"type": "color_picker",
+			"default_value": "#ff7f13",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_donations_email_social_9_message",
+			"label": "",
+			"name": "donations_email_social_9_message",
+			"type": "message",
+			"message": "Соцсеть 9",
+			"new_lines": "wpautop",
+			"esc_html": 0
+		},
+		{
+			"key": "field_donations_email_social_9_label",
+			"label": "Название (подпись / aria-label)",
+			"name": "donations_email_social_9_label",
+			"type": "text",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_donations_email_social_9_url",
+			"label": "Ссылка",
+			"name": "donations_email_social_9_url",
+			"type": "url",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_donations_email_social_9_icon",
+			"label": "Иконка",
+			"name": "donations_email_social_9_icon",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_donations_email_social_9_bg_color",
+			"label": "Цвет фона кружка",
+			"name": "donations_email_social_9_bg_color",
+			"type": "color_picker",
+			"default_value": "#ff7f13",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_donations_email_social_10_message",
+			"label": "",
+			"name": "donations_email_social_10_message",
+			"type": "message",
+			"message": "Соцсеть 10",
+			"new_lines": "wpautop",
+			"esc_html": 0
+		},
+		{
+			"key": "field_donations_email_social_10_label",
+			"label": "Название (подпись / aria-label)",
+			"name": "donations_email_social_10_label",
+			"type": "text",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_donations_email_social_10_url",
+			"label": "Ссылка",
+			"name": "donations_email_social_10_url",
+			"type": "url",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_donations_email_social_10_icon",
+			"label": "Иконка",
+			"name": "donations_email_social_10_icon",
+			"type": "image",
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
+		},
+		{
+			"key": "field_donations_email_social_10_bg_color",
+			"label": "Цвет фона кружка",
+			"name": "donations_email_social_10_bg_color",
+			"type": "color_picker",
+			"default_value": "#ff7f13",
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			}
 		}
 	],
 	"location": [
@@ -272,5 +960,5 @@
 	"instruction_placement": "label",
 	"hide_on_screen": "",
 	"active": true,
-	"description": "Страница донатов: заголовок, текст под блоками, единоразовый платеж (кнопка и мессенджеры в модалке), подписки (вкл/выкл, ссылки; для USDT — кошелёк и QR)."
+	"description": "Страница донатов: контент страницы, единоразовый платеж, подписки, письмо после оплаты (тексты и до 10 соцсетей)."
 }

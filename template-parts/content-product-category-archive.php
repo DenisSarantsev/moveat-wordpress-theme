@@ -9,6 +9,8 @@ if ( ! $term instanceof WP_Term || 'product_cat' !== $term->taxonomy ) {
 $theme_uri = get_template_directory_uri();
 $cart_icon = $theme_uri . '/assets/images/icons/cart.png';
 
+$button_title = function_exists( 'moveat_get_category_button_title' ) ? moveat_get_category_button_title( $term->term_id ) : 'Подробнее';
+
 $shop_id   = function_exists( 'wc_get_page_id' ) ? (int) wc_get_page_id( 'shop' ) : 0;
 $shop_url  = $shop_id > 0 ? get_permalink( $shop_id ) : '';
 $shop_name = $shop_id > 0 ? get_the_title( $shop_id ) : '';
@@ -97,7 +99,7 @@ if ( is_wp_error( $term_description ) || ! is_string( $term_description ) ) {
 								<?php endif; ?>
 							</div>
 							<div class="product-card__buttons">
-								<a href="<?php the_permalink(); ?>" class="product-card__button primary-button">Подробнее</a>
+								<a href="<?php the_permalink(); ?>" class="product-card__button primary-button"><?php echo esc_html( $button_title ); ?></a>
 								<a
 									href="<?php echo esc_url( $product->add_to_cart_url() ); ?>"
 									data-quantity="1"

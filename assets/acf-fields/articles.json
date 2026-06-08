@@ -22,22 +22,6 @@
 			"load_terms": 0,
 			"return_format": "id",
 			"multiple": 0
-		},
-		{
-			"key": "field_articles_buttons_title",
-			"label": "Текст кнопки на карточке статьи",
-			"name": "articles_buttons_title",
-			"type": "text",
-			"instructions": "Подпись на кнопке в списке статей (одинаковая для всех карточек на этой странице).",
-			"required": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
-			"default_value": "Читать статью",
-			"placeholder": "",
-			"maxlength": ""
 		}
 	],
 	"location": [

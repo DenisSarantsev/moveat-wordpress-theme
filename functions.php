@@ -4,72 +4,57 @@
 function moveat_enqueue_scripts() {
 	// Основные стили
 	wp_enqueue_style( 'moveat-style', get_stylesheet_uri(), [], null );
-	// Внешние стили
-	wp_enqueue_style( 'moveat-owl-carousel', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css', [], null );
-	wp_enqueue_style( 'moveat-owl-carousel-theme', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css', [], null );
 
-	// Основной бандл
+	// Основной бандл вёрстки/анимаций (сборка Vite-проекта; owl.carousel включён внутрь него — CDN не нужен).
 	wp_enqueue_script( 'moveat-bundle', get_template_directory_uri() . '/main.js', [], null, true );
-	// Внешние скрипты
-	wp_enqueue_script( 'moveat-owl-carousel', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js', [ 'jquery' ], null, true );
-	// Дополнительные скрипты из assets/scripts/js/index.js
-	wp_enqueue_script( 'moveat-main', get_template_directory_uri() . '/assets/scripts/js/index.js', [ 'jquery', 'moveat-owl-carousel' ], null, true );
+	// Бизнес-логика темы: собранный esbuild бандл из assets/scripts/js/index.js (источник).
+	// Сборка: `npm run build` (одноразово) / `npm run watch` (разработка). Файл woo.bundle.js коммитится.
+	wp_enqueue_script( 'moveat-main', get_template_directory_uri() . '/assets/scripts/js/woo.bundle.js', [ 'jquery' ], null, true );
 }
 add_action( 'wp_enqueue_scripts', 'moveat_enqueue_scripts' );
 
-// Оптимизируем подгрузку стилей по CDN
-add_filter('style_loader_tag', function($html, $handle) {
-	$async_styles = [
-		'moveat-owl-carousel',
-		'moveat-owl-carousel-theme'
-	];
-	if (in_array($handle, $async_styles)) {
-		$html = str_replace(
-			"rel='stylesheet'",
-			"rel='preload' as='style' onload=\"this.rel='stylesheet'\"",
-			$html
-		);
-	}
-  return $html;
-}, 10, 2);
-// Добавляем noscript в тег head
-add_action('wp_head', function() {
-    ?>
-    <noscript>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-    </noscript>
-    <?php
-});
-
 // ----------------------------------- Дополнительные настройки скриптов
-// Добавляем type="module" для index.js, чтобы ES-импорты работали в браузере
+// moveat-main (woo.bundle.js) — как ES-модуль; moveat-bundle (main.js, ~849 КБ) — defer,
+// чтобы тяжёлый бандл вёрстки не блокировал парсер и не задерживал DOMContentLoaded.
 function moveat_add_module_type( $tag, $handle ) {
 	if ( 'moveat-main' === $handle ) {
 		return str_replace( '<script ', '<script type="module" ', $tag );
+	}
+	if ( 'moveat-bundle' === $handle && strpos( $tag, ' defer' ) === false ) {
+		return str_replace( '<script ', '<script defer ', $tag );
 	}
 	return $tag;
 }
 add_filter( 'script_loader_tag', 'moveat_add_module_type', 10, 2 );
 
-// ----------------------------------- Подключение шрифтов
+// ----------------------------------- Подключение шрифтов (self-hosted, без Google CDN)
 function moveat_enqueue_fonts() {
 	wp_enqueue_style(
-		'google-fonts',
-		'https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap',
+		'moveat-fonts',
+		get_template_directory_uri() . '/assets/fonts/fonts.css',
 		[],
 		null
 	);
 }
 add_action('wp_enqueue_scripts', 'moveat_enqueue_fonts');
-// Оптимизируем подключение
-function moveat_preconnect_fonts() {
-	echo '
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	';
+
+// Preload ключевых начертаний первого экрана, чтобы текст меньше «прыгал» при swap.
+// crossorigin обязателен: шрифты всегда грузятся в CORS-режиме, иначе preload не зачтётся.
+function moveat_preload_fonts() {
+	$fonts_uri = get_template_directory_uri() . '/assets/fonts';
+	$preload = [
+		'montserrat-v31-cyrillic_cyrillic-ext_latin_latin-ext-regular.woff2',
+		'montserrat-v31-cyrillic_cyrillic-ext_latin_latin-ext-600.woff2',
+	];
+	foreach ( $preload as $file ) {
+		printf(
+			'<link rel="preload" href="%s/%s" as="font" type="font/woff2" crossorigin>' . "\n",
+			esc_url( $fonts_uri ),
+			esc_attr( $file )
+		);
+	}
 }
-add_action('wp_head', 'moveat_preconnect_fonts', 1);
+add_action('wp_head', 'moveat_preload_fonts', 1);
 
 // ----------------------------------- Подключение php скриптов
 // Подключаем дополнительные php скрипты из assets/scripts/php/index.php
@@ -79,3 +64,13 @@ require_once get_template_directory() . '/assets/scripts/php/index.php';
 add_action('wp_head', function() {
 	echo '<title>' . get_bloginfo('name') . '</title>';
 }, 1);
+
+// ----------------------------------- Поиск: все результаты на одной странице
+function moveat_search_show_all_results( $query ) {
+	if ( is_admin() || ! $query->is_main_query() || ! $query->is_search() ) {
+		return;
+	}
+
+	$query->set( 'posts_per_page', -1 );
+}
+add_action( 'pre_get_posts', 'moveat_search_show_all_results' );

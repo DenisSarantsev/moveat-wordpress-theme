@@ -6,7 +6,7 @@ defined( 'ABSPATH' ) || exit;
 	Минимальная сумма доната (USD) — единственное место настройки.
 */
 function moveat_get_min_donation_amount(): float {
-	return 5.0;
+	return 1.0;
 }
 
 /*

@@ -1,0 +1,86 @@
+/*
+	Self-hosted Google Fonts (woff2, объединённые подмножества latin + cyrillic).
+	font-display: swap — текст рисуется сразу системным шрифтом и подменяется без блокировки рендера.
+	Пути относительные — этот CSS лежит рядом с .woff2, поэтому работает на любом домене.
+*/
+
+/* ---------------- Lora ---------------- */
+@font-face {
+	font-family: "Lora";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url("lora-v37-cyrillic_cyrillic-ext_latin_latin-ext-regular.woff2") format("woff2");
+}
+@font-face {
+	font-family: "Lora";
+	font-style: normal;
+	font-weight: 500;
+	font-display: swap;
+	src: url("lora-v37-cyrillic_cyrillic-ext_latin_latin-ext-500.woff2") format("woff2");
+}
+@font-face {
+	font-family: "Lora";
+	font-style: normal;
+	font-weight: 600;
+	font-display: swap;
+	src: url("lora-v37-cyrillic_cyrillic-ext_latin_latin-ext-600.woff2") format("woff2");
+}
+@font-face {
+	font-family: "Lora";
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url("lora-v37-cyrillic_cyrillic-ext_latin_latin-ext-700.woff2") format("woff2");
+}
+
+/* ---------------- Montserrat ---------------- */
+@font-face {
+	font-family: "Montserrat";
+	font-style: normal;
+	font-weight: 300;
+	font-display: swap;
+	src: url("montserrat-v31-cyrillic_cyrillic-ext_latin_latin-ext-300.woff2") format("woff2");
+}
+@font-face {
+	font-family: "Montserrat";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url("montserrat-v31-cyrillic_cyrillic-ext_latin_latin-ext-regular.woff2") format("woff2");
+}
+@font-face {
+	font-family: "Montserrat";
+	font-style: normal;
+	font-weight: 500;
+	font-display: swap;
+	src: url("montserrat-v31-cyrillic_cyrillic-ext_latin_latin-ext-500.woff2") format("woff2");
+}
+@font-face {
+	font-family: "Montserrat";
+	font-style: normal;
+	font-weight: 600;
+	font-display: swap;
+	src: url("montserrat-v31-cyrillic_cyrillic-ext_latin_latin-ext-600.woff2") format("woff2");
+}
+@font-face {
+	font-family: "Montserrat";
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url("montserrat-v31-cyrillic_cyrillic-ext_latin_latin-ext-700.woff2") format("woff2");
+}
+@font-face {
+	font-family: "Montserrat";
+	font-style: normal;
+	font-weight: 800;
+	font-display: swap;
+	src: url("montserrat-v31-cyrillic_cyrillic-ext_latin_latin-ext-800.woff2") format("woff2");
+}
+@font-face {
+	font-family: "Montserrat";
+	font-style: normal;
+	font-weight: 900;
+	font-display: swap;
+	src: url("montserrat-v31-cyrillic_cyrillic-ext_latin_latin-ext-900.woff2") format("woff2");
+}

@@ -38,12 +38,7 @@
 					$paged = max(1, get_query_var('paged'));
 					$articles_page_id = get_queried_object_id();
 					$category_ids = [];
-					$articles_button_title = '';
 					if (function_exists('get_field')) {
-						$btn = get_field('articles_buttons_title', $articles_page_id);
-						if (is_string($btn)) {
-							$articles_button_title = trim($btn);
-						}
 						$acf_categories = get_field('articles_categories', $articles_page_id);
 						if (! empty($acf_categories)) {
 							$category_ids = is_array($acf_categories) ? $acf_categories : [ $acf_categories ];
@@ -53,9 +48,6 @@
 								)
 							);
 						}
-					}
-					if ($articles_button_title === '') {
-						$articles_button_title = 'Читать статью';
 					}
 
 					$query = null;
@@ -88,7 +80,7 @@
 								</div>
 							</div>
 							<div class="article-card__bottom">
-								<span class="article-card__button primary-button"><?php echo esc_html($articles_button_title); ?></span>
+								<span class="article-card__button primary-button"><?php echo esc_html(moveat_get_post_button_title(get_the_ID())); ?></span>
 							</div>
 						</a>
 					<?php endwhile; wp_reset_postdata(); ?>

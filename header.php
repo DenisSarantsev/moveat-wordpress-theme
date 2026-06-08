@@ -112,6 +112,46 @@
 					<?php
 						$moveat_cart_count = function_exists( 'WC' ) && WC()->cart ? (int) WC()->cart->get_cart_contents_count() : 0;
 					?>
+					<div class="header-search" data-header-search>
+						<button
+							type="button"
+							class="header-icon header-search__toggle"
+							data-search-toggle
+							aria-label="Поиск"
+							aria-expanded="false">
+							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/search.png" alt="Search" class="img-fluid" />
+						</button>
+						<form
+							class="header-search__form"
+							role="search"
+							method="get"
+							action="/"
+							data-search-form>
+							<input
+								type="search"
+								name="s"
+								class="header-search__input"
+								placeholder="Поиск по сайту…"
+								autocomplete="off"
+								data-search-input />
+							<button
+								type="button"
+								class="header-search__clear"
+								data-search-clear
+								aria-label="Очистить"
+								hidden>
+								<img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/cross.png" alt="" class="img-fluid" />
+							</button>
+							<button
+								type="submit"
+								class="header-search__submit"
+								data-search-submit
+								aria-label="Искать"
+								disabled>
+								<img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/search.png" alt="" class="img-fluid" />
+							</button>
+						</form>
+					</div>
 					<a class="header-icon cart" href="<?php echo esc_url( function_exists( 'wc_get_cart_url' ) ? wc_get_cart_url() : home_url( '/cart/' ) ); ?>">
 						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/cart.png" alt="Shopping cart" class="img-fluid">
 						<div class="cart-count" data-cart-count <?php echo $moveat_cart_count > 0 ? '' : 'hidden'; ?>><?php echo esc_html( $moveat_cart_count ); ?></div>
@@ -148,7 +188,7 @@
 			</div>
 		</div>
 
-		<div class="lang-modal" id="lang-modal" role="dialog" aria-modal="true" data-nosnippet>
+		<div class="lang-modal" id="lang-modal" role="dialog" aria-modal="true" data-nosnippet hidden aria-hidden="true" style="display:none;visibility:hidden;">
 			<div class="lang-modal__overlay" data-lang-modal-overlay></div>
 			<div class="lang-modal__dialog" role="document">
 				<button

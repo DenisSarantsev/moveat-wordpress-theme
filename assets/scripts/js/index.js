@@ -1,4 +1,3 @@
-import "./modules/carousel-init.js";
 import "./modules/spinner.js";
 import "./modules/system-message.js";
 import "./woocommerce/add-to-cart.js";

@@ -1,0 +1,13 @@
+{
+  "name": "moveat-theme",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Сборка JS-логики темы Moveat (esbuild). Вёрстка/анимации — внешний main.js, бизнес-логика — этот бандл.",
+  "scripts": {
+    "build": "esbuild assets/scripts/js/index.js --bundle --format=esm --minify --target=es2018 --outfile=assets/scripts/js/woo.bundle.js",
+    "watch": "esbuild assets/scripts/js/index.js --bundle --format=esm --target=es2018 --outfile=assets/scripts/js/woo.bundle.js --watch"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.0"
+  }
+}
