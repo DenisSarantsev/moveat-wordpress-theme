@@ -363,7 +363,7 @@
 										<?php endif; ?>
 									</div>
 									<div class="product-card__buttons">
-										<a href="<?php echo esc_url( get_permalink( $related_id ) ); ?>" class="primary-button">Купить</a>
+										<a href="<?php echo esc_url( get_permalink( $related_id ) ); ?>" class="primary-button"><?php echo esc_html( function_exists( 'moveat_get_product_button_title' ) ? moveat_get_product_button_title( $related_id ) : 'Подробнее' ); ?></a>
 										<a
 											href="<?php echo esc_url( $related_product->add_to_cart_url() ); ?>"
 											data-quantity="1"

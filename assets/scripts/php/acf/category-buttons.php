@@ -44,10 +44,10 @@ if ( ! function_exists( 'moveat_get_category_button_title' ) ) {
 	}
 }
 
-// Текст кнопки для поста — по его первой рубрике.
-if ( ! function_exists( 'moveat_get_post_button_title' ) ) {
-	function moveat_get_post_button_title( $post_id ) {
-		$terms = get_the_terms( $post_id, 'category' );
+// Текст кнопки для объекта — по его первой рубрике в указанной таксономии.
+if ( ! function_exists( 'moveat_get_object_button_title' ) ) {
+	function moveat_get_object_button_title( $object_id, $taxonomy ) {
+		$terms = get_the_terms( $object_id, $taxonomy );
 		if ( is_array( $terms ) && ! empty( $terms ) ) {
 			$first = reset( $terms );
 			if ( $first instanceof WP_Term ) {
@@ -55,6 +55,20 @@ if ( ! function_exists( 'moveat_get_post_button_title' ) ) {
 			}
 		}
 		return MOVEAT_DEFAULT_BUTTON_TITLE;
+	}
+}
+
+// Текст кнопки для поста — по его первой рубрике записей.
+if ( ! function_exists( 'moveat_get_post_button_title' ) ) {
+	function moveat_get_post_button_title( $post_id ) {
+		return moveat_get_object_button_title( $post_id, 'category' );
+	}
+}
+
+// Текст кнопки для товара — по его первой рубрике товаров.
+if ( ! function_exists( 'moveat_get_product_button_title' ) ) {
+	function moveat_get_product_button_title( $product_id ) {
+		return moveat_get_object_button_title( $product_id, 'product_cat' );
 	}
 }
 

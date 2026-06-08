@@ -158,7 +158,7 @@ for ( $index = 1; $index <= 10; $index++ ) {
 								<?php endif; ?>
 							</div>
 							<div class="product-card__buttons">
-								<a href="<?php the_permalink(); ?>" class="product-card__button primary-button">Подробнее</a>
+								<a href="<?php the_permalink(); ?>" class="product-card__button primary-button"><?php echo esc_html( function_exists( 'moveat_get_product_button_title' ) ? moveat_get_product_button_title( get_the_ID() ) : 'Подробнее' ); ?></a>
 								<?php if ( $is_in_cart ) : ?>
 									<a
 										href="<?php echo esc_url( $cart_page_url ); ?>"

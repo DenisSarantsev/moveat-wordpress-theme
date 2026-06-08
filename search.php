@@ -111,7 +111,15 @@ get_header();
 							</div>
 						</div>
 						<div class="article-card__bottom">
-							<span class="article-card__button primary-button"><?php esc_html_e( 'Подробнее', 'moveat' ); ?></span>
+							<?php
+							$search_btn_title = __( 'Подробнее', 'moveat' );
+							if ( 'product' === $post_type && function_exists( 'moveat_get_product_button_title' ) ) {
+								$search_btn_title = moveat_get_product_button_title( get_the_ID() );
+							} elseif ( 'post' === $post_type && function_exists( 'moveat_get_post_button_title' ) ) {
+								$search_btn_title = moveat_get_post_button_title( get_the_ID() );
+							}
+							?>
+							<span class="article-card__button primary-button"><?php echo esc_html( $search_btn_title ); ?></span>
 						</div>
 					</a>
 				<?php endwhile; ?>

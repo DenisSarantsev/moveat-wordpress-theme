@@ -165,7 +165,7 @@
 									</div>
 								</div>
 								<div class="article-card__bottom">
-									<span class="article-card__button primary-button">Читать статью</span>
+									<span class="article-card__button primary-button"><?php echo esc_html( function_exists( 'moveat_get_post_button_title' ) ? moveat_get_post_button_title( get_the_ID() ) : 'Читать статью' ); ?></span>
 								</div>
 							</a>
 						<?php endwhile; wp_reset_postdata(); ?>
