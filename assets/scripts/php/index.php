@@ -3,6 +3,8 @@
 require_once __DIR__ . '/acf/global-fields.php';
 // Группа «Рубрики — текст кнопок» на странице глобальных настроек + хелперы подписи кнопок.
 require_once __DIR__ . '/acf/category-buttons.php';
+// Исключения из поисковой выдачи (блок на странице настроек + фильтр pre_get_posts).
+require_once __DIR__ . '/search/search-exclusions.php';
 // Хелперы тем отзывов и динамические чекбоксы ACF (словарь → отзывы).
 require_once __DIR__ . '/reviews/reviews-topic-helpers.php';
 require_once __DIR__ . '/reviews/acf-review-topics-choices.php';
