@@ -12,6 +12,9 @@ export class WooApiError extends Error {
 	}
 }
 
+// Эндпоинт корзины Store API — отдаёт свежий nonce в заголовке ответа.
+const STORE_API_CART_PATH = "/wp-json/wc/store/v1/cart";
+
 // Читает runtime-конфиг из глобальной переменной браузера.
 function readRuntimeConfig() {
 	const runtime = window.MOVEAT_WOO_API_CONFIG || {};
@@ -23,13 +26,55 @@ function readRuntimeConfig() {
 	};
 }
 
+// Текущий store-api nonce храним в глобальном конфиге — общий для всех клиентов
+// и переживает кэш страницы: запечённое значение лишь стартовое, дальше обновляется
+// из заголовка Nonce каждого ответа Store API.
+function getStoreApiNonce() {
+	const runtime = window.MOVEAT_WOO_API_CONFIG || {};
+	return runtime.storeApiNonce || "";
+}
+
+function setStoreApiNonce(value) {
+	if (!value) {
+		return;
+	}
+	if (!window.MOVEAT_WOO_API_CONFIG) {
+		window.MOVEAT_WOO_API_CONFIG = {};
+	}
+	window.MOVEAT_WOO_API_CONFIG.storeApiNonce = value;
+}
+
 // Создает HTTP-клиент с методами GET/POST/PUT/PATCH/DELETE.
 export function createWooHttpClient(config = {}) {
 	const runtime = readRuntimeConfig();
 	const merged = { ...runtime, ...config };
 
+	// Засеваем общий nonce стартовым значением, если глобальный ещё пуст.
+	if (merged.storeApiNonce && !getStoreApiNonce()) {
+		setStoreApiNonce(merged.storeApiNonce);
+	}
+
+	// Принудительно подтягивает свежий store-api nonce из заголовка GET /cart.
+	async function refreshStoreApiNonce() {
+		try {
+			const response = await fetch(`${merged.baseUrl}${STORE_API_CART_PATH}`, {
+				method: "GET",
+				credentials: "same-origin",
+				headers: { Accept: "application/json" },
+			});
+			const fresh = response.headers.get("Nonce");
+			if (fresh) {
+				setStoreApiNonce(fresh);
+				return true;
+			}
+		} catch (error) {
+			// сеть недоступна — вернём false ниже
+		}
+		return false;
+	}
+
 	// Выполняет запрос и возвращает JSON либо выбрасывает WooApiError.
-	async function request(method, path, body, options = {}) {
+	async function request(method, path, body, options = {}, retried = false) {
 		const isBodyDefined = typeof body !== "undefined";
 		const headers = {
 			Accept: "application/json",
@@ -40,8 +85,9 @@ export function createWooHttpClient(config = {}) {
 		if (merged.nonce) {
 			headers["X-WP-Nonce"] = merged.nonce;
 		}
-		if (merged.storeApiNonce) {
-			headers.Nonce = merged.storeApiNonce;
+		const storeApiNonce = getStoreApiNonce() || merged.storeApiNonce;
+		if (storeApiNonce) {
+			headers.Nonce = storeApiNonce;
 		}
 		if (isBodyDefined && !(body instanceof FormData)) {
 			headers["Content-Type"] = "application/json";
@@ -58,6 +104,9 @@ export function createWooHttpClient(config = {}) {
 				: undefined,
 		});
 
+		// Store API отдаёт актуальный nonce в каждом ответе — сразу его сохраняем.
+		setStoreApiNonce(response.headers.get("Nonce"));
+
 		const text = await response.text();
 		let payload = null;
 		try {
@@ -67,6 +116,18 @@ export function createWooHttpClient(config = {}) {
 		}
 
 		if (!response.ok) {
+			// Протухший/закэшированный nonce: подтягиваем свежий и один раз повторяем.
+			const isInvalidNonce =
+				response.status === 403 &&
+				payload &&
+				payload.code === "woocommerce_rest_invalid_nonce";
+			if (isInvalidNonce && !retried) {
+				const refreshed = await refreshStoreApiNonce();
+				if (refreshed) {
+					return request(method, path, body, options, true);
+				}
+			}
+
 			const message =
 				(payload && (payload.message || payload.error || payload.code)) ||
 				`Request failed: ${method} ${path}`;

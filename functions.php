@@ -1,15 +1,24 @@
 <?php
 
+// ----------------------------------- Версия ресурса = время изменения файла
+// Любой локальный CSS/JS подключаем с этой версией: каждое обновление файла меняет
+// ?ver=… и заставляет браузер/CDN скачать новую версию (старая больше не залипает).
+// Путь — относительно корня темы, напр. moveat_asset_ver( 'assets/scripts/js/woo.bundle.js' ).
+function moveat_asset_ver( $relative_path ) {
+	$file = get_template_directory() . '/' . ltrim( $relative_path, '/' );
+	return file_exists( $file ) ? filemtime( $file ) : null;
+}
+
 // ----------------------------------- Подключение стилей и скриптов
 function moveat_enqueue_scripts() {
 	// Основные стили
-	wp_enqueue_style( 'moveat-style', get_stylesheet_uri(), [], null );
+	wp_enqueue_style( 'moveat-style', get_stylesheet_uri(), [], moveat_asset_ver( 'style.css' ) );
 
 	// Основной бандл вёрстки/анимаций (сборка Vite-проекта; owl.carousel включён внутрь него — CDN не нужен).
-	wp_enqueue_script( 'moveat-bundle', get_template_directory_uri() . '/main.js', [], null, true );
+	wp_enqueue_script( 'moveat-bundle', get_template_directory_uri() . '/main.js', [], moveat_asset_ver( 'main.js' ), true );
 	// Бизнес-логика темы: собранный esbuild бандл из assets/scripts/js/index.js (источник).
 	// Сборка: `npm run build` (одноразово) / `npm run watch` (разработка). Файл woo.bundle.js коммитится.
-	wp_enqueue_script( 'moveat-main', get_template_directory_uri() . '/assets/scripts/js/woo.bundle.js', [ 'jquery' ], null, true );
+	wp_enqueue_script( 'moveat-main', get_template_directory_uri() . '/assets/scripts/js/woo.bundle.js', [ 'jquery' ], moveat_asset_ver( 'assets/scripts/js/woo.bundle.js' ), true );
 }
 add_action( 'wp_enqueue_scripts', 'moveat_enqueue_scripts' );
 
@@ -33,7 +42,7 @@ function moveat_enqueue_fonts() {
 		'moveat-fonts',
 		get_template_directory_uri() . '/assets/fonts/fonts.css',
 		[],
-		null
+		moveat_asset_ver( 'assets/fonts/fonts.css' )
 	);
 }
 add_action('wp_enqueue_scripts', 'moveat_enqueue_fonts');

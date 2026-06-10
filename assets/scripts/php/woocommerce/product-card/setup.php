@@ -13,7 +13,7 @@ add_action( 'wp_enqueue_scripts', function () {
 			'moveat-product-page',
 			get_template_directory_uri() . '/assets/scripts/js/modules/product-page.js',
 			[ 'jquery' ],
-			null,
+			function_exists( 'moveat_asset_ver' ) ? moveat_asset_ver( 'assets/scripts/js/modules/product-page.js' ) : null,
 			true
 		);
 		// Передаём URI темы в JS для путей к ресурсам (напр. иконка закрытия в лайтбоксе).
