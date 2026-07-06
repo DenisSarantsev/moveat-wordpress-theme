@@ -27,6 +27,33 @@ if ( ! isset( $order ) || ! is_a( $order, 'WC_Order' ) ) {
 	$subtotal_amount = $order->get_subtotal();
 	$discount_total  = $order->get_discount_total();
 	$total_amount    = $order->get_total();
+
+	// Собираем скачиваемые файлы заказа (имя + ссылка).
+	$download_items = array();
+	if ( method_exists( $order, 'get_downloadable_items' ) ) {
+		foreach ( $order->get_downloadable_items() as $download ) {
+			$dl_url  = ! empty( $download['download_url'] ) ? $download['download_url'] : '';
+			$dl_name = ! empty( $download['download_name'] ) ? $download['download_name'] : $dl_url;
+			if ( $dl_url ) {
+				$download_items[] = array( 'name' => $dl_name, 'url' => $dl_url );
+			}
+		}
+	}
+	// Фолбэк: если WooCommerce не выдал права на скачивание, берём ссылки напрямую из товаров.
+	if ( empty( $download_items ) ) {
+		foreach ( $order->get_items() as $fallback_item ) {
+			$product = is_callable( array( $fallback_item, 'get_product' ) ) ? $fallback_item->get_product() : null;
+			if ( $product && $product->is_downloadable() ) {
+				foreach ( $product->get_downloads() as $download ) {
+					$dl_url  = $download->get_file();
+					$dl_name = $download->get_name() ? $download->get_name() : $dl_url;
+					if ( $dl_url ) {
+						$download_items[] = array( 'name' => $dl_name, 'url' => $dl_url );
+					}
+				}
+			}
+		}
+	}
 	?>
 
 	<!-- Пользовательское HTML-письмо (основано на New Message.html) -->
@@ -115,6 +142,29 @@ if ( ! isset( $order ) || ! is_a( $order, 'WC_Order' ) ) {
 					</p>
 				</td>
 			</tr>
+			<?php if ( ! empty( $download_items ) ) : ?>
+			<tr>
+				<td style="padding:0 20px 10px;">
+					<!-- Скачиваемые файлы заказа -->
+					<table width="100%" style="border-collapse:separate;background:#fff7f0;border:2px solid #ffd9bd;border-radius:14px;">
+						<tr>
+							<td style="padding:16px 20px;">
+								<p style="margin:0 0 12px;color:#000;font-size:15px;font-weight:bold;text-align:center;line-height:140%;">
+									Ваши файлы для скачивания
+								</p>
+								<?php foreach ( $download_items as $dl ) : ?>
+									<p style="margin:0 0 8px;text-align:center;line-height:140%;">
+										<a href="<?php echo esc_url( $dl['url'] ); ?>" target="_blank" rel="noopener" style="color:#ff7f13;text-decoration:underline;font-size:14px;font-weight:600;word-break:break-word;">
+											<?php echo esc_html( $dl['name'] ); ?>
+										</a>
+									</p>
+								<?php endforeach; ?>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<?php endif; ?>
 			<tr>
 				<td style="padding:10px 20px;">
 					<!-- Товары в заказе -->
