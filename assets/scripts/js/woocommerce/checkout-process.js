@@ -9,6 +9,11 @@ const submitBtn = document.getElementById("orderSubmit");
 
 const REQUIRED_FIELDS = ["firstName", "email", "phone"];
 
+// ─── Состояние ────────────────────────────────────────────────────────────────
+
+let isSubmitting = false; // запрос на создание заказа в полёте
+let isRedirecting = false; // уходим со страницы — блокировку не снимаем
+
 // ─── Валидация ────────────────────────────────────────────────────────────────
 
 function isFormValid() {
@@ -30,17 +35,46 @@ function updateSubmitState() {
 	}
 }
 
-// ─── Состояния кнопки ─────────────────────────────────────────────────────────
+// ─── Состояния кнопки и блокировка формы ─────────────────────────────────────
+
+// Поля формы, которые нужно заблокировать на время запроса.
+function getFormControls() {
+	return form ? form.querySelectorAll("input, select, textarea") : [];
+}
 
 function setLoading() {
 	if (!submitBtn) return;
-	submitBtn.classList.add("loading");
+
+	// is-loading — лоадер в кнопке (assets/styles/checkout.css),
+	// is-submitting — блокировка остальной формы от правок и повторного сабмита.
+	submitBtn.classList.add("is-loading");
 	submitBtn.disabled = true;
+	submitBtn.setAttribute("aria-busy", "true");
+
+	if (form) {
+		form.classList.add("is-submitting");
+		form.setAttribute("aria-busy", "true");
+	}
+
+	getFormControls().forEach((el) => {
+		el.disabled = true;
+	});
 }
 
 function setIdle() {
 	if (!submitBtn) return;
-	submitBtn.classList.remove("loading");
+
+	submitBtn.classList.remove("is-loading");
+	submitBtn.removeAttribute("aria-busy");
+
+	if (form) {
+		form.classList.remove("is-submitting");
+		form.removeAttribute("aria-busy");
+	}
+
+	getFormControls().forEach((el) => {
+		el.disabled = false;
+	});
 
 	if (isFormValid()) {
 		submitBtn.disabled = false;
@@ -54,10 +88,17 @@ async function handleSubmit(e) {
 
 	if (!isFormValid()) return;
 
+	// Один заказ за раз: отсекаем повторный сабмит (Enter, быстрый двойной клик).
+	if (isSubmitting) return;
+
 	const firstName = document.getElementById("firstName").value.trim();
 	const lastName = document.getElementById("lastName")?.value.trim() ?? "";
 	const email = document.getElementById("email").value.trim();
-	const phone = document.getElementById("phone").value.trim();
+	// Берём полный номер с кодом страны через мост intl-tel-input (см. create-order.ts).
+	// #phone.value хранит только нац. часть (separateDialCode), поэтому читаем getNumber().
+	const phoneEl = document.getElementById("phone");
+	const phone =
+		window.MOVEAT_CHECKOUT?.getPhoneNumber?.().trim() || phoneEl.value.trim();
 	// Опциональные поля: region/state и country (если на форме есть — берем их, иначе оставляем дефолты)
 	const state = document.getElementById("state")?.value.trim() ?? "UA30";
 	const country = document.getElementById("country")?.value.trim() ?? "UA";
@@ -86,6 +127,7 @@ async function handleSubmit(e) {
 	// пользователь выбирает на странице /order-pay/.
 	const paymentMethod = "cod";
 
+	isSubmitting = true;
 	setLoading();
 
 	try {
@@ -106,8 +148,17 @@ async function handleSubmit(e) {
 
 		console.log("[checkout-process] placeOrder result:", result);
 
+		// Бесплатный заказ (итог = 0) сервер уже провёл без оплаты —
+		// страницу выбора метода оплаты пропускаем и идём сразу на «Спасибо».
+		if (result?.is_free && result?.redirect_url) {
+			isRedirecting = true;
+			window.location.href = result.redirect_url;
+			return;
+		}
+
 		// Редиректим на страницу выбора метода оплаты. REST Orders API возвращает id и order_key.
 		if (result?.id && result?.order_key) {
+			isRedirecting = true;
 			const base =
 				window.MOVEAT_WOO_API_CONFIG?.baseUrl || window.location.origin;
 			window.location.href = `${base}/order-pay/?order_id=${result.id}&order_key=${result.order_key}`;
@@ -138,7 +189,13 @@ async function handleSubmit(e) {
 
 		showSystemMessage(message, "error");
 	} finally {
-		setIdle();
+		isSubmitting = false;
+
+		// При редиректе форму не разблокируем: иначе она на миг оживает,
+		// пока браузер грузит следующую страницу.
+		if (!isRedirecting) {
+			setIdle();
+		}
 	}
 }
 

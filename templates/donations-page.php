@@ -91,49 +91,59 @@ foreach ( $donations_messenger_slots as $messenger_slot ) {
 $subscription_platforms = [];
 $subscription_platforms_config = [
 	[
-		'modifier'       => 'youtube',
-		'enabled_field'  => 'donations_subscription_youtube_enabled',
-		'url_field'      => 'donations_subscription_youtube_url',
-		'icon'           => $logotypes_uri . 'youtube.png',
-		'icon_alt'       => 'YouTube',
-		'name'           => 'Спонсорство на YouTube',
-		'description'    => 'Ежемесячная поддержка через YouTube Membership',
+		'modifier'          => 'youtube',
+		'enabled_field'     => 'donations_subscription_youtube_enabled',
+		'url_field'         => 'donations_subscription_youtube_url',
+		'name_field'        => 'donations_subscription_youtube_name',
+		'description_field' => 'donations_subscription_youtube_description',
+		'icon'              => $logotypes_uri . 'youtube.png',
+		'icon_alt'          => 'YouTube',
+		'name'              => 'Спонсорство на YouTube',
+		'description'       => 'Ежемесячная поддержка через YouTube Membership',
 	],
 	[
-		'modifier'       => 'patreon',
-		'enabled_field'  => 'donations_subscription_patreon_enabled',
-		'url_field'      => 'donations_subscription_patreon_url',
-		'icon'           => $logotypes_uri . 'patreon.png',
-		'icon_alt'       => 'Patreon',
-		'name'           => 'Patreon',
-		'description'    => 'Регулярная подписка и эксклюзивные материалы',
+		'modifier'          => 'patreon',
+		'enabled_field'     => 'donations_subscription_patreon_enabled',
+		'url_field'         => 'donations_subscription_patreon_url',
+		'name_field'        => 'donations_subscription_patreon_name',
+		'description_field' => 'donations_subscription_patreon_description',
+		'icon'              => $logotypes_uri . 'patreon.png',
+		'icon_alt'          => 'Patreon',
+		'name'              => 'Patreon',
+		'description'       => 'Регулярная подписка и эксклюзивные материалы',
 	],
 	[
-		'modifier'       => 'paypal',
-		'enabled_field'  => 'donations_subscription_paypal_enabled',
-		'url_field'      => 'donations_subscription_paypal_url',
-		'icon'           => $logotypes_uri . 'paypal.png',
-		'icon_alt'       => 'PayPal',
-		'name'           => 'PayPal',
-		'description'    => 'Подписка $10 / месяц',
+		'modifier'          => 'paypal',
+		'enabled_field'     => 'donations_subscription_paypal_enabled',
+		'url_field'         => 'donations_subscription_paypal_url',
+		'name_field'        => 'donations_subscription_paypal_name',
+		'description_field' => 'donations_subscription_paypal_description',
+		'icon'              => $logotypes_uri . 'paypal.png',
+		'icon_alt'          => 'PayPal',
+		'name'              => 'PayPal',
+		'description'       => 'Подписка $10 / месяц',
 	],
 	[
-		'modifier'       => 'lava-top',
-		'enabled_field'  => 'donations_subscription_lava_top_enabled',
-		'url_field'      => 'donations_subscription_lava_top_url',
-		'icon'           => $logotypes_uri . 'lava-top.png',
-		'icon_alt'       => 'Lava.top',
-		'name'           => 'Lava.top',
-		'description'    => 'Для карт российских и белорусских банков',
+		'modifier'          => 'lava-top',
+		'enabled_field'     => 'donations_subscription_lava_top_enabled',
+		'url_field'         => 'donations_subscription_lava_top_url',
+		'name_field'        => 'donations_subscription_lava_top_name',
+		'description_field' => 'donations_subscription_lava_top_description',
+		'icon'              => $logotypes_uri . 'lava-top.png',
+		'icon_alt'          => 'Lava.top',
+		'name'              => 'Lava.top',
+		'description'       => 'Разовая/регулярная поддержка через Lava/top',
 	],
 	[
-		'modifier'       => 'boosty',
-		'enabled_field'  => 'donations_subscription_boosty_enabled',
-		'url_field'      => 'donations_subscription_boosty_url',
-		'icon'           => $logotypes_uri . 'boosty.webp',
-		'icon_alt'       => 'Boosty',
-		'name'           => 'Boosty',
-		'description'    => 'Регулярная поддержка через Boosty',
+		'modifier'          => 'boosty',
+		'enabled_field'     => 'donations_subscription_boosty_enabled',
+		'url_field'         => 'donations_subscription_boosty_url',
+		'name_field'        => 'donations_subscription_boosty_name',
+		'description_field' => 'donations_subscription_boosty_description',
+		'icon'              => $logotypes_uri . 'boosty.webp',
+		'icon_alt'          => 'Boosty',
+		'name'              => 'Boosty',
+		'description'       => 'Разовая/регулярная поддержка через Boosty',
 	],
 ];
 
@@ -144,12 +154,18 @@ foreach ( $subscription_platforms_config as $platform_config ) {
 
 	$platform_url = trim( (string) get_field( $platform_config['url_field'], $page_id ) );
 
+	$platform_name = trim( (string) get_field( $platform_config['name_field'], $page_id ) );
+	$platform_name = $platform_name !== '' ? $platform_name : $platform_config['name'];
+
+	$platform_description = trim( (string) get_field( $platform_config['description_field'], $page_id ) );
+	$platform_description = $platform_description !== '' ? $platform_description : $platform_config['description'];
+
 	$subscription_platforms[] = [
 		'modifier'    => $platform_config['modifier'],
 		'icon'        => $platform_config['icon'],
 		'icon_alt'    => $platform_config['icon_alt'],
-		'name'        => $platform_config['name'],
-		'description' => $platform_config['description'],
+		'name'        => $platform_name,
+		'description' => $platform_description,
 		'url'         => $platform_url !== '' ? $platform_url : '#',
 	];
 }
@@ -478,7 +494,7 @@ $donations_min_amount_label = moveat_format_donation_amount( $donations_min_amou
 						<p class="donations__info-card-text">
 							<?php
 							echo wp_kses(
-								__( 'Если у вас <span>карта российского банка,</span> свяжитесь с нами по одному из мессенджеров и мы поможем вам с оплатой.', 'moveat' ),
+								__( 'Если у вас <span>НЕ ПРОХОДИТ ОПЛАТА,</span> свяжитесь с нами по одному из мессенджеров и мы поможем вам с оплатой.', 'moveat' ),
 								[ 'span' => [] ]
 							);
 							?>

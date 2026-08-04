@@ -37885,6 +37885,9 @@ function Sv() {
 		separateDialCode: !0,
 		nationalMode: !1,
 	});
+	window.MOVEAT_CHECKOUT = {
+		getPhoneNumber: () => n.getNumber() || s.value.trim(),
+	};
 	function a() {
 		var $;
 		if (!s) return;

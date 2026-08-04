@@ -1,964 +1,2154 @@
-{
-	"key": "group_donations_page",
-	"title": "Страница донатов",
-	"fields": [
-		{
-			"key": "field_donations_tab_header",
-			"label": "Заголовок страницы",
-			"name": "donations_tab_header",
-			"type": "tab",
-			"placement": "top",
-			"endpoint": 0
-		},
-		{
-			"key": "field_donations_page_title",
-			"label": "Главный заголовок (H1)",
-			"name": "donations_page_title",
-			"type": "text",
-			"default_value": "Поддержать проект Moveat"
-		},
-		{
-			"key": "field_donations_page_subtitle",
-			"label": "Подзаголовок",
-			"name": "donations_page_subtitle",
-			"type": "textarea",
-			"rows": 3,
-			"default_value": "Выберите удобный способ регулярной поддержки или отправьте разовый донат. Каждый вклад помогает создавать полезный контент о здоровом питании."
-		},
-		{
-			"key": "field_donations_page_content",
-			"label": "Текст под блоками донатов",
-			"name": "donations_page_content",
-			"type": "wysiwyg",
-			"tabs": "visual",
-			"toolbar": "full",
-			"media_upload": 1,
-			"default_value": ""
-		},
-		{
-			"key": "field_donations_tab_onetime",
-			"label": "Единоразовый платеж",
-			"name": "donations_tab_onetime",
-			"type": "tab",
-			"placement": "top",
-			"endpoint": 0
-		},
-		{
-			"key": "field_donations_onetime_block_title",
-			"label": "Подзаголовок блока",
-			"name": "donations_onetime_block_title",
-			"type": "text",
-			"default_value": "Единоразовый платеж"
-		},
-		{
-			"key": "field_donations_onetime_button_text",
-			"label": "Текст на кнопке",
-			"name": "donations_onetime_button_text",
-			"type": "text",
-			"default_value": "Поддержать"
-		},
-		{
-			"key": "field_donations_onetime_messengers_message",
-			"label": "",
-			"name": "donations_onetime_messengers_message",
-			"type": "message",
-			"message": "Ссылки на мессенджеры в модальном окне единоразового платежа. Иконки задаются в теме. Пустая ссылка — мессенджер не показывается.",
-			"new_lines": "wpautop",
-			"esc_html": 0
-		},
-		{
-			"key": "field_donations_onetime_messenger_telegram_url",
-			"label": "Telegram — ссылка",
-			"name": "donations_onetime_messenger_telegram_url",
-			"type": "url",
-			"default_value": "https://t.me/MaxPogorelyBot"
-		},
-		{
-			"key": "field_donations_onetime_messenger_whatsapp_url",
-			"label": "WhatsApp — ссылка",
-			"name": "donations_onetime_messenger_whatsapp_url",
-			"type": "url",
-			"default_value": "https://380991900483.wa.pulse.is/"
-		},
-		{
-			"key": "field_donations_onetime_messenger_viber_url",
-			"label": "Viber — ссылка",
-			"name": "donations_onetime_messenger_viber_url",
-			"type": "url",
-			"default_value": "viber://pa?chatURI=max_pogorely&context=657b4bccc151da5d54055ea2"
-		},
-		{
-			"key": "field_donations_tab_subscriptions",
-			"label": "Подписки",
-			"name": "donations_tab_subscriptions",
-			"type": "tab",
-			"placement": "top",
-			"endpoint": 0
-		},
-		{
-			"key": "field_donations_subscriptions_block_title",
-			"label": "Подзаголовок блока",
-			"name": "donations_subscriptions_block_title",
-			"type": "text",
-			"default_value": "Подписки и спонсорство"
-		},
-		{
-			"key": "field_donations_subscription_youtube_message",
-			"label": "",
-			"name": "donations_subscription_youtube_message",
-			"type": "message",
-			"message": "YouTube",
-			"new_lines": "wpautop",
-			"esc_html": 0
-		},
-		{
-			"key": "field_donations_subscription_youtube_enabled",
-			"label": "YouTube — показывать на странице",
-			"name": "donations_subscription_youtube_enabled",
-			"type": "true_false",
-			"ui": 1,
-			"default_value": 1
-		},
-		{
-			"key": "field_donations_subscription_youtube_url",
-			"label": "YouTube — ссылка на подписку",
-			"name": "donations_subscription_youtube_url",
-			"type": "url",
-			"default_value": ""
-		},
-		{
-			"key": "field_donations_subscription_patreon_message",
-			"label": "",
-			"name": "donations_subscription_patreon_message",
-			"type": "message",
-			"message": "Patreon",
-			"new_lines": "wpautop",
-			"esc_html": 0
-		},
-		{
-			"key": "field_donations_subscription_patreon_enabled",
-			"label": "Patreon — показывать на странице",
-			"name": "donations_subscription_patreon_enabled",
-			"type": "true_false",
-			"ui": 1,
-			"default_value": 1
-		},
-		{
-			"key": "field_donations_subscription_patreon_url",
-			"label": "Patreon — ссылка на подписку",
-			"name": "donations_subscription_patreon_url",
-			"type": "url",
-			"default_value": ""
-		},
-		{
-			"key": "field_donations_subscription_paypal_message",
-			"label": "",
-			"name": "donations_subscription_paypal_message",
-			"type": "message",
-			"message": "PayPal",
-			"new_lines": "wpautop",
-			"esc_html": 0
-		},
-		{
-			"key": "field_donations_subscription_paypal_enabled",
-			"label": "PayPal — показывать на странице",
-			"name": "donations_subscription_paypal_enabled",
-			"type": "true_false",
-			"ui": 1,
-			"default_value": 1
-		},
-		{
-			"key": "field_donations_subscription_paypal_url",
-			"label": "PayPal — ссылка на подписку",
-			"name": "donations_subscription_paypal_url",
-			"type": "url",
-			"default_value": ""
-		},
-		{
-			"key": "field_donations_subscription_lava_top_message",
-			"label": "",
-			"name": "donations_subscription_lava_top_message",
-			"type": "message",
-			"message": "Lava.top",
-			"new_lines": "wpautop",
-			"esc_html": 0
-		},
-		{
-			"key": "field_donations_subscription_lava_top_enabled",
-			"label": "Lava.top — показывать на странице",
-			"name": "donations_subscription_lava_top_enabled",
-			"type": "true_false",
-			"ui": 1,
-			"default_value": 1
-		},
-		{
-			"key": "field_donations_subscription_lava_top_url",
-			"label": "Lava.top — ссылка на подписку",
-			"name": "donations_subscription_lava_top_url",
-			"type": "url",
-			"default_value": ""
-		},
-		{
-			"key": "field_donations_subscription_boosty_message",
-			"label": "",
-			"name": "donations_subscription_boosty_message",
-			"type": "message",
-			"message": "Boosty",
-			"new_lines": "wpautop",
-			"esc_html": 0
-		},
-		{
-			"key": "field_donations_subscription_boosty_enabled",
-			"label": "Boosty — показывать на странице",
-			"name": "donations_subscription_boosty_enabled",
-			"type": "true_false",
-			"ui": 1,
-			"default_value": 1
-		},
-		{
-			"key": "field_donations_subscription_boosty_url",
-			"label": "Boosty — ссылка на подписку",
-			"name": "donations_subscription_boosty_url",
-			"type": "url",
-			"default_value": ""
-		},
-		{
-			"key": "field_donations_subscription_usdt_message",
-			"label": "",
-			"name": "donations_subscription_usdt_message",
-			"type": "message",
-			"message": "USDT (TRC20)",
-			"new_lines": "wpautop",
-			"esc_html": 0
-		},
-		{
-			"key": "field_donations_subscription_usdt_enabled",
-			"label": "USDT — показывать на странице",
-			"name": "donations_subscription_usdt_enabled",
-			"type": "true_false",
-			"ui": 1,
-			"default_value": 1
-		},
-		{
-			"key": "field_donations_subscription_usdt_wallet",
-			"label": "USDT — номер кошелька",
-			"name": "donations_subscription_usdt_wallet",
-			"type": "text",
-			"default_value": "TXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-		},
-		{
-			"key": "field_donations_subscription_usdt_qr_image",
-			"label": "USDT — QR-код (URL)",
-			"name": "donations_subscription_usdt_qr_image",
-			"type": "image",
-			"return_format": "url",
-			"preview_size": "medium",
-			"library": "all"
-		},
-		{
-			"key": "field_donations_tab_email",
-			"label": "Email",
-			"name": "donations_tab_email",
-			"type": "tab",
-			"placement": "top",
-			"endpoint": 0
-		},
-		{
-			"key": "field_donations_email_message",
-			"label": "",
-			"name": "donations_email_message",
-			"type": "message",
-			"message": "Тексты письма, которое отправляется донатору после успешной оплаты.",
-			"new_lines": "wpautop",
-			"esc_html": 0
-		},
-		{
-			"key": "field_donations_email_subject",
-			"label": "Тема письма",
-			"name": "donations_email_subject",
-			"type": "text",
-			"default_value": "Спасибо! Вы помогаете проекту Moveat развиваться ❤️"
-		},
-		{
-			"key": "field_donations_email_greeting",
-			"label": "Приветствие",
-			"name": "donations_email_greeting",
-			"type": "text",
-			"default_value": "Здравствуйте!"
-		},
-		{
-			"key": "field_donations_email_thanks",
-			"label": "Строка благодарности",
-			"name": "donations_email_thanks",
-			"type": "text",
-			"default_value": "Спасибо за вашу поддержку ❤️"
-		},
-		{
-			"key": "field_donations_email_intro",
-			"label": "Основной текст",
-			"name": "donations_email_intro",
-			"type": "textarea",
-			"rows": 4,
-			"default_value": "Такие переводы помогают нам продолжать делать то, что мы считаем важным: выпускать полезные материалы о здоровье, объяснять сложное простым языком и помогать людям лучше понимать свой организм."
-		},
-		{
-			"key": "field_donations_email_details_title",
-			"label": "Заголовок блока «Детали поддержки»",
-			"name": "donations_email_details_title",
-			"type": "text",
-			"default_value": "Детали поддержки:"
-		},
-		{
-			"key": "field_donations_email_label_amount",
-			"label": "Подпись «Сумма»",
-			"name": "donations_email_label_amount",
-			"type": "text",
-			"default_value": "Сумма:"
-		},
-		{
-			"key": "field_donations_email_label_date",
-			"label": "Подпись «Дата»",
-			"name": "donations_email_label_date",
-			"type": "text",
-			"default_value": "Дата:"
-		},
-		{
-			"key": "field_donations_email_label_payment",
-			"label": "Подпись «Способ оплаты»",
-			"name": "donations_email_label_payment",
-			"type": "text",
-			"default_value": "Способ оплаты:"
-		},
-		{
-			"key": "field_donations_email_outro_thanks",
-			"label": "Текст перед подписью",
-			"name": "donations_email_outro_thanks",
-			"type": "text",
-			"default_value": "Спасибо, что вы с нами."
-		},
-		{
-			"key": "field_donations_email_signoff_line",
-			"label": "Строка подписи",
-			"name": "donations_email_signoff_line",
-			"type": "text",
-			"default_value": "С уважением,"
-		},
-		{
-			"key": "field_donations_email_signoff_team",
-			"label": "Подпись команды",
-			"name": "donations_email_signoff_team",
-			"type": "text",
-			"default_value": "Команда Moveat"
-		},
-		{
-			"key": "field_donations_email_socials_title",
-			"label": "Заголовок блока соцсетей",
-			"name": "donations_email_socials_title",
-			"type": "text",
-			"default_value": "Следите за новыми материалами:"
-		},
-		{
-			"key": "field_donations_email_footer",
-			"label": "Текст в подвале письма",
-			"name": "donations_email_footer",
-			"type": "text",
-			"default_value": "Moveat"
-		},
-		{
-			"key": "field_donations_email_socials_message",
-			"label": "",
-			"name": "donations_email_socials_message",
-			"type": "message",
-			"message": "Соцсети в письме (иконки в кружках). В письмо попадают только заполненные: нужны ссылка и иконка.",
-			"new_lines": "wpautop",
-			"esc_html": 0
-		},
-		{
-			"key": "field_donations_email_social_1_message",
-			"label": "",
-			"name": "donations_email_social_1_message",
-			"type": "message",
-			"message": "Соцсеть 1",
-			"new_lines": "wpautop",
-			"esc_html": 0
-		},
-		{
-			"key": "field_donations_email_social_1_label",
-			"label": "Название (подпись / aria-label)",
-			"name": "donations_email_social_1_label",
-			"type": "text",
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			}
-		},
-		{
-			"key": "field_donations_email_social_1_url",
-			"label": "Ссылка",
-			"name": "donations_email_social_1_url",
-			"type": "url",
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			}
-		},
-		{
-			"key": "field_donations_email_social_1_icon",
-			"label": "Иконка",
-			"name": "donations_email_social_1_icon",
-			"type": "image",
-			"return_format": "url",
-			"preview_size": "thumbnail",
-			"library": "all",
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			}
-		},
-		{
-			"key": "field_donations_email_social_1_bg_color",
-			"label": "Цвет фона кружка",
-			"name": "donations_email_social_1_bg_color",
-			"type": "color_picker",
-			"default_value": "#ff7f13",
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			}
-		},
-		{
-			"key": "field_donations_email_social_2_message",
-			"label": "",
-			"name": "donations_email_social_2_message",
-			"type": "message",
-			"message": "Соцсеть 2",
-			"new_lines": "wpautop",
-			"esc_html": 0
-		},
-		{
-			"key": "field_donations_email_social_2_label",
-			"label": "Название (подпись / aria-label)",
-			"name": "donations_email_social_2_label",
-			"type": "text",
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			}
-		},
-		{
-			"key": "field_donations_email_social_2_url",
-			"label": "Ссылка",
-			"name": "donations_email_social_2_url",
-			"type": "url",
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			}
-		},
-		{
-			"key": "field_donations_email_social_2_icon",
-			"label": "Иконка",
-			"name": "donations_email_social_2_icon",
-			"type": "image",
-			"return_format": "url",
-			"preview_size": "thumbnail",
-			"library": "all",
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			}
-		},
-		{
-			"key": "field_donations_email_social_2_bg_color",
-			"label": "Цвет фона кружка",
-			"name": "donations_email_social_2_bg_color",
-			"type": "color_picker",
-			"default_value": "#ff7f13",
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			}
-		},
-		{
-			"key": "field_donations_email_social_3_message",
-			"label": "",
-			"name": "donations_email_social_3_message",
-			"type": "message",
-			"message": "Соцсеть 3",
-			"new_lines": "wpautop",
-			"esc_html": 0
-		},
-		{
-			"key": "field_donations_email_social_3_label",
-			"label": "Название (подпись / aria-label)",
-			"name": "donations_email_social_3_label",
-			"type": "text",
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			}
-		},
-		{
-			"key": "field_donations_email_social_3_url",
-			"label": "Ссылка",
-			"name": "donations_email_social_3_url",
-			"type": "url",
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			}
-		},
-		{
-			"key": "field_donations_email_social_3_icon",
-			"label": "Иконка",
-			"name": "donations_email_social_3_icon",
-			"type": "image",
-			"return_format": "url",
-			"preview_size": "thumbnail",
-			"library": "all",
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			}
-		},
-		{
-			"key": "field_donations_email_social_3_bg_color",
-			"label": "Цвет фона кружка",
-			"name": "donations_email_social_3_bg_color",
-			"type": "color_picker",
-			"default_value": "#ff7f13",
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			}
-		},
-		{
-			"key": "field_donations_email_social_4_message",
-			"label": "",
-			"name": "donations_email_social_4_message",
-			"type": "message",
-			"message": "Соцсеть 4",
-			"new_lines": "wpautop",
-			"esc_html": 0
-		},
-		{
-			"key": "field_donations_email_social_4_label",
-			"label": "Название (подпись / aria-label)",
-			"name": "donations_email_social_4_label",
-			"type": "text",
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			}
-		},
-		{
-			"key": "field_donations_email_social_4_url",
-			"label": "Ссылка",
-			"name": "donations_email_social_4_url",
-			"type": "url",
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			}
-		},
-		{
-			"key": "field_donations_email_social_4_icon",
-			"label": "Иконка",
-			"name": "donations_email_social_4_icon",
-			"type": "image",
-			"return_format": "url",
-			"preview_size": "thumbnail",
-			"library": "all",
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			}
-		},
-		{
-			"key": "field_donations_email_social_4_bg_color",
-			"label": "Цвет фона кружка",
-			"name": "donations_email_social_4_bg_color",
-			"type": "color_picker",
-			"default_value": "#ff7f13",
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			}
-		},
-		{
-			"key": "field_donations_email_social_5_message",
-			"label": "",
-			"name": "donations_email_social_5_message",
-			"type": "message",
-			"message": "Соцсеть 5",
-			"new_lines": "wpautop",
-			"esc_html": 0
-		},
-		{
-			"key": "field_donations_email_social_5_label",
-			"label": "Название (подпись / aria-label)",
-			"name": "donations_email_social_5_label",
-			"type": "text",
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			}
-		},
-		{
-			"key": "field_donations_email_social_5_url",
-			"label": "Ссылка",
-			"name": "donations_email_social_5_url",
-			"type": "url",
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			}
-		},
-		{
-			"key": "field_donations_email_social_5_icon",
-			"label": "Иконка",
-			"name": "donations_email_social_5_icon",
-			"type": "image",
-			"return_format": "url",
-			"preview_size": "thumbnail",
-			"library": "all",
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			}
-		},
-		{
-			"key": "field_donations_email_social_5_bg_color",
-			"label": "Цвет фона кружка",
-			"name": "donations_email_social_5_bg_color",
-			"type": "color_picker",
-			"default_value": "#ff7f13",
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			}
-		},
-		{
-			"key": "field_donations_email_social_6_message",
-			"label": "",
-			"name": "donations_email_social_6_message",
-			"type": "message",
-			"message": "Соцсеть 6",
-			"new_lines": "wpautop",
-			"esc_html": 0
-		},
-		{
-			"key": "field_donations_email_social_6_label",
-			"label": "Название (подпись / aria-label)",
-			"name": "donations_email_social_6_label",
-			"type": "text",
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			}
-		},
-		{
-			"key": "field_donations_email_social_6_url",
-			"label": "Ссылка",
-			"name": "donations_email_social_6_url",
-			"type": "url",
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			}
-		},
-		{
-			"key": "field_donations_email_social_6_icon",
-			"label": "Иконка",
-			"name": "donations_email_social_6_icon",
-			"type": "image",
-			"return_format": "url",
-			"preview_size": "thumbnail",
-			"library": "all",
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			}
-		},
-		{
-			"key": "field_donations_email_social_6_bg_color",
-			"label": "Цвет фона кружка",
-			"name": "donations_email_social_6_bg_color",
-			"type": "color_picker",
-			"default_value": "#ff7f13",
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			}
-		},
-		{
-			"key": "field_donations_email_social_7_message",
-			"label": "",
-			"name": "donations_email_social_7_message",
-			"type": "message",
-			"message": "Соцсеть 7",
-			"new_lines": "wpautop",
-			"esc_html": 0
-		},
-		{
-			"key": "field_donations_email_social_7_label",
-			"label": "Название (подпись / aria-label)",
-			"name": "donations_email_social_7_label",
-			"type": "text",
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			}
-		},
-		{
-			"key": "field_donations_email_social_7_url",
-			"label": "Ссылка",
-			"name": "donations_email_social_7_url",
-			"type": "url",
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			}
-		},
-		{
-			"key": "field_donations_email_social_7_icon",
-			"label": "Иконка",
-			"name": "donations_email_social_7_icon",
-			"type": "image",
-			"return_format": "url",
-			"preview_size": "thumbnail",
-			"library": "all",
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			}
-		},
-		{
-			"key": "field_donations_email_social_7_bg_color",
-			"label": "Цвет фона кружка",
-			"name": "donations_email_social_7_bg_color",
-			"type": "color_picker",
-			"default_value": "#ff7f13",
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			}
-		},
-		{
-			"key": "field_donations_email_social_8_message",
-			"label": "",
-			"name": "donations_email_social_8_message",
-			"type": "message",
-			"message": "Соцсеть 8",
-			"new_lines": "wpautop",
-			"esc_html": 0
-		},
-		{
-			"key": "field_donations_email_social_8_label",
-			"label": "Название (подпись / aria-label)",
-			"name": "donations_email_social_8_label",
-			"type": "text",
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			}
-		},
-		{
-			"key": "field_donations_email_social_8_url",
-			"label": "Ссылка",
-			"name": "donations_email_social_8_url",
-			"type": "url",
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			}
-		},
-		{
-			"key": "field_donations_email_social_8_icon",
-			"label": "Иконка",
-			"name": "donations_email_social_8_icon",
-			"type": "image",
-			"return_format": "url",
-			"preview_size": "thumbnail",
-			"library": "all",
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			}
-		},
-		{
-			"key": "field_donations_email_social_8_bg_color",
-			"label": "Цвет фона кружка",
-			"name": "donations_email_social_8_bg_color",
-			"type": "color_picker",
-			"default_value": "#ff7f13",
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			}
-		},
-		{
-			"key": "field_donations_email_social_9_message",
-			"label": "",
-			"name": "donations_email_social_9_message",
-			"type": "message",
-			"message": "Соцсеть 9",
-			"new_lines": "wpautop",
-			"esc_html": 0
-		},
-		{
-			"key": "field_donations_email_social_9_label",
-			"label": "Название (подпись / aria-label)",
-			"name": "donations_email_social_9_label",
-			"type": "text",
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			}
-		},
-		{
-			"key": "field_donations_email_social_9_url",
-			"label": "Ссылка",
-			"name": "donations_email_social_9_url",
-			"type": "url",
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			}
-		},
-		{
-			"key": "field_donations_email_social_9_icon",
-			"label": "Иконка",
-			"name": "donations_email_social_9_icon",
-			"type": "image",
-			"return_format": "url",
-			"preview_size": "thumbnail",
-			"library": "all",
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			}
-		},
-		{
-			"key": "field_donations_email_social_9_bg_color",
-			"label": "Цвет фона кружка",
-			"name": "donations_email_social_9_bg_color",
-			"type": "color_picker",
-			"default_value": "#ff7f13",
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			}
-		},
-		{
-			"key": "field_donations_email_social_10_message",
-			"label": "",
-			"name": "donations_email_social_10_message",
-			"type": "message",
-			"message": "Соцсеть 10",
-			"new_lines": "wpautop",
-			"esc_html": 0
-		},
-		{
-			"key": "field_donations_email_social_10_label",
-			"label": "Название (подпись / aria-label)",
-			"name": "donations_email_social_10_label",
-			"type": "text",
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			}
-		},
-		{
-			"key": "field_donations_email_social_10_url",
-			"label": "Ссылка",
-			"name": "donations_email_social_10_url",
-			"type": "url",
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			}
-		},
-		{
-			"key": "field_donations_email_social_10_icon",
-			"label": "Иконка",
-			"name": "donations_email_social_10_icon",
-			"type": "image",
-			"return_format": "url",
-			"preview_size": "thumbnail",
-			"library": "all",
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			}
-		},
-		{
-			"key": "field_donations_email_social_10_bg_color",
-			"label": "Цвет фона кружка",
-			"name": "donations_email_social_10_bg_color",
-			"type": "color_picker",
-			"default_value": "#ff7f13",
-			"wrapper": {
-				"width": "50",
-				"class": "",
-				"id": ""
-			}
-		}
-	],
-	"location": [
-		[
-			{
-				"param": "page_template",
-				"operator": "==",
-				"value": "templates/donations-page.php"
-			}
-		]
-	],
-	"menu_order": 0,
-	"position": "normal",
-	"style": "default",
-	"label_placement": "top",
-	"instruction_placement": "label",
-	"hide_on_screen": "",
-	"active": true,
-	"description": "Страница донатов: контент страницы, единоразовый платеж, подписки, письмо после оплаты (тексты и до 10 соцсетей)."
-}
+[
+    {
+        "key": "group_donations_page",
+        "title": "Страница донатов",
+        "fields": [
+            {
+                "key": "field_donations_tab_header",
+                "label": "Заголовок страницы",
+                "name": "",
+                "aria-label": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0,
+                "selected": 0
+            },
+            {
+                "key": "field_donations_page_title",
+                "label": "Главный заголовок (H1)",
+                "name": "donations_page_title",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Поддержать проект Moveat",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_donations_page_subtitle",
+                "label": "Подзаголовок",
+                "name": "donations_page_subtitle",
+                "aria-label": "",
+                "type": "textarea",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "rows": 3,
+                "default_value": "Выберите удобный способ регулярной поддержки или отправьте разовый донат. Каждый вклад помогает создавать полезный контент о здоровом питании.",
+                "new_lines": "",
+                "maxlength": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_donations_page_content",
+                "label": "Текст под блоками донатов",
+                "name": "donations_page_content",
+                "aria-label": "",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "tabs": "visual",
+                "toolbar": "full",
+                "media_upload": 1,
+                "default_value": "",
+                "delay": 0
+            },
+            {
+                "key": "field_donations_tab_onetime",
+                "label": "Единоразовый платеж",
+                "name": "",
+                "aria-label": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0,
+                "selected": 0
+            },
+            {
+                "key": "field_donations_onetime_block_title",
+                "label": "Подзаголовок блока",
+                "name": "donations_onetime_block_title",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Единоразовый платеж",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_donations_onetime_button_text",
+                "label": "Текст на кнопке",
+                "name": "donations_onetime_button_text",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Поддержать",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_donations_onetime_messengers_message",
+                "label": "",
+                "name": "",
+                "aria-label": "",
+                "type": "message",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Ссылки на мессенджеры в модальном окне единоразового платежа. Иконки задаются в теме. Пустая ссылка — мессенджер не показывается.",
+                "new_lines": "wpautop",
+                "esc_html": 0
+            },
+            {
+                "key": "field_donations_onetime_messenger_telegram_url",
+                "label": "Telegram — ссылка",
+                "name": "donations_onetime_messenger_telegram_url",
+                "aria-label": "",
+                "type": "url",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "https:\/\/t.me\/MaxPogorelyBot",
+                "placeholder": ""
+            },
+            {
+                "key": "field_donations_onetime_messenger_whatsapp_url",
+                "label": "WhatsApp — ссылка",
+                "name": "donations_onetime_messenger_whatsapp_url",
+                "aria-label": "",
+                "type": "url",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "https:\/\/380991900483.wa.pulse.is\/",
+                "placeholder": ""
+            },
+            {
+                "key": "field_donations_onetime_messenger_viber_url",
+                "label": "Viber — ссылка",
+                "name": "donations_onetime_messenger_viber_url",
+                "aria-label": "",
+                "type": "url",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "viber:\/\/pa?chatURI=max_pogorely&context=657b4bccc151da5d54055ea2",
+                "placeholder": ""
+            },
+            {
+                "key": "field_donations_tab_subscriptions",
+                "label": "Подписки",
+                "name": "",
+                "aria-label": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0,
+                "selected": 0
+            },
+            {
+                "key": "field_donations_subscriptions_block_title",
+                "label": "Подзаголовок блока",
+                "name": "donations_subscriptions_block_title",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Подписки и спонсорство",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_donations_subscription_youtube_message",
+                "label": "",
+                "name": "",
+                "aria-label": "",
+                "type": "message",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "YouTube",
+                "new_lines": "wpautop",
+                "esc_html": 0
+            },
+            {
+                "key": "field_donations_subscription_youtube_enabled",
+                "label": "YouTube — показывать на странице",
+                "name": "donations_subscription_youtube_enabled",
+                "aria-label": "",
+                "type": "true_false",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "ui": 1,
+                "default_value": 1,
+                "message": "",
+                "ui_on_text": "",
+                "ui_off_text": ""
+            },
+            {
+                "key": "field_donations_subscription_youtube_name",
+                "label": "YouTube — название карточки",
+                "name": "donations_subscription_youtube_name",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Спонсорство на YouTube",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_donations_subscription_youtube_description",
+                "label": "YouTube — описание карточки",
+                "name": "donations_subscription_youtube_description",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Ежемесячная поддержка через YouTube Membership",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_donations_subscription_youtube_url",
+                "label": "YouTube — ссылка на подписку",
+                "name": "donations_subscription_youtube_url",
+                "aria-label": "",
+                "type": "url",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_donations_subscription_patreon_message",
+                "label": "",
+                "name": "",
+                "aria-label": "",
+                "type": "message",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Patreon",
+                "new_lines": "wpautop",
+                "esc_html": 0
+            },
+            {
+                "key": "field_donations_subscription_patreon_enabled",
+                "label": "Patreon — показывать на странице",
+                "name": "donations_subscription_patreon_enabled",
+                "aria-label": "",
+                "type": "true_false",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "ui": 1,
+                "default_value": 1,
+                "message": "",
+                "ui_on_text": "",
+                "ui_off_text": ""
+            },
+            {
+                "key": "field_donations_subscription_patreon_name",
+                "label": "Patreon — название карточки",
+                "name": "donations_subscription_patreon_name",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Patreon",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_donations_subscription_patreon_description",
+                "label": "Patreon — описание карточки",
+                "name": "donations_subscription_patreon_description",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Регулярная подписка и эксклюзивные материалы",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_donations_subscription_patreon_url",
+                "label": "Patreon — ссылка на подписку",
+                "name": "donations_subscription_patreon_url",
+                "aria-label": "",
+                "type": "url",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_donations_subscription_paypal_message",
+                "label": "",
+                "name": "",
+                "aria-label": "",
+                "type": "message",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "PayPal",
+                "new_lines": "wpautop",
+                "esc_html": 0
+            },
+            {
+                "key": "field_donations_subscription_paypal_enabled",
+                "label": "PayPal — показывать на странице",
+                "name": "donations_subscription_paypal_enabled",
+                "aria-label": "",
+                "type": "true_false",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "ui": 1,
+                "default_value": 1,
+                "message": "",
+                "ui_on_text": "",
+                "ui_off_text": ""
+            },
+            {
+                "key": "field_donations_subscription_paypal_name",
+                "label": "PayPal — название карточки",
+                "name": "donations_subscription_paypal_name",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "PayPal",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_donations_subscription_paypal_description",
+                "label": "PayPal — описание карточки",
+                "name": "donations_subscription_paypal_description",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Подписка $10 \/ месяц",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_donations_subscription_paypal_url",
+                "label": "PayPal — ссылка на подписку",
+                "name": "donations_subscription_paypal_url",
+                "aria-label": "",
+                "type": "url",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_donations_subscription_lava_top_message",
+                "label": "",
+                "name": "",
+                "aria-label": "",
+                "type": "message",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Lava.top",
+                "new_lines": "wpautop",
+                "esc_html": 0
+            },
+            {
+                "key": "field_donations_subscription_lava_top_enabled",
+                "label": "Lava.top — показывать на странице",
+                "name": "donations_subscription_lava_top_enabled",
+                "aria-label": "",
+                "type": "true_false",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "ui": 1,
+                "default_value": 1,
+                "message": "",
+                "ui_on_text": "",
+                "ui_off_text": ""
+            },
+            {
+                "key": "field_donations_subscription_lava_top_name",
+                "label": "Lava.top — название карточки",
+                "name": "donations_subscription_lava_top_name",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Lava.top",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_donations_subscription_lava_top_description",
+                "label": "Lava.top — описание карточки",
+                "name": "donations_subscription_lava_top_description",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Разовая\/регулярная поддержка через Lava\/top",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_donations_subscription_lava_top_url",
+                "label": "Lava.top — ссылка на подписку",
+                "name": "donations_subscription_lava_top_url",
+                "aria-label": "",
+                "type": "url",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_donations_subscription_boosty_message",
+                "label": "",
+                "name": "",
+                "aria-label": "",
+                "type": "message",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Boosty",
+                "new_lines": "wpautop",
+                "esc_html": 0
+            },
+            {
+                "key": "field_donations_subscription_boosty_enabled",
+                "label": "Boosty — показывать на странице",
+                "name": "donations_subscription_boosty_enabled",
+                "aria-label": "",
+                "type": "true_false",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "ui": 1,
+                "default_value": 1,
+                "message": "",
+                "ui_on_text": "",
+                "ui_off_text": ""
+            },
+            {
+                "key": "field_donations_subscription_boosty_name",
+                "label": "Boosty — название карточки",
+                "name": "donations_subscription_boosty_name",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Boosty",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_donations_subscription_boosty_description",
+                "label": "Boosty — описание карточки",
+                "name": "donations_subscription_boosty_description",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Разовая\/регулярная поддержка через Boosty",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_donations_subscription_boosty_url",
+                "label": "Boosty — ссылка на подписку",
+                "name": "donations_subscription_boosty_url",
+                "aria-label": "",
+                "type": "url",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_donations_subscription_usdt_message",
+                "label": "",
+                "name": "",
+                "aria-label": "",
+                "type": "message",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "USDT (TRC20)",
+                "new_lines": "wpautop",
+                "esc_html": 0
+            },
+            {
+                "key": "field_donations_subscription_usdt_enabled",
+                "label": "USDT — показывать на странице",
+                "name": "donations_subscription_usdt_enabled",
+                "aria-label": "",
+                "type": "true_false",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "ui": 1,
+                "default_value": 1,
+                "message": "",
+                "ui_on_text": "",
+                "ui_off_text": ""
+            },
+            {
+                "key": "field_donations_subscription_usdt_wallet",
+                "label": "USDT — номер кошелька",
+                "name": "donations_subscription_usdt_wallet",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "TXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_donations_subscription_usdt_qr_image",
+                "label": "USDT — QR-код (URL)",
+                "name": "donations_subscription_usdt_qr_image",
+                "aria-label": "",
+                "type": "image",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "preview_size": "medium",
+                "library": "all",
+                "min_width": 0,
+                "min_height": 0,
+                "min_size": 0,
+                "max_width": 0,
+                "max_height": 0,
+                "max_size": 0,
+                "mime_types": ""
+            },
+            {
+                "key": "field_donations_tab_email",
+                "label": "Email",
+                "name": "",
+                "aria-label": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0,
+                "selected": 0
+            },
+            {
+                "key": "field_donations_email_message",
+                "label": "",
+                "name": "",
+                "aria-label": "",
+                "type": "message",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Тексты письма, которое отправляется донатору после успешной оплаты.",
+                "new_lines": "wpautop",
+                "esc_html": 0
+            },
+            {
+                "key": "field_donations_email_subject",
+                "label": "Тема письма",
+                "name": "donations_email_subject",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Спасибо! Вы помогаете проекту Moveat развиваться ❤️",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_donations_email_greeting",
+                "label": "Приветствие",
+                "name": "donations_email_greeting",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Здравствуйте!",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_donations_email_thanks",
+                "label": "Строка благодарности",
+                "name": "donations_email_thanks",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Спасибо за вашу поддержку ❤️",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_donations_email_intro",
+                "label": "Основной текст",
+                "name": "donations_email_intro",
+                "aria-label": "",
+                "type": "textarea",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "rows": 4,
+                "default_value": "Такие переводы помогают нам продолжать делать то, что мы считаем важным: выпускать полезные материалы о здоровье, объяснять сложное простым языком и помогать людям лучше понимать свой организм.",
+                "new_lines": "",
+                "maxlength": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_donations_email_details_title",
+                "label": "Заголовок блока «Детали поддержки»",
+                "name": "donations_email_details_title",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Детали поддержки:",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_donations_email_label_amount",
+                "label": "Подпись «Сумма»",
+                "name": "donations_email_label_amount",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Сумма:",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_donations_email_label_date",
+                "label": "Подпись «Дата»",
+                "name": "donations_email_label_date",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Дата:",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_donations_email_label_payment",
+                "label": "Подпись «Способ оплаты»",
+                "name": "donations_email_label_payment",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Способ оплаты:",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_donations_email_outro_thanks",
+                "label": "Текст перед подписью",
+                "name": "donations_email_outro_thanks",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Спасибо, что вы с нами.",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_donations_email_signoff_line",
+                "label": "Строка подписи",
+                "name": "donations_email_signoff_line",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "С уважением,",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_donations_email_signoff_team",
+                "label": "Подпись команды",
+                "name": "donations_email_signoff_team",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Команда Moveat",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_donations_email_socials_title",
+                "label": "Заголовок блока соцсетей",
+                "name": "donations_email_socials_title",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Следите за новыми материалами:",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_donations_email_footer",
+                "label": "Текст в подвале письма",
+                "name": "donations_email_footer",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Moveat",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_donations_email_socials_message",
+                "label": "",
+                "name": "",
+                "aria-label": "",
+                "type": "message",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Соцсети в письме (иконки в кружках). В письмо попадают только заполненные: нужны ссылка и иконка.",
+                "new_lines": "wpautop",
+                "esc_html": 0
+            },
+            {
+                "key": "field_donations_email_social_1_message",
+                "label": "",
+                "name": "",
+                "aria-label": "",
+                "type": "message",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Соцсеть 1",
+                "new_lines": "wpautop",
+                "esc_html": 0
+            },
+            {
+                "key": "field_donations_email_social_1_label",
+                "label": "Название (подпись \/ aria-label)",
+                "name": "donations_email_social_1_label",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_donations_email_social_1_url",
+                "label": "Ссылка",
+                "name": "donations_email_social_1_url",
+                "aria-label": "",
+                "type": "url",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_donations_email_social_1_icon",
+                "label": "Иконка",
+                "name": "donations_email_social_1_icon",
+                "aria-label": "",
+                "type": "image",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "preview_size": "thumbnail",
+                "library": "all",
+                "min_width": 0,
+                "min_height": 0,
+                "min_size": 0,
+                "max_width": 0,
+                "max_height": 0,
+                "max_size": 0,
+                "mime_types": ""
+            },
+            {
+                "key": "field_donations_email_social_1_bg_color",
+                "label": "Цвет фона кружка",
+                "name": "donations_email_social_1_bg_color",
+                "aria-label": "",
+                "type": "color_picker",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "#ff7f13",
+                "enable_opacity": false,
+                "custom_palette_source": "",
+                "palette_colors": "",
+                "show_color_wheel": true,
+                "return_format": "string"
+            },
+            {
+                "key": "field_donations_email_social_2_message",
+                "label": "",
+                "name": "",
+                "aria-label": "",
+                "type": "message",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Соцсеть 2",
+                "new_lines": "wpautop",
+                "esc_html": 0
+            },
+            {
+                "key": "field_donations_email_social_2_label",
+                "label": "Название (подпись \/ aria-label)",
+                "name": "donations_email_social_2_label",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_donations_email_social_2_url",
+                "label": "Ссылка",
+                "name": "donations_email_social_2_url",
+                "aria-label": "",
+                "type": "url",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_donations_email_social_2_icon",
+                "label": "Иконка",
+                "name": "donations_email_social_2_icon",
+                "aria-label": "",
+                "type": "image",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "preview_size": "thumbnail",
+                "library": "all",
+                "min_width": 0,
+                "min_height": 0,
+                "min_size": 0,
+                "max_width": 0,
+                "max_height": 0,
+                "max_size": 0,
+                "mime_types": ""
+            },
+            {
+                "key": "field_donations_email_social_2_bg_color",
+                "label": "Цвет фона кружка",
+                "name": "donations_email_social_2_bg_color",
+                "aria-label": "",
+                "type": "color_picker",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "#ff7f13",
+                "enable_opacity": false,
+                "custom_palette_source": "",
+                "palette_colors": "",
+                "show_color_wheel": true,
+                "return_format": "string"
+            },
+            {
+                "key": "field_donations_email_social_3_message",
+                "label": "",
+                "name": "",
+                "aria-label": "",
+                "type": "message",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Соцсеть 3",
+                "new_lines": "wpautop",
+                "esc_html": 0
+            },
+            {
+                "key": "field_donations_email_social_3_label",
+                "label": "Название (подпись \/ aria-label)",
+                "name": "donations_email_social_3_label",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_donations_email_social_3_url",
+                "label": "Ссылка",
+                "name": "donations_email_social_3_url",
+                "aria-label": "",
+                "type": "url",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_donations_email_social_3_icon",
+                "label": "Иконка",
+                "name": "donations_email_social_3_icon",
+                "aria-label": "",
+                "type": "image",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "preview_size": "thumbnail",
+                "library": "all",
+                "min_width": 0,
+                "min_height": 0,
+                "min_size": 0,
+                "max_width": 0,
+                "max_height": 0,
+                "max_size": 0,
+                "mime_types": ""
+            },
+            {
+                "key": "field_donations_email_social_3_bg_color",
+                "label": "Цвет фона кружка",
+                "name": "donations_email_social_3_bg_color",
+                "aria-label": "",
+                "type": "color_picker",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "#ff7f13",
+                "enable_opacity": false,
+                "custom_palette_source": "",
+                "palette_colors": "",
+                "show_color_wheel": true,
+                "return_format": "string"
+            },
+            {
+                "key": "field_donations_email_social_4_message",
+                "label": "",
+                "name": "",
+                "aria-label": "",
+                "type": "message",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Соцсеть 4",
+                "new_lines": "wpautop",
+                "esc_html": 0
+            },
+            {
+                "key": "field_donations_email_social_4_label",
+                "label": "Название (подпись \/ aria-label)",
+                "name": "donations_email_social_4_label",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_donations_email_social_4_url",
+                "label": "Ссылка",
+                "name": "donations_email_social_4_url",
+                "aria-label": "",
+                "type": "url",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_donations_email_social_4_icon",
+                "label": "Иконка",
+                "name": "donations_email_social_4_icon",
+                "aria-label": "",
+                "type": "image",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "preview_size": "thumbnail",
+                "library": "all",
+                "min_width": 0,
+                "min_height": 0,
+                "min_size": 0,
+                "max_width": 0,
+                "max_height": 0,
+                "max_size": 0,
+                "mime_types": ""
+            },
+            {
+                "key": "field_donations_email_social_4_bg_color",
+                "label": "Цвет фона кружка",
+                "name": "donations_email_social_4_bg_color",
+                "aria-label": "",
+                "type": "color_picker",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "#ff7f13",
+                "enable_opacity": false,
+                "custom_palette_source": "",
+                "palette_colors": "",
+                "show_color_wheel": true,
+                "return_format": "string"
+            },
+            {
+                "key": "field_donations_email_social_5_message",
+                "label": "",
+                "name": "",
+                "aria-label": "",
+                "type": "message",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Соцсеть 5",
+                "new_lines": "wpautop",
+                "esc_html": 0
+            },
+            {
+                "key": "field_donations_email_social_5_label",
+                "label": "Название (подпись \/ aria-label)",
+                "name": "donations_email_social_5_label",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_donations_email_social_5_url",
+                "label": "Ссылка",
+                "name": "donations_email_social_5_url",
+                "aria-label": "",
+                "type": "url",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_donations_email_social_5_icon",
+                "label": "Иконка",
+                "name": "donations_email_social_5_icon",
+                "aria-label": "",
+                "type": "image",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "preview_size": "thumbnail",
+                "library": "all",
+                "min_width": 0,
+                "min_height": 0,
+                "min_size": 0,
+                "max_width": 0,
+                "max_height": 0,
+                "max_size": 0,
+                "mime_types": ""
+            },
+            {
+                "key": "field_donations_email_social_5_bg_color",
+                "label": "Цвет фона кружка",
+                "name": "donations_email_social_5_bg_color",
+                "aria-label": "",
+                "type": "color_picker",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "#ff7f13",
+                "enable_opacity": false,
+                "custom_palette_source": "",
+                "palette_colors": "",
+                "show_color_wheel": true,
+                "return_format": "string"
+            },
+            {
+                "key": "field_donations_email_social_6_message",
+                "label": "",
+                "name": "",
+                "aria-label": "",
+                "type": "message",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Соцсеть 6",
+                "new_lines": "wpautop",
+                "esc_html": 0
+            },
+            {
+                "key": "field_donations_email_social_6_label",
+                "label": "Название (подпись \/ aria-label)",
+                "name": "donations_email_social_6_label",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_donations_email_social_6_url",
+                "label": "Ссылка",
+                "name": "donations_email_social_6_url",
+                "aria-label": "",
+                "type": "url",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_donations_email_social_6_icon",
+                "label": "Иконка",
+                "name": "donations_email_social_6_icon",
+                "aria-label": "",
+                "type": "image",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "preview_size": "thumbnail",
+                "library": "all",
+                "min_width": 0,
+                "min_height": 0,
+                "min_size": 0,
+                "max_width": 0,
+                "max_height": 0,
+                "max_size": 0,
+                "mime_types": ""
+            },
+            {
+                "key": "field_donations_email_social_6_bg_color",
+                "label": "Цвет фона кружка",
+                "name": "donations_email_social_6_bg_color",
+                "aria-label": "",
+                "type": "color_picker",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "#ff7f13",
+                "enable_opacity": false,
+                "custom_palette_source": "",
+                "palette_colors": "",
+                "show_color_wheel": true,
+                "return_format": "string"
+            },
+            {
+                "key": "field_donations_email_social_7_message",
+                "label": "",
+                "name": "",
+                "aria-label": "",
+                "type": "message",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Соцсеть 7",
+                "new_lines": "wpautop",
+                "esc_html": 0
+            },
+            {
+                "key": "field_donations_email_social_7_label",
+                "label": "Название (подпись \/ aria-label)",
+                "name": "donations_email_social_7_label",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_donations_email_social_7_url",
+                "label": "Ссылка",
+                "name": "donations_email_social_7_url",
+                "aria-label": "",
+                "type": "url",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_donations_email_social_7_icon",
+                "label": "Иконка",
+                "name": "donations_email_social_7_icon",
+                "aria-label": "",
+                "type": "image",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "preview_size": "thumbnail",
+                "library": "all",
+                "min_width": 0,
+                "min_height": 0,
+                "min_size": 0,
+                "max_width": 0,
+                "max_height": 0,
+                "max_size": 0,
+                "mime_types": ""
+            },
+            {
+                "key": "field_donations_email_social_7_bg_color",
+                "label": "Цвет фона кружка",
+                "name": "donations_email_social_7_bg_color",
+                "aria-label": "",
+                "type": "color_picker",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "#ff7f13",
+                "enable_opacity": false,
+                "custom_palette_source": "",
+                "palette_colors": "",
+                "show_color_wheel": true,
+                "return_format": "string"
+            },
+            {
+                "key": "field_donations_email_social_8_message",
+                "label": "",
+                "name": "",
+                "aria-label": "",
+                "type": "message",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Соцсеть 8",
+                "new_lines": "wpautop",
+                "esc_html": 0
+            },
+            {
+                "key": "field_donations_email_social_8_label",
+                "label": "Название (подпись \/ aria-label)",
+                "name": "donations_email_social_8_label",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_donations_email_social_8_url",
+                "label": "Ссылка",
+                "name": "donations_email_social_8_url",
+                "aria-label": "",
+                "type": "url",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_donations_email_social_8_icon",
+                "label": "Иконка",
+                "name": "donations_email_social_8_icon",
+                "aria-label": "",
+                "type": "image",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "preview_size": "thumbnail",
+                "library": "all",
+                "min_width": 0,
+                "min_height": 0,
+                "min_size": 0,
+                "max_width": 0,
+                "max_height": 0,
+                "max_size": 0,
+                "mime_types": ""
+            },
+            {
+                "key": "field_donations_email_social_8_bg_color",
+                "label": "Цвет фона кружка",
+                "name": "donations_email_social_8_bg_color",
+                "aria-label": "",
+                "type": "color_picker",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "#ff7f13",
+                "enable_opacity": false,
+                "custom_palette_source": "",
+                "palette_colors": "",
+                "show_color_wheel": true,
+                "return_format": "string"
+            },
+            {
+                "key": "field_donations_email_social_9_message",
+                "label": "",
+                "name": "",
+                "aria-label": "",
+                "type": "message",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Соцсеть 9",
+                "new_lines": "wpautop",
+                "esc_html": 0
+            },
+            {
+                "key": "field_donations_email_social_9_label",
+                "label": "Название (подпись \/ aria-label)",
+                "name": "donations_email_social_9_label",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_donations_email_social_9_url",
+                "label": "Ссылка",
+                "name": "donations_email_social_9_url",
+                "aria-label": "",
+                "type": "url",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_donations_email_social_9_icon",
+                "label": "Иконка",
+                "name": "donations_email_social_9_icon",
+                "aria-label": "",
+                "type": "image",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "preview_size": "thumbnail",
+                "library": "all",
+                "min_width": 0,
+                "min_height": 0,
+                "min_size": 0,
+                "max_width": 0,
+                "max_height": 0,
+                "max_size": 0,
+                "mime_types": ""
+            },
+            {
+                "key": "field_donations_email_social_9_bg_color",
+                "label": "Цвет фона кружка",
+                "name": "donations_email_social_9_bg_color",
+                "aria-label": "",
+                "type": "color_picker",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "#ff7f13",
+                "enable_opacity": false,
+                "custom_palette_source": "",
+                "palette_colors": "",
+                "show_color_wheel": true,
+                "return_format": "string"
+            },
+            {
+                "key": "field_donations_email_social_10_message",
+                "label": "",
+                "name": "",
+                "aria-label": "",
+                "type": "message",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Соцсеть 10",
+                "new_lines": "wpautop",
+                "esc_html": 0
+            },
+            {
+                "key": "field_donations_email_social_10_label",
+                "label": "Название (подпись \/ aria-label)",
+                "name": "donations_email_social_10_label",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_donations_email_social_10_url",
+                "label": "Ссылка",
+                "name": "donations_email_social_10_url",
+                "aria-label": "",
+                "type": "url",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_donations_email_social_10_icon",
+                "label": "Иконка",
+                "name": "donations_email_social_10_icon",
+                "aria-label": "",
+                "type": "image",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "preview_size": "thumbnail",
+                "library": "all",
+                "min_width": 0,
+                "min_height": 0,
+                "min_size": 0,
+                "max_width": 0,
+                "max_height": 0,
+                "max_size": 0,
+                "mime_types": ""
+            },
+            {
+                "key": "field_donations_email_social_10_bg_color",
+                "label": "Цвет фона кружка",
+                "name": "donations_email_social_10_bg_color",
+                "aria-label": "",
+                "type": "color_picker",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "#ff7f13",
+                "enable_opacity": false,
+                "custom_palette_source": "",
+                "palette_colors": "",
+                "show_color_wheel": true,
+                "return_format": "string"
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "page_template",
+                    "operator": "==",
+                    "value": "templates\/donations-page.php"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "Страница донатов: контент страницы, единоразовый платеж, подписки, письмо после оплаты (тексты и до 10 соцсетей).",
+        "show_in_rest": false,
+        "display_title": "",
+        "allow_ai_access": false,
+        "ai_description": ""
+    }
+]

@@ -24,6 +24,7 @@ const METHOD_SLUG_MAP = {
 // ─── Состояние ────────────────────────────────────────────────────────────────
 
 let selectedMethod = null; // значение data-method выбранной кнопки
+let isSubmitting = false; // защита от двойного сабмита (вкладки, ретраи, быстрый клик)
 
 // ─── Параметры заказа из URL ──────────────────────────────────────────────────
 
@@ -73,6 +74,9 @@ function initMethodSelection() {
 async function handlePay() {
 	if (!selectedMethod || !agreeCheckbox?.checked) return;
 
+	// Один платёж за раз: отсекаем повторный вызов до завершения текущего.
+	if (isSubmitting) return;
+
 	const { orderId, orderKey } = getOrderParams();
 	if (!orderId || !orderKey) {
 		showSystemMessage(
@@ -90,6 +94,7 @@ async function handlePay() {
 		return;
 	}
 
+	isSubmitting = true;
 	setLoading(true);
 
 	try {
@@ -152,6 +157,7 @@ async function handlePay() {
 		console.error("[payment-process] pay error:", err);
 		showSystemMessage(err?.message ?? "Ошибка при инициации оплаты.", "error");
 	} finally {
+		isSubmitting = false;
 		setLoading(false);
 		updateSubmitState();
 	}

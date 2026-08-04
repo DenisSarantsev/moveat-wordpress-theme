@@ -26,6 +26,8 @@ const DONATION_GATEWAY_MAP = {
 	mono_gateway: "mono_gateway",
 };
 
+let isSubmitting = false; // защита от двойного сабмита (вкладки, ретраи, быстрый клик)
+
 const submitButton = document.querySelector("[data-donations-submit]");
 const methodsContainer = document.querySelector("[data-donations-methods]");
 const customAmountInput = document.querySelector(
@@ -114,6 +116,7 @@ const getPhoneForOrder = () => {
 const handleDonationSubmit = async () => {
 	if (!submitButton || submitButton.disabled) return;
 
+	if (isSubmitting) return; // один платёж за раз
 	if (window.MOVEAT_DONATIONS?.getIsSubmitting?.()) return;
 
 	const method = getSelectedMethod();
@@ -142,6 +145,7 @@ const handleDonationSubmit = async () => {
 		return;
 	}
 
+	isSubmitting = true;
 	setLoading(true);
 
 	try {
@@ -189,6 +193,7 @@ const handleDonationSubmit = async () => {
 			err?.message ?? "Ошибка при инициации оплаты доната.",
 		);
 	} finally {
+		isSubmitting = false;
 		setLoading(false);
 	}
 };

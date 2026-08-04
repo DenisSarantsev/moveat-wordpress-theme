@@ -116,7 +116,22 @@ function moveat_proxy_create_order( \WP_REST_Request $request ) {
     $code = wp_remote_retrieve_response_code( $order_response );
     $data = json_decode( wp_remote_retrieve_body( $order_response ), true );
 
-    // 🔹 8. (опционально) очищаем корзину после создания заказа
+    // 🔹 8. Нулевая сумма (бесплатный товар или купон на 100%) — оплачивать нечего.
+    //        Проводим заказ сразу и отдаём фронту ссылку на страницу благодарности,
+    //        чтобы он не вёл пользователя на /order-pay/.
+    if ( $code >= 200 && $code < 300 && ! empty( $data['id'] ) && function_exists( 'moveat_order_is_free' ) ) {
+        $created_order = wc_get_order( (int) $data['id'] );
+
+        if ( $created_order && moveat_order_is_free( $created_order ) ) {
+            moveat_complete_free_order( $created_order );
+            moveat_empty_cart_after_free_order();
+
+            $data['is_free']      = true;
+            $data['redirect_url'] = moveat_get_thankyou_page_url( $created_order );
+        }
+    }
+
+    // 🔹 9. (опционально) очищаем корзину после создания заказа
     // wp_remote_request(
     //     site_url( '/wp-json/wc/store/v1/cart/items' ),
     //     [

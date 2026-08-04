@@ -1,0 +1,564 @@
+{
+	"key": "group_partners",
+	"title": "Партнёры",
+	"fields": [
+		{
+			"key": "field_tab_partners_hero",
+			"label": "Hero",
+			"name": "tab_partners_hero",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_partners_hero_title",
+			"label": "Заголовок Hero",
+			"name": "partners_hero_title",
+			"type": "text",
+			"instructions": "Заголовок в шапке страницы",
+			"required": 0,
+			"default_value": "С кем мы сотрудничаем",
+			"placeholder": "С кем мы сотрудничаем"
+		},
+
+		{
+			"key": "field_tab_partners_intro",
+			"label": "Вступление",
+			"name": "tab_partners_intro",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_partners_intro_text",
+			"label": "Текст вступления",
+			"name": "partners_intro_text",
+			"type": "textarea",
+			"instructions": "Абзацы разделяйте пустой строкой",
+			"required": 0,
+			"default_value": "Мы открыты к партнёрству со специалистами и проектами, которые работают с людьми в теме здоровья, личной эффективности, качества жизни, энергии, внешнего вида и долгосрочных изменений.\n\nНам интересно сотрудничество не ради «просто рекламы», а ради понятной пользы для клиентов: когда человек получает не случайные советы, а системную поддержку по питанию, анализам, образу жизни и сопровождению.",
+			"new_lines": "",
+			"rows": 5
+		},
+
+		{
+			"key": "field_tab_partners_collab",
+			"label": "Типы партнёров",
+			"name": "tab_partners_collab",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+
+		{
+			"key": "field_partners_collab_1_image",
+			"label": "Партнёр 1 — изображение (URL)",
+			"name": "partners_collab_1_image",
+			"type": "image",
+			"instructions": "Укажите URL при импорте.",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_partners_collab_1_title",
+			"label": "Партнёр 1 — заголовок",
+			"name": "partners_collab_1_title",
+			"type": "text",
+			"required": 0,
+			"default_value": "Фитнес-тренерами",
+			"placeholder": "Фитнес-тренерами"
+		},
+		{
+			"key": "field_partners_collab_1_text",
+			"label": "Партнёр 1 — текст",
+			"name": "partners_collab_1_text",
+			"type": "textarea",
+			"instructions": "Абзацы разделяйте пустой строкой",
+			"required": 0,
+			"default_value": "Ваши клиенты могут тренироваться регулярно, но не получать результата из-за питания, дефицитов, переедания или неправильного восстановления.\n\nМы помогаем выстроить рацион так, чтобы тренировки работали лучше.",
+			"new_lines": "",
+			"rows": 4
+		},
+
+		{
+			"key": "field_partners_collab_2_image",
+			"label": "Партнёр 2 — изображение (URL)",
+			"name": "partners_collab_2_image",
+			"type": "image",
+			"instructions": "Укажите URL при импорте.",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_partners_collab_2_title",
+			"label": "Партнёр 2 — заголовок",
+			"name": "partners_collab_2_title",
+			"type": "text",
+			"required": 0,
+			"default_value": "Психологами",
+			"placeholder": "Психологами"
+		},
+		{
+			"key": "field_partners_collab_2_text",
+			"label": "Партнёр 2 — текст",
+			"name": "partners_collab_2_text",
+			"type": "textarea",
+			"instructions": "Абзацы разделяйте пустой строкой",
+			"required": 0,
+			"default_value": "Питание часто связано не только с продуктами, но и с тревогой, стрессом, перееданием, срывами и отношением к телу.\n\nМы можем дополнять вашу работу практическими рекомендациями по рациону и поддержке организма.",
+			"new_lines": "",
+			"rows": 4
+		},
+
+		{
+			"key": "field_partners_collab_3_image",
+			"label": "Партнёр 3 — изображение (URL)",
+			"name": "partners_collab_3_image",
+			"type": "image",
+			"instructions": "Укажите URL при импорте.",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_partners_collab_3_title",
+			"label": "Партнёр 3 — заголовок",
+			"name": "partners_collab_3_title",
+			"type": "text",
+			"required": 0,
+			"default_value": "Коучами",
+			"placeholder": "Коучами"
+		},
+		{
+			"key": "field_partners_collab_3_text",
+			"label": "Партнёр 3 — текст",
+			"name": "partners_collab_3_text",
+			"type": "textarea",
+			"instructions": "Абзацы разделяйте пустой строкой",
+			"required": 0,
+			"default_value": "Когда человек меняет жизнь, питание и энергия часто становятся важной частью процесса.\n\nМы можем помочь вашим клиентам почувствовать больше ресурса, стабильности и ясности через системную работу с рационом.",
+			"new_lines": "",
+			"rows": 4
+		},
+
+		{
+			"key": "field_partners_collab_4_image",
+			"label": "Партнёр 4 — изображение (URL)",
+			"name": "partners_collab_4_image",
+			"type": "image",
+			"instructions": "Укажите URL при импорте.",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_partners_collab_4_title",
+			"label": "Партнёр 4 — заголовок",
+			"name": "partners_collab_4_title",
+			"type": "text",
+			"required": 0,
+			"default_value": "Бизнес-тренерами",
+			"placeholder": "Бизнес-тренерами"
+		},
+		{
+			"key": "field_partners_collab_4_text",
+			"label": "Партнёр 4 — текст",
+			"name": "partners_collab_4_text",
+			"type": "textarea",
+			"instructions": "Абзацы разделяйте пустой строкой",
+			"required": 0,
+			"default_value": "Бизнес-тренеры работают с предпринимателями, руководителями и командами, которым важны энергия, концентрация и устойчивость.\n\nМы помогаем вашей аудитории поддержать базовый ресурс организма: питание, режим, анализы, сон и профилактику состояний, которые мешают работать эффективно.",
+			"new_lines": "",
+			"rows": 4
+		},
+
+		{
+			"key": "field_partners_collab_5_image",
+			"label": "Партнёр 5 — изображение (URL)",
+			"name": "partners_collab_5_image",
+			"type": "image",
+			"instructions": "Укажите URL при импорте.",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_partners_collab_5_title",
+			"label": "Партнёр 5 — заголовок",
+			"name": "partners_collab_5_title",
+			"type": "text",
+			"required": 0,
+			"default_value": "Клиники и лаборатории",
+			"placeholder": "Клиники и лаборатории"
+		},
+		{
+			"key": "field_partners_collab_5_text",
+			"label": "Партнёр 5 — текст",
+			"name": "partners_collab_5_text",
+			"type": "textarea",
+			"instructions": "Абзацы разделяйте пустой строкой",
+			"required": 0,
+			"default_value": "Мы также открыты к сотрудничеству с клиниками, медицинскими центрами и лабораториями.\n\nДля клиник это может быть дополнительное направление поддержки пациентов: питание, работа с анализами, профилактика, сопровождение при изменении образа жизни и помощь в адаптации рекомендаций.\n\nДля лабораторий — возможность дать клиентам не просто результаты анализов, а следующий понятный шаг: что эти показатели могут значить, какие данные действительно важны и как на их основе выстроить питание и рекомендации.\n\nМы не подменяем лечащего врача. Наша задача — аккуратно дополнить медицинский маршрут клиента через питание, анализы и научно обоснованные рекомендации.",
+			"new_lines": "",
+			"rows": 6
+		},
+
+		{
+			"key": "field_partners_collab_6_image",
+			"label": "Партнёр 6 — изображение (URL)",
+			"name": "partners_collab_6_image",
+			"type": "image",
+			"instructions": "Укажите URL при импорте.",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_partners_collab_6_title",
+			"label": "Партнёр 6 — заголовок",
+			"name": "partners_collab_6_title",
+			"type": "text",
+			"required": 0,
+			"default_value": "Блогерами и авторами контента",
+			"placeholder": "Блогерами и авторами контента"
+		},
+		{
+			"key": "field_partners_collab_6_text",
+			"label": "Партнёр 6 — текст",
+			"name": "partners_collab_6_text",
+			"type": "textarea",
+			"instructions": "Абзацы разделяйте пустой строкой",
+			"required": 0,
+			"default_value": "Если ваша аудитория интересуется здоровьем, питанием, похудением, ЖКТ, анализами, БАДами, энергией и качеством жизни, мы можем предложить совместные форматы.\n\nЭто могут быть эфиры, статьи, видео, разборы, партнёрские рекомендации или специальные условия для вашей аудитории.",
+			"new_lines": "",
+			"rows": 4
+		},
+
+		{
+			"key": "field_tab_partners_benefits",
+			"label": "Что получат клиенты",
+			"name": "tab_partners_benefits",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_partners_benefits_title",
+			"label": "Заголовок блока",
+			"name": "partners_benefits_title",
+			"type": "text",
+			"required": 0,
+			"default_value": "Что получат ваши клиенты",
+			"placeholder": "Что получат ваши клиенты"
+		},
+		{
+			"key": "field_partners_benefit_1_title",
+			"label": "Преимущество 1 — заголовок",
+			"name": "partners_benefit_1_title",
+			"type": "text",
+			"required": 0,
+			"default_value": "Медицинская диагностика и работа с анализами",
+			"placeholder": "Заголовок"
+		},
+		{
+			"key": "field_partners_benefit_1_text",
+			"label": "Преимущество 1 — текст",
+			"name": "partners_benefit_1_text",
+			"type": "textarea",
+			"required": 0,
+			"default_value": "Мы помогаем клиенту определить, какие анализы действительно нужны для оценки его состояния, а какие могут быть лишними на данном этапе. Это важно, потому что часто люди тратят деньги на большие списки анализов «на всякий случай», но не получают понятного плана действий. Мы подходим иначе: рекомендуем только те обследования, которые могут быть информативны для подбора питания, оценки дефицитов, обмена веществ, работы ЖКТ, печени, щитовидной железы и других важных систем.",
+			"new_lines": "",
+			"rows": 4
+		},
+		{
+			"key": "field_partners_benefit_2_title",
+			"label": "Преимущество 2 — заголовок",
+			"name": "partners_benefit_2_title",
+			"type": "text",
+			"required": 0,
+			"default_value": "Услуги и лекции школы Moveat по выгодным ценам",
+			"placeholder": "Заголовок"
+		},
+		{
+			"key": "field_partners_benefit_2_text",
+			"label": "Преимущество 2 — текст",
+			"name": "partners_benefit_2_text",
+			"type": "textarea",
+			"required": 0,
+			"default_value": "Для партнёров мы можем предложить специальные условия на диагностику, индивидуальные рационы, программы сопровождения, лекции и материалы школы Moveat. Это удобный формат, если вы хотите дать своей аудитории доступ к профессиональной поддержке по питанию, анализам и образу жизни на более выгодных партнёрских условиях. Также можем обсудить лимитированные предложения: специальные условия, бонусные материалы или закрытый доступ к отдельным лекциям и разборам.",
+			"new_lines": "",
+			"rows": 4
+		},
+		{
+			"key": "field_partners_benefit_3_title",
+			"label": "Преимущество 3 — заголовок",
+			"name": "partners_benefit_3_title",
+			"type": "text",
+			"required": 0,
+			"default_value": "Индивидуальное питание",
+			"placeholder": "Заголовок"
+		},
+		{
+			"key": "field_partners_benefit_3_text",
+			"label": "Преимущество 3 — текст",
+			"name": "partners_benefit_3_text",
+			"type": "textarea",
+			"required": 0,
+			"default_value": "Клиент получает рацион и рекомендации, которые учитывают его цели, жалобы, анализы, образ жизни, привычки, возраст, состояние ЖКТ, вес, уровень энергии и возможные ограничения. Мы не используем универсальные схемы, жёсткие диеты и модные запреты без причины. Питание подбирается так, чтобы человек мог внедрить его в реальную жизнь и постепенно улучшать самочувствие без постоянного стресса, голода и срывов.",
+			"new_lines": "",
+			"rows": 4
+		},
+		{
+			"key": "field_partners_benefit_4_title",
+			"label": "Преимущество 4 — заголовок",
+			"name": "partners_benefit_4_title",
+			"type": "text",
+			"required": 0,
+			"default_value": "Научно обоснованные рекомендации",
+			"placeholder": "Заголовок"
+		},
+		{
+			"key": "field_partners_benefit_4_text",
+			"label": "Преимущество 4 — текст",
+			"name": "partners_benefit_4_text",
+			"type": "textarea",
+			"required": 0,
+			"default_value": "Наш подход строится на современных медицинских данных и научных исследованиях. Мы не опираемся на мифы, «детоксы», модные протоколы или случайные советы из интернета. Каждая рекомендация должна иметь понятную логику: зачем она нужна, на что влияет и как может помочь конкретному человеку. Клиент получает не просто список правил, а объяснение, почему именно эти шаги выбраны для его ситуации.",
+			"new_lines": "",
+			"rows": 4
+		},
+		{
+			"key": "field_partners_benefit_5_title",
+			"label": "Преимущество 5 — заголовок",
+			"name": "partners_benefit_5_title",
+			"type": "text",
+			"required": 0,
+			"default_value": "Подбор БАДов без привязки к брендам",
+			"placeholder": "Заголовок"
+		},
+		{
+			"key": "field_partners_benefit_5_text",
+			"label": "Преимущество 5 — текст",
+			"name": "partners_benefit_5_text",
+			"type": "textarea",
+			"required": 0,
+			"default_value": "Если клиенту нужны добавки, мы подбираем не «любимые бренды» и не готовые наборы, а конкретные вещества, формы, дозировки и длительность курса с учётом состояния человека, анализов и задач. Мы не привязываем рекомендации к определённым производителям. Наша цель — не продвигать конкретные препараты, а понять, что действительно может быть полезно, что не нужно, а что может быть лишним или неуместным.",
+			"new_lines": "",
+			"rows": 4
+		},
+		{
+			"key": "field_partners_benefit_6_title",
+			"label": "Преимущество 6 — заголовок",
+			"name": "partners_benefit_6_title",
+			"type": "text",
+			"required": 0,
+			"default_value": "Образовательная поддержка",
+			"placeholder": "Заголовок"
+		},
+		{
+			"key": "field_partners_benefit_6_text",
+			"label": "Преимущество 6 — текст",
+			"name": "partners_benefit_6_text",
+			"type": "textarea",
+			"required": 0,
+			"default_value": "Клиенты получают не только рацион, но и материалы, которые помогают им лучше понимать своё питание и здоровье: советы по осознанному питанию, лекции, разборы, рекомендации, обучающие материалы и практические объяснения. Это помогает человеку не просто «выполнять инструкцию», а постепенно становиться более грамотным в вопросах питания, анализов, самочувствия и профилактики.",
+			"new_lines": "",
+			"rows": 4
+		},
+		{
+			"key": "field_partners_benefit_7_title",
+			"label": "Преимущество 7 — заголовок",
+			"name": "partners_benefit_7_title",
+			"type": "text",
+			"required": 0,
+			"default_value": "Сопровождение специалистов",
+			"placeholder": "Заголовок"
+		},
+		{
+			"key": "field_partners_benefit_7_text",
+			"label": "Преимущество 7 — текст",
+			"name": "partners_benefit_7_text",
+			"type": "textarea",
+			"required": 0,
+			"default_value": "Клиент не остаётся один на один с документом. В зависимости от выбранного формата он получает сопровождение от команды докторов, ответы на вопросы, корректировки и помощь в адаптации. Это особенно важно, когда у человека есть хронические состояния, проблемы с ЖКТ, весом, энергией, дефицитами, пищевыми привычками или непонимание, с чего начинать.",
+			"new_lines": "",
+			"rows": 4
+		},
+
+		{
+			"key": "field_tab_partners_value",
+			"label": "Что получите вы",
+			"name": "tab_partners_value",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_partners_value_title",
+			"label": "Заголовок блока",
+			"name": "partners_value_title",
+			"type": "text",
+			"required": 0,
+			"default_value": "Что получите вы",
+			"placeholder": "Что получите вы"
+		},
+		{
+			"key": "field_partners_value_lead",
+			"label": "Подзаголовок (лид)",
+			"name": "partners_value_lead",
+			"type": "textarea",
+			"required": 0,
+			"default_value": "Вы получаете надёжное направление, куда можно отправить клиента, если ему нужна помощь с питанием, анализами, весом, ЖКТ, энергией или образом жизни.",
+			"new_lines": "",
+			"rows": 3
+		},
+		{
+			"key": "field_partners_value_subhead",
+			"label": "Подпись перед списком",
+			"name": "partners_value_subhead",
+			"type": "text",
+			"required": 0,
+			"default_value": "Для вас это:",
+			"placeholder": "Для вас это:"
+		},
+		{
+			"key": "field_partners_value_list",
+			"label": "Список пунктов",
+			"name": "partners_value_list",
+			"type": "textarea",
+			"instructions": "По одному пункту на строку",
+			"required": 0,
+			"default_value": "дополнительная ценность для вашей аудитории или клиентов;\nвозможность рекомендовать не случайного специалиста, а команду с понятной системой работы;\nпартнёрские бонусы и специальные предложения;\nаккуратная коммуникация с клиентами без агрессивных продаж;\nвозможность совместных эфиров, материалов, разборов и образовательных форматов;\nподдержка вашей репутации за счёт бережного отношения к людям;\nпонятная схема передачи клиентов и обратной связи.",
+			"new_lines": "",
+			"rows": 7
+		},
+		{
+			"key": "field_partners_value_text",
+			"label": "Текст под списком",
+			"name": "partners_value_text",
+			"type": "textarea",
+			"instructions": "Абзацы разделяйте пустой строкой",
+			"required": 0,
+			"default_value": "Мы заинтересованы в долгосрочном сотрудничестве, где всем сторонам комфортно: клиент получает помощь, партнёр усиливает свою ценность, а мы берём на себя профессиональную часть по питанию и сопровождению.",
+			"new_lines": "",
+			"rows": 3
+		},
+
+		{
+			"key": "field_tab_partners_consider",
+			"label": "Также рассмотрим",
+			"name": "tab_partners_consider",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_partners_consider_title",
+			"label": "Заголовок блока",
+			"name": "partners_consider_title",
+			"type": "text",
+			"required": 0,
+			"default_value": "Также мы можем рассмотреть",
+			"placeholder": "Также мы можем рассмотреть"
+		},
+		{
+			"key": "field_partners_consider_list",
+			"label": "Список пунктов",
+			"name": "partners_consider_list",
+			"type": "textarea",
+			"instructions": "По одному пункту на строку",
+			"required": 0,
+			"default_value": "рекламную или экспертную интеграцию вашего продукта, сервиса или устройства;\nобзор полезного девайса, приложения, книги, сервиса или решения для здоровья;\nсовместный материал о продукте, если он действительно может быть полезен нашей аудитории;\nтестирование формата: статья, сторис, видео, эфир, разбор или рекомендация;\nпартнёрское предложение для нашей аудитории, если продукт соответствует ценностям проекта.",
+			"new_lines": "",
+			"rows": 5
+		},
+		{
+			"key": "field_partners_consider_text",
+			"label": "Текст под списком",
+			"name": "partners_consider_text",
+			"type": "textarea",
+			"instructions": "Абзацы разделяйте пустой строкой",
+			"required": 0,
+			"default_value": "Мы не берём в работу всё подряд. Нам важно, чтобы продукт, сервис или устройство действительно могли улучшить качество жизни, помочь человеку заботиться о здоровье, питании, активности, сне, восстановлении или профилактике.\n\nПеред сотрудничеством мы смотрим, насколько предложение соответствует нашей аудитории, не противоречит медицинской логике и может быть рекомендовано без вреда для репутации проекта.\n\nЕсли вы видите потенциал для партнёрства, мы готовы рассмотреть разумные рекламные предложения для YouTube и других площадок Moveat. Нам интересны продукты, сервисы и проекты, которые действительно могут быть полезны нашей аудитории и соответствуют ценностям проекта: здоровье, осознанное питание, профилактика, качество жизни и доказательный подход.",
+			"new_lines": "",
+			"rows": 8
+		},
+
+		{
+			"key": "field_tab_partners_cta",
+			"label": "Призыв (CTA)",
+			"name": "tab_partners_cta",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_partners_cta_title",
+			"label": "Заголовок",
+			"name": "partners_cta_title",
+			"type": "text",
+			"required": 0,
+			"default_value": "Обсудим сотрудничество",
+			"placeholder": "Обсудим сотрудничество"
+		},
+		{
+			"key": "field_partners_cta_text",
+			"label": "Текст",
+			"name": "partners_cta_text",
+			"type": "textarea",
+			"required": 0,
+			"default_value": "Все детали можно обсудить напрямую. Мы ценим честность, адекватные условия и взаимную пользу.",
+			"new_lines": "",
+			"rows": 3
+		},
+		{
+			"key": "field_partners_cta_email",
+			"label": "E-mail для связи",
+			"name": "partners_cta_email",
+			"type": "text",
+			"required": 0,
+			"default_value": "notifications.moveat@gmail.com",
+			"placeholder": "notifications.moveat@gmail.com"
+		},
+		{
+			"key": "field_partners_cta_note",
+			"label": "Примечание под e-mail",
+			"name": "partners_cta_note",
+			"type": "text",
+			"required": 0,
+			"default_value": "Отвечаем быстро и по делу.",
+			"placeholder": "Отвечаем быстро и по делу."
+		}
+	],
+	"location": [
+		[
+			{
+				"param": "page_template",
+				"operator": "==",
+				"value": "templates/partners.php"
+			}
+		]
+	],
+	"menu_order": 0,
+	"position": "normal",
+	"style": "default",
+	"label_placement": "top",
+	"instruction_placement": "label",
+	"hide_on_screen": "",
+	"active": true,
+	"description": "ACF-поля страницы «Партнёры»: hero, вступление, 6 типов партнёров, преимущества клиентов, блок «Что получите вы», блок «Также рассмотрим» и CTA"
+}

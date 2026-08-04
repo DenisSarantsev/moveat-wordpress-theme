@@ -115,7 +115,7 @@ $display_decimals = max(2, (int) wc_get_price_decimals());
 					<!-- Russian bank info -->
 					<div class="payment-page__info-card" role="note">
 						<p class="payment-page__info-card-text">
-							Если у вас <span>карта российского банка,</span> свяжитесь с нами по одному из мессенджеров и мы поможем вам с оплатой.
+							Если у вас <span>НЕ ПРОХОДИТ ОПЛАТА,</span> свяжитесь с нами по одному из мессенджеров и мы поможем вам с оплатой.
 						</p>
 						<div class="payment-page__info-messengers">
 							<!-- Ссылки на мессенджеры -->

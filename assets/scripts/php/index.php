@@ -25,6 +25,10 @@ require_once __DIR__ . '/main/410-rules.php';
 // Google AdSense и Google Analytics 4.
 require_once __DIR__ . '/google-scripts/setup.php';
 
+// -------------- Tallanto CRM
+// Общий клиент Tallanto (подпись/отправка/лог) — переиспользуется любыми синхронизациями.
+require_once __DIR__ . '/tallanto/client.php';
+
 // -------------- WooCommerce modules
 // Передает конфиг Woo Store API на фронтенд (baseUrl и nonce).
 require_once __DIR__ . '/woocommerce/woo-api-config.php';
@@ -35,6 +39,10 @@ if ( class_exists( 'WooCommerce' ) ) {
 	require_once __DIR__ . '/woocommerce/api/setup.php';
 	// Хуки для управления статусами заказов и редиректами после оплаты.
 	require_once __DIR__ . '/woocommerce/order-hooks.php';
+	// Заказы с нулевой суммой — проводятся без оплаты.
+	require_once __DIR__ . '/woocommerce/free-order.php';
+	// Cron-сверка статусов mono (страховка на случай недоставленного вебхука).
+	require_once __DIR__ . '/woocommerce/mono-status-reconcile.php';
 	// Создание заказа
 	require_once __DIR__ . '/woocommerce/api/create-order.php';
 	// Минимальная сумма доната (единый источник для API и шаблона)
@@ -49,4 +57,6 @@ if ( class_exists( 'WooCommerce' ) ) {
 	require_once __DIR__ . '/woocommerce/emails/completed-order.php';
 	// Подтверждение доната донатору
 	require_once __DIR__ . '/woocommerce/emails/donation-completed-order.php';
+	// Синхронизация заказов/клиентов с Tallanto CRM.
+	require_once __DIR__ . '/tallanto/woocommerce-sync.php';
 }
