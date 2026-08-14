@@ -20,6 +20,9 @@ require_once __DIR__ . '/main/menu.php';
 require_once __DIR__ . '/main/logo.php';
 // Включает режим технического обслуживания и исключения.
 require_once __DIR__ . '/main/maintenance-mode.php';
+// Редиректы со старых (удалённых) URL на актуальные страницы.
+// Хук с приоритетом 1 — срабатывает раньше правил 410 ниже.
+require_once __DIR__ . '/main/redirects.php';
 // Правила для показа 410 ошибки
 require_once __DIR__ . '/main/410-rules.php';
 // Google AdSense и Google Analytics 4.
