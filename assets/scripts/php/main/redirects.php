@@ -46,7 +46,7 @@ function moveat_redirect_rules() {
 		'product/komfort-paket'         => 'product/rashet-raziona',
 		'product/rasshirennyj-paket'    => 'product/raschet-ratsiona-s-rassmotreniem-analizov',
 		'kursy'                         => 'catalog',
-		'https://moveat.expert/product/programma-stroim-zdorovoe-telo-vmeste-1-mesyats/' => 'https://moveat.expert/product/programma-stroim-zdorovoe-telo-vmeste/'
+		'product/programma-stroim-zdorovoe-telo-vmeste-1-mesyats' => 'product/programma-stroim-zdorovoe-telo-vmeste',
 	];
 }
 
