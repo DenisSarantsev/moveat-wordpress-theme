@@ -20,6 +20,8 @@ for ( $index = 1; $index <= 10; $index++ ) {
 	$title       = function_exists( 'get_field' ) ? trim( (string) get_field( 'products_title_' . $index ) ) : '';
 	$description = function_exists( 'get_field' ) ? trim( (string) get_field( 'products_description_' . $index ) ) : '';
 	$selected    = function_exists( 'get_field' ) ? get_field( 'products_list_' . $index ) : [];
+	$order_raw   = function_exists( 'get_field' ) ? get_field( 'products_order_' . $index ) : null;
+	$order       = is_numeric( $order_raw ) ? (float) $order_raw : (float) $index;
 
 	$selected_ids = array_values(
 		array_filter(
@@ -64,8 +66,17 @@ for ( $index = 1; $index <= 10; $index++ ) {
 		'title'       => $title,
 		'description' => $description,
 		'query'       => $products_query,
+		'order'       => $order,
+		'index'       => $index,
 	];
 }
+
+usort(
+	$product_sections,
+	static function ( $a, $b ) {
+		return ( $a['order'] <=> $b['order'] ) ?: ( $a['index'] <=> $b['index'] );
+	}
+);
 ?>
 
 <div class="hero-block">
