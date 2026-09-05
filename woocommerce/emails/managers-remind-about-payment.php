@@ -90,6 +90,7 @@ if ( ! isset( $order ) || ! is_a( $order, 'WC_Order' ) ) {
 				">
 					<h2 style="margin:0;font-size:24px;font-weight:bold;text-align:center;">Номер заказа: <a href="<?php echo esc_url( $order->get_view_order_url() ); ?>" style="color:#ff7f13;text-decoration:underline;font-size:20px;font-weight:600;">#<?php echo esc_html( $order_number ); ?></a></h2>
 					<p style="margin:5px 0;color:#666;font-size:14px;text-align:center;padding:4px 0px;"><?php echo esc_html( $order_date ); ?></p>
+					<?php echo \Moveat\Woo\PaymentMethod\email_payment_line( $order ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 					<p style="margin:10px 0;color:#333;font-size:14px;text-align:center;line-height:140%;">
 						Пользователю было отправлено сообщение с напоминанем об оплате
 					</p>
@@ -169,6 +170,7 @@ if ( ! isset( $order ) || ! is_a( $order, 'WC_Order' ) ) {
 					</p>
 				</td>
 			</tr>
+			<?php echo \Moveat\Woo\PaymentMethod\email_admin_link_row( $order ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 			<tr>
 				<td style="padding:20px;text-align:center;font-size:12px;color:#999;">
 					Moveat Expert

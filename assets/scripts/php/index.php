@@ -40,6 +40,8 @@ require_once __DIR__ . '/woocommerce/woo-api-config.php';
 if ( class_exists( 'WooCommerce' ) ) {
 	// Подключает кастомизацию карточек и шаблонов WooCommerce.
 	require_once __DIR__ . '/woocommerce/product-card/setup.php';
+	// Способ оплаты: читаемая подпись с иконкой в админке, колонка, фильтр, письма.
+	require_once __DIR__ . '/woocommerce/payment-method-display.php';
 	// Подключает серверный API-слой WooCommerce и маршруты.
 	require_once __DIR__ . '/woocommerce/api/setup.php';
 	// Хуки для управления статусами заказов и редиректами после оплаты.

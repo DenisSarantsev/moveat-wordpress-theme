@@ -139,25 +139,13 @@ function moveat_get_donation_email_content() {
 
 /*
 	Человекочитаемое название способа оплаты доната.
+
+	Обёртка над общим реестром способов оплаты (woocommerce/payment-method-display.php),
+	чтобы подписи в письмах и в админке не разъезжались. Свой словарь здесь
+	держать больше не нужно.
 */
 function moveat_get_donation_payment_method_label( $order ) {
-	$labels = array(
-		'ppcp-gateway' => 'PayPal',
-		'mono_gateway' => __( 'Банковская карта', 'moveat' ),
-		'paypal'       => 'PayPal',
-	);
-
-	$method = $order->get_payment_method();
-	if ( isset( $labels[ $method ] ) ) {
-		return $labels[ $method ];
-	}
-
-	$title = $order->get_payment_method_title();
-	if ( $title ) {
-		return $title;
-	}
-
-	return $method ? $method : '—';
+	return \Moveat\Woo\PaymentMethod\label( $order );
 }
 
 /*

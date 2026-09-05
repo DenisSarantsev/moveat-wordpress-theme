@@ -127,7 +127,10 @@ function pay_order(\WP_REST_Request $request)
 	if ($payment_method) {
 		try {
 			$order->set_payment_method($payment_method);
-			$order->set_payment_method_title($payment_method);
+			// В title — человекочитаемая подпись из реестра, а не слаг «mono_gateway».
+			// Если плагин шлюза перезапишет её своим HTML в process_payment(),
+			// это перекроет фильтр в payment-method-display.php.
+			$order->set_payment_method_title(\Moveat\Woo\PaymentMethod\label($order));
 		} catch (\Throwable $e) {
 			error_log('[moveat pay-order] payment method error: ' . $e->getMessage());
 		}
