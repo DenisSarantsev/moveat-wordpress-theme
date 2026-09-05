@@ -111,7 +111,9 @@ async function handleSubmit(e) {
 
 	const billingAddress = {
 		first_name: firstName,
-		last_name: lastName || "Фамилия не указана",
+		// В скобках: WooCommerce склеивает имя и фамилию в одну строку,
+		// иначе в админке получалось «Иван Фамилия не указана».
+		last_name: lastName || "(фамилия не указана)",
 		email: email,
 		phone: phone,
 		// Если в форме присутствуют реальные поля — используем их, иначе передаём безопасные заглушки

@@ -32,7 +32,9 @@ function moveat_create_donation_order( \WP_REST_Request $request ) {
 	$email           = sanitize_email( (string) ( $body['email'] ?? '' ) );
 	$first_name      = trim( sanitize_text_field( (string) ( $body['first_name'] ?? '' ) ) );
 	$last_name_raw   = trim( sanitize_text_field( (string) ( $body['last_name'] ?? '' ) ) );
-	$last_name       = $last_name_raw !== '' ? $last_name_raw : __( 'Фамилия не указана', 'moveat' );
+	// В скобках: WooCommerce склеивает имя и фамилию в одну строку,
+	// иначе в админке получалось «Иван Фамилия не указана».
+	$last_name       = $last_name_raw !== '' ? $last_name_raw : __( '(фамилия не указана)', 'moveat' );
 	$phone           = trim( sanitize_text_field( (string) ( $body['phone'] ?? '' ) ) );
 	$payment_method  = sanitize_text_field( (string) ( $body['payment_method'] ?? '' ) );
 	$allowed_methods = [ 'ppcp-gateway', 'mono_gateway' ];
