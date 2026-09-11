@@ -360,6 +360,31 @@ function order_header_block( $order ) {
 }
 add_action( 'woocommerce_admin_order_data_after_payment_info', __NAMESPACE__ . '\\order_header_block' );
 
+/**
+ * Ссылка на оплату в колонке «Общие», под основной информацией о заказе.
+ *
+ * Нужна менеджеру, когда клиент потерял письмо или оно не дошло: ссылку
+ * пересылают в мессенджер. Печатается полностью и выделяется по клику —
+ * её копируют, а не открывают.
+ *
+ * Отдельной меты для неё не заводим: ссылка полностью выводится из id и ключа
+ * заказа, так что сохранённая копия могла бы только разойтись с настоящей.
+ */
+function order_pay_link_block( $order ) {
+	$url = pay_url( $order );
+
+	if ( '' === $url ) {
+		return;
+	}
+
+	echo '<p class="form-field form-field-wide moveat-pay-link">';
+	echo '<strong>Ссылка на оплату</strong><br />';
+	echo '<a href="' . esc_url( $url ) . '" target="_blank" rel="noopener" '
+		. 'style="user-select:all;word-break:break-all;">' . esc_html( $url ) . '</a>';
+	echo '</p>'; // phpcs:ignore WordPress.Security.EscapeOutput
+}
+add_action( 'woocommerce_admin_order_data_after_order_details', __NAMESPACE__ . '\\order_pay_link_block' );
+
 /* ------------------------------------------------------------------ */
 /* Колонка «Оплата» в списке заказов                                    */
 /* ------------------------------------------------------------------ */
@@ -553,49 +578,87 @@ function filter_query_legacy( $vars ) {
 }
 add_filter( 'request', __NAMESPACE__ . '\\filter_query_legacy' );
 
-/* ------------------------------------------------------------------ */
-/* Готовые фрагменты для писем администраторам                          */
-/* ------------------------------------------------------------------ */
-
 /**
- * Строка со способом оплаты под номером и датой заказа.
- * Стили подогнаны под соседнюю строку с датой в шаблонах admin-*.
+ * Ссылка на оплату заказа («счёт»), которую менеджер может переслать клиенту.
+ *
+ * Оплата в теме живёт на своей странице /order-pay/, а не на стандартной
+ * странице WooCommerce, поэтому $order->get_checkout_payment_url() тут не
+ * подходит — он ведёт не туда. Формат совпадает с письмами-напоминаниями
+ * (woocommerce/emails/customer-remind-about-payment.php).
+ *
+ * Для оплаченного заказа возвращает '' — платить нечего.
  */
-function email_payment_line( $order ) {
+function pay_url( $order ) {
 	if ( ! is_order( $order ) ) {
 		return '';
 	}
 
+	if ( ! method_exists( $order, 'needs_payment' ) || ! $order->needs_payment() ) {
+		return '';
+	}
+
+	return add_query_arg(
+		array(
+			'order_id'  => $order->get_id(),
+			'order_key' => $order->get_order_key(),
+		),
+		home_url( '/order-pay/' )
+	);
+}
+
+/* ------------------------------------------------------------------ */
+/* Готовые фрагменты для писем администраторам                          */
+/* ------------------------------------------------------------------ */
+
+/** Подпись способа оплаты для письма, с пояснением. */
+function email_payment_label( $order ) {
 	$text = badge_html( $order, 'email' );
 
 	/*
-		Без иконки одна подпись под датой заказа читается непонятно, поэтому
-		добавляем пояснение. Кроме случая, когда подпись уже сама им начинается
-		(cod — «Способ оплаты не выбран»), иначе вышло бы удвоение.
+		Без иконки одна подпись читается непонятно, поэтому добавляем пояснение.
+		Кроме случая, когда подпись уже сама им начинается (cod — «Способ оплаты
+		не выбран»), иначе вышло бы удвоение.
 	*/
 	if ( 0 !== strpos( $text, 'Способ оплаты' ) ) {
 		$text = 'Способ оплаты: ' . $text;
 	}
 
-	return '<p style="margin:5px 0;color:#666;font-size:14px;text-align:center;padding:4px 0;">'
-		. $text
-		. '</p>';
+	return $text;
 }
 
 /**
- * Строка таблицы со ссылкой на заказ в админке — в подвал письма.
- * Возвращает готовый <tr>, чтобы в шаблоне была одна строка вставки.
+ * Служебный блок для писем администраторам: способ оплаты, ссылка на оплату
+ * и ссылка на заказ в админке.
+ *
+ * Ставится в блок с контактами покупателя — менеджер работает с заказом
+ * оттуда: там же имя, телефон и почта, куда эту ссылку и пересылают.
+ *
+ * Ссылка на оплату выводится только для неоплаченного заказа (см. pay_url) и
+ * печатается полностью, а не словом-ссылкой: её копируют в мессенджер, а
+ * почтовые клиенты умеют укорачивать текст ссылки, но не её адрес.
+ *
+ * $with_pay_link = false — для письма-напоминания об оплате: там ссылка уже
+ * стоит в теле письма, это его суть, и вторая была бы дублем.
  */
-function email_admin_link_row( $order ) {
-	$url = admin_order_url( $order );
-
-	if ( '' === $url ) {
+function email_order_meta_block( $order, $with_pay_link = true ) {
+	if ( ! is_order( $order ) ) {
 		return '';
 	}
 
-	return '<tr><td style="padding:10px 20px 0;text-align:center;">'
-		. '<a href="' . esc_url( $url ) . '" '
-		. 'style="display:inline-block;padding:10px 22px;background:#ff7f13;color:#ffffff;'
-		. 'text-decoration:none;border-radius:8px;font-size:14px;font-weight:600;">'
-		. 'Открыть заказ в админке</a></td></tr>';
+	$link_style = 'color:#000;text-decoration:underline;';
+	$rows       = array( email_payment_label( $order ) );
+
+	$pay = $with_pay_link ? pay_url( $order ) : '';
+	if ( '' !== $pay ) {
+		$rows[] = 'Ссылка на оплату: <a href="' . esc_url( $pay ) . '" style="' . $link_style . '">'
+			. esc_html( $pay ) . '</a>';
+	}
+
+	$admin = admin_order_url( $order );
+	if ( '' !== $admin ) {
+		$rows[] = '<a href="' . esc_url( $admin ) . '" style="' . $link_style . '">Открыть заказ в админке</a>';
+	}
+
+	return '<p style="margin:8px 0 0;color:#666;font-size:13px;text-align:center;line-height:1.5;'
+		. 'word-break:break-all;">' . implode( '<br />', $rows ) . '</p>';
 }
