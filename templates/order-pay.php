@@ -25,27 +25,157 @@ $valid     = $order && $order->key_is_valid( $order_key );
 
 // ─── Курс UAH ─────────────────────────────────────────────────────────────────
 
-function moveat_order_pay_get_uah_rate() {
-	if ( class_exists( '\Yay_Currency\Helpers\YayCurrencyHelper' ) ) {
-		$currencies   = \Yay_Currency\Helpers\YayCurrencyHelper::converted_currency();
-		$uah_currency = \Yay_Currency\Helpers\YayCurrencyHelper::get_currency_by_currency_code( 'UAH', $currencies );
-		if ( $uah_currency ) {
-			$rate = \Yay_Currency\Helpers\YayCurrencyHelper::get_rate_fee( $uah_currency );
-			if ( $rate ) {
-				return (float) $rate;
-			}
-		}
-	}
-	return (float) get_option( 'moveat_uah_rate', 0 );
-}
+// moveat_order_pay_get_uah_rate() — в assets/scripts/php/woocommerce/instalments.php
 
 $uah_rate = $valid ? moveat_order_pay_get_uah_rate() : 0;
+
+// Итог в гривнах: доллары на странице только для ориентира, списание всегда в UAH.
+$total_uah = $valid && $uah_rate > 0 ? (float) $order->get_total() * $uah_rate : 0;
+
+// ─── Оплата частями (monobank, плагин CatCode) ───────────────────────────────
+
+// Варианты количества платежей — moveat_order_pay_get_installment_terms() в instalments.php.
+
+// «3 платежа», «5 платежей», «21 платёж».
+function moveat_order_pay_payments_label( $count ) {
+	$mod10  = $count % 10;
+	$mod100 = $count % 100;
+
+	if ( 1 === $mod10 && 11 !== $mod100 ) {
+		$word = 'платёж';
+	} elseif ( $mod10 >= 2 && $mod10 <= 4 && ( $mod100 < 12 || $mod100 > 14 ) ) {
+		$word = 'платежа';
+	} else {
+		$word = 'платежей';
+	}
+
+	return $count . ' ' . $word;
+}
+
+$installment_terms = $total_uah > 0
+	&& function_exists( 'moveat_order_pay_get_installment_terms' )
+	&& moveat_instalments_allowed_for_current_user()
+	? moveat_order_pay_get_installment_terms()
+	: array();
+$mono_logo         = $theme_uri . '/assets/images/logotypes/mono.webp';
+
+// TODO: временная диагностика оплаты частями — удалить после проверки.
+?>
+<!-- parts-debug:
+	user_id=<?php echo (int) get_current_user_id(); ?>
+	allowed=<?php echo function_exists( 'moveat_instalments_allowed_for_current_user' ) && moveat_instalments_allowed_for_current_user() ? 'yes' : 'no'; ?>
+	total_uah=<?php echo esc_html( $total_uah ); ?>
+	terms=<?php echo esc_html( function_exists( 'moveat_order_pay_get_installment_terms' ) ? implode( ',', moveat_order_pay_get_installment_terms() ) : 'no-function' ); ?>
+	time=<?php echo esc_html( gmdate( 'H:i:s' ) ); ?>
+-->
+<?php
 
 // Для отображения в USD используем минимум 2 десятичных знака
 $display_decimals = max(2, (int) wc_get_price_decimals());
 ?>
 
 <main class="payment-page">
+	<?php if ( $installment_terms ) : ?>
+	<!-- Состояния оплаты частями: ожидание / ошибка / успех.
+	     Видна одна модалка — та, что задана в data-checkout-state.
+	     Весь блок скрыт, пока оплату не запустили. Управляет payment-process.js. -->
+	<div
+		class="payment-page__checkout payment-page-checkout"
+		data-checkout
+		data-checkout-state="waiting"
+		hidden
+	>
+		<div class="payment-page-checkout__overlay" data-checkout-overlay></div>
+		<div class="payment-page-checkout__wrapper">
+
+			<!-- Ожидание подтверждения в приложении банка: закрыть нельзя -->
+			<div
+				class="payment-page-checkout__waiting-modal payment-page-checkout__modal"
+				role="status"
+				aria-live="polite"
+				data-checkout-modal="waiting"
+			>
+				<div class="payment-page-checkout__spinner" aria-hidden="true"></div>
+				<h3 class="payment-page-checkout__title">Ожидаем подтверждение оплаты</h3>
+				<p class="payment-page-checkout__text">
+					Запрос отправлен в банк. Воспользуйтесь приложением Monobank для завершения оплаты
+				</p>
+				<div class="payment-page-checkout__meta">
+					<div class="payment-page-checkout__meta-row">
+						<span class="payment-page-checkout__meta-label">Сумма</span>
+						<span class="payment-page-checkout__meta-value" data-checkout-amount><?php echo esc_html( number_format( $total_uah, 0, '.', ' ' ) ); ?> грн</span>
+					</div>
+					<div class="payment-page-checkout__meta-row">
+						<span class="payment-page-checkout__meta-label">Способ оплаты</span>
+						<span class="payment-page-checkout__meta-value" data-checkout-method>Оплата частями · Monobank</span>
+					</div>
+				</div>
+				<p class="payment-page-checkout__note">
+					Не закрывайте страницу — после подтверждения в приложении мы перенаправим вас автоматически. На подтверждение есть 15 минут.
+				</p>
+			</div>
+
+			<!-- Платёж не прошёл: даём повторить или сменить способ -->
+			<div
+				class="payment-page-checkout__error-modal payment-page-checkout__modal"
+				role="alertdialog"
+				aria-labelledby="checkoutErrorTitle"
+				aria-describedby="checkoutErrorText"
+				data-checkout-modal="error"
+			>
+				<button type="button" class="payment-page-checkout__close" aria-label="Закрыть" data-checkout-close>&times;</button>
+				<div class="payment-page-checkout__icon payment-page-checkout__icon--error" aria-hidden="true">
+					<img src="<?php echo esc_url( $theme_uri . '/assets/images/icons/error.png' ); ?>" alt="">
+				</div>
+				<h3 class="payment-page-checkout__title" id="checkoutErrorTitle">Платёж не прошёл</h3>
+				<p class="payment-page-checkout__text" id="checkoutErrorText">
+					Банк отклонил операцию или истекло время ожидания. Деньги не списаны — попробуйте оплатить ещё раз или выберите другой способ.
+				</p>
+				<p class="payment-page-checkout__error-code" data-checkout-error-code-row>
+					Код ошибки:
+					<span data-checkout-error-code>—</span>
+				</p>
+				<div class="payment-page-checkout__actions">
+					<button type="button" class="primary-button payment-page-checkout__action" data-checkout-retry>
+						Попробовать снова
+					</button>
+					<!-- Дублирует крестик: закрывает окно и возвращает к выбору способа оплаты -->
+					<button type="button" class="payment-page-checkout__ghost-button" data-checkout-close>
+						Закрыть
+					</button>
+				</div>
+				<p class="payment-page-checkout__note">
+					После закрытия окна вы вернётесь к оформлению — можно повторить оплату или выбрать другой способ.
+				</p>
+				<div class="payment-page-checkout__support">
+					<span class="payment-page-checkout__support-text">Не получается оплатить? Напишите нам:</span>
+					<div class="payment-page__info-messengers">
+						<?php get_template_part( 'template-parts/socials' ); ?>
+					</div>
+				</div>
+			</div>
+
+			<!-- Оплата прошла: подтверждение, затем JS переводит на «Спасибо» -->
+			<div
+				class="payment-page-checkout__success-modal payment-page-checkout__modal"
+				role="alertdialog"
+				aria-labelledby="checkoutSuccessTitle"
+				aria-describedby="checkoutSuccessText"
+				data-checkout-modal="success"
+			>
+				<div class="payment-page-checkout__icon payment-page-checkout__icon--success" aria-hidden="true">
+					<img src="<?php echo esc_url( $theme_uri . '/assets/images/icons/check.png' ); ?>" alt="">
+				</div>
+				<h3 class="payment-page-checkout__title" id="checkoutSuccessTitle">Оплата прошла успешно</h3>
+				<p class="payment-page-checkout__text" id="checkoutSuccessText">
+					Спасибо! Мы получили платёж и отправили письмо с доступом к материалам на вашу почту.
+				</p>
+			</div>
+
+		</div>
+	</div>
+	<?php endif; ?>
+
 	<div class="payment-page__container max-width-limiter">
 
 		<!-- Two-column grid -->
@@ -106,6 +236,52 @@ $display_decimals = max(2, (int) wc_get_price_decimals());
 									<img class="payment-page__method-icon" src="<?php echo esc_url( $mastercard_logo ); ?>" alt="Mastercard">
 								</div>
 							</button>
+
+							<?php if ( $installment_terms ) : ?>
+							<!-- Оплата частями monobank.
+							     Выбор срока живёт внутри этой же кнопки: чипсы — span, а не button
+							     (кнопка в кнопке — невалидная разметка), клик по ним ловит JS. -->
+							<button
+								type="button"
+								class="payment-page__method-button payment-page__method-button--installments pay-parts"
+								data-method="parts"
+								data-installments
+								aria-pressed="false"
+								aria-expanded="false"
+							>
+								<span class="payment-page__method-row pb">
+									<span class="payment-page__method-left">
+										<span class="payment-page__method-radio" aria-hidden="true"></span>
+										<span class="payment-page__method-text">
+											<span class="payment-page__method-name">Оплата частями</span>
+											<span class="payment-page__method-description">Monobank</span>
+										</span>
+									</span>
+									<span class="payment-page__method-icons">
+										<img class="payment-page__method-icon" src="<?php echo esc_url( $mono_logo ); ?>" alt="Monobank">
+									</span>
+								</span>
+
+								<span class="payment-page__method-terms" role="radiogroup" aria-label="Количество платежей" hidden>
+									<?php foreach ( $installment_terms as $index => $months ) : ?>
+										<?php $is_default = 0 === $index; ?>
+										<span
+											class="payment-page__term<?php echo $is_default ? ' is-active' : ''; ?>"
+											role="radio"
+											aria-checked="<?php echo $is_default ? 'true' : 'false'; ?>"
+											data-installment-term="<?php echo esc_attr( $months ); ?>"
+										>
+											<span class="payment-page__term-count"><?php echo esc_html( moveat_order_pay_payments_label( $months ) ); ?></span>
+											<span class="payment-page__term-payment" data-installment-payment><?php echo esc_html( number_format( $total_uah / $months, 0, '.', ' ' ) ); ?> грн/мес</span>
+										</span>
+									<?php endforeach; ?>
+								</span>
+
+								<span class="payment-page__method-terms-note" hidden>
+									Оплата равными частями без переплаты — комиссию берём на себя
+								</span>
+							</button>
+							<?php endif; ?>
 
 						</div>
 					</div>
@@ -195,7 +371,6 @@ $display_decimals = max(2, (int) wc_get_price_decimals());
 						<?php if ( $valid ) : ?>
 							<?php
 							$total_usd    = (float) $order->get_total();
-							$total_uah    = $uah_rate > 0 ? $total_usd * $uah_rate : 0;
 							$subtotal_usd = (float) $order->get_subtotal();
 							$has_discount = $subtotal_usd > $total_usd;
 

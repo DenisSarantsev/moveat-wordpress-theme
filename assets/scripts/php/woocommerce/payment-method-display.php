@@ -51,6 +51,11 @@ function registry() {
 			'label' => 'Банковская карта',
 			'icon'  => 'icons/colored/credit-card.png',
 		),
+		// Оплата частями monobank, плагин CatCode (instalments.php).
+		'cc_payparts'  => array(
+			'label' => 'Оплата частями',
+			'icon'  => 'icons/colored/diagram.png',
+		),
 		// WooCommerce PayPal Payments.
 		'ppcp-gateway' => array(
 			'label' => 'PayPal',

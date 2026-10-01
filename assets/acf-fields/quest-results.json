@@ -6870,6 +6870,109 @@
                 "ui": 1,
                 "ui_on_text": "Да",
                 "ui_off_text": "Нет"
+            },
+            {
+                "key": "field_tab_gift_banner",
+                "label": "Баннер с подарком",
+                "name": "",
+                "aria-label": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0,
+                "selected": 0
+            },
+            {
+                "key": "field_gift_banner_image",
+                "label": "Картинка баннера",
+                "name": "gift_banner_image",
+                "aria-label": "",
+                "type": "image",
+                "instructions": "Показывается размером около 96×96 px. Если ничего не выбрать — выводится стандартная картинка с подарком.",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "",
+                "preview_size": "medium"
+            },
+            {
+                "key": "field_gift_banner_title",
+                "label": "Заголовок баннера",
+                "name": "gift_banner_title",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "Если оставить пустым — заголовок не выводится.",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Заберите подарок за прохождение теста",
+                "maxlength": "",
+                "placeholder": "Заголовок",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_gift_banner_desc",
+                "label": "Описание баннера",
+                "name": "gift_banner_desc",
+                "aria-label": "",
+                "type": "textarea",
+                "instructions": "Если оставить пустым — описание не выводится.",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Пришлём подробный разбор ваших показателей и подборку блюд, которые проще всего встроить в привычный рацион. Выберите удобный мессенджер — и подарок будет у вас.",
+                "placeholder": "Краткий текст",
+                "new_lines": "",
+                "maxlength": "",
+                "rows": ""
+            },
+            {
+                "key": "field_gift_banner_button",
+                "label": "Надпись на кнопке",
+                "name": "gift_banner_button",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "Кнопка открывает то же модальное окно с подарком. Если оставить пустым — на кнопке будет надпись «Забрать подарок».",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Забрать подарок",
+                "maxlength": "",
+                "placeholder": "Забрать подарок",
+                "prepend": "",
+                "append": ""
             }
         ],
         "location": [
@@ -6877,14 +6980,14 @@
                 {
                     "param": "page_template",
                     "operator": "==",
-                    "value": "templates\/questionnaire-results.php"
+                    "value": "templates/questionnaire-results.php"
                 }
             ],
             [
                 {
                     "param": "page_template",
                     "operator": "==",
-                    "value": "templates\/questionnaire-results-with-modal.php"
+                    "value": "templates/questionnaire-results-with-modal.php"
                 }
             ]
         ],

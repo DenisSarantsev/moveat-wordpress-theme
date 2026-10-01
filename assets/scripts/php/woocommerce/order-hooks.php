@@ -340,7 +340,7 @@ add_filter( 'woocommerce_get_return_url', function( $return_url, $order ) {
 		return $return_url;
 	}
 
-	$success_slugs = array( 'ppcp-gateway', 'paypal', 'mono_gateway' );
+	$success_slugs = array( 'ppcp-gateway', 'paypal', 'mono_gateway', 'cc_payparts' );
 
 	// Если метод оплаты не в списке — оставляем исходный URL
 	if ( ! in_array( $order->get_payment_method(), $success_slugs, true ) ) {

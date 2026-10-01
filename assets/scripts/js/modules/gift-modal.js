@@ -1,6 +1,6 @@
 /**
- * Модалка с подарком на странице результатов опроса
- * (шаблон templates/questionnaire-results-with-modal.php).
+ * Модалка с подарком на странице результатов
+ * (questionnaire-results-with-modal.html).
  *
  * Показывается сама при входе на страницу и перекрывает результаты, пока
  * пользователь её не закроет: крестиком, кнопкой «Перейти к результатам»,
@@ -8,8 +8,8 @@
  * ссылка открывается в отдельной вкладке, а под ней человек сразу видит
  * результаты.
  *
- * Файл не входит в общие бандлы темы: подключается через wp_enqueue_script
- * прямо из шаблона, поэтому грузится только на этой странице.
+ * Файл намеренно не входит в сборку: подключается к странице напрямую тегом
+ * <script> и не тянется в общий бандл сайта.
  */
 (function (global) {
 	"use strict";
@@ -90,6 +90,18 @@
 			link.addEventListener("click", function () {
 				window.setTimeout(close, 150);
 			});
+		});
+
+		// Кнопки баннеров с подарком открывают ту же модалку. Слушатель вешаем
+		// на документ, а не на сами кнопки: баннеры подставляются в страницу
+		// асинхронно (data-include), и к этому моменту их в DOM ещё нет
+		document.addEventListener("click", function (event) {
+			var trigger = event.target.closest
+				? event.target.closest("[data-gift-modal-open]")
+				: null;
+			if (!trigger) return;
+			event.preventDefault();
+			open();
 		});
 
 		document.addEventListener("keydown", function (event) {

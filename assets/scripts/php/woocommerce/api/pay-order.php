@@ -15,6 +15,7 @@ const REUSE_TTL = 20 * HOUR_IN_SECONDS;
 const META_PAY_URL     = '_moveat_pay_url';
 const META_PAY_URL_AT  = '_moveat_pay_url_at';
 const META_PAY_INVOICE = '_moveat_pay_invoice';
+const META_PAY_METHOD  = '_moveat_pay_method';
 
 add_action('rest_api_init', function () {
 	register_rest_route(
@@ -32,8 +33,20 @@ add_action('rest_api_init', function () {
  * Возвращает сохранённую ссылку на оплату, если она ещё «свежая»
  * (инвойс с большой вероятностью жив). Иначе null.
  */
-function get_reusable_pay_url($order)
+function get_reusable_pay_url($order, $payment_method)
 {
+	// Ссылка одного способа не годится другому (инвойс карты ≠ PayPal), а у
+	// оплаты частями ссылки нет вовсе — каждая попытка создаёт новую заявку.
+	if ($payment_method === MOVEAT_INSTALMENTS_GATEWAY) {
+		return null;
+	}
+
+	// Пустой метод — ссылка сохранена до появления этой меты: ведём себя как раньше.
+	$saved_method = (string) $order->get_meta(META_PAY_METHOD);
+	if ($saved_method !== '' && $saved_method !== $payment_method) {
+		return null;
+	}
+
 	$url = $order->get_meta(META_PAY_URL);
 	$at  = (int) $order->get_meta(META_PAY_URL_AT);
 
@@ -51,7 +64,7 @@ function get_reusable_pay_url($order)
 /**
  * Сохраняет данные созданного инвойса на заказ для последующего переиспользования.
  */
-function store_pay_url($order_id, $payment_url)
+function store_pay_url($order_id, $payment_url, $payment_method)
 {
 	$order = wc_get_order($order_id);
 	if (!$order) {
@@ -60,6 +73,7 @@ function store_pay_url($order_id, $payment_url)
 	$order->update_meta_data(META_PAY_URL, $payment_url);
 	$order->update_meta_data(META_PAY_URL_AT, time());
 	$order->update_meta_data(META_PAY_INVOICE, $order->get_transaction_id());
+	$order->update_meta_data(META_PAY_METHOD, $payment_method);
 	$order->save();
 }
 
@@ -152,7 +166,7 @@ function pay_order(\WP_REST_Request $request)
 	// -----------------------------
 	// 4. Идемпотентность: есть свежий инвойс → переиспользуем ссылку
 	// -----------------------------
-	$reuse_url = get_reusable_pay_url($order);
+	$reuse_url = get_reusable_pay_url($order, $payment_method);
 	if ($reuse_url) {
 		return new \WP_REST_Response([
 			'order_id'    => $order_id,
@@ -173,7 +187,7 @@ function pay_order(\WP_REST_Request $request)
 			usleep(500000); // 0.5 c
 			$fresh = wc_get_order($order_id);
 			if ($fresh) {
-				$reuse_url = get_reusable_pay_url($fresh);
+				$reuse_url = get_reusable_pay_url($fresh, $payment_method);
 				if ($reuse_url) {
 					return new \WP_REST_Response([
 						'order_id'    => $order_id,
@@ -206,6 +220,13 @@ function pay_order(\WP_REST_Request $request)
 					error_log('[moveat pay-order] session init error: ' . $e->getMessage());
 				}
 			}
+		}
+
+		// -----------------------------
+		// 6.5. Оплата частями: заявка в monobank, ссылки нет — фронт ждёт ответа банка
+		// -----------------------------
+		if ($payment_method === MOVEAT_INSTALMENTS_GATEWAY) {
+			return start_instalments($order, $body);
 		}
 
 		// -----------------------------
@@ -251,7 +272,7 @@ function pay_order(\WP_REST_Request $request)
 
 		// Сохраняем ссылку/инвойс для идемпотентности будущих вызовов.
 		if (!empty($payment_url)) {
-			store_pay_url($order_id, $payment_url);
+			store_pay_url($order_id, $payment_url, $payment_method);
 		}
 	} finally {
 		delete_transient($lock_key);
@@ -264,4 +285,73 @@ function pay_order(\WP_REST_Request $request)
 		'order_id'    => $order_id,
 		'payment_url' => $payment_url,
 	], 200);
+}
+
+/**
+ * Создаёт заявку «Покупка частинами» через плагин CatCode.
+ *
+ * Плагин читает банк и срок из $_POST (так их шлёт форма чекаута), телефон —
+ * из billing phone заказа. Сумму берёт из заказа, поэтому на время вызова
+ * отдаём её в гривнах (см. moveat_instalments_with_uah_amounts).
+ *
+ * Ответ: { wait: true, poll_url } — фронт открывает экран ожидания и
+ * опрашивает poll_url; либо 400 { error } с текстом от банка/плагина.
+ */
+function start_instalments(\WC_Order $order, array $body)
+{
+	$gateway = moveat_instalments_gateway();
+	$rate    = moveat_order_pay_get_uah_rate();
+
+	if (!moveat_instalments_allowed_for_current_user()) {
+		return new \WP_REST_Response([
+			'error' => 'Оплата частями недоступна. Выберите другой способ оплаты.',
+		], 403);
+	}
+
+	if (!$gateway || $rate <= 0) {
+		return new \WP_REST_Response([
+			'error' => 'Оплата частями сейчас недоступна. Выберите другой способ оплаты.',
+		], 400);
+	}
+
+	$_POST['cciw_bank']       = 'mono';
+	$_POST['cciw_parts_mono'] = (string) absint($body['instalments']['parts'] ?? 0);
+
+	if (function_exists('wc_clear_notices')) {
+		wc_clear_notices();
+	}
+
+	try {
+		$result = moveat_instalments_with_uah_amounts($rate, function () use ($gateway, $order) {
+			return $gateway->process_payment($order->get_id());
+		});
+	} catch (\Throwable $e) {
+		error_log('[moveat pay-order] instalments error: ' . $e->getMessage());
+		$result = null;
+	}
+
+	error_log('[moveat pay-order] instalments result: ' . wp_json_encode($result));
+
+	if (is_array($result) && ($result['result'] ?? '') === 'success') {
+		return new \WP_REST_Response([
+			'order_id' => $order->get_id(),
+			'wait'     => true,
+			'poll_url' => moveat_instalments_poll_url($order),
+		], 200);
+	}
+
+	// Причину отказа плагин кладёт в notices WooCommerce.
+	$message = '';
+	if (function_exists('wc_get_notices')) {
+		$notices = wc_get_notices('error');
+		if (!empty($notices)) {
+			$first   = reset($notices);
+			$message = wp_strip_all_tags(is_array($first) ? ($first['notice'] ?? '') : (string) $first);
+		}
+		wc_clear_notices();
+	}
+
+	return new \WP_REST_Response([
+		'error' => $message ?: 'Не удалось отправить заявку в monobank. Попробуйте ещё раз или выберите другой способ оплаты.',
+	], 400);
 }
