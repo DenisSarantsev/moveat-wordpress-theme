@@ -14,6 +14,8 @@ require_once __DIR__ . '/articles/post-type.php';
 require_once __DIR__ . '/banners/post-type.php';
 // Шорткоды баннеров (шаблоны в templates/banners).
 require_once __DIR__ . '/banners/shortcodes.php';
+// Словари переводов (assets/dictionaries) и определение текущего языка.
+require_once __DIR__ . '/main/dictionaries.php';
 // Регистрирует меню и настройки навигации темы.
 require_once __DIR__ . '/main/menu.php';
 // Подключает поддержку и вывод логотипа сайта.
@@ -35,6 +37,8 @@ require_once __DIR__ . '/questionnaire/results-email.php';
 // -------------- Tallanto CRM
 // Общий клиент Tallanto (подпись/отправка/лог) — переиспользуется любыми синхронизациями.
 require_once __DIR__ . '/tallanto/client.php';
+// Передача результатов опросника в CRM (к WooCommerce не привязана).
+require_once __DIR__ . '/tallanto/questionnaire-sync.php';
 
 // -------------- WooCommerce modules
 // Передает конфиг Woo Store API на фронтенд (baseUrl и nonce).
@@ -44,6 +48,10 @@ if ( class_exists( 'WooCommerce' ) ) {
 	require_once __DIR__ . '/woocommerce/product-card/setup.php';
 	// Способ оплаты: читаемая подпись с иконкой в админке, колонка, фильтр, письма.
 	require_once __DIR__ . '/woocommerce/payment-method-display.php';
+	// Оплата частями monobank (плагин CatCode): курс UAH, сроки, подмена суммы заявки.
+	require_once __DIR__ . '/woocommerce/instalments.php';
+	// Автоподтверждение выдачи в monobank после оплаты частями (во Free-версии плагин этого не делает).
+	require_once __DIR__ . '/woocommerce/instalments-confirm.php';
 	// Подключает серверный API-слой WooCommerce и маршруты.
 	require_once __DIR__ . '/woocommerce/api/setup.php';
 	// Хуки для управления статусами заказов и редиректами после оплаты.

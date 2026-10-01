@@ -14,6 +14,9 @@
 
 	var NEXT_LABEL_FALLBACK = "Продолжить";
 	var FINISH_LABEL_FALLBACK = "Узнать результат";
+	// Подписи и счётчик приходят из разметки (шаблон берёт их из словаря
+	// языка), а эти значения — страховка на случай пустых data-атрибутов
+	var COUNTER_FALLBACK = "Вопрос {current} из {total}";
 	var DEFAULT_RESULT_URL = "questionnaire-results.html";
 	// Столько же длится закрытие модалки в CSS (--modal-out)
 	var CLOSE_ANIMATION_MS = 260;
@@ -93,6 +96,8 @@
 			(nextBtn && nextBtn.dataset.labelNext) || NEXT_LABEL_FALLBACK;
 		var labelFinish =
 			(nextBtn && nextBtn.dataset.labelFinish) || FINISH_LABEL_FALLBACK;
+		var counterFormat =
+			(counter && counter.dataset.counterFormat) || COUNTER_FALLBACK;
 
 		var current = 0;
 
@@ -175,7 +180,9 @@
 			if (fill) fill.style.width = ratio + "%";
 			if (percent) percent.textContent = ratio + "%";
 			if (counter) {
-				counter.textContent = "Вопрос " + (current + 1) + " из " + total;
+				counter.textContent = counterFormat
+					.replace("{current}", String(current + 1))
+					.replace("{total}", String(total));
 			}
 			if (progress) progress.setAttribute("aria-valuenow", String(ratio));
 

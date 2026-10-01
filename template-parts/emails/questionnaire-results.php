@@ -10,6 +10,8 @@
 	$email_blocks  — массив блоков (title, description, text, links, scale)
 	$email_page_id — ID страницы результатов
 	$email_bar     — ширина цветной полосы шкалы, px
+	$email_strings — строки письма на нужном языке (секция strings словаря
+	                 assets/dictionaries/emails/questionnaire-results)
 
 	Вёрстка таблицами с inline-стилями: почтовые клиенты не понимают ни flex,
 	ни position, а Outlook вдобавок теряет проценты во вложенных таблицах —
@@ -22,11 +24,17 @@ if ( empty( $email_blocks ) ) {
 	return;
 }
 
-$bar_width = isset( $email_bar ) ? (int) $email_bar : 520;
+$bar_width     = isset( $email_bar ) ? (int) $email_bar : 520;
+$email_strings = isset( $email_strings ) && is_array( $email_strings ) ? $email_strings : array();
 
 // Три равные зоны шкалы — как на странице результатов
 $segment       = (int) round( $bar_width / 3 );
 $segment_last  = $bar_width - $segment * 2;
+
+// Строки письма: язык уже выбран модулем, здесь только достаём по ключу
+$email_text = function ( $key ) use ( $email_strings ) {
+	return isset( $email_strings[ $key ] ) ? (string) $email_strings[ $key ] : '';
+};
 
 $marker_width = 44;
 $icon_url     = get_template_directory_uri() . '/assets/images/icons/3d/info.png';
@@ -42,11 +50,10 @@ $site_url     = home_url( '/' );
 				<img src="<?php echo esc_url( $icon_url ); ?>" width="70" alt=""
 					style="display:block;border:0;margin:0 auto 20px auto;" />
 				<h1 style="margin:0 0 12px 0;font-size:24px;line-height:1.3;color:#111111;font-weight:700;">
-					Ваши результаты по 8 индикаторам здоровья
+					<?php echo esc_html( $email_text( 'intro_title' ) ); ?>
 				</h1>
 				<p style="margin:0;font-size:15px;line-height:1.5;color:#5f6368;">
-					Сравнили содержимое вашей тарелки с самочувствием — и собрали выводы,
-					которые можно проверить и изменить уже сейчас.
+					<?php echo esc_html( $email_text( 'intro_subtitle' ) ); ?>
 				</p>
 			</td>
 		</tr>
@@ -70,11 +77,10 @@ $site_url     = home_url( '/' );
 					<td style="padding:34px 30px 0 30px;">
 						<div style="border-top:1px solid #e8e8e8;padding-top:28px;">
 							<h2 style="margin:0 0 8px 0;font-size:20px;line-height:1.3;color:#111111;">
-								Результаты
+								<?php echo esc_html( $email_text( 'section_title' ) ); ?>
 							</h2>
 							<p style="margin:0;font-size:14px;line-height:1.5;color:#5f6368;">
-								Подробнее о том, какие нарушения питания и состояния здоровья
-								мы можем заподозрить после анализа ваших ответов.
+								<?php echo esc_html( $email_text( 'section_subtitle' ) ); ?>
 							</p>
 						</div>
 					</td>
@@ -145,10 +151,10 @@ $site_url     = home_url( '/' );
 							style="border-collapse:collapse;">
 							<tr>
 								<td align="left" style="font-size:12px;line-height:1.3;color:#8a8a8a;">
-									0 &middot; Низкий
+									0 &middot; <?php echo esc_html( $email_text( 'scale_low' ) ); ?>
 								</td>
 								<td align="right" style="font-size:12px;line-height:1.3;color:#8a8a8a;">
-									Высокий &middot; <?php echo esc_html( $scale['max'] ); ?>
+									<?php echo esc_html( $email_text( 'scale_high' ) ); ?> &middot; <?php echo esc_html( $scale['max'] ); ?>
 								</td>
 							</tr>
 						</table>
@@ -185,14 +191,14 @@ $site_url     = home_url( '/' );
 			<td align="center" style="padding:30px 30px 0 30px;">
 				<div style="border-top:1px solid #e8e8e8;padding-top:24px;">
 					<p style="margin:0 0 14px 0;font-size:14px;line-height:1.5;color:#333333;">
-						Остались вопросы по результатам? Напишите нам на
+						<?php echo esc_html( $email_text( 'footer_contact_before' ) ); ?>
 						<a href="mailto:moveat.expert@gmail.com"
 							style="color:#ff7f13;text-decoration:underline;font-weight:600;">moveat.expert@gmail.com</a>
-						или в мессенджеры — разберём вашу ситуацию подробнее.
+						<?php echo esc_html( $email_text( 'footer_contact_after' ) ); ?>
 					</p>
 					<a href="<?php echo esc_url( $site_url ); ?>"
 						style="color:#ff7f13;text-decoration:underline;font-size:14px;font-weight:600;">
-						Перейти на сайт Moveat
+						<?php echo esc_html( $email_text( 'footer_site_link' ) ); ?>
 					</a>
 				</div>
 			</td>
@@ -200,7 +206,7 @@ $site_url     = home_url( '/' );
 		<tr>
 			<td align="center" style="padding:20px 30px 30px 30px;font-size:12px;line-height:1.4;color:#999999;">
 				Moveat Expert<br />
-				Письмо отправлено, потому что вы прошли опросник о качестве питания.
+				<?php echo esc_html( $email_text( 'footer_note' ) ); ?>
 			</td>
 		</tr>
 	</table>

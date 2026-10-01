@@ -4,678 +4,24 @@
  	Template Post Type: post, page
  	Description: Шаблон страницы результатов опроса через чат-бот
 */
-get_header(); ?>
-<script>
-	// Определяем высоту хедера
-	document.addEventListener("DOMContentLoaded", () => {
-		const headerHeight = document.querySelector("header").clientHeight;
-		const screenHeight = document.documentElement.clientHeight;
-		const mainBlock = document.querySelector(".questresult__title-block");
-		const mainBlockHeight = screenHeight - headerHeight + 10;
-		mainBlock.style.height = `${mainBlockHeight}px`;
-	})
-</script>
+	// Тексты вёрстки — в словарях assets/dictionaries/templates/questionnaire-results.
+	// Содержание результатов приходит из ACF-полей страницы, их переводят
+	// в админке: у каждой языковой версии страницы свои значения.
+	$results_dict = moveat_dictionary( 'templates/questionnaire-results' );
 
-<main class="questresult">
-	<div class="questresult__container">
-		<div class="questresult__title-block">
-			<div class="questresult__bg-container"></div>
-			<img src="<?php echo get_template_directory_uri() ?>/assets/images/trees.webp" alt="" class="questresult__bg-image">
-			<h1 class="questresult__title">
-				Ваши результаты по 8 главным индикаторам здоровья готовы!
-			</h1>
-			<div class="questresult__subtitle">
-				Спасибо за ваши ответы. Прежде, чем вы увидите ваши результаты, мы хотим настроить вас на серьёзный лад. Несмотря на кажущуюся простоту вопросов, сравнение содержимого вашей тарелки и состояния организма позволяет сделать достаточно обоснованные выводы о том, как ваше питание влияет на ваши моложавость, здоровье и энергичность.
-			</div>
-			<button class="questresult__button primary-button">
-				Узнать результаты
-			</button>
-		</div>
-		<div class="questresult__conclusions conclusions">
-			<h2 class="conclusions__title">
-				Общие выводы
-			</h2>
-			<div class="conclusions__subtitle average-text-container">
-					<?php the_field('general-conclusions-text1') ?>
-					<?php 
-						for ($__i = 1; $__i <= 5; $__i++) {
-							$g_link = get_field("general-conclusions-link-1_{$__i}");
-							$g_text = get_field("general-conclusions-text-1_{$__i}");
-							if ( ! empty( $g_link ) && ! empty( $g_text ) ) {
-								echo '<a href="' . esc_url( $g_link ) . '" class="main-graphic__post-link">' . esc_html( $g_text ) . '</a>';
-							}
-						}
-					?>
-			</div>
-			<div class="conclusions__subtitle average-text-container">
-					<?php the_field('general-conclusions-text2') ?>
-					<?php 
-						for ($__i = 1; $__i <= 5; $__i++) {
-							$g_link = get_field("general-conclusions-link-2_{$__i}");
-							$g_text = get_field("general-conclusions-text-2_{$__i}");
-							if ( ! empty( $g_link ) && ! empty( $g_text ) ) {
-								echo '<a href="' . esc_url( $g_link ) . '" class="main-graphic__post-link">' . esc_html( $g_text ) . '</a>';
-							}
-						}
-					?>
-			</div>		
-			<div class="conclusions__subtitle average-text-container">
-					<?php the_field('general-conclusions-text3') ?>
-					<?php 
-						for ($__i = 1; $__i <= 5; $__i++) {
-							$g_link = get_field("general-conclusions-link-3_{$__i}");
-							$g_text = get_field("general-conclusions-text-3_{$__i}");
-							if ( ! empty( $g_link ) && ! empty( $g_text ) ) {
-								echo '<a href="' . esc_url( $g_link ) . '" class="main-graphic__post-link">' . esc_html( $g_text ) . '</a>';
-							}
-						}
-					?>
-			</div>	
-		</div>
-		<div class="questresult__graphics graphics graphics--modern">
-			<div class="graphics__title">
-				Результаты
-			</div>
-			<div class="graphics__subtitle">
-				А теперь мы подробнее расскажем о том, какие нарушения питания и состояния здоровья мы можем заподозрить после анализа ваших ответов
-			</div>
+	// Короткая обёртка: строка из словаря для текущего языка
+	$results_text = function ( $key ) use ( $results_dict ) {
+		return moveat_dictionary_text( $results_dict, $key );
+	};
 
-<!--  ------------------------  -->
+	// Заголовки блоков с графиками; ключ — префикс ACF-полей блока
+	$results_category = function ( $key ) use ( $results_dict ) {
+		return isset( $results_dict['categories'][ $key ] ) ? (string) $results_dict['categories'][ $key ] : '';
+	};
 
-<div class="graphics__main-graphic graphics__content main-graphic">
-	<h3 class="main-graphic__title">
-		Риск метаболического расстройства
-	</h3>
-	<?php
-		$__desc = get_field('metabolic-disorder-description');
-		if ( trim( $__desc ) !== '' ) {
-			echo '<div class="main-graphic__description">' . apply_filters('the_content', $__desc) . '</div>';
-		}
-	?>
-	<div class="main-graphic__graphic graphic graphic--modern">
-		<div class="graphic__container">
-			<div class="graphic__actual-number-container metab-syndrome-scale">
-				<div class="graphic__point-container">
-					<div class="graphic__actual-number">4</div>
-					<div class="graphic__triangle"></div>
-				</div>
-			</div>
-			<div class="graphic__progress progress">
-				<div class="progress__min">0</div>
-				<div class="grayback progress-green"></div>
-				<div class="strips progress-yellow"></div>
-				<div class="progress-red"></div>
-				<div class="progress__max">6.1</div>
-			</div>
-			<div class="graphic__low-high">
-				<div class="graphic__low">Низкий</div>
-				<div class="graphic__high">Высокий</div>
-			</div>
-		</div>
-	</div>
-	<div class="main-graphic__result-description metab-text-container">
-		<?php the_field("metabolic-disorder-text1") ?>
-		<?php 
-			for ($__i = 1; $__i <= 5; $__i++) {
-				$m_link = get_field("metabolic-disorder-link-1_{$__i}");
-				$m_text = get_field("metabolic-disorder-text-1_{$__i}");
-				if ( ! empty( $m_link ) && ! empty( $m_text ) ) {
-					echo '<a href="' . esc_url( $m_link ) . '" class="main-graphic__post-link">' . esc_html( $m_text ) . '</a>';
-				}
-			}
-		?>
-	</div>
-	<div class="main-graphic__result-description metab-text-container ">
-		<?php the_field("metabolic-disorder-text2") ?>
-		<?php 
-			for ($__i = 1; $__i <= 5; $__i++) {
-				$m_link = get_field("metabolic-disorder-link-2_{$__i}");
-				$m_text = get_field("metabolic-disorder-text-2_{$__i}");
-				if ( ! empty( $m_link ) && ! empty( $m_text ) ) {
-					echo '<a href="' . esc_url( $m_link ) . '" class="main-graphic__post-link">' . esc_html( $m_text ) . '</a>';
-				}
-			}
-		?>
-	</div>
-	<div class="main-graphic__result-description metab-text-container ">
-		<?php the_field("metabolic-disorder-text3") ?>
-		<?php 
-			for ($__i = 1; $__i <= 5; $__i++) {
-				$m_link = get_field("metabolic-disorder-link-3_{$__i}");
-				$m_text = get_field("metabolic-disorder-text-3_{$__i}");
-				if ( ! empty( $m_link ) && ! empty( $m_text ) ) {
-					echo '<a href="' . esc_url( $m_link ) . '" class="main-graphic__post-link">' . esc_html( $m_text ) . '</a>';
-				}
-			}
-		?>
-	</div>
-
-</div>
-
-<!--  ------------------------  -->
-
-<div class="graphics__main-graphic graphics__content main-graphic">
-				<h3 class="main-graphic__title">
-					Системное воспаление
-				</h3>
-			<?php
-				$__desc = get_field('systemic-inflammation-description');
-				if ( trim( $__desc ) !== '' ) {
-					echo '<div class="main-graphic__description">' . apply_filters('the_content', $__desc) . '</div>';
-				}
-			?>
-				<div class="main-graphic__graphic graphic graphic--modern">
-				<div class="graphic__container">
-						<div class="graphic__actual-number-container system-inflammation-scale">
-							<div class="graphic__point-container">
-								<div class="graphic__actual-number">4</div>
-								<div class="graphic__triangle"></div>
-							</div>
-						</div>
-						<div class="graphic__progress progress">
-							<div class="progress__min">0</div>
-							<div class="grayback progress-green"></div>
-							<div class="strips progress-yellow"></div>
-							<div class="progress-red"></div>
-							<div class="progress__max">6.5</div>
-						</div>
-						<div class="graphic__low-high">
-							<div class="graphic__low">Низкий</div>
-							<div class="graphic__high">Высокий</div>
-						</div>
-					</div>
-				</div>
-				<div class="main-graphic__result-description inflammation-text-container">
-					<?php the_field('systemic-inflammation-text1') ?>
-					<?php 
-						for ($__i = 1; $__i <= 5; $__i++) {
-							$s_link = get_field("systemic-inflammation-link-1_{$__i}");
-							$s_text = get_field("systemic-inflammation-text-1_{$__i}");
-							if ( ! empty( $s_link ) && ! empty( $s_text ) ) {
-								echo '<a href="' . esc_url( $s_link ) . '" class="main-graphic__post-link">' . esc_html( $s_text ) . '</a>';
-							}
-						}
-					?>
-				</div>
-				<div class="main-graphic__result-description inflammation-text-container ">
-					<?php the_field('systemic-inflammation-text2') ?>
-					<?php 
-						for ($__i = 1; $__i <= 5; $__i++) {
-							$s_link = get_field("systemic-inflammation-link-2_{$__i}");
-							$s_text = get_field("systemic-inflammation-text-2_{$__i}");
-							if ( ! empty( $s_link ) && ! empty( $s_text ) ) {
-								echo '<a href="' . esc_url( $s_link ) . '" class="main-graphic__post-link">' . esc_html( $s_text ) . '</a>';
-							}
-						}
-					?>
-				</div>
-				<div class="main-graphic__result-description inflammation-text-container ">
-					<?php the_field('systemic-inflammation-text3') ?>
-					<?php 
-						for ($__i = 1; $__i <= 5; $__i++) {
-							$s_link = get_field("systemic-inflammation-link-3_{$__i}");
-							$s_text = get_field("systemic-inflammation-text-3_{$__i}");
-							if ( ! empty( $s_link ) && ! empty( $s_text ) ) {
-								echo '<a href="' . esc_url( $s_link ) . '" class="main-graphic__post-link">' . esc_html( $s_text ) . '</a>';
-							}
-						}
-					?>
-				</div>
-			</div>
-
-<!--  ------------------------  -->
-
-<div class="graphics__main-graphic graphics__content main-graphic">
-				<h3 class="main-graphic__title">
-					Уровень закисления
-				</h3>
-			<?php
-				$__desc = get_field('acidification-level-description');
-				if ( trim( $__desc ) !== '' ) {
-					echo '<div class="main-graphic__description">' . apply_filters('the_content', $__desc) . '</div>';
-				}
-			?>
-				<div class="main-graphic__graphic graphic graphic--modern">
-				<div class="graphic__container">
-						<div class="graphic__actual-number-container acidification-level-scale">
-							<div class="graphic__point-container">
-								<div class="graphic__actual-number">4</div>
-								<div class="graphic__triangle"></div>
-							</div>
-						</div>
-						<div class="graphic__progress progress">
-							<div class="progress__min">0</div>
-							<div class="grayback progress-green"></div>
-							<div class="strips progress-yellow"></div>
-							<div class="progress-red"></div>
-							<div class="progress__max">3.4</div>
-						</div>
-						<div class="graphic__low-high">
-							<div class="graphic__low">Низкий</div>
-							<div class="graphic__high">Высокий</div>
-						</div>
-					</div>
-				</div>
-				<div class="main-graphic__result-description acidification-text-container">
-					<?php the_field('acidification-level-text1') ?>
-					<?php 
-						for ($__i = 1; $__i <= 5; $__i++) {
-							$a_link = get_field("acidification-level-link-1_{$__i}");
-							$a_text = get_field("acidification-level-text-1_{$__i}");
-							if ( ! empty( $a_link ) && ! empty( $a_text ) ) {
-								echo '<a href="' . esc_url( $a_link ) . '" class="main-graphic__post-link">' . esc_html( $a_text ) . '</a>';
-							}
-						}
-					?>
-				</div>
-				<div class="main-graphic__result-description acidification-text-container">
-					<?php the_field('acidification-level-text2') ?>
-					<?php 
-						for ($__i = 1; $__i <= 5; $__i++) {
-							$a_link = get_field("acidification-level-link-2_{$__i}");
-							$a_text = get_field("acidification-level-text-2_{$__i}");
-							if ( ! empty( $a_link ) && ! empty( $a_text ) ) {
-								echo '<a href="' . esc_url( $a_link ) . '" class="main-graphic__post-link">' . esc_html( $a_text ) . '</a>';
-							}
-						}
-					?>
-				</div>
-				<div class="main-graphic__result-description acidification-text-container">
-					<?php the_field('acidification-level-text3') ?>
-					<?php 
-						for ($__i = 1; $__i <= 5; $__i++) {
-							$a_link = get_field("acidification-level-link-3_{$__i}");
-							$a_text = get_field("acidification-level-text-3_{$__i}");
-							if ( ! empty( $a_link ) && ! empty( $a_text ) ) {
-								echo '<a href="' . esc_url( $a_link ) . '" class="main-graphic__post-link">' . esc_html( $a_text ) . '</a>';
-							}
-						}
-					?>
-				</div>
-			</div>
-
-<!--  ------------------------  -->
-
-<div class="graphics__main-graphic graphics__content main-graphic">
-				<h3 class="main-graphic__title">
-					Гликемичность рациона
-				</h3>
-			<?php
-				$__desc = get_field('glycemic-level-description');
-				if ( trim( $__desc ) !== '' ) {
-					echo '<div class="main-graphic__description">' . apply_filters('the_content', $__desc) . '</div>';
-				}
-			?>
-				<div class="main-graphic__graphic graphic graphic--modern">
-				<div class="graphic__container">
-						<div class="graphic__actual-number-container glycemic-level-scale">
-							<div class="graphic__point-container">
-								<div class="graphic__actual-number">4</div>
-								<div class="graphic__triangle"></div>
-							</div>
-						</div>
-						<div class="graphic__progress progress">
-							<div class="progress__min">0</div>
-							<div class="grayback progress-green"></div>
-							<div class="strips progress-yellow"></div>
-							<div class="progress-red"></div>
-							<div class="progress__max">5.2</div>
-						</div>
-						<div class="graphic__low-high">
-							<div class="graphic__low">Низкий</div>
-							<div class="graphic__high">Высокий</div>
-						</div>
-					</div>
-				</div>
-				<div class="main-graphic__result-description glycemic-text-container">
-					<?php the_field('glycemic-level-text1') ?>
-					<?php 
-						for ($__i = 1; $__i <= 5; $__i++) {
-							$g_link = get_field("glycemic-level-link-1_{$__i}");
-							$g_text = get_field("glycemic-level-text-1_{$__i}");
-							if ( ! empty( $g_link ) && ! empty( $g_text ) ) {
-								echo '<a href="' . esc_url( $g_link ) . '" class="main-graphic__post-link">' . esc_html( $g_text ) . '</a>';
-							}
-						}
-					?>
-				</div>
-				<div class="main-graphic__result-description glycemic-text-container">
-					<?php the_field('glycemic-level-text2') ?>
-					<?php 
-						for ($__i = 1; $__i <= 5; $__i++) {
-							$g_link = get_field("glycemic-level-link-2_{$__i}");
-							$g_text = get_field("glycemic-level-text-2_{$__i}");
-							if ( ! empty( $g_link ) && ! empty( $g_text ) ) {
-								echo '<a href="' . esc_url( $g_link ) . '" class="main-graphic__post-link">' . esc_html( $g_text ) . '</a>';
-							}
-						}
-					?>
-				</div>
-				<div class="main-graphic__result-description glycemic-text-container">
-					<?php the_field('glycemic-level-text3') ?>
-					<?php 
-						for ($__i = 1; $__i <= 5; $__i++) {
-							$g_link = get_field("glycemic-level-link-3_{$__i}");
-							$g_text = get_field("glycemic-level-text-3_{$__i}");
-							if ( ! empty( $g_link ) && ! empty( $g_text ) ) {
-								echo '<a href="' . esc_url( $g_link ) . '" class="main-graphic__post-link">' . esc_html( $g_text ) . '</a>';
-							}
-						}
-					?>
-				</div>
-			</div>
-
-<!--  ------------------------  -->
-
-<div class="graphics__main-graphic graphics__content main-graphic">
-				<h3 class="main-graphic__title">
-					Риск ускоренного старения
-				</h3>
-			<?php
-				$__desc = get_field('accelerated-aging-description');
-				if ( trim( $__desc ) !== '' ) {
-					echo '<div class="main-graphic__description">' . apply_filters('the_content', $__desc) . '</div>';
-				}
-			?>
-				<div class="main-graphic__graphic graphic graphic--modern">
-				<div class="graphic__container">
-						<div class="graphic__actual-number-container accelerated-aging-scale">
-							<div class="graphic__point-container">
-								<div class="graphic__actual-number">4</div>
-								<div class="graphic__triangle"></div>
-							</div>
-						</div>
-						<div class="graphic__progress progress">
-							<div class="progress__min">0</div>
-							<div class="grayback progress-green"></div>
-							<div class="strips progress-yellow"></div>
-							<div class="progress-red"></div>
-							<div class="progress__max">6</div>
-						</div>
-						<div class="graphic__low-high">
-							<div class="graphic__low">Низкий</div>
-							<div class="graphic__high">Высокий</div>
-						</div>
-					</div>
-				</div>
-				<div class="main-graphic__result-description accelerated-text-container">
-					<?php the_field('accelerated-aging-text1') ?>
-					<?php 
-						for ($__i = 1; $__i <= 5; $__i++) {
-							$aa_link = get_field("accelerated-aging-link-1_{$__i}");
-							$aa_text = get_field("accelerated-aging-text-1_{$__i}");
-							if ( ! empty( $aa_link ) && ! empty( $aa_text ) ) {
-								echo '<a href="' . esc_url( $aa_link ) . '" class="main-graphic__post-link">' . esc_html( $aa_text ) . '</a>';
-							}
-						}
-					?>
-				</div>
-				<div class="main-graphic__result-description accelerated-text-container">
-					<?php the_field('accelerated-aging-text2') ?>
-					<?php 
-						for ($__i = 1; $__i <= 5; $__i++) {
-							$aa_link = get_field("accelerated-aging-link-2_{$__i}");
-							$aa_text = get_field("accelerated-aging-text-2_{$__i}");
-							if ( ! empty( $aa_link ) && ! empty( $aa_text ) ) {
-								echo '<a href="' . esc_url( $aa_link ) . '" class="main-graphic__post-link">' . esc_html( $aa_text ) . '</a>';
-							}
-						}
-					?>
-				</div>
-				<div class="main-graphic__result-description accelerated-text-container">
-					<?php the_field('accelerated-aging-text3') ?>
-					<?php 
-						for ($__i = 1; $__i <= 5; $__i++) {
-							$aa_link = get_field("accelerated-aging-link-3_{$__i}");
-							$aa_text = get_field("accelerated-aging-text-3_{$__i}");
-							if ( ! empty( $aa_link ) && ! empty( $aa_text ) ) {
-								echo '<a href="' . esc_url( $aa_link ) . '" class="main-graphic__post-link">' . esc_html( $aa_text ) . '</a>';
-							}
-						}
-					?>
-				</div>
-			</div>
-
-<!--  ------------------------  -->
-
-<div class="graphics__main-graphic graphics__content main-graphic">
-				<h3 class="main-graphic__title">
-					Нарушение способности организма к самоочищению
-				</h3>
-			<?php
-				$__desc = get_field('self-cleaning-description');
-				if ( trim( $__desc ) !== '' ) {
-					echo '<div class="main-graphic__description">' . apply_filters('the_content', $__desc) . '</div>';
-				}
-			?>
-				<div class="main-graphic__graphic graphic graphic--modern">
-				<div class="graphic__container">
-						<div class="graphic__actual-number-container self-cleaning-scale">
-							<div class="graphic__point-container">
-								<div class="graphic__actual-number">4</div>
-								<div class="graphic__triangle"></div>
-							</div>
-						</div>
-						<div class="graphic__progress progress">
-							<div class="progress__min">0</div>
-							<div class="grayback progress-green"></div>
-							<div class="strips progress-yellow"></div>
-							<div class="progress-red"></div>
-							<div class="progress__max">5.1</div>
-						</div>
-						<div class="graphic__low-high">
-							<div class="graphic__low">Низкий</div>
-							<div class="graphic__high">Высокий</div>
-						</div>
-					</div>
-				</div>
-				<div class="main-graphic__result-description self-cleaning-text-container">
-					<?php the_field('self-cleaning-text1') ?>
-					<?php
-					// Implemented properly below to avoid accidental parse conflicts
-					for ($__i = 1; $__i <= 5; $__i++) {
-						$sc_link = get_field("self-cleaning-link-1_{$__i}");
-						$sc_text = get_field("self-cleaning-text-1_{$__i}");
-						if ( ! empty( $sc_link ) && ! empty( $sc_text ) ) {
-							echo '<a href="' . esc_url( $sc_link ) . '" class="main-graphic__post-link">' . esc_html( $sc_text ) . '</a>';
-						}
-					}
-					?>
-				</div>
-				<div class="main-graphic__result-description self-cleaning-text-container">
-					<?php the_field('self-cleaning-text2') ?>
-					<?php
-					for ($__i = 1; $__i <= 5; $__i++) {
-						$sc_link = get_field("self-cleaning-link-2_{$__i}");
-						$sc_text = get_field("self-cleaning-text-2_{$__i}");
-						if ( ! empty( $sc_link ) && ! empty( $sc_text ) ) {
-							echo '<a href="' . esc_url( $sc_link ) . '" class="main-graphic__post-link">' . esc_html( $sc_text ) . '</a>';
-						}
-					}
-					?>
-				</div>
-				<div class="main-graphic__result-description self-cleaning-text-container">
-					<?php the_field('self-cleaning-text3') ?>
-					<?php
-					for ($__i = 1; $__i <= 5; $__i++) {
-						$sc_link = get_field("self-cleaning-link-3_{$__i}");
-						$sc_text = get_field("self-cleaning-text-3_{$__i}");
-						if ( ! empty( $sc_link ) && ! empty( $sc_text ) ) {
-							echo '<a href="' . esc_url( $sc_link ) . '" class="main-graphic__post-link">' . esc_html( $sc_text ) . '</a>';
-						}
-					}
-					?>
-				</div>
-			</div>
-
-<!--  ------------------------  -->
-
-<div class="graphics__main-graphic graphics__content main-graphic">
-				<h3 class="main-graphic__title">
-					Риск раковых заболеваний
-				</h3>
-			<?php
-				$__desc = get_field('cancer-risk-description');
-				if ( trim( $__desc ) !== '' ) {
-					echo '<div class="main-graphic__description">' . apply_filters('the_content', $__desc) . '</div>';
-				}
-			?>
-				<div class="main-graphic__graphic graphic graphic--modern">
-				<div class="graphic__container">
-						<div class="graphic__actual-number-container cancer-risk-scale">
-							<div class="graphic__point-container">
-								<div class="graphic__actual-number">4</div>
-								<div class="graphic__triangle"></div>
-							</div>
-						</div>
-						<div class="graphic__progress progress">
-							<div class="progress__min">0</div>
-							<div class="grayback progress-green"></div>
-							<div class="strips progress-yellow"></div>
-							<div class="progress-red"></div>
-							<div class="progress__max">5.6</div>
-						</div>
-						<div class="graphic__low-high">
-							<div class="graphic__low">Низкий</div>
-							<div class="graphic__high">Высокий</div>
-						</div>
-					</div>
-				</div>
-				<div class="main-graphic__result-description cancer-risk-text-container">
-					<?php the_field('cancer-risk-text1') ?>
-					<?php 
-						for ($__i = 1; $__i <= 5; $__i++) {
-							$cr_link = get_field("cancer-risk-link-1_{$__i}");
-							$cr_text = get_field("cancer-risk-text-1_{$__i}");
-							if ( ! empty( $cr_link ) && ! empty( $cr_text ) ) {
-								echo '<a href="' . esc_url( $cr_link ) . '" class="main-graphic__post-link">' . esc_html( $cr_text ) . '</a>';
-							}
-						}
-					?>
-				</div>
-				<div class="main-graphic__result-description cancer-risk-text-container">
-					<?php the_field('cancer-risk-text2') ?>
-					<?php 
-						for ($__i = 1; $__i <= 5; $__i++) {
-							$cr_link = get_field("cancer-risk-link-2_{$__i}");
-							$cr_text = get_field("cancer-risk-text-2_{$__i}");
-							if ( ! empty( $cr_link ) && ! empty( $cr_text ) ) {
-								echo '<a href="' . esc_url( $cr_link ) . '" class="main-graphic__post-link">' . esc_html( $cr_text ) . '</a>';
-							}
-						}
-					?>
-				</div>
-				<div class="main-graphic__result-description cancer-risk-text-container">
-					<?php the_field('cancer-risk-text3') ?>
-					<?php 
-						for ($__i = 1; $__i <= 5; $__i++) {
-							$cr_link = get_field("cancer-risk-link-3_{$__i}");
-							$cr_text = get_field("cancer-risk-text-3_{$__i}");
-							if ( ! empty( $cr_link ) && ! empty( $cr_text ) ) {
-								echo '<a href="' . esc_url( $cr_link ) . '" class="main-graphic__post-link">' . esc_html( $cr_text ) . '</a>';
-							}
-						}
-					?>
-				</div>
-			</div>
-
-<!--  ------------------------  -->
-
-			<div class="graphics__main-graphic graphics__content main-graphic">
-				<h3 class="main-graphic__title">
-					Количество пустых калорий в пище
-				</h3>
-				<?php
-					$__desc = get_field('quantity-calories-description');
-					if ( trim( $__desc ) !== '' ) {
-						echo '<div class="main-graphic__description">' . apply_filters('the_content', $__desc) . '</div>';
-					}
-				?>
-				<div class="main-graphic__graphic graphic graphic--modern">
-				<div class="graphic__container">
-						<div class="graphic__actual-number-container quantity-calories-scale">
-							<div class="graphic__point-container">
-								<div class="graphic__actual-number">4</div>
-								<div class="graphic__triangle"></div>
-							</div>
-						</div>
-						<div class="graphic__progress progress">
-							<div class="progress__min">0</div>
-							<div class="grayback progress-green"></div>
-							<div class="strips progress-yellow"></div>
-							<div class="progress-red"></div>
-							<div class="progress__max">4.8</div>
-						</div>
-						<div class="graphic__low-high">
-							<div class="graphic__low">Низкий</div>
-							<div class="graphic__high">Высокий</div>
-						</div>
-					</div>
-				</div>
-				<div class="main-graphic__result-description quantity-calories-text-container">
-					<?php the_field('quantity-calories-text1') ?>
-					<?php
-					for ($__i = 1; $__i <= 5; $__i++) {
-						$qc_link = get_field("quantity-calories-link-1_{$__i}");
-						$qc_text = get_field("quantity-calories-text-1_{$__i}");
-						if ( ! empty( $qc_link ) && ! empty( $qc_text ) ) {
-							echo '<a href="' . esc_url( $qc_link ) . '" class="main-graphic__post-link">' . esc_html( $qc_text ) . '</a>';
-						}
-					}
-					?>
-				</div>
-				<div class="main-graphic__result-description quantity-calories-text-container">
-					<?php the_field('quantity-calories-text2') ?>
-					<?php
-					for ($__i = 1; $__i <= 5; $__i++) {
-						$qc_link = get_field("quantity-calories-link-2_{$__i}");
-						$qc_text = get_field("quantity-calories-text-2_{$__i}");
-						if ( ! empty( $qc_link ) && ! empty( $qc_text ) ) {
-							echo '<a href="' . esc_url( $qc_link ) . '" class="main-graphic__post-link">' . esc_html( $qc_text ) . '</a>';
-						}
-					}
-					?>
-				</div>
-				<div class="main-graphic__result-description quantity-calories-text-container">
-					<?php the_field('quantity-calories-text3') ?>
-					<?php
-					for ($__i = 1; $__i <= 5; $__i++) {
-						$qc_link = get_field("quantity-calories-link-3_{$__i}");
-						$qc_text = get_field("quantity-calories-text-3_{$__i}");
-						if ( ! empty( $qc_link ) && ! empty( $qc_text ) ) {
-							echo '<a href="' . esc_url( $qc_link ) . '" class="main-graphic__post-link">' . esc_html( $qc_text ) . '</a>';
-						}
-					}
-					?>
-				</div>
-			</div>
-
-			<!-- Контент из редактора -->
-			<?php
-				// Выводим весь контент записи/страницы вместо шорткода баннера,
-				// обернутый в контейнер, только если контент не пустой.
-				if ( have_posts() ) {
-					while ( have_posts() ) {
-						the_post();
-						ob_start();
-						the_content(); // возвращает уже отфильтрованный контент (wpautop, shortcodes и т.д.)
-						$processed = ob_get_clean();
-						// проверяем на пустой контент (без HTML)
-						if ( trim( strip_tags( $processed ) ) !== '' ) {
-							echo '<div class="quest-results-content">' . $processed . '</div>';
-						}
-					}
-				}
-			?>
-
-		</div>
-	</div>
-</main>
-
-<?php
-	// Модалка с подарком: показывается при входе на страницу и перекрывает
-	// результаты, пока пользователь её не закроет. Лежит вне <main>,
-	// чтобы никакой трансформированный предок не сломал position: fixed.
+	// Данные модалки с подарком. Считаем их до вывода разметки: от них зависят
+	// не только сама модалка (она лежит ниже, за </main>), но и баннеры внутри
+	// страницы — их кнопки открывают эту же модалку, и без неё они бесполезны.
 	// Содержимое редактируется в админке — вкладка «Модальное окно с подарком»
 	// группы полей Quest Results (assets/acf-fields/quest-results.json).
 
@@ -761,14 +107,725 @@ get_header(); ?>
 	// Окно без единой кнопки показывать незачем
 	$gift_modal_visible = $gift_modal_enabled && ! empty( $gift_modal_socials );
 
+	// Баннер с подарком внутри страницы — вкладка «Баннер с подарком» той же
+	// группы полей. Модалку он не дублирует: у баннера свои тексты, а кнопка
+	// открывает всё то же единственное окно
+	$gift_banner_ready = function_exists( 'acf_get_field' ) && acf_get_field( 'field_gift_banner_title' );
+
+	// Пока поля не импортированы, берём тексты из вёрстки. После импорта пустое
+	// поле — осознанное решение администратора: такой элемент просто не выводим
+	$gift_banner_text = function ( $name, $fallback ) use ( $gift_banner_ready ) {
+		return $gift_banner_ready ? trim( (string) get_field( $name ) ) : $fallback;
+	};
+
+	$gift_banner = [
+		'image'  => $gift_banner_ready ? trim( (string) get_field( 'gift_banner_image' ) ) : '',
+		'title'  => $gift_banner_text( 'gift_banner_title', $results_text( 'gift_banner_title' ) ),
+		'desc'   => $gift_banner_text( 'gift_banner_desc', $results_text( 'gift_banner_desc' ) ),
+		'button' => $gift_banner_text( 'gift_banner_button', $results_text( 'gift_banner_button' ) ),
+	];
+
+	// Картинка и надпись на кнопке нужны баннеру всегда — у них есть замена
+	if ( '' === $gift_banner['image'] ) {
+		$gift_banner['image'] = get_template_directory_uri() . '/assets/images/illustrations/gift.png';
+	}
+	if ( '' === $gift_banner['button'] ) {
+		$gift_banner['button'] = $results_text( 'gift_banner_button' );
+	}
+
+get_header(); ?>
+<script>
+	// Определяем высоту хедера
+	document.addEventListener("DOMContentLoaded", () => {
+		const headerHeight = document.querySelector("header").clientHeight;
+		const screenHeight = document.documentElement.clientHeight;
+		const mainBlock = document.querySelector(".questresult__title-block");
+		const mainBlockHeight = screenHeight - headerHeight + 10;
+		mainBlock.style.height = `${mainBlockHeight}px`;
+	})
+</script>
+
+<main class="questresult">
+	<div class="questresult__container">
+		<div class="questresult__title-block">
+			<div class="questresult__bg-container"></div>
+			<img src="<?php echo get_template_directory_uri() ?>/assets/images/trees.webp" alt="" class="questresult__bg-image">
+			<h1 class="questresult__title">
+				<?php echo esc_html( $results_text( 'intro_title' ) ); ?>
+			</h1>
+			<div class="questresult__subtitle">
+				<?php echo esc_html( $results_text( 'intro_subtitle' ) ); ?>
+			</div>
+			<button class="questresult__button primary-button">
+				<?php echo esc_html( $results_text( 'intro_button' ) ); ?>
+			</button>
+		</div>
+		<?php if ( $gift_modal_visible ) : ?>
+			<div class="questresult__banner-section">
+				<div class="questresult__banner-inner">
+					<?php get_template_part( 'template-parts/banners/gift', null, $gift_banner ); ?>
+				</div>
+			</div>
+		<?php endif; ?>
+		<div class="questresult__conclusions conclusions">
+			<h2 class="conclusions__title">
+				<?php echo esc_html( $results_text( 'conclusions_title' ) ); ?>
+			</h2>
+			<div class="conclusions__subtitle average-text-container">
+					<?php the_field('general-conclusions-text1') ?>
+					<?php 
+						for ($__i = 1; $__i <= 5; $__i++) {
+							$g_link = get_field("general-conclusions-link-1_{$__i}");
+							$g_text = get_field("general-conclusions-text-1_{$__i}");
+							if ( ! empty( $g_link ) && ! empty( $g_text ) ) {
+								echo '<a href="' . esc_url( $g_link ) . '" class="main-graphic__post-link">' . esc_html( $g_text ) . '</a>';
+							}
+						}
+					?>
+			</div>
+			<div class="conclusions__subtitle average-text-container">
+					<?php the_field('general-conclusions-text2') ?>
+					<?php 
+						for ($__i = 1; $__i <= 5; $__i++) {
+							$g_link = get_field("general-conclusions-link-2_{$__i}");
+							$g_text = get_field("general-conclusions-text-2_{$__i}");
+							if ( ! empty( $g_link ) && ! empty( $g_text ) ) {
+								echo '<a href="' . esc_url( $g_link ) . '" class="main-graphic__post-link">' . esc_html( $g_text ) . '</a>';
+							}
+						}
+					?>
+			</div>		
+			<div class="conclusions__subtitle average-text-container">
+					<?php the_field('general-conclusions-text3') ?>
+					<?php 
+						for ($__i = 1; $__i <= 5; $__i++) {
+							$g_link = get_field("general-conclusions-link-3_{$__i}");
+							$g_text = get_field("general-conclusions-text-3_{$__i}");
+							if ( ! empty( $g_link ) && ! empty( $g_text ) ) {
+								echo '<a href="' . esc_url( $g_link ) . '" class="main-graphic__post-link">' . esc_html( $g_text ) . '</a>';
+							}
+						}
+					?>
+			</div>	
+		</div>
+		<div class="questresult__graphics graphics graphics--modern">
+			<div class="graphics__title">
+				<?php echo esc_html( $results_text( 'graphics_title' ) ); ?>
+			</div>
+			<div class="graphics__subtitle">
+				<?php echo esc_html( $results_text( 'graphics_subtitle' ) ); ?>
+			</div>
+
+<!--  ------------------------  -->
+
+<div class="graphics__main-graphic graphics__content main-graphic">
+	<h3 class="main-graphic__title">
+		<?php echo esc_html( $results_category( 'metabolic-disorder' ) ); ?>
+	</h3>
+	<?php
+		$__desc = get_field('metabolic-disorder-description');
+		if ( trim( $__desc ) !== '' ) {
+			echo '<div class="main-graphic__description">' . apply_filters('the_content', $__desc) . '</div>';
+		}
+	?>
+	<div class="main-graphic__graphic graphic graphic--modern">
+		<div class="graphic__container">
+			<div class="graphic__actual-number-container metab-syndrome-scale">
+				<div class="graphic__point-container">
+					<div class="graphic__actual-number">4</div>
+					<div class="graphic__triangle"></div>
+				</div>
+			</div>
+			<div class="graphic__progress progress">
+				<div class="progress__min">0</div>
+				<div class="grayback progress-green"></div>
+				<div class="strips progress-yellow"></div>
+				<div class="progress-red"></div>
+				<div class="progress__max">6.1</div>
+			</div>
+			<div class="graphic__low-high">
+				<div class="graphic__low"><?php echo esc_html( $results_text( 'scale_low' ) ); ?></div>
+				<div class="graphic__high"><?php echo esc_html( $results_text( 'scale_high' ) ); ?></div>
+			</div>
+		</div>
+	</div>
+	<div class="main-graphic__result-description metab-text-container">
+		<?php the_field("metabolic-disorder-text1") ?>
+		<?php 
+			for ($__i = 1; $__i <= 5; $__i++) {
+				$m_link = get_field("metabolic-disorder-link-1_{$__i}");
+				$m_text = get_field("metabolic-disorder-text-1_{$__i}");
+				if ( ! empty( $m_link ) && ! empty( $m_text ) ) {
+					echo '<a href="' . esc_url( $m_link ) . '" class="main-graphic__post-link">' . esc_html( $m_text ) . '</a>';
+				}
+			}
+		?>
+	</div>
+	<div class="main-graphic__result-description metab-text-container ">
+		<?php the_field("metabolic-disorder-text2") ?>
+		<?php 
+			for ($__i = 1; $__i <= 5; $__i++) {
+				$m_link = get_field("metabolic-disorder-link-2_{$__i}");
+				$m_text = get_field("metabolic-disorder-text-2_{$__i}");
+				if ( ! empty( $m_link ) && ! empty( $m_text ) ) {
+					echo '<a href="' . esc_url( $m_link ) . '" class="main-graphic__post-link">' . esc_html( $m_text ) . '</a>';
+				}
+			}
+		?>
+	</div>
+	<div class="main-graphic__result-description metab-text-container ">
+		<?php the_field("metabolic-disorder-text3") ?>
+		<?php 
+			for ($__i = 1; $__i <= 5; $__i++) {
+				$m_link = get_field("metabolic-disorder-link-3_{$__i}");
+				$m_text = get_field("metabolic-disorder-text-3_{$__i}");
+				if ( ! empty( $m_link ) && ! empty( $m_text ) ) {
+					echo '<a href="' . esc_url( $m_link ) . '" class="main-graphic__post-link">' . esc_html( $m_text ) . '</a>';
+				}
+			}
+		?>
+	</div>
+
+</div>
+
+<!--  ------------------------  -->
+
+<div class="graphics__main-graphic graphics__content main-graphic">
+				<h3 class="main-graphic__title">
+					<?php echo esc_html( $results_category( 'systemic-inflammation' ) ); ?>
+				</h3>
+			<?php
+				$__desc = get_field('systemic-inflammation-description');
+				if ( trim( $__desc ) !== '' ) {
+					echo '<div class="main-graphic__description">' . apply_filters('the_content', $__desc) . '</div>';
+				}
+			?>
+				<div class="main-graphic__graphic graphic graphic--modern">
+				<div class="graphic__container">
+						<div class="graphic__actual-number-container system-inflammation-scale">
+							<div class="graphic__point-container">
+								<div class="graphic__actual-number">4</div>
+								<div class="graphic__triangle"></div>
+							</div>
+						</div>
+						<div class="graphic__progress progress">
+							<div class="progress__min">0</div>
+							<div class="grayback progress-green"></div>
+							<div class="strips progress-yellow"></div>
+							<div class="progress-red"></div>
+							<div class="progress__max">6.5</div>
+						</div>
+						<div class="graphic__low-high">
+							<div class="graphic__low"><?php echo esc_html( $results_text( 'scale_low' ) ); ?></div>
+							<div class="graphic__high"><?php echo esc_html( $results_text( 'scale_high' ) ); ?></div>
+						</div>
+					</div>
+				</div>
+				<div class="main-graphic__result-description inflammation-text-container">
+					<?php the_field('systemic-inflammation-text1') ?>
+					<?php 
+						for ($__i = 1; $__i <= 5; $__i++) {
+							$s_link = get_field("systemic-inflammation-link-1_{$__i}");
+							$s_text = get_field("systemic-inflammation-text-1_{$__i}");
+							if ( ! empty( $s_link ) && ! empty( $s_text ) ) {
+								echo '<a href="' . esc_url( $s_link ) . '" class="main-graphic__post-link">' . esc_html( $s_text ) . '</a>';
+							}
+						}
+					?>
+				</div>
+				<div class="main-graphic__result-description inflammation-text-container ">
+					<?php the_field('systemic-inflammation-text2') ?>
+					<?php 
+						for ($__i = 1; $__i <= 5; $__i++) {
+							$s_link = get_field("systemic-inflammation-link-2_{$__i}");
+							$s_text = get_field("systemic-inflammation-text-2_{$__i}");
+							if ( ! empty( $s_link ) && ! empty( $s_text ) ) {
+								echo '<a href="' . esc_url( $s_link ) . '" class="main-graphic__post-link">' . esc_html( $s_text ) . '</a>';
+							}
+						}
+					?>
+				</div>
+				<div class="main-graphic__result-description inflammation-text-container ">
+					<?php the_field('systemic-inflammation-text3') ?>
+					<?php 
+						for ($__i = 1; $__i <= 5; $__i++) {
+							$s_link = get_field("systemic-inflammation-link-3_{$__i}");
+							$s_text = get_field("systemic-inflammation-text-3_{$__i}");
+							if ( ! empty( $s_link ) && ! empty( $s_text ) ) {
+								echo '<a href="' . esc_url( $s_link ) . '" class="main-graphic__post-link">' . esc_html( $s_text ) . '</a>';
+							}
+						}
+					?>
+				</div>
+			</div>
+
+<!--  ------------------------  -->
+
+<div class="graphics__main-graphic graphics__content main-graphic">
+				<h3 class="main-graphic__title">
+					<?php echo esc_html( $results_category( 'acidification-level' ) ); ?>
+				</h3>
+			<?php
+				$__desc = get_field('acidification-level-description');
+				if ( trim( $__desc ) !== '' ) {
+					echo '<div class="main-graphic__description">' . apply_filters('the_content', $__desc) . '</div>';
+				}
+			?>
+				<div class="main-graphic__graphic graphic graphic--modern">
+				<div class="graphic__container">
+						<div class="graphic__actual-number-container acidification-level-scale">
+							<div class="graphic__point-container">
+								<div class="graphic__actual-number">4</div>
+								<div class="graphic__triangle"></div>
+							</div>
+						</div>
+						<div class="graphic__progress progress">
+							<div class="progress__min">0</div>
+							<div class="grayback progress-green"></div>
+							<div class="strips progress-yellow"></div>
+							<div class="progress-red"></div>
+							<div class="progress__max">3.4</div>
+						</div>
+						<div class="graphic__low-high">
+							<div class="graphic__low"><?php echo esc_html( $results_text( 'scale_low' ) ); ?></div>
+							<div class="graphic__high"><?php echo esc_html( $results_text( 'scale_high' ) ); ?></div>
+						</div>
+					</div>
+				</div>
+				<div class="main-graphic__result-description acidification-text-container">
+					<?php the_field('acidification-level-text1') ?>
+					<?php 
+						for ($__i = 1; $__i <= 5; $__i++) {
+							$a_link = get_field("acidification-level-link-1_{$__i}");
+							$a_text = get_field("acidification-level-text-1_{$__i}");
+							if ( ! empty( $a_link ) && ! empty( $a_text ) ) {
+								echo '<a href="' . esc_url( $a_link ) . '" class="main-graphic__post-link">' . esc_html( $a_text ) . '</a>';
+							}
+						}
+					?>
+				</div>
+				<div class="main-graphic__result-description acidification-text-container">
+					<?php the_field('acidification-level-text2') ?>
+					<?php 
+						for ($__i = 1; $__i <= 5; $__i++) {
+							$a_link = get_field("acidification-level-link-2_{$__i}");
+							$a_text = get_field("acidification-level-text-2_{$__i}");
+							if ( ! empty( $a_link ) && ! empty( $a_text ) ) {
+								echo '<a href="' . esc_url( $a_link ) . '" class="main-graphic__post-link">' . esc_html( $a_text ) . '</a>';
+							}
+						}
+					?>
+				</div>
+				<div class="main-graphic__result-description acidification-text-container">
+					<?php the_field('acidification-level-text3') ?>
+					<?php 
+						for ($__i = 1; $__i <= 5; $__i++) {
+							$a_link = get_field("acidification-level-link-3_{$__i}");
+							$a_text = get_field("acidification-level-text-3_{$__i}");
+							if ( ! empty( $a_link ) && ! empty( $a_text ) ) {
+								echo '<a href="' . esc_url( $a_link ) . '" class="main-graphic__post-link">' . esc_html( $a_text ) . '</a>';
+							}
+						}
+					?>
+				</div>
+			</div>
+
+<!--  ------------------------  -->
+
+<div class="graphics__main-graphic graphics__content main-graphic">
+				<h3 class="main-graphic__title">
+					<?php echo esc_html( $results_category( 'glycemic-level' ) ); ?>
+				</h3>
+			<?php
+				$__desc = get_field('glycemic-level-description');
+				if ( trim( $__desc ) !== '' ) {
+					echo '<div class="main-graphic__description">' . apply_filters('the_content', $__desc) . '</div>';
+				}
+			?>
+				<div class="main-graphic__graphic graphic graphic--modern">
+				<div class="graphic__container">
+						<div class="graphic__actual-number-container glycemic-level-scale">
+							<div class="graphic__point-container">
+								<div class="graphic__actual-number">4</div>
+								<div class="graphic__triangle"></div>
+							</div>
+						</div>
+						<div class="graphic__progress progress">
+							<div class="progress__min">0</div>
+							<div class="grayback progress-green"></div>
+							<div class="strips progress-yellow"></div>
+							<div class="progress-red"></div>
+							<div class="progress__max">5.2</div>
+						</div>
+						<div class="graphic__low-high">
+							<div class="graphic__low"><?php echo esc_html( $results_text( 'scale_low' ) ); ?></div>
+							<div class="graphic__high"><?php echo esc_html( $results_text( 'scale_high' ) ); ?></div>
+						</div>
+					</div>
+				</div>
+				<div class="main-graphic__result-description glycemic-text-container">
+					<?php the_field('glycemic-level-text1') ?>
+					<?php 
+						for ($__i = 1; $__i <= 5; $__i++) {
+							$g_link = get_field("glycemic-level-link-1_{$__i}");
+							$g_text = get_field("glycemic-level-text-1_{$__i}");
+							if ( ! empty( $g_link ) && ! empty( $g_text ) ) {
+								echo '<a href="' . esc_url( $g_link ) . '" class="main-graphic__post-link">' . esc_html( $g_text ) . '</a>';
+							}
+						}
+					?>
+				</div>
+				<div class="main-graphic__result-description glycemic-text-container">
+					<?php the_field('glycemic-level-text2') ?>
+					<?php 
+						for ($__i = 1; $__i <= 5; $__i++) {
+							$g_link = get_field("glycemic-level-link-2_{$__i}");
+							$g_text = get_field("glycemic-level-text-2_{$__i}");
+							if ( ! empty( $g_link ) && ! empty( $g_text ) ) {
+								echo '<a href="' . esc_url( $g_link ) . '" class="main-graphic__post-link">' . esc_html( $g_text ) . '</a>';
+							}
+						}
+					?>
+				</div>
+				<div class="main-graphic__result-description glycemic-text-container">
+					<?php the_field('glycemic-level-text3') ?>
+					<?php 
+						for ($__i = 1; $__i <= 5; $__i++) {
+							$g_link = get_field("glycemic-level-link-3_{$__i}");
+							$g_text = get_field("glycemic-level-text-3_{$__i}");
+							if ( ! empty( $g_link ) && ! empty( $g_text ) ) {
+								echo '<a href="' . esc_url( $g_link ) . '" class="main-graphic__post-link">' . esc_html( $g_text ) . '</a>';
+							}
+						}
+					?>
+				</div>
+			</div>
+
+<!--  ------------------------  -->
+
+<div class="graphics__main-graphic graphics__content main-graphic">
+				<h3 class="main-graphic__title">
+					<?php echo esc_html( $results_category( 'accelerated-aging' ) ); ?>
+				</h3>
+			<?php
+				$__desc = get_field('accelerated-aging-description');
+				if ( trim( $__desc ) !== '' ) {
+					echo '<div class="main-graphic__description">' . apply_filters('the_content', $__desc) . '</div>';
+				}
+			?>
+				<div class="main-graphic__graphic graphic graphic--modern">
+				<div class="graphic__container">
+						<div class="graphic__actual-number-container accelerated-aging-scale">
+							<div class="graphic__point-container">
+								<div class="graphic__actual-number">4</div>
+								<div class="graphic__triangle"></div>
+							</div>
+						</div>
+						<div class="graphic__progress progress">
+							<div class="progress__min">0</div>
+							<div class="grayback progress-green"></div>
+							<div class="strips progress-yellow"></div>
+							<div class="progress-red"></div>
+							<div class="progress__max">6</div>
+						</div>
+						<div class="graphic__low-high">
+							<div class="graphic__low"><?php echo esc_html( $results_text( 'scale_low' ) ); ?></div>
+							<div class="graphic__high"><?php echo esc_html( $results_text( 'scale_high' ) ); ?></div>
+						</div>
+					</div>
+				</div>
+				<div class="main-graphic__result-description accelerated-text-container">
+					<?php the_field('accelerated-aging-text1') ?>
+					<?php 
+						for ($__i = 1; $__i <= 5; $__i++) {
+							$aa_link = get_field("accelerated-aging-link-1_{$__i}");
+							$aa_text = get_field("accelerated-aging-text-1_{$__i}");
+							if ( ! empty( $aa_link ) && ! empty( $aa_text ) ) {
+								echo '<a href="' . esc_url( $aa_link ) . '" class="main-graphic__post-link">' . esc_html( $aa_text ) . '</a>';
+							}
+						}
+					?>
+				</div>
+				<div class="main-graphic__result-description accelerated-text-container">
+					<?php the_field('accelerated-aging-text2') ?>
+					<?php 
+						for ($__i = 1; $__i <= 5; $__i++) {
+							$aa_link = get_field("accelerated-aging-link-2_{$__i}");
+							$aa_text = get_field("accelerated-aging-text-2_{$__i}");
+							if ( ! empty( $aa_link ) && ! empty( $aa_text ) ) {
+								echo '<a href="' . esc_url( $aa_link ) . '" class="main-graphic__post-link">' . esc_html( $aa_text ) . '</a>';
+							}
+						}
+					?>
+				</div>
+				<div class="main-graphic__result-description accelerated-text-container">
+					<?php the_field('accelerated-aging-text3') ?>
+					<?php 
+						for ($__i = 1; $__i <= 5; $__i++) {
+							$aa_link = get_field("accelerated-aging-link-3_{$__i}");
+							$aa_text = get_field("accelerated-aging-text-3_{$__i}");
+							if ( ! empty( $aa_link ) && ! empty( $aa_text ) ) {
+								echo '<a href="' . esc_url( $aa_link ) . '" class="main-graphic__post-link">' . esc_html( $aa_text ) . '</a>';
+							}
+						}
+					?>
+				</div>
+			</div>
+
+<!--  ------------------------  -->
+
+<div class="graphics__main-graphic graphics__content main-graphic">
+				<h3 class="main-graphic__title">
+					<?php echo esc_html( $results_category( 'self-cleaning' ) ); ?>
+				</h3>
+			<?php
+				$__desc = get_field('self-cleaning-description');
+				if ( trim( $__desc ) !== '' ) {
+					echo '<div class="main-graphic__description">' . apply_filters('the_content', $__desc) . '</div>';
+				}
+			?>
+				<div class="main-graphic__graphic graphic graphic--modern">
+				<div class="graphic__container">
+						<div class="graphic__actual-number-container self-cleaning-scale">
+							<div class="graphic__point-container">
+								<div class="graphic__actual-number">4</div>
+								<div class="graphic__triangle"></div>
+							</div>
+						</div>
+						<div class="graphic__progress progress">
+							<div class="progress__min">0</div>
+							<div class="grayback progress-green"></div>
+							<div class="strips progress-yellow"></div>
+							<div class="progress-red"></div>
+							<div class="progress__max">5.1</div>
+						</div>
+						<div class="graphic__low-high">
+							<div class="graphic__low"><?php echo esc_html( $results_text( 'scale_low' ) ); ?></div>
+							<div class="graphic__high"><?php echo esc_html( $results_text( 'scale_high' ) ); ?></div>
+						</div>
+					</div>
+				</div>
+				<div class="main-graphic__result-description self-cleaning-text-container">
+					<?php the_field('self-cleaning-text1') ?>
+					<?php
+					// Implemented properly below to avoid accidental parse conflicts
+					for ($__i = 1; $__i <= 5; $__i++) {
+						$sc_link = get_field("self-cleaning-link-1_{$__i}");
+						$sc_text = get_field("self-cleaning-text-1_{$__i}");
+						if ( ! empty( $sc_link ) && ! empty( $sc_text ) ) {
+							echo '<a href="' . esc_url( $sc_link ) . '" class="main-graphic__post-link">' . esc_html( $sc_text ) . '</a>';
+						}
+					}
+					?>
+				</div>
+				<div class="main-graphic__result-description self-cleaning-text-container">
+					<?php the_field('self-cleaning-text2') ?>
+					<?php
+					for ($__i = 1; $__i <= 5; $__i++) {
+						$sc_link = get_field("self-cleaning-link-2_{$__i}");
+						$sc_text = get_field("self-cleaning-text-2_{$__i}");
+						if ( ! empty( $sc_link ) && ! empty( $sc_text ) ) {
+							echo '<a href="' . esc_url( $sc_link ) . '" class="main-graphic__post-link">' . esc_html( $sc_text ) . '</a>';
+						}
+					}
+					?>
+				</div>
+				<div class="main-graphic__result-description self-cleaning-text-container">
+					<?php the_field('self-cleaning-text3') ?>
+					<?php
+					for ($__i = 1; $__i <= 5; $__i++) {
+						$sc_link = get_field("self-cleaning-link-3_{$__i}");
+						$sc_text = get_field("self-cleaning-text-3_{$__i}");
+						if ( ! empty( $sc_link ) && ! empty( $sc_text ) ) {
+							echo '<a href="' . esc_url( $sc_link ) . '" class="main-graphic__post-link">' . esc_html( $sc_text ) . '</a>';
+						}
+					}
+					?>
+				</div>
+			</div>
+
+<!--  ------------------------  -->
+
+<div class="graphics__main-graphic graphics__content main-graphic">
+				<h3 class="main-graphic__title">
+					<?php echo esc_html( $results_category( 'cancer-risk' ) ); ?>
+				</h3>
+			<?php
+				$__desc = get_field('cancer-risk-description');
+				if ( trim( $__desc ) !== '' ) {
+					echo '<div class="main-graphic__description">' . apply_filters('the_content', $__desc) . '</div>';
+				}
+			?>
+				<div class="main-graphic__graphic graphic graphic--modern">
+				<div class="graphic__container">
+						<div class="graphic__actual-number-container cancer-risk-scale">
+							<div class="graphic__point-container">
+								<div class="graphic__actual-number">4</div>
+								<div class="graphic__triangle"></div>
+							</div>
+						</div>
+						<div class="graphic__progress progress">
+							<div class="progress__min">0</div>
+							<div class="grayback progress-green"></div>
+							<div class="strips progress-yellow"></div>
+							<div class="progress-red"></div>
+							<div class="progress__max">5.6</div>
+						</div>
+						<div class="graphic__low-high">
+							<div class="graphic__low"><?php echo esc_html( $results_text( 'scale_low' ) ); ?></div>
+							<div class="graphic__high"><?php echo esc_html( $results_text( 'scale_high' ) ); ?></div>
+						</div>
+					</div>
+				</div>
+				<div class="main-graphic__result-description cancer-risk-text-container">
+					<?php the_field('cancer-risk-text1') ?>
+					<?php 
+						for ($__i = 1; $__i <= 5; $__i++) {
+							$cr_link = get_field("cancer-risk-link-1_{$__i}");
+							$cr_text = get_field("cancer-risk-text-1_{$__i}");
+							if ( ! empty( $cr_link ) && ! empty( $cr_text ) ) {
+								echo '<a href="' . esc_url( $cr_link ) . '" class="main-graphic__post-link">' . esc_html( $cr_text ) . '</a>';
+							}
+						}
+					?>
+				</div>
+				<div class="main-graphic__result-description cancer-risk-text-container">
+					<?php the_field('cancer-risk-text2') ?>
+					<?php 
+						for ($__i = 1; $__i <= 5; $__i++) {
+							$cr_link = get_field("cancer-risk-link-2_{$__i}");
+							$cr_text = get_field("cancer-risk-text-2_{$__i}");
+							if ( ! empty( $cr_link ) && ! empty( $cr_text ) ) {
+								echo '<a href="' . esc_url( $cr_link ) . '" class="main-graphic__post-link">' . esc_html( $cr_text ) . '</a>';
+							}
+						}
+					?>
+				</div>
+				<div class="main-graphic__result-description cancer-risk-text-container">
+					<?php the_field('cancer-risk-text3') ?>
+					<?php 
+						for ($__i = 1; $__i <= 5; $__i++) {
+							$cr_link = get_field("cancer-risk-link-3_{$__i}");
+							$cr_text = get_field("cancer-risk-text-3_{$__i}");
+							if ( ! empty( $cr_link ) && ! empty( $cr_text ) ) {
+								echo '<a href="' . esc_url( $cr_link ) . '" class="main-graphic__post-link">' . esc_html( $cr_text ) . '</a>';
+							}
+						}
+					?>
+				</div>
+			</div>
+
+<!--  ------------------------  -->
+
+			<div class="graphics__main-graphic graphics__content main-graphic">
+				<h3 class="main-graphic__title">
+					<?php echo esc_html( $results_category( 'quantity-calories' ) ); ?>
+				</h3>
+				<?php
+					$__desc = get_field('quantity-calories-description');
+					if ( trim( $__desc ) !== '' ) {
+						echo '<div class="main-graphic__description">' . apply_filters('the_content', $__desc) . '</div>';
+					}
+				?>
+				<div class="main-graphic__graphic graphic graphic--modern">
+				<div class="graphic__container">
+						<div class="graphic__actual-number-container quantity-calories-scale">
+							<div class="graphic__point-container">
+								<div class="graphic__actual-number">4</div>
+								<div class="graphic__triangle"></div>
+							</div>
+						</div>
+						<div class="graphic__progress progress">
+							<div class="progress__min">0</div>
+							<div class="grayback progress-green"></div>
+							<div class="strips progress-yellow"></div>
+							<div class="progress-red"></div>
+							<div class="progress__max">4.8</div>
+						</div>
+						<div class="graphic__low-high">
+							<div class="graphic__low"><?php echo esc_html( $results_text( 'scale_low' ) ); ?></div>
+							<div class="graphic__high"><?php echo esc_html( $results_text( 'scale_high' ) ); ?></div>
+						</div>
+					</div>
+				</div>
+				<div class="main-graphic__result-description quantity-calories-text-container">
+					<?php the_field('quantity-calories-text1') ?>
+					<?php
+					for ($__i = 1; $__i <= 5; $__i++) {
+						$qc_link = get_field("quantity-calories-link-1_{$__i}");
+						$qc_text = get_field("quantity-calories-text-1_{$__i}");
+						if ( ! empty( $qc_link ) && ! empty( $qc_text ) ) {
+							echo '<a href="' . esc_url( $qc_link ) . '" class="main-graphic__post-link">' . esc_html( $qc_text ) . '</a>';
+						}
+					}
+					?>
+				</div>
+				<div class="main-graphic__result-description quantity-calories-text-container">
+					<?php the_field('quantity-calories-text2') ?>
+					<?php
+					for ($__i = 1; $__i <= 5; $__i++) {
+						$qc_link = get_field("quantity-calories-link-2_{$__i}");
+						$qc_text = get_field("quantity-calories-text-2_{$__i}");
+						if ( ! empty( $qc_link ) && ! empty( $qc_text ) ) {
+							echo '<a href="' . esc_url( $qc_link ) . '" class="main-graphic__post-link">' . esc_html( $qc_text ) . '</a>';
+						}
+					}
+					?>
+				</div>
+				<div class="main-graphic__result-description quantity-calories-text-container">
+					<?php the_field('quantity-calories-text3') ?>
+					<?php
+					for ($__i = 1; $__i <= 5; $__i++) {
+						$qc_link = get_field("quantity-calories-link-3_{$__i}");
+						$qc_text = get_field("quantity-calories-text-3_{$__i}");
+						if ( ! empty( $qc_link ) && ! empty( $qc_text ) ) {
+							echo '<a href="' . esc_url( $qc_link ) . '" class="main-graphic__post-link">' . esc_html( $qc_text ) . '</a>';
+						}
+					}
+					?>
+				</div>
+			</div>
+
+			<!-- Контент из редактора -->
+			<?php
+				// Выводим весь контент записи/страницы вместо шорткода баннера,
+				// обернутый в контейнер, только если контент не пустой.
+				if ( have_posts() ) {
+					while ( have_posts() ) {
+						the_post();
+						ob_start();
+						the_content(); // возвращает уже отфильтрованный контент (wpautop, shortcodes и т.д.)
+						$processed = ob_get_clean();
+						// проверяем на пустой контент (без HTML)
+						if ( trim( strip_tags( $processed ) ) !== '' ) {
+							echo '<div class="quest-results-content">' . $processed . '</div>';
+						}
+					}
+				}
+			?>
+
+		</div>
+		<?php if ( $gift_modal_visible ) : ?>
+			<div class="questresult__banner-section">
+				<div class="questresult__banner-inner">
+					<?php get_template_part( 'template-parts/banners/gift', null, $gift_banner ); ?>
+				</div>
+			</div>
+		<?php endif; ?>
+	</div>
+</main>
+
+<?php
+	// Сама модалка лежит вне <main>, чтобы никакой трансформированный предок
+	// не сломал position: fixed
 	if ( $gift_modal_visible ) :
 		$gift_modal_delay = $gift_modal_ready ? get_field( 'gift_modal_delay' ) : 400;
 		$gift_modal_delay = is_numeric( $gift_modal_delay ) ? max( 0, (int) $gift_modal_delay ) : 400;
 
-		$gift_modal_badge = $gift_modal_text( 'gift_modal_badge', 'Подарок за прохождение теста' );
-		$gift_modal_title = $gift_modal_text( 'gift_modal_title', 'Заберите разбор ваших показателей' );
-		$gift_modal_desc  = $gift_modal_text( 'gift_modal_desc', 'Выберите удобный мессенджер — пришлём подробный разбор результатов и подборку блюд, которые проще всего встроить в привычный рацион.' );
-		$gift_modal_skip  = $gift_modal_text( 'gift_modal_skip_text', 'Перейти к результатам' );
+		$gift_modal_badge = $gift_modal_text( 'gift_modal_badge', $results_text( 'gift_modal_badge' ) );
+		$gift_modal_title = $gift_modal_text( 'gift_modal_title', $results_text( 'gift_modal_title' ) );
+		$gift_modal_desc  = $gift_modal_text( 'gift_modal_desc', $results_text( 'gift_modal_desc' ) );
+		$gift_modal_skip  = $gift_modal_text( 'gift_modal_skip_text', $results_text( 'gift_modal_skip' ) );
 
 		// В строке помещается три кнопки, остальные сетка переносит на новый ряд
 		$gift_modal_columns = min( count( $gift_modal_socials ), 3 );
@@ -805,7 +862,7 @@ get_header(); ?>
 		<button
 			class="gift-modal__close"
 			type="button"
-			aria-label="Закрыть"
+			aria-label="<?php echo esc_attr( $results_text( 'gift_modal_close' ) ); ?>"
 			data-gift-modal-close>
 			&times;
 		</button>

@@ -24,11 +24,26 @@ const MOVEAT_QUESTIONNAIRE_EMAIL_BAR_WIDTH = 520;
 /** Отправитель письма */
 const MOVEAT_QUESTIONNAIRE_EMAIL_FROM = 'Moveat <moveat.expert@gmail.com>';
 
-/** Тема письма по умолчанию — перекрывается ACF-полем quest_email_subject */
+/*
+	Тема письма на самый крайний случай: обычно она приходит из словаря
+	(assets/dictionaries/emails/questionnaire-results), а поверх него — из
+	ACF-поля quest_email_subject страницы.
+*/
 const MOVEAT_QUESTIONNAIRE_EMAIL_SUBJECT = 'Ваши результаты по 8 индикаторам здоровья';
 
-/** Сколько храним идентификаторы прохождений, чтобы не слать письмо дважды */
-const MOVEAT_QUESTIONNAIRE_EMAIL_QID_TTL = YEAR_IN_SECONDS;
+/**
+ * Префикс записи об обработанном прохождении.
+ *
+ * Каждый идентификатор — отдельная опция с autoload = no: у wp_options есть
+ * уникальный индекс по option_name, поэтому MySQL находит запись по дереву,
+ * не читая остальные. Держать все идентификаторы одним массивом и искать в нём
+ * было бы медленнее: массив пришлось бы целиком читать и разбирать на каждом
+ * заходе, а так на запрос поднимается ровно одна строка.
+ *
+ * Срока жизни нет — записи весят десятки байт, а повторное письмо человеку
+ * неприятнее, чем лишние строки в таблице.
+ */
+const MOVEAT_QUESTIONNAIRE_QID_PREFIX = 'moveat_quest_qid_';
 
 /*
 	Блоки письма в том же порядке, в каком они идут на странице.
@@ -36,66 +51,71 @@ const MOVEAT_QUESTIONNAIRE_EMAIL_QID_TTL = YEAR_IN_SECONDS;
 	param   — имя GET-параметра с баллом (номер варианта текста лежит в
 	          параметре с суффиксом _text);
 	prefix  — префикс ACF-полей блока;
-	title   — заголовок блока (на странице он захардкожен в разметке);
 	max     — верх шкалы; null у общих выводов, там шкалы нет.
+
+	Заголовок подставляется из словаря письма по префиксу без дефиса на конце
+	(metabolic-disorder- → metabolic-disorder), поэтому здесь его нет. Словарь
+	передаётся аргументом: там, где нужны только номера параметров, его можно
+	не передавать.
 */
-function moveat_questionnaire_email_blocks() {
-	return array(
+function moveat_questionnaire_email_blocks( $dictionary = null ) {
+	$titles = isset( $dictionary['blocks'] ) ? (array) $dictionary['blocks'] : array();
+
+	$blocks = array(
 		array(
 			'param'  => 'average_score',
 			'prefix' => 'general-conclusions-',
-			'title'  => 'Общие выводы',
 			'max'    => null,
 		),
 		array(
 			'param'  => 'metab_syndrome',
 			'prefix' => 'metabolic-disorder-',
-			'title'  => 'Риск метаболического расстройства',
 			'max'    => 6.1,
 		),
 		array(
 			'param'  => 'inflamation',
 			'prefix' => 'systemic-inflammation-',
-			'title'  => 'Системное воспаление',
 			'max'    => 6.5,
 		),
 		array(
 			'param'  => 'acidification',
 			'prefix' => 'acidification-level-',
-			'title'  => 'Уровень закисления',
 			'max'    => 3.4,
 		),
 		array(
 			'param'  => 'glycemic_level',
 			'prefix' => 'glycemic-level-',
-			'title'  => 'Гликемичность рациона',
 			'max'    => 5.2,
 		),
 		array(
 			'param'  => 'risk_of_aging',
 			'prefix' => 'accelerated-aging-',
-			'title'  => 'Риск ускоренного старения',
 			'max'    => 6,
 		),
 		array(
 			'param'  => 'cleanability',
 			'prefix' => 'self-cleaning-',
-			'title'  => 'Нарушение способности организма к самоочищению',
 			'max'    => 5.1,
 		),
 		array(
 			'param'  => 'cancer_risk',
 			'prefix' => 'cancer-risk-',
-			'title'  => 'Риск раковых заболеваний',
 			'max'    => 5.6,
 		),
 		array(
 			'param'  => 'empty_calories',
 			'prefix' => 'quantity-calories-',
-			'title'  => 'Количество пустых калорий в пище',
 			'max'    => 4.8,
 		),
 	);
+
+	foreach ( $blocks as &$block ) {
+		$key            = rtrim( $block['prefix'], '-' );
+		$block['title'] = isset( $titles[ $key ] ) ? (string) $titles[ $key ] : '';
+	}
+	unset( $block );
+
+	return $blocks;
 }
 
 /*
@@ -226,7 +246,7 @@ function moveat_questionnaire_email_format_number( $value ) {
 	Собирает все блоки письма. Возвращает null, если на странице не заполнен
 	ни один текст — отправлять пустое письмо незачем.
 */
-function moveat_questionnaire_email_build_data( $post_id, $payload ) {
+function moveat_questionnaire_email_build_data( $post_id, $payload, $dictionary = null ) {
 	if ( ! function_exists( 'get_field' ) ) {
 		return null;
 	}
@@ -234,7 +254,7 @@ function moveat_questionnaire_email_build_data( $post_id, $payload ) {
 	$blocks   = array();
 	$has_text = false;
 
-	foreach ( moveat_questionnaire_email_blocks() as $block ) {
+	foreach ( moveat_questionnaire_email_blocks( $dictionary ) as $block ) {
 		$entry = $payload['scores'][ $block['param'] ];
 
 		$built = moveat_questionnaire_email_build_block(
@@ -255,10 +275,11 @@ function moveat_questionnaire_email_build_data( $post_id, $payload ) {
 }
 
 /*
-	Тема письма. Берём из ACF-поля страницы, если оно заведено, иначе —
-	значение по умолчанию: так тему можно будет менять из админки, не трогая код.
+	Тема письма. Сначала смотрим ACF-поле страницы — так тему можно менять из
+	админки, и у каждой языковой версии она своя. Если поле пустое, берём
+	строку из словаря письма, а уже за ней — константу выше.
 */
-function moveat_questionnaire_email_subject( $post_id ) {
+function moveat_questionnaire_email_subject( $post_id, $dictionary = null ) {
 	if ( function_exists( 'get_field' ) ) {
 		$subject = trim( (string) get_field( 'quest_email_subject', $post_id ) );
 		if ( '' !== $subject ) {
@@ -266,14 +287,18 @@ function moveat_questionnaire_email_subject( $post_id ) {
 		}
 	}
 
-	return MOVEAT_QUESTIONNAIRE_EMAIL_SUBJECT;
+	return moveat_dictionary_text(
+		(array) $dictionary,
+		'subject',
+		MOVEAT_QUESTIONNAIRE_EMAIL_SUBJECT
+	);
 }
 
 /*
 	Рендерит HTML письма. Шаблон презентационный: получает готовые блоки и
 	ничего не знает ни про ACF, ни про параметры адреса.
 */
-function moveat_questionnaire_email_render( $blocks, $post_id ) {
+function moveat_questionnaire_email_render( $blocks, $post_id, $dictionary = null ) {
 	$template = get_template_directory() . '/template-parts/emails/questionnaire-results.php';
 	if ( ! file_exists( $template ) ) {
 		return '';
@@ -283,6 +308,7 @@ function moveat_questionnaire_email_render( $blocks, $post_id ) {
 	$email_blocks   = $blocks;
 	$email_page_id  = $post_id;
 	$email_bar      = MOVEAT_QUESTIONNAIRE_EMAIL_BAR_WIDTH;
+	$email_strings  = isset( $dictionary['strings'] ) ? (array) $dictionary['strings'] : array();
 
 	ob_start();
 	include $template;
@@ -320,6 +346,45 @@ function moveat_questionnaire_email_log( $message ) {
 }
 
 /*
+	Что уже сделано по этому прохождению: массив вида
+	array( 'email' => '2026-09-11 12:00:00', 'crm' => ... ) или пустой массив.
+*/
+function moveat_questionnaire_qid_state( $qid ) {
+	$state = get_option( MOVEAT_QUESTIONNAIRE_QID_PREFIX . $qid, array() );
+
+	return is_array( $state ) ? $state : array();
+}
+
+/*
+	Отмечает выполненный шаг по этому прохождению.
+
+	Шаги пишем по отдельности: если письмо не ушло из-за сбоя почты, отправка в
+	CRM всё равно останется отмеченной и не продублируется при следующем заходе.
+*/
+function moveat_questionnaire_qid_mark( $qid, $step ) {
+	$key   = MOVEAT_QUESTIONNAIRE_QID_PREFIX . $qid;
+	$state = moveat_questionnaire_qid_state( $qid );
+
+	$state[ $step ] = current_time( 'mysql' );
+
+	// autoload = no: записей со временем станет много, и грузить их
+	// в память на каждом запросе незачем.
+	update_option( $key, $state, false );
+}
+
+/*
+	Адрес страницы результатов вместе с параметрами — его кладём в карточку CRM,
+	чтобы результаты можно было открыть прямо оттуда.
+*/
+function moveat_questionnaire_results_url() {
+	if ( empty( $_SERVER['REQUEST_URI'] ) ) {
+		return '';
+	}
+
+	return esc_url_raw( home_url( wp_unslash( $_SERVER['REQUEST_URI'] ) ) );
+}
+
+/*
 	Отправляет результаты на почту при заходе на страницу результатов.
 
 	Каждая проверка — тихий выход: если параметров нет или они битые, страница
@@ -348,25 +413,58 @@ function moveat_maybe_send_questionnaire_results_email() {
 		return;
 	}
 
-	$transient_key = 'moveat_quest_email_' . $payload['qid'];
+	$qid   = $payload['qid'];
+	$state = moveat_questionnaire_qid_state( $qid );
 
 	// Предпросмотр для администратора: показывает письмо прямо в браузере,
 	// ничего не отправляя и не отмечая прохождение как обработанное.
 	$is_preview = isset( $_GET['preview_email'] ) && current_user_can( 'manage_options' );
 
-	if ( ! $is_preview && false !== get_transient( $transient_key ) ) {
+	$needs_email = $is_preview || empty( $state['email'] );
+	$needs_crm   = ! $is_preview && empty( $state['crm'] );
+
+	if ( ! $needs_email && ! $needs_crm ) {
 		return;
 	}
 
-	$blocks = moveat_questionnaire_email_build_data( $post_id, $payload );
+	// Карточку в CRM заводим независимо от письма: даже если почта не уйдёт,
+	// контакт в CRM останется, и наоборот.
+	if ( $needs_crm && function_exists( '\\Moveat\\Tallanto\\Questionnaire\\send_result' ) ) {
+		$crm_sent = \Moveat\Tallanto\Questionnaire\send_result(
+			$payload['email'],
+			moveat_questionnaire_results_url()
+		);
+
+		if ( $crm_sent ) {
+			moveat_questionnaire_qid_mark( $qid, 'crm' );
+			moveat_questionnaire_email_log( sprintf( 'qid %s: результат передан в Tallanto', $qid ) );
+		} else {
+			// Причину уже записал клиент Tallanto в свой лог
+			moveat_questionnaire_email_log( sprintf( 'qid %s: Tallanto не принял результат', $qid ) );
+		}
+	}
+
+	if ( ! $needs_email ) {
+		return;
+	}
+
+	/*
+		Язык письма — язык той страницы, на которую пришёл человек: с /uk/
+		уходит украинское письмо. Берём его по ID страницы, а не по текущему
+		языку запроса, чтобы письмо не зависело от того, что Polylang считает
+		текущим в этот момент.
+	*/
+	$dictionary = moveat_dictionary( 'emails/questionnaire-results', moveat_post_lang( $post_id ) );
+
+	$blocks = moveat_questionnaire_email_build_data( $post_id, $payload, $dictionary );
 	if ( ! $blocks ) {
 		moveat_questionnaire_email_log(
-			sprintf( 'qid %s: тексты на странице %d не заполнены, письмо не отправлено', $payload['qid'], $post_id )
+			sprintf( 'qid %s: тексты на странице %d не заполнены, письмо не отправлено', $qid, $post_id )
 		);
 		return;
 	}
 
-	$html = moveat_questionnaire_email_render( $blocks, $post_id );
+	$html = moveat_questionnaire_email_render( $blocks, $post_id, $dictionary );
 	if ( '' === $html ) {
 		moveat_questionnaire_email_log( 'шаблон письма не найден' );
 		return;
@@ -385,18 +483,18 @@ function moveat_maybe_send_questionnaire_results_email() {
 
 	$sent = wp_mail(
 		$payload['email'],
-		moveat_questionnaire_email_subject( $post_id ),
+		moveat_questionnaire_email_subject( $post_id, $dictionary ),
 		$html,
 		$headers
 	);
 
 	if ( $sent ) {
-		// Отмечаем прохождение только после удачной отправки: иначе сбой
-		// транспорта навсегда лишил бы человека письма.
-		set_transient( $transient_key, time(), MOVEAT_QUESTIONNAIRE_EMAIL_QID_TTL );
-		moveat_questionnaire_email_log( sprintf( 'qid %s: письмо отправлено', $payload['qid'] ) );
+		// Отмечаем шаг только после удачной отправки: иначе сбой транспорта
+		// навсегда лишил бы человека письма.
+		moveat_questionnaire_qid_mark( $qid, 'email' );
+		moveat_questionnaire_email_log( sprintf( 'qid %s: письмо отправлено', $qid ) );
 	} else {
-		moveat_questionnaire_email_log( sprintf( 'qid %s: wp_mail вернул false', $payload['qid'] ) );
+		moveat_questionnaire_email_log( sprintf( 'qid %s: wp_mail вернул false', $qid ) );
 	}
 }
 add_action( 'template_redirect', 'moveat_maybe_send_questionnaire_results_email' );
