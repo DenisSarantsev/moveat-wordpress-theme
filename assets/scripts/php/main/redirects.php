@@ -43,6 +43,7 @@ const MOVEAT_REDIRECT_KEEP_QUERY = false;
 function moveat_redirect_rules() {
 	return [
 		'product-category/consultation' => 'catalog',
+		'product-category/pakety'       => 'catalog',
 		'product/komfort-paket'         => 'product/rashet-raziona',
 		'product/rasshirennyj-paket'    => 'product/raschet-ratsiona-s-rassmotreniem-analizov',
 		'kursy'                         => 'catalog',
