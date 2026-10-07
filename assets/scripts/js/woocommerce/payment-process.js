@@ -57,8 +57,10 @@ let installmentsOpen = false;
 let checkoutCloseTween = null;
 
 // Опрос статуса заявки: у клиента 15 минут на подтверждение в приложении.
+// Срок считаем по часам, а не числом опросов: каждый опрос ещё ходит в банк,
+// а на телефоне таймеры замирают, пока клиент в приложении monobank.
 const POLL_INTERVAL = 5000;
-const POLL_MAX_TRIES = 180;
+const INSTALMENTS_TIMEOUT_MS = 15 * 60 * 1000;
 const SUCCESS_REDIRECT_DELAY = 1500;
 const INSTALMENTS_TIMEOUT_TEXT =
 	"Мы не дождались ответа банка. Если вы подтвердили покупку в приложении monobank — напишите нам, заказ уже создан.";
@@ -460,27 +462,49 @@ function getSelectedTerm() {
 	return Number(active?.getAttribute("data-installment-term")) || 0;
 }
 
-const wait = (ms) => new Promise((resolve) => window.setTimeout(resolve, ms));
+/*
+	Ждёт ms миллисекунд, но просыпается раньше, когда клиент возвращается на
+	вкладку: пока он подтверждал покупку в приложении, браузер стоял в фоне,
+	и ответ банка нужно узнать сразу, а не через очередной интервал.
+*/
+function waitOrVisible(ms) {
+	return new Promise((resolve) => {
+		const done = () => {
+			window.clearTimeout(timer);
+			document.removeEventListener("visibilitychange", onVisible);
+			resolve();
+		};
+		const onVisible = () => {
+			if (document.visibilityState === "visible") done();
+		};
+		const timer = window.setTimeout(done, ms);
+		document.addEventListener("visibilitychange", onVisible);
+	});
+}
 
 /*
 	Опрашивает эндпоинт плагина CatCode, который сверяет заявку с банком.
 	Ответы: { done: false } — ждём; { done: true, ok: true, redirect } — оплачено;
 	{ done: true, ok: false, message } — отказ. Сбой сети — не отказ, ждём дальше.
+	После дедлайна делаем ещё один опрос: клиент мог подтвердить покупку, пока
+	страница стояла в фоне, — тогда покажем успех, а не таймаут.
 */
 async function pollInstalment(pollUrl) {
-	for (let attempt = 0; attempt < POLL_MAX_TRIES; attempt++) {
-		await wait(POLL_INTERVAL);
+	const deadline = Date.now() + INSTALMENTS_TIMEOUT_MS;
+
+	for (;;) {
+		await waitOrVisible(Math.max(0, Math.min(POLL_INTERVAL, deadline - Date.now())));
 
 		let data = null;
 		try {
 			const response = await fetch(pollUrl, { credentials: "same-origin" });
 			data = await response.json();
 		} catch (e) {
-			continue;
+			data = null;
 		}
 
-		if (!data?.done) continue;
-		return data;
+		if (data?.done) return data;
+		if (Date.now() >= deadline) break;
 	}
 
 	return { done: true, ok: false, message: INSTALMENTS_TIMEOUT_TEXT };

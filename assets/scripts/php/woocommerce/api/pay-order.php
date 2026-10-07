@@ -333,6 +333,12 @@ function start_instalments(\WC_Order $order, array $body)
 	error_log('[moveat pay-order] instalments result: ' . wp_json_encode($result));
 
 	if (is_array($result) && ($result['result'] ?? '') === 'success') {
+		// Плагин сохранил ID заявки в свою копию заказа — перечитываем.
+		$fresh = wc_get_order($order->get_id());
+		if ($fresh) {
+			moveat_instalments_schedule_timeout($fresh);
+		}
+
 		return new \WP_REST_Response([
 			'order_id' => $order->get_id(),
 			'wait'     => true,

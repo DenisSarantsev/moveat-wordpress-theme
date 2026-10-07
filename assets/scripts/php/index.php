@@ -54,6 +54,8 @@ if ( class_exists( 'WooCommerce' ) ) {
 	require_once __DIR__ . '/woocommerce/instalments.php';
 	// Автоподтверждение выдачи в monobank после оплаты частями (во Free-версии плагин этого не делает).
 	require_once __DIR__ . '/woocommerce/instalments-confirm.php';
+	// Заявка на оплату частями не подтверждена за 15 минут — заказ «Отменён».
+	require_once __DIR__ . '/woocommerce/instalments-timeout.php';
 	// Подключает серверный API-слой WooCommerce и маршруты.
 	require_once __DIR__ . '/woocommerce/api/setup.php';
 	// Хуки для управления статусами заказов и редиректами после оплаты.
