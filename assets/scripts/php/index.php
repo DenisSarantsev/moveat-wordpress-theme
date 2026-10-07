@@ -46,6 +46,8 @@ require_once __DIR__ . '/woocommerce/woo-api-config.php';
 if ( class_exists( 'WooCommerce' ) ) {
 	// Подключает кастомизацию карточек и шаблонов WooCommerce.
 	require_once __DIR__ . '/woocommerce/product-card/setup.php';
+	// Свои картинки у каждой языковой версии товара (отключает синхронизацию фото в Polylang for WooCommerce).
+	require_once __DIR__ . '/woocommerce/product-images-per-language.php';
 	// Способ оплаты: читаемая подпись с иконкой в админке, колонка, фильтр, письма.
 	require_once __DIR__ . '/woocommerce/payment-method-display.php';
 	// Оплата частями monobank (плагин CatCode): курс UAH, сроки, подмена суммы заявки.
