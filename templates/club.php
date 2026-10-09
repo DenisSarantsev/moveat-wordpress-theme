@@ -421,5 +421,26 @@ get_header();
 	<?php endif; ?>
 </main>
 
+<script>
+	// Прокрутка к блоку «Стать участником клуба» по кнопке «Присоединиться к клубу».
+	// Делегирование на document — не зависит от инициализации main.js.
+	document.addEventListener('click', function (event) {
+		var trigger = event.target.closest('[data-club-scroll-to-pricing]');
+		var target = document.getElementById('club-pricing');
+		if (!trigger || !target) {
+			return;
+		}
+		event.preventDefault();
+		event.stopImmediatePropagation();
+
+		var header = document.querySelector('header');
+		var headerPosition = header ? getComputedStyle(header).position : '';
+		var offset = (headerPosition === 'fixed' || headerPosition === 'sticky') ? header.offsetHeight : 0;
+		var top = target.getBoundingClientRect().top + window.pageYOffset - offset - 20;
+
+		window.scrollTo({ top: top, behavior: 'smooth' });
+	}, true);
+</script>
+
 <?php
 get_footer();
