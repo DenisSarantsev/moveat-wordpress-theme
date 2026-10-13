@@ -25,7 +25,7 @@ function moveat_wc_get_formats_map() {
 			'label' => __( 'Видео файл', 'moveat' ),
 		],
 		'zip'   => [
-			'icon'  => $base_icons . '/zip.svg',
+			'icon'  => $fallback_base . '/zip.png',
 			'label' => __( 'Архив ZIP', 'moveat' ),
 		],
 		'image' => [

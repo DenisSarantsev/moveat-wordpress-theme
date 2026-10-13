@@ -53,7 +53,7 @@
 				</div>
 
 				<!-- Language switcher -->
-				<div class="lang-switcher" data-nosnippet tabindex="0" aria-label="Выбор языка">
+				<div class="lang-switcher notranslate" translate="no" data-nosnippet tabindex="0" aria-label="Выбор языка">
 					<input type="radio" name="site-lang" id="lang-ru" checked hidden />
 					<input type="radio" name="site-lang" id="lang-uk" hidden />
 					<!-- Current (display controlled via CSS based on the checked input) -->
@@ -203,7 +203,7 @@
 					<p class="lang-modal__desc">
 						На каком языке вы хотите пользоваться сайтом?
 					</p>
-					<div class="lang-modal__actions">
+					<div class="lang-modal__actions notranslate" translate="no">
 						<button class="lang-modal__btn ru" data-lang-select data-lang="ru">
 							Русский (RU)
 						</button>

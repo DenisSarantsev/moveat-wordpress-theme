@@ -33,7 +33,7 @@
 				'label' => __( 'Видео файл', 'moveat' ),
 			],
 			'zip'   => [
-				'icon'  => $icons_base . '/zip.svg',
+				'icon'  => $fallback_icons . '/zip.png',
 				'label' => __( 'Архив ZIP', 'moveat' ),
 			],
 			'image' => [
