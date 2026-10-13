@@ -314,6 +314,12 @@ function start_instalments(\WC_Order $order, array $body)
 		], 400);
 	}
 
+	if (!moveat_instalments_amount_fits((float) $order->get_total() * $rate)) {
+		return new \WP_REST_Response([
+			'error' => 'Оплата частями недоступна для этой суммы. Выберите другой способ оплаты.',
+		], 400);
+	}
+
 	$_POST['cciw_bank']       = 'mono';
 	$_POST['cciw_parts_mono'] = (string) absint($body['instalments']['parts'] ?? 0);
 

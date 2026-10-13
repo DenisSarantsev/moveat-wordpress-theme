@@ -14,6 +14,13 @@ defined( 'ABSPATH' ) || exit;
 const MOVEAT_INSTALMENTS_GATEWAY = 'cc_payparts';
 
 /**
+ * Диапазон суммы заказа для оплаты частями, в гривнах — в них уходит заявка
+ * в банк. 0 — без ограничения с этой стороны.
+ */
+const MOVEAT_INSTALMENTS_MIN_UAH = 2200;
+const MOVEAT_INSTALMENTS_MAX_UAH = 70000;
+
+/**
  * Курс USD → UAH. Тот же источник, что и для сумм на странице оплаты,
  * чтобы в заявку ушла ровно та сумма в гривнах, которую видел клиент.
  */
@@ -32,11 +39,28 @@ function moveat_order_pay_get_uah_rate() {
 }
 
 /**
- * Оплата частями пока на тестировании — доступна только администраторам магазина.
- * Открыть для всех: вернуть true.
+ * Кому доступна оплата частями. Сейчас — всем покупателям.
+ * Вернуть на тестирование только для администраторов магазина:
+ * return current_user_can( 'manage_woocommerce' );
  */
 function moveat_instalments_allowed_for_current_user() {
-	return current_user_can( 'manage_woocommerce' );
+	return true;
+}
+
+/** Подходит ли сумма заказа в гривнах для оплаты частями. */
+function moveat_instalments_amount_fits( $total_uah ) {
+	$total_uah = round( (float) $total_uah, 2 );
+
+	if ( $total_uah <= 0 ) {
+		return false;
+	}
+	if ( MOVEAT_INSTALMENTS_MIN_UAH > 0 && $total_uah < MOVEAT_INSTALMENTS_MIN_UAH ) {
+		return false;
+	}
+	if ( MOVEAT_INSTALMENTS_MAX_UAH > 0 && $total_uah > MOVEAT_INSTALMENTS_MAX_UAH ) {
+		return false;
+	}
+	return true;
 }
 
 /** Экземпляр шлюза CatCode или null, если плагин не активен. */

@@ -52,23 +52,13 @@ function moveat_order_pay_payments_label( $count ) {
 	return $count . ' ' . $word;
 }
 
-$installment_terms = $total_uah > 0
+$installment_terms = function_exists( 'moveat_instalments_amount_fits' )
+	&& moveat_instalments_amount_fits( $total_uah )
 	&& function_exists( 'moveat_order_pay_get_installment_terms' )
 	&& moveat_instalments_allowed_for_current_user()
 	? moveat_order_pay_get_installment_terms()
 	: array();
 $mono_logo         = $theme_uri . '/assets/images/logotypes/mono.webp';
-
-// TODO: временная диагностика оплаты частями — удалить после проверки.
-?>
-<!-- parts-debug:
-	user_id=<?php echo (int) get_current_user_id(); ?>
-	allowed=<?php echo function_exists( 'moveat_instalments_allowed_for_current_user' ) && moveat_instalments_allowed_for_current_user() ? 'yes' : 'no'; ?>
-	total_uah=<?php echo esc_html( $total_uah ); ?>
-	terms=<?php echo esc_html( function_exists( 'moveat_order_pay_get_installment_terms' ) ? implode( ',', moveat_order_pay_get_installment_terms() ) : 'no-function' ); ?>
-	time=<?php echo esc_html( gmdate( 'H:i:s' ) ); ?>
--->
-<?php
 
 // Для отображения в USD используем минимум 2 десятичных знака
 $display_decimals = max(2, (int) wc_get_price_decimals());
