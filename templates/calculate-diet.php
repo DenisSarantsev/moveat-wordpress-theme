@@ -588,7 +588,7 @@ $show_final_cta = ( $final_ok_left && $final_ok_right );
 								<div class="team-img">
 									<img src="<?php echo esc_url( $member['photo'] ); ?>" class="img-fluid" alt="<?php echo esc_attr( $member['name'] ); ?>" />
 								</div>
-								<div class="team-title"><h4 class="mb-0"><?php echo esc_html( $member['name'] ); ?></h4><p class="mb-0"><?php echo esc_html( $member['role'] ); ?></p></div>
+								<div class="team-title"><h3 class="h4 mb-0"><?php echo esc_html( $member['name'] ); ?></h3><p class="mb-0"><?php echo esc_html( $member['role'] ); ?></p></div>
 								<?php if ( $member['social_links'] ) : ?>
 								<div class="team-icon">
 									<?php foreach ( $member['social_links'] as $sl ) : ?>

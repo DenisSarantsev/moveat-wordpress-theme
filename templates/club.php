@@ -401,7 +401,7 @@ get_header();
 									data-faq-trigger
 									aria-expanded="false"
 									aria-controls="<?php echo esc_attr( $panel_id ); ?>">
-									<h4 class="faq__question-title"><?php echo esc_html( $faq_row['question'] ); ?></h4>
+									<h3 class="h4 faq__question-title"><?php echo esc_html( $faq_row['question'] ); ?></h3>
 									<img class="faq__icon" aria-hidden="true" src="<?php echo esc_attr( $faq_cross_icon_src ); ?>" alt="" loading="lazy" decoding="async" />
 								</button>
 								<div class="faq__panel" id="<?php echo esc_attr( $panel_id ); ?>" data-faq-panel aria-hidden="true">

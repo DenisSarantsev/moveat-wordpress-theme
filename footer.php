@@ -43,7 +43,7 @@
 				</div>
 				<div class="footer-top__other-links">
 					<div class="footer-top__other-links_socials">
-						<h5 class="footer-top__other-links_socials-title"><?php echo esc_html( get_field( 'socials_title', GLOBAL_SETTINGS_PAGE_ID ) ); ?></h5>
+						<div class="h5 footer-top__other-links_socials-title"><?php echo esc_html( get_field( 'socials_title', GLOBAL_SETTINGS_PAGE_ID ) ); ?></div>
 						<div class="footer-top__other-links_socials-icons">
 						<?php $i = 1;
 						while ( $img = get_field( 'social_img_' . $i, GLOBAL_SETTINGS_PAGE_ID ) ) :
@@ -55,7 +55,7 @@
 						</div>
 					</div>
 					<div class="footer-top__other-links_payments">
-						<h5 class="footer-top__other-links_payments-title"><?php echo esc_html( get_field( 'payments_title', GLOBAL_SETTINGS_PAGE_ID ) ); ?></h5>
+						<div class="h5 footer-top__other-links_payments-title"><?php echo esc_html( get_field( 'payments_title', GLOBAL_SETTINGS_PAGE_ID ) ); ?></div>
 						<div class="footer-top__other-links_payments-icons">
 						<?php $i = 1;
 						while ( $img = get_field( 'payment_img_' . $i, GLOBAL_SETTINGS_PAGE_ID ) ) : ?>

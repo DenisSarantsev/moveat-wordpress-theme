@@ -266,7 +266,7 @@
 								<img loading="lazy" src="<?php echo esc_url($photo); ?>" class="img-fluid" alt="<?php echo esc_attr($name); ?>">
 							</div>
 							<div class="team-title">
-								<h4 class="mb-0"><?php echo esc_html($name); ?></h4>
+								<h3 class="h4 mb-0"><?php echo esc_html($name); ?></h3>
 								<p class="mb-0"><?php echo esc_html($position); ?></p>
 							</div>
 							<div class="team-icon">
@@ -378,7 +378,7 @@
 								<?php endif; ?>
 							<div class="reviews__author-info ms-3">
 								<?php if ($author_name) : ?>
-									<h5 class="reviews__author-name mb-1"><?php echo esc_html($author_name); ?></h5>
+									<h3 class="h5 reviews__author-name mb-1"><?php echo esc_html($author_name); ?></h3>
 								<?php endif; ?>
 								<?php if ($author_role) : ?>
 									<span class="reviews__author-role"><?php echo esc_html($author_role); ?></span>
@@ -647,7 +647,7 @@
 						?>
 							<div class="faq__item" data-faq-item>
 								<button class="faq__question" type="button" data-faq-trigger aria-expanded="false" aria-controls="faq-panel-<?php echo $i; ?>">
-									<h4 class="faq__question-title"><?php echo esc_html($question); ?></h4>
+									<h3 class="h4 faq__question-title"><?php echo esc_html($question); ?></h3>
 									<img loading="lazy" class="faq__icon" aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA+0lEQVR4nO2YwQ6CMBBE53/0c7rhoP/BUY/+syYQY70Q0AI72y3ZSThw6cyj0J0AhEKhUChUrhMa9rgDeAG4sgwACIAngAcj/JAvFoTk8F8fNYjzZOEh33daBvisNefx9lZRmjHQ2glZWPsCZTEgxCo8A8I8vCZEtfAaENXD74FwE34LhLvwayDchi+BcB/+3zRlT3H6Trh/8qUQTYTHwjvPbLEm4ZuA6Fr+iOXHUcms4ioqOefdQsiKIeUOQjZMWDcQsqMeVIcQhW5TDUIUi5k5BKNVJisIZiVObIhD/NjqDVplmkDctA16g0qcMoR6+EP8Xg+FQqHQ8TQCNxwr5J48PtQAAAAASUVORK5CYII=" alt="cross icon">
 								</button>
 								<div class="faq__panel" id="faq-panel-<?php echo $i; ?>" data-faq-panel aria-hidden="true">
