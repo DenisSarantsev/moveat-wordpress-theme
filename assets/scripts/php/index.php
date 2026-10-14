@@ -18,6 +18,8 @@ require_once __DIR__ . '/banners/shortcodes.php';
 require_once __DIR__ . '/main/dictionaries.php';
 // SVG-иконки: moveat_icon( 'instagram' ) вместо шрифтов иконок с CDN.
 require_once __DIR__ . '/main/icons.php';
+// Меньше блокирующих запросов в <head>: без стилей WooCommerce и jquery-migrate, стили плагинов — асинхронно.
+require_once __DIR__ . '/main/render-blocking.php';
 // Регистрирует меню и настройки навигации темы.
 require_once __DIR__ . '/main/menu.php';
 // Подключает поддержку и вывод логотипа сайта.

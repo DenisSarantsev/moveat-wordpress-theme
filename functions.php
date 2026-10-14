@@ -37,13 +37,20 @@ function moveat_add_module_type( $tag, $handle ) {
 add_filter( 'script_loader_tag', 'moveat_add_module_type', 10, 2 );
 
 // ----------------------------------- Подключение шрифтов (self-hosted, без Google CDN)
+// @font-face встраиваем прямо в <head>: отдельный fonts.css (0,6 КБ) был ещё
+// одним блокирующим запросом. Пути в файле относительные — делаем абсолютными.
 function moveat_enqueue_fonts() {
-	wp_enqueue_style(
-		'moveat-fonts',
-		get_template_directory_uri() . '/assets/fonts/fonts.css',
-		[],
-		moveat_asset_ver( 'assets/fonts/fonts.css' )
-	);
+	$file = get_template_directory() . '/assets/fonts/fonts.css';
+	if ( ! file_exists( $file ) ) {
+		return;
+	}
+
+	$fonts_uri = get_template_directory_uri() . '/assets/fonts/';
+	$css       = preg_replace( '/url\("(?!https?:|\/)([^"]+)"\)/', 'url("' . $fonts_uri . '$1")', file_get_contents( $file ) );
+
+	wp_register_style( 'moveat-fonts', false, [], moveat_asset_ver( 'assets/fonts/fonts.css' ) );
+	wp_enqueue_style( 'moveat-fonts' );
+	wp_add_inline_style( 'moveat-fonts', $css );
 }
 add_action('wp_enqueue_scripts', 'moveat_enqueue_fonts');
 
