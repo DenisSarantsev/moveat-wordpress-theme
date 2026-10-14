@@ -25,7 +25,7 @@ $valid     = $order && $order->key_is_valid( $order_key );
 
 // ─── Курс UAH ─────────────────────────────────────────────────────────────────
 
-// moveat_order_pay_get_uah_rate() — в assets/scripts/php/woocommerce/instalments.php
+// moveat_order_pay_get_uah_rate() — в assets/scripts/php/woocommerce/parts-payment/instalments.php
 
 $uah_rate = $valid ? moveat_order_pay_get_uah_rate() : 0;
 
@@ -34,7 +34,7 @@ $total_uah = $valid && $uah_rate > 0 ? (float) $order->get_total() * $uah_rate :
 
 // ─── Оплата частями (monobank, плагин CatCode) ───────────────────────────────
 
-// Варианты количества платежей — moveat_order_pay_get_installment_terms() в instalments.php.
+// Варианты количества платежей — moveat_order_pay_get_installment_terms() в parts-payment/instalments.php.
 
 // «3 платежа», «5 платежей», «21 платёж».
 function moveat_order_pay_payments_label( $count ) {
