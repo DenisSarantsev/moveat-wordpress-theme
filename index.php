@@ -20,8 +20,32 @@
 		<div class="hero__wrapper">
 			<div class="hero__bg-filter"></div> 
 			<?php if ($hero_bg_image) : ?>
-				<img class="hero__image desktop" src="<?php echo esc_url($hero_bg_image); ?>" alt="Image">
-				<img class="hero__image mobile" src="<?php echo esc_url($hero_bg_image_mobile); ?>" alt="Image">
+				<?php
+					// width/height из медиатеки: браузер заранее знает пропорции картинки.
+					$hero_size_attrs = function ( $url ) {
+						$id   = attachment_url_to_postid( $url );
+						$meta = $id ? wp_get_attachment_metadata( $id ) : null;
+						if ( empty( $meta['width'] ) || empty( $meta['height'] ) ) {
+							return '';
+						}
+						return sprintf( ' width="%d" height="%d"', $meta['width'], $meta['height'] );
+					};
+					$hero_img_src = $hero_bg_image_mobile ?: $hero_bg_image;
+				?>
+				<!-- Картинку выбирает браузер: от 992px — десктопная, ниже — мобильная.
+				     Скачивается только одна из двух. -->
+				<picture class="hero__picture">
+					<?php if ( $hero_bg_image_mobile ) : ?>
+						<source
+							media="(min-width: 992px)"
+							srcset="<?php echo esc_url( $hero_bg_image ); ?>"<?php echo $hero_size_attrs( $hero_bg_image ); ?>>
+					<?php endif; ?>
+					<img
+						class="hero__image"
+						src="<?php echo esc_url( $hero_img_src ); ?>"
+						fetchpriority="high"
+						alt="Image"<?php echo $hero_size_attrs( $hero_img_src ); ?>>
+				</picture>
 			<?php endif; ?>
 			<div class="hero__container">
 				<div class="hero__content">
