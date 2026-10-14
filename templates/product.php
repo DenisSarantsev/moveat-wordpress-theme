@@ -7,6 +7,11 @@
 		$check_mark_icon  = $theme_uri . '/assets/images/icons/filled/check-mark-filled.png';
 		$cart_page_url    = get_permalink( 700 ) ?: ( function_exists( 'wc_get_cart_url' ) ? wc_get_cart_url() : home_url( '/cart/' ) );
 		$product_id       = $product ? $product->get_id() : 0;
+		// Тексты вёрстки на языке страницы — assets/dictionaries/templates/product.
+		$product_dict = moveat_dictionary( 'templates/product' );
+		$t = function ( $key ) use ( $product_dict ) {
+			return moveat_dictionary_text( $product_dict, $key );
+		};
 		$is_in_cart       = false;
 
 		if ( $product_id && function_exists( 'WC' ) && WC()->cart ) {
@@ -24,27 +29,27 @@
 		$moveat_formats_map = [
 			'pdf'   => [
 				'icon'  => ( file_exists( get_template_directory() . '/assets/icons/formats/pdf.svg' ) ? $icons_base . '/pdf.svg' : $fallback_icons . '/pdf.png' ),
-				'label' => __( 'PDF файл', 'moveat' ),
+				'label' => $t( 'format_pdf' ),
 			],
 			'audio' => [
 				'icon'  => ( file_exists( get_template_directory() . '/assets/icons/formats/audio.svg' ) ? $icons_base . '/audio.svg' : $fallback_icons . '/audio.png' ),
-				'label' => __( 'Аудио файл', 'moveat' ),
+				'label' => $t( 'format_audio' ),
 			],
 			'video' => [
 				'icon'  => $icons_base . '/video.svg',
-				'label' => __( 'Видео файл', 'moveat' ),
+				'label' => $t( 'format_video' ),
 			],
 			'zip'   => [
 				'icon'  => $fallback_icons . '/zip.png',
-				'label' => __( 'Архив ZIP', 'moveat' ),
+				'label' => $t( 'format_zip' ),
 			],
 			'image' => [
 				'icon'  => $icons_base . '/image.svg',
-				'label' => __( 'Изображения', 'moveat' ),
+				'label' => $t( 'format_image' ),
 			],
 			'text'  => [
 				'icon'  => $icons_base . '/txt.svg',
-				'label' => __( 'Текстовый файл', 'moveat' ),
+				'label' => $t( 'format_text' ),
 			],
 		];
 		$moveat_get_primary_price = function( $p ) {
@@ -104,7 +109,7 @@
 										'before'      => '<li class="breadcrumb-item product-breadcrumbs__item">',
 										'after'       => '</li>',
 										'delimiter'   => '',
-										'home'        => _x( 'Главная', 'breadcrumb', 'moveat' ),
+										'home'        => $t( 'breadcrumb_home' ),
 									] );
 								}
 							?>
@@ -115,7 +120,7 @@
       <div class="product-page__container max-width-limiter">
         <div class="product-page__gallery" data-product-gallery>
           <div class="product-page__main-image-wrapper">
-            <button class="product-page__arrow product-page__arrow--prev" type="button" aria-label="Предыдущее фото" data-gallery-prev>
+            <button class="product-page__arrow product-page__arrow--prev" type="button" aria-label="<?php echo esc_attr( $t( 'gallery_prev' ) ); ?>" data-gallery-prev>
               <i class="bi bi-chevron-left"></i>
             </button>
 						<div class="product-page__main-image" data-gallery-main
@@ -141,11 +146,11 @@
 								}
 							?>
 						</div>
-            <button class="product-page__arrow product-page__arrow--next" type="button" aria-label="Следующее фото" data-gallery-next>
+            <button class="product-page__arrow product-page__arrow--next" type="button" aria-label="<?php echo esc_attr( $t( 'gallery_next' ) ); ?>" data-gallery-next>
               <i class="bi bi-chevron-right"></i>
             </button>
           </div>
-          <div class="product-page__thumbnails" role="tablist" aria-label="Галерея товара">
+          <div class="product-page__thumbnails" role="tablist" aria-label="<?php echo esc_attr( $t( 'gallery_label' ) ); ?>">
 						<?php
 							if ( $product ) {
 								$thumb_ids = $product->get_gallery_image_ids();
@@ -153,7 +158,7 @@
 									$main_id = $product->get_image_id();
 									if ( $main_id ) {
 										$full = wp_get_attachment_image_url( $main_id, 'full' );
-										echo '<button class="product-page__thumb is-active" type="button" data-gallery-thumb data-index="0" aria-label="Фото 1" data-full="' . esc_url( $full ) . '">';
+										echo '<button class="product-page__thumb is-active" type="button" data-gallery-thumb data-index="0" aria-label="' . esc_attr( sprintf( $t( 'gallery_photo' ), 1 ) ) . '" data-full="' . esc_url( $full ) . '">';
 										echo wp_get_attachment_image( $main_id, 'thumbnail', false, [ 'data-full' => $full ] );
 										echo '</button>';
 									}
@@ -162,7 +167,7 @@
 									foreach ( $thumb_ids as $tid ) {
 										$is_active = $index === 0 ? ' is-active' : '';
 										$full     = wp_get_attachment_image_url( $tid, 'full' );
-										echo '<button class="product-page__thumb' . esc_attr( $is_active ) . '" type="button" data-gallery-thumb data-index="' . esc_attr( $index ) . '" aria-label="Фото ' . esc_attr( $index + 1 ) . '" data-full="' . esc_url( $full ) . '">';
+										echo '<button class="product-page__thumb' . esc_attr( $is_active ) . '" type="button" data-gallery-thumb data-index="' . esc_attr( $index ) . '" aria-label="' . esc_attr( sprintf( $t( 'gallery_photo' ), $index + 1 ) ) . '" data-full="' . esc_url( $full ) . '">';
 										echo wp_get_attachment_image( $tid, 'thumbnail', false, [ 'data-full' => $full ] );
 										echo '</button>';
 										$index++;
@@ -189,7 +194,7 @@
 								$audio = get_field( 'product_audio' );
 								$src = is_array( $audio ) && ! empty( $audio['url'] ) ? $audio['url'] : ( is_string( $audio ) ? $audio : '' );
 								if ( $src ) {
-									echo '<div class="product-page__audio-player-title">' . esc_html__( 'Аудио фрагмент:', 'moveat' ) . '</div>';
+									echo '<div class="product-page__audio-player-title">' . esc_html( $t( 'audio_title' ) ) . '</div>';
 									echo '<audio src="' . esc_url( $src ) . '" controls></audio>';
 								}
 							}
@@ -209,9 +214,9 @@
 						}
 						if ( ! empty( $valid_formats ) ) :
 					?>
-					<div class="product-page__formats" aria-label="Форматы получения товара">
+					<div class="product-page__formats" aria-label="<?php echo esc_attr( $t( 'formats_label' ) ); ?>">
 						<div class="product-page__formats-title">
-							Вы получаете:
+							<?php echo esc_html( $t( 'formats_title' ) ); ?>
 						</div>
 						<div class="product-page__formats-wrapper">
 							<?php
@@ -242,31 +247,31 @@
 						<?php endif; ?>
           </div>
           <div class="product-page__buttons">
-            <a href="#" class="primary-button" data-product-action="buy-now" data-product-id="<?php echo esc_attr( $product_id ); ?>">Купить</a>
+            <a href="#" class="primary-button" data-product-action="buy-now" data-product-id="<?php echo esc_attr( $product_id ); ?>"><?php echo esc_html( $t( 'buy' ) ); ?></a>
 						<?php if ( $is_in_cart ) : ?>
 							<a
 								href="<?php echo esc_url( $cart_page_url ); ?>"
 								class="product-page__added-to-cart proguct-page-button"
-								aria-label="Перейти в корзину"
+								aria-label="<?php echo esc_attr( $t( 'go_to_cart' ) ); ?>"
 							>
 								<div class="product-page__added-to-cart_title">
 									<div class="product-page__added-to-cart_title-icons">
 										<img
 											src="<?php echo esc_url( $cart_icon_filled ); ?>"
-											alt="Товар добавлен в корзину" />
+											alt="<?php echo esc_attr( $t( 'added_to_cart' ) ); ?>" />
 										<div class="product-page__added-to-cart_cart-icon">
 											<img
 												src="<?php echo esc_url( $check_mark_icon ); ?>"
-												alt="Галочка" />
+												alt="<?php echo esc_attr( $t( 'check_mark' ) ); ?>" />
 										</div>
 									</div>
 									<div class="product-page__added-to-cart_title-text">
-										Товар добавлен в корзину
+										<?php echo esc_html( $t( 'added_to_cart' ) ); ?>
 									</div>
 								</div>
 							</a>
 						<?php else : ?>
-							<a href="#" class="secondary-button" data-add-to-cart data-product-action="add-to-cart" data-product-id="<?php echo esc_attr( $product_id ); ?>">Добавить в корзину</a>
+							<a href="#" class="secondary-button" data-add-to-cart data-product-action="add-to-cart" data-product-id="<?php echo esc_attr( $product_id ); ?>"><?php echo esc_html( $t( 'add_to_cart' ) ); ?></a>
 						<?php endif; ?>
 						<div class="product-page__tech"></div>
 						<div class="product-page__loader-wrapper">
@@ -282,8 +287,13 @@
 							aria-haspopup="dialog">
 							<img class="product-page__installments-icon" src="<?php echo esc_url( $theme_uri . '/assets/images/logotypes/mono-paw.png' ); ?>" alt="Monobank" />
 							<span class="product-page__installments-text">
-								<span class="product-page__installments-bank">Оплата частями · Monobank</span>
-								<span class="product-page__installments-label">от <strong><?php echo esc_html( number_format( $instalments_offer['monthly_uah'], 0, '.', ' ' ) ); ?> ₴</strong> в месяц</span>
+								<span class="product-page__installments-bank"><?php echo esc_html( $t( 'instalments_bank' ) ); ?></span>
+								<span class="product-page__installments-label"><?php
+									printf(
+										esc_html( $t( 'instalments_monthly' ) ),
+										'<strong>' . esc_html( number_format( $instalments_offer['monthly_uah'], 0, '.', ' ' ) ) . ' ₴</strong>'
+									);
+								?></span>
 							</span>
 						</button>
 					<?php endif; ?>
@@ -291,7 +301,7 @@
       </div>
 			<div class="product-page__full-description">
 				<div class="product-page__full-description-content">
-					<h3 class="product-page__full-description-title">Полное описание</h3>
+					<h3 class="product-page__full-description-title"><?php echo esc_html( $t( 'full_description' ) ); ?></h3>
 					<div class="product-page__full-description-text">
 						<?php the_content(); ?>
 					</div>
@@ -299,14 +309,14 @@
 			</div>
 
       <div class="product-lightbox" data-product-lightbox aria-hidden="true">
-        <button class="product-lightbox__close" type="button" aria-label="Закрыть" data-lightbox-close>
-          <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/cross.png' ); ?>" alt="Закрыть">
+        <button class="product-lightbox__close" type="button" aria-label="<?php echo esc_attr( $t( 'close' ) ); ?>" data-lightbox-close>
+          <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/cross.png' ); ?>" alt="<?php echo esc_attr( $t( 'close' ) ); ?>">
         </button>
-        <button class="product-lightbox__arrow product-lightbox__arrow--prev" type="button" aria-label="Предыдущее фото" data-lightbox-prev>
+        <button class="product-lightbox__arrow product-lightbox__arrow--prev" type="button" aria-label="<?php echo esc_attr( $t( 'gallery_prev' ) ); ?>" data-lightbox-prev>
           <i class="bi bi-chevron-left"></i>
         </button>
-        <img class="product-lightbox__image" src="" alt="Изображение товара" data-lightbox-image>
-        <button class="product-lightbox__arrow product-lightbox__arrow--next" type="button" aria-label="Следующее фото" data-lightbox-next>
+        <img class="product-lightbox__image" src="" alt="<?php echo esc_attr( $t( 'lightbox_image' ) ); ?>" data-lightbox-image>
+        <button class="product-lightbox__arrow product-lightbox__arrow--next" type="button" aria-label="<?php echo esc_attr( $t( 'gallery_next' ) ); ?>" data-lightbox-next>
           <i class="bi bi-chevron-right"></i>
         </button>
       </div>
@@ -316,6 +326,7 @@
 					get_template_part( 'template-parts/instalments-modal', null, [
 						'product_id' => $product_id,
 						'offer'      => $instalments_offer,
+						'dictionary' => $product_dict,
 					] );
 				}
 			?>
@@ -351,8 +362,8 @@
 			<section class="product-related">
 				<div class="product-related__container max-width-limiter">
 					<div class="title-subtitle-header">
-						<h2 class="section-title">Похожие товары</h2>
-						<p class="text-secondary">Выберите материалы, которые дополнят программу и помогут закрепить результат.</p>
+						<h2 class="section-title"><?php echo esc_html( $t( 'related_title' ) ); ?></h2>
+						<p class="text-secondary"><?php echo esc_html( $t( 'related_subtitle' ) ); ?></p>
 					</div>
 					<div class="product-related__grid">
 						<?php foreach ( $related_ids as $related_id ) : ?>
@@ -387,7 +398,7 @@
 										<?php endif; ?>
 									</div>
 									<div class="product-card__buttons">
-										<a href="<?php echo esc_url( get_permalink( $related_id ) ); ?>" class="primary-button"><?php echo esc_html( function_exists( 'moveat_get_product_button_title' ) ? moveat_get_product_button_title( $related_id ) : 'Подробнее' ); ?></a>
+										<a href="<?php echo esc_url( get_permalink( $related_id ) ); ?>" class="primary-button"><?php echo esc_html( function_exists( 'moveat_get_product_button_title' ) ? moveat_get_product_button_title( $related_id ) : $t( 'related_more' ) ); ?></a>
 										<a
 											href="<?php echo esc_url( $related_product->add_to_cart_url() ); ?>"
 											data-quantity="1"
@@ -396,9 +407,9 @@
 											data-add-to-cart
 											data-product-action="add-to-cart"
 											data-product-id="<?php echo esc_attr( $related_id ); ?>"
-											aria-label="<?php echo esc_attr( sprintf( 'Добавить "%s" в корзину', get_the_title( $related_id ) ) ); ?>"
+											aria-label="<?php echo esc_attr( sprintf( $t( 'related_add_to_cart' ), get_the_title( $related_id ) ) ); ?>"
 										>
-											<img class="product-card__button-cart-icon" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/cart.png' ); ?>" alt="Корзина">
+											<img class="product-card__button-cart-icon" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/cart.png' ); ?>" alt="<?php echo esc_attr( $t( 'cart' ) ); ?>">
 											<div class="loader disabled"></div>
 										</a>
 									</div>

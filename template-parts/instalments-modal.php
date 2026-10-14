@@ -12,7 +12,9 @@
  * - product-modal--below-limit — сумма меньше минимума: прогресс + кнопка в каталог;
  * - product-modal--above-limit — сумма больше максимума: предупреждение, без кнопок.
  *
- * @var array $args product_id, offer (moveat_instalments_product_offer())
+ * Тексты — словарь assets/dictionaries/templates/product (ключи instalments_*).
+ *
+ * @var array $args product_id, offer (moveat_instalments_product_offer()), dictionary
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -20,6 +22,11 @@ defined( 'ABSPATH' ) || exit;
 $product_id = (int) $args['product_id'];
 $offer      = $args['offer'];
 $theme_uri  = get_template_directory_uri();
+$dictionary = $args['dictionary'] ?? moveat_dictionary( 'templates/product' );
+$t          = function ( $key ) use ( $dictionary ) {
+	return moveat_dictionary_text( $dictionary, $key );
+};
+$conditions = (array) ( $dictionary['instalments_conditions'] ?? [] );
 
 $min_uah   = (float) MOVEAT_INSTALMENTS_MIN_UAH;
 $max_uah   = (float) MOVEAT_INSTALMENTS_MAX_UAH;
@@ -58,20 +65,20 @@ $checkout_url = add_query_arg( 'payment', 'parts', home_url( '/oformlenie-zakaza
 		aria-modal="true"
 		aria-labelledby="mono-installments-title">
 		<div class="product-modal__header">
-			<h3 class="product-modal__title" id="mono-installments-title">Оплата частями</h3>
-			<button class="product-modal__close js-modal-close" type="button" aria-label="Закрыть">
-				<img src="<?php echo esc_url( $theme_uri . '/assets/images/icons/cross.png' ); ?>" alt="Закрыть" />
+			<h3 class="product-modal__title" id="mono-installments-title"><?php echo esc_html( $t( 'instalments_title' ) ); ?></h3>
+			<button class="product-modal__close js-modal-close" type="button" aria-label="<?php echo esc_attr( $t( 'close' ) ); ?>">
+				<img src="<?php echo esc_url( $theme_uri . '/assets/images/icons/cross.png' ); ?>" alt="<?php echo esc_attr( $t( 'close' ) ); ?>" />
 			</button>
 		</div>
 		<div class="product-modal__body">
 			<div class="product-modal__bank">
 				<img class="product-modal__bank-logo" src="<?php echo esc_url( $theme_uri . '/assets/images/logotypes/mono-paw.png' ); ?>" alt="Monobank" />
-				<div class="product-modal__bank-name">Покупка частями monobank</div>
+				<div class="product-modal__bank-name"><?php echo esc_html( $t( 'instalments_bank_name' ) ); ?></div>
 			</div>
 
 			<!-- Сумма меньше минимума -->
 			<div class="product-modal__limit">
-				<div class="product-modal__limit-title">Оплата частями доступна от <?php echo esc_html( $format_uah( $min_uah ) ); ?></div>
+				<div class="product-modal__limit-title"><?php echo esc_html( sprintf( $t( 'instalments_min' ), $format_uah( $min_uah ) ) ); ?></div>
 				<div class="product-modal__progress">
 					<div class="product-modal__progress-bar">
 						<div class="product-modal__progress-fill" data-instalments-progress style="width: <?php echo esc_attr( round( $progress, 2 ) ); ?>%"></div>
@@ -82,7 +89,12 @@ $checkout_url = add_query_arg( 'payment', 'parts', home_url( '/oformlenie-zakaza
 					</div>
 				</div>
 				<div class="product-modal__limit-text">
-					Добавьте товаров ещё на <strong data-instalments-missing><?php echo esc_html( $format_uah( max( 0, $min_uah - $total_uah ) ) ); ?></strong>, чтобы оформить оплату частями
+					<?php
+						printf(
+							esc_html( $t( 'instalments_missing' ) ),
+							'<strong data-instalments-missing>' . esc_html( $format_uah( max( 0, $min_uah - $total_uah ) ) ) . '</strong>'
+						);
+					?>
 				</div>
 			</div>
 
@@ -90,23 +102,27 @@ $checkout_url = add_query_arg( 'payment', 'parts', home_url( '/oformlenie-zakaza
 			<div class="product-modal__notice">
 				<i class="bi bi-info-circle"></i>
 				<div>
-					Оплата частями доступна для заказов до <strong><?php echo esc_html( $format_uah( $max_uah ) ); ?></strong>. Уменьшите сумму заказа или выберите
-					другой способ оплаты.
+					<?php
+						printf(
+							esc_html( $t( 'instalments_max' ) ),
+							'<strong>' . esc_html( $format_uah( $max_uah ) ) . '</strong>'
+						);
+					?>
 				</div>
 			</div>
 
 			<div class="product-modal__info">
-				<div class="product-modal__info-title">Условия оформления</div>
+				<div class="product-modal__info-title"><?php echo esc_html( $t( 'instalments_conditions' ) ); ?></div>
 				<ol class="product-modal__info-list">
-					<li>Наличие кредитной карты от monobank</li>
-					<li>Доступный кредитный лимит по сервису «Оплата частями»</li>
-					<li>Первый платёж будет списан в день оформления</li>
+					<?php foreach ( $conditions as $condition ) : ?>
+						<li><?php echo esc_html( $condition ); ?></li>
+					<?php endforeach; ?>
 				</ol>
 			</div>
 			<div class="product-modal__actions">
-				<a href="<?php echo esc_url( $checkout_url ); ?>" class="primary-button product-modal__button product-modal__button--submit" data-instalments-submit>Оформить</a>
+				<a href="<?php echo esc_url( $checkout_url ); ?>" class="primary-button product-modal__button product-modal__button--submit" data-instalments-submit><?php echo esc_html( $t( 'instalments_submit' ) ); ?></a>
 				<a href="<?php echo esc_url( home_url( '/catalog/' ) ); ?>" class="secondary-button product-modal__button product-modal__button--catalog">
-					Перейти в каталог
+					<?php echo esc_html( $t( 'instalments_catalog' ) ); ?>
 				</a>
 			</div>
 		</div>
