@@ -92,6 +92,31 @@ function moveat_order_pay_get_installment_terms() {
 }
 
 /**
+ * Данные оплаты частями для страницы товара: плашка «от N ₴ в месяц» и модалка.
+ * Платёж в месяц — цена товара в гривнах, делённая на самый длинный срок из
+ * настроек плагина. null — способ недоступен, плашку не показываем.
+ */
+function moveat_instalments_product_offer( $product ) {
+	if ( ! ( $product instanceof WC_Product ) || ! moveat_instalments_allowed_for_current_user() ) {
+		return null;
+	}
+
+	$terms     = moveat_order_pay_get_installment_terms();
+	$rate      = moveat_order_pay_get_uah_rate();
+	$price_usd = (float) wc_get_price_to_display( $product );
+
+	if ( ! $terms || $rate <= 0 || $price_usd <= 0 ) {
+		return null;
+	}
+
+	return array(
+		'price_usd'   => $price_usd,
+		'rate'        => $rate,
+		'monthly_uah' => $price_usd * $rate / max( $terms ),
+	);
+}
+
+/**
  * Выполняет $callback, пока суммы заказа отдаются плагину в гривнах.
  *
  * Плагин читает get_total() заказа и get_total()/get_total_tax() позиций

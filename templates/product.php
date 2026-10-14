@@ -17,6 +17,8 @@
 				}
 			}
 		}
+		// Оплата частями monobank: плашка и модалка (null — способ недоступен).
+		$instalments_offer = function_exists( 'moveat_instalments_product_offer' ) ? moveat_instalments_product_offer( $product ) : null;
 		$icons_base = $theme_uri . '/assets/icons/formats';
 		$fallback_icons = $theme_uri . '/assets/images/icons/colored';
 		$moveat_formats_map = [
@@ -271,6 +273,20 @@
 							<div class="loader disabled"></div>
 						</div>
           </div>
+					<?php if ( $instalments_offer ) : ?>
+						<!-- Плашка оплаты частями monobank — открывает модалку mono-installments -->
+						<button
+							type="button"
+							class="product-page__installments js-modal-open"
+							data-modal="mono-installments"
+							aria-haspopup="dialog">
+							<img class="product-page__installments-icon" src="<?php echo esc_url( $theme_uri . '/assets/images/logotypes/mono-paw.png' ); ?>" alt="Monobank" />
+							<span class="product-page__installments-text">
+								<span class="product-page__installments-bank">Оплата частями · Monobank</span>
+								<span class="product-page__installments-label">от <strong><?php echo esc_html( number_format( $instalments_offer['monthly_uah'], 0, '.', ' ' ) ); ?> ₴</strong> в месяц</span>
+							</span>
+						</button>
+					<?php endif; ?>
         </div>
       </div>
 			<div class="product-page__full-description">
@@ -294,7 +310,15 @@
           <i class="bi bi-chevron-right"></i>
         </button>
       </div>
-			
+
+			<?php
+				if ( $instalments_offer ) {
+					get_template_part( 'template-parts/instalments-modal', null, [
+						'product_id' => $product_id,
+						'offer'      => $instalments_offer,
+					] );
+				}
+			?>
     </section>
 
 		<?php

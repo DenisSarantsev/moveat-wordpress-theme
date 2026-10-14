@@ -191,8 +191,14 @@ function initMethodSelection() {
 		});
 	});
 
-	// По умолчанию выбран первый способ в списке.
-	if (methodButtons[0]) selectMethod(methodButtons[0]);
+	// Пришли с плашки «Оплата частями» (?payment=parts) — выбираем её, если она
+	// доступна для суммы заказа. Иначе по умолчанию первый способ в списке.
+	const preferred = new URLSearchParams(window.location.search).get("payment");
+	const preferredButton = preferred
+		? Array.from(methodButtons).find((btn) => btn.getAttribute("data-method") === preferred)
+		: null;
+	const initialButton = preferredButton || methodButtons[0];
+	if (initialButton) selectMethod(initialButton);
 }
 
 // ─── Срок оплаты частями ──────────────────────────────────────────────────────

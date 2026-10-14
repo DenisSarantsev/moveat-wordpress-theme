@@ -163,7 +163,11 @@ async function handleSubmit(e) {
 			isRedirecting = true;
 			const base =
 				window.MOVEAT_WOO_API_CONFIG?.baseUrl || window.location.origin;
-			window.location.href = `${base}/order-pay/?order_id=${result.id}&order_key=${result.order_key}`;
+			// ?payment=parts (пришли с плашки «Оплата частями») передаём дальше —
+			// на странице оплаты по нему сразу выбирается этот способ.
+			const payment = new URLSearchParams(window.location.search).get("payment");
+			const paymentArg = payment ? `&payment=${encodeURIComponent(payment)}` : "";
+			window.location.href = `${base}/order-pay/?order_id=${result.id}&order_key=${result.order_key}${paymentArg}`;
 			return;
 		}
 
