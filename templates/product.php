@@ -121,7 +121,7 @@
         <div class="product-page__gallery" data-product-gallery>
           <div class="product-page__main-image-wrapper">
             <button class="product-page__arrow product-page__arrow--prev" type="button" aria-label="<?php echo esc_attr( $t( 'gallery_prev' ) ); ?>" data-gallery-prev>
-              <i class="bi bi-chevron-left"></i>
+              <?php echo moveat_icon( 'chevron-left' ); ?>
             </button>
 						<div class="product-page__main-image" data-gallery-main
 							<?php
@@ -147,7 +147,7 @@
 							?>
 						</div>
             <button class="product-page__arrow product-page__arrow--next" type="button" aria-label="<?php echo esc_attr( $t( 'gallery_next' ) ); ?>" data-gallery-next>
-              <i class="bi bi-chevron-right"></i>
+              <?php echo moveat_icon( 'chevron-right' ); ?>
             </button>
           </div>
           <div class="product-page__thumbnails" role="tablist" aria-label="<?php echo esc_attr( $t( 'gallery_label' ) ); ?>">
@@ -313,11 +313,11 @@
           <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/cross.png' ); ?>" alt="<?php echo esc_attr( $t( 'close' ) ); ?>">
         </button>
         <button class="product-lightbox__arrow product-lightbox__arrow--prev" type="button" aria-label="<?php echo esc_attr( $t( 'gallery_prev' ) ); ?>" data-lightbox-prev>
-          <i class="bi bi-chevron-left"></i>
+          <?php echo moveat_icon( 'chevron-left' ); ?>
         </button>
         <img class="product-lightbox__image" src="" alt="<?php echo esc_attr( $t( 'lightbox_image' ) ); ?>" data-lightbox-image>
         <button class="product-lightbox__arrow product-lightbox__arrow--next" type="button" aria-label="<?php echo esc_attr( $t( 'gallery_next' ) ); ?>" data-lightbox-next>
-          <i class="bi bi-chevron-right"></i>
+          <?php echo moveat_icon( 'chevron-right' ); ?>
         </button>
       </div>
 

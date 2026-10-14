@@ -271,16 +271,16 @@
 							</div>
 							<div class="team-icon">
 								<?php if ($fb_url) : ?>
-									<a class="btn btn-primary btn-sm-square rounded-circle me-3" href="<?php echo esc_url($fb_url); ?>"><i class="fab fa-facebook-f"></i></a>
+									<a class="btn btn-primary btn-sm-square rounded-circle me-3" href="<?php echo esc_url($fb_url); ?>"><?php echo moveat_icon( 'facebook-f' ); ?></a>
 								<?php endif; ?>
 								<?php if ($tw_url) : ?>
-									<a class="btn btn-primary btn-sm-square rounded-circle me-3" href="<?php echo esc_url($tw_url); ?>"><i class="fab fa-twitter"></i></a>
+									<a class="btn btn-primary btn-sm-square rounded-circle me-3" href="<?php echo esc_url($tw_url); ?>"><?php echo moveat_icon( 'twitter' ); ?></a>
 								<?php endif; ?>
 								<?php if ($li_url) : ?>
-									<a class="btn btn-primary btn-sm-square rounded-circle me-3" href="<?php echo esc_url($li_url); ?>"><i class="fab fa-linkedin-in"></i></a>
+									<a class="btn btn-primary btn-sm-square rounded-circle me-3" href="<?php echo esc_url($li_url); ?>"><?php echo moveat_icon( 'linkedin-in' ); ?></a>
 								<?php endif; ?>
 								<?php if ($ig_url) : ?>
-									<a class="btn btn-primary btn-sm-square rounded-circle me-0" href="<?php echo esc_url($ig_url); ?>"><i class="fab fa-instagram"></i></a>
+									<a class="btn btn-primary btn-sm-square rounded-circle me-0" href="<?php echo esc_url($ig_url); ?>"><?php echo moveat_icon( 'instagram' ); ?></a>
 								<?php endif; ?>
 							</div>
 						</div>
@@ -369,7 +369,7 @@
 				?>
 					<div class="reviews__item testimonial-item position-relative bg-white p-5">
 						<div class="reviews__icon">
-							<i class="fa fa-quote-left fa-3x text-primary"></i>
+							<?php echo moveat_icon( 'quote-left', 'icon--3x text-primary' ); ?>
 						</div>
 						<p class="reviews__text mb-4"><?php echo nl2br(esc_html($text)); ?></p>
 						<div class="reviews__author d-flex align-items-center">

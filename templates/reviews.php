@@ -6,16 +6,17 @@
 
 require_once get_template_directory() . '/assets/scripts/php/reviews/reviews-topic-helpers.php';
 
-if (! function_exists('moveat_reviews_social_icon_class')) {
-	function moveat_reviews_social_icon_class($type) {
+if (! function_exists('moveat_reviews_social_icon')) {
+	// SVG-иконка соцсети автора отзыва (moveat_icon() — assets/scripts/php/main/icons.php).
+	function moveat_reviews_social_icon($type) {
 		$map = [
-			'instagram' => 'fab fa-instagram reviews-page__social-icon',
-			'telegram'  => 'fab fa-telegram-plane reviews-page__social-icon',
-			'facebook'  => 'fab fa-facebook-f reviews-page__social-icon',
-			'link'        => 'fas fa-link reviews-page__social-icon',
+			'instagram' => 'instagram',
+			'telegram'  => 'telegram-plane',
+			'facebook'  => 'facebook-f',
+			'link'      => 'link',
 		];
 		$t = is_string($type) ? $type : '';
-		return isset($map[ $t ]) ? $map[ $t ] : $map['instagram'];
+		return moveat_icon(isset($map[ $t ]) ? $map[ $t ] : $map['instagram'], 'reviews-page__social-icon');
 	}
 }
 
@@ -211,9 +212,7 @@ get_header();
 										href="<?php echo esc_url($social_url); ?>"
 										target="_blank"
 										rel="noopener noreferrer">
-										<i
-											class="<?php echo esc_attr(moveat_reviews_social_icon_class($social_type)); ?>"
-											aria-hidden="true"></i>
+										<?php echo moveat_reviews_social_icon($social_type); ?>
 										<?php echo esc_html($social_label); ?>
 									</a>
 								<?php endif; ?>

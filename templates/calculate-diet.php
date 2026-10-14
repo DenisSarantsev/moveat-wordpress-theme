@@ -186,17 +186,17 @@ for ( $tj = 1; $tj <= $team_total; $tj++ ) {
 	$socials = [];
 	foreach (
 		[
-			'fb' => 'fab fa-facebook-f',
-			'tw' => 'fab fa-twitter',
-			'li' => 'fab fa-linkedin-in',
-			'ig' => 'fab fa-instagram',
+			'fb' => 'facebook-f',
+			'tw' => 'twitter',
+			'li' => 'linkedin-in',
+			'ig' => 'instagram',
 		] as
 		$key =>
 		$ic
 	) {
 		$u = esc_url( $f_txt( 'cd_team_' . $tj . '_url_' . $key ) );
 		if ( '' !== $u ) {
-			$socials[] = [ 'href' => $u, 'icon_class' => $ic ];
+			$socials[] = [ 'href' => $u, 'icon' => $ic ];
 		}
 	}
 
@@ -592,7 +592,7 @@ $show_final_cta = ( $final_ok_left && $final_ok_right );
 								<?php if ( $member['social_links'] ) : ?>
 								<div class="team-icon">
 									<?php foreach ( $member['social_links'] as $sl ) : ?>
-										<a class="btn btn-primary btn-sm-square rounded-circle me-3" href="<?php echo esc_url( $sl['href'] ); ?>" target="_blank" rel="noopener"><i class="<?php echo esc_attr( $sl['icon_class'] ); ?>"></i></a>
+										<a class="btn btn-primary btn-sm-square rounded-circle me-3" href="<?php echo esc_url( $sl['href'] ); ?>" target="_blank" rel="noopener"><?php echo moveat_icon( $sl['icon'] ); ?></a>
 									<?php endforeach; ?>
 								</div>
 								<?php endif; ?>

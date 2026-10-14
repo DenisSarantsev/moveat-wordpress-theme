@@ -16,6 +16,8 @@ require_once __DIR__ . '/banners/post-type.php';
 require_once __DIR__ . '/banners/shortcodes.php';
 // Словари переводов (assets/dictionaries) и определение текущего языка.
 require_once __DIR__ . '/main/dictionaries.php';
+// SVG-иконки: moveat_icon( 'instagram' ) вместо шрифтов иконок с CDN.
+require_once __DIR__ . '/main/icons.php';
 // Регистрирует меню и настройки навигации темы.
 require_once __DIR__ . '/main/menu.php';
 // Подключает поддержку и вывод логотипа сайта.

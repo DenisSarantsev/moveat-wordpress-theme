@@ -100,7 +100,7 @@ $checkout_url = add_query_arg( 'payment', 'parts', home_url( '/oformlenie-zakaza
 
 			<!-- Сумма больше максимума -->
 			<div class="product-modal__notice">
-				<i class="bi bi-info-circle"></i>
+				<?php echo moveat_icon( 'info-circle' ); ?>
 				<div>
 					<?php
 						printf(
