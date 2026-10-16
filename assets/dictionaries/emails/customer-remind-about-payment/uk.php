@@ -35,8 +35,6 @@ return [
 
 	// Ссылки на мессенджеры в письме
 	'messengers' => [
-		'whatsapp' => 'https://380991900483.wa.pulse.is',
-		'viber'    => 'https://max-pogorely.vb.pulse.is',
-		'telegram' => 'https://maxpogorelybot.tg.pulse.is',
+		'telegram' => 'https://t.me/MoveatExpertUaBot',
 	],
 ];
