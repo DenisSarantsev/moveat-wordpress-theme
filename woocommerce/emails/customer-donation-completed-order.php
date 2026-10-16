@@ -23,20 +23,9 @@ if ( ! isset( $order ) || ! is_a( $order, 'WC_Order' ) ) {
 	$payment_label = isset( $payment_method_label ) ? $payment_method_label : '—';
 	$social_items  = isset( $social_items ) && is_array( $social_items ) ? $social_items : array();
 
-	$content_defaults = array(
-		'greeting'      => 'Здравствуйте!',
-		'thanks'        => 'Спасибо за вашу поддержку ❤️',
-		'intro'         => '',
-		'details_title' => 'Детали поддержки:',
-		'label_amount'  => 'Сумма:',
-		'label_date'    => 'Дата:',
-		'label_payment' => 'Способ оплаты:',
-		'outro_thanks'  => 'Спасибо, что вы с нами.',
-		'signoff_line'  => 'С уважением,',
-		'signoff_team'  => 'Команда Moveat',
-		'socials_title' => 'Следите за новыми материалами:',
-		'footer'        => 'Moveat',
-	);
+	// Запасные тексты на случай, если модуль не передал какой-то ключ — из словаря на языке заказа.
+	$dictionary       = moveat_order_email_dictionary( 'customer-donation-completed-order', $order );
+	$content_defaults = isset( $dictionary['strings'] ) ? (array) $dictionary['strings'] : array();
 
 	$content = isset( $email_content ) && is_array( $email_content )
 		? array_merge( $content_defaults, $email_content )

@@ -116,6 +116,16 @@ function moveat_proxy_create_order( \WP_REST_Request $request ) {
     $code = wp_remote_retrieve_response_code( $order_response );
     $data = json_decode( wp_remote_retrieve_body( $order_response ), true );
 
+    // 🔹 7.1 Запоминаем язык заказа — по нему выбираются тексты писем клиенту.
+    //        Здесь, а не в хуке создания: в этом запросе есть адрес страницы покупателя.
+    if ( $code >= 200 && $code < 300 && ! empty( $data['id'] ) && function_exists( 'moveat_set_order_lang' ) ) {
+        $lang_order = wc_get_order( (int) $data['id'] );
+        if ( $lang_order ) {
+            moveat_set_order_lang( $lang_order );
+            $lang_order->save();
+        }
+    }
+
     // 🔹 8. Нулевая сумма (бесплатный товар или купон на 100%) — оплачивать нечего.
     //        Проводим заказ сразу и отдаём фронту ссылку на страницу благодарности,
     //        чтобы он не вёл пользователя на /order-pay/.

@@ -271,9 +271,11 @@ function moveat_send_payment_reminder_handler( $args ) {
 
     // Получаем email покупателя и тему письма. В теме указываем номер попытки, если это повтор.
     $to = $order->get_billing_email();
-    $subject = sprintf( 'Напоминание об оплате заказа #%s', $order->get_order_number() );
+    // Тема — на языке заказа (assets/dictionaries/emails/customer-remind-about-payment).
+    $t       = moveat_order_email_dictionary( 'customer-remind-about-payment', $order );
+    $subject = sprintf( moveat_email_text( $t, 'subject' ), $order->get_order_number() );
     if ( $attempt > 1 ) {
-        $subject .= ' (повторное напоминание)';
+        $subject .= moveat_email_text( $t, 'subject_repeat' );
     }
 
     // Заголовки — указать, что отправляем HTML.

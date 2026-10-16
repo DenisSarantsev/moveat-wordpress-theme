@@ -20,6 +20,9 @@ if ( ! isset( $order ) || ! is_a( $order, 'WC_Order' ) ) {
 		)
 	);
 } else {
+	// Тексты и ссылки на мессенджеры — на языке заказа (assets/dictionaries/emails/customer-failed-order).
+	$t = moveat_order_email_dictionary( 'customer-failed-order', $order );
+
 	$order_number    = $order->get_order_number();
 	$order_date      = $order->get_date_created() ? wc_format_datetime( $order->get_date_created() ) : '';
 	$needs_payment   = method_exists( $order, 'needs_payment' ) ? $order->needs_payment() : false;
@@ -70,7 +73,7 @@ if ( ! isset( $order ) || ! is_a( $order, 'WC_Order' ) ) {
 						font-weight:bold;
 						text-align:center;
 					">
-					Ошибка оплаты
+					<?php echo esc_html( moveat_email_text( $t, 'heading' ) ); ?>
 				</h1>
 				</td>
 			</tr>
@@ -79,41 +82,39 @@ if ( ! isset( $order ) || ! is_a( $order, 'WC_Order' ) ) {
 					text-align:center;
 					padding:0 20px 20px;
 				">
-					<h2 style="margin:0;font-size:24px;font-weight:bold;text-align:center;">Номер заказа: <a href="<?php echo esc_url( $order->get_view_order_url() ); ?>" style="color:#ff7f13;text-decoration:underline;font-size:20px;font-weight:600;">#<?php echo esc_html( $order_number ); ?></a></h2>
+					<h2 style="margin:0;font-size:24px;font-weight:bold;text-align:center;"><?php echo esc_html( moveat_email_text( $t, 'order_number' ) ); ?> <a href="<?php echo esc_url( $order->get_view_order_url() ); ?>" style="color:#ff7f13;text-decoration:underline;font-size:20px;font-weight:600;">#<?php echo esc_html( $order_number ); ?></a></h2>
 					<p style="margin:5px 0;color:#666;font-size:14px;text-align:center;padding:4px 0px;"><?php echo esc_html( $order_date ); ?></p>
 					<p style="margin:10px 0;color:#333;font-size:14px;text-align:center;line-height:140%;">
-						К сожалению, ваш заказ не был выполнен.
+						<?php echo esc_html( moveat_email_text( $t, 'intro' ) ); ?>
 					</p>
 					<p style="margin:10px 0;color:#333;font-size:14px;text-align:center;line-height:140%;">
-						Для решения этой проблемы перейдите в чат одного из мессенджеров:
+						<?php echo esc_html( moveat_email_text( $t, 'messengers_intro' ) ); ?>
 					</p>
 					<!-- Иконки мессенджеров -->
 					<table role="presentation" align="center" style="margin:12px auto 0;border-collapse:collapse;">
 						<tr>
 							<td style="padding:0 8px;text-align:center;">
-								<a href="https://380991900483.wa.pulse.is" target="_blank" rel="noopener" style="display:inline-block;width:54px;height:54px;background:#25d366;border-radius:50%;text-decoration:none;">
+								<a href="<?php echo esc_url( moveat_email_messenger_url( $t, 'whatsapp' ) ); ?>" target="_blank" rel="noopener" style="display:inline-block;width:54px;height:54px;background:#25d366;border-radius:50%;text-decoration:none;">
 									<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/white/whatsapp.png' ); ?>" width="32" height="32" alt="WhatsApp" style="display:block;margin:11px auto;border:0;" />
 								</a>
 							</td>
 							<td style="padding:0 8px;text-align:center;">
-								<a href="https://max-pogorely.vb.pulse.is" target="_blank" rel="noopener" style="display:inline-block;width:54px;height:54px;background:#7360f2;border-radius:50%;text-decoration:none;">
+								<a href="<?php echo esc_url( moveat_email_messenger_url( $t, 'viber' ) ); ?>" target="_blank" rel="noopener" style="display:inline-block;width:54px;height:54px;background:#7360f2;border-radius:50%;text-decoration:none;">
 									<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/white/viber.png' ); ?>" width="26" height="26" alt="Viber" style="display:block;margin:14px auto;border:0;" />
 								</a>
 							</td>
 							<td style="padding:0 8px;text-align:center;">
-								<a href="https://maxpogorelybot.tg.pulse.is" target="_blank" rel="noopener" style="display:inline-block;width:54px;height:54px;background:#24A1DE;border-radius:50%;text-decoration:none;">
+								<a href="<?php echo esc_url( moveat_email_messenger_url( $t, 'telegram' ) ); ?>" target="_blank" rel="noopener" style="display:inline-block;width:54px;height:54px;background:#24A1DE;border-radius:50%;text-decoration:none;">
 									<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/white/telegram.png' ); ?>" width="28" height="28" alt="Telegram" style="display:block;margin:13px auto;border:0;" />
 								</a>
 							</td>
 						</tr>
 					</table>
 					<p style="margin:10px 0;color:#333;font-size:14px;text-align:center;line-height:140%;">
-						В первом сообщении укажите ваши имя и фамилию, или ваш имейл, и сообщите менеджеру, что ваш заказ не удался.
-						И мы исправим эту оплошность.
-						Там вам помогут оформить заказ и еще вас ждет приятный бонус.
+						<?php echo esc_html( moveat_email_text( $t, 'messengers_note' ) ); ?>
 					</p>
 					<p style="margin:10px 0;color:#333;font-size:14px;text-align:center;line-height:140%;">
-						С уважением, Макс Погорелый и команда Moveat
+						<?php echo esc_html( moveat_email_text( $t, 'signoff' ) ); ?>
 					</p>
 				</td>
 			</tr>
@@ -128,7 +129,7 @@ if ( ! isset( $order ) || ! is_a( $order, 'WC_Order' ) ) {
 						<table width="100%" style="border-collapse:collapse;margin-bottom:8px;">
 							<tr>
 								<td style="width:60%;padding:6px 0;text-align:left;"><strong><?php echo wp_kses_post( $product_name ); ?></strong></td>
-								<td style="width:15%;padding:6px 6px;text-align:left;"><?php echo esc_html( $qty ); ?> шт</td>
+								<td style="width:15%;padding:6px 6px;text-align:left;"><?php echo esc_html( $qty ); ?> <?php echo esc_html( moveat_email_text( $t, 'qty_unit' ) ); ?></td>
 								<td style="width:25%;padding:6px 0;text-align:right;"><?php echo wp_kses_post( $line_subtotal ); ?></td>
 							</tr>
 						</table>
@@ -137,11 +138,11 @@ if ( ! isset( $order ) || ! is_a( $order, 'WC_Order' ) ) {
 			</tr>
 			<tr>
 				<td style="padding:0 20px;border-top:2px solid #efefef;border-bottom:2px solid #efefef;">
-					<p style="text-align:right;padding-top:14px;margin:0;font-size:14px;">Сумма: <strong><?php echo wp_kses_post( wc_price( $subtotal_amount ) ); ?></strong></p>
+					<p style="text-align:right;padding-top:14px;margin:0;font-size:14px;"><?php echo esc_html( moveat_email_text( $t, 'subtotal' ) ); ?> <strong><?php echo wp_kses_post( wc_price( $subtotal_amount ) ); ?></strong></p>
 					<?php if ( (float) $discount_total > 0 ) : ?>
-						<p style="text-align:right;margin:0 0 0;font-size:14px;margin-top:4px;">Скидка: <strong><?php echo wp_kses_post( wc_price( $discount_total ) ); ?></strong></p>
+						<p style="text-align:right;margin:0 0 0;font-size:14px;margin-top:4px;"><?php echo esc_html( moveat_email_text( $t, 'discount' ) ); ?> <strong><?php echo wp_kses_post( wc_price( $discount_total ) ); ?></strong></p>
 					<?php endif; ?>
-					<p style="text-align:right;margin-top:20px;font-size:16px;">К оплате: <strong><?php echo wp_kses_post( wc_price( $total_amount ) ); ?></strong></p>
+					<p style="text-align:right;margin-top:20px;font-size:16px;"><?php echo esc_html( moveat_email_text( $t, 'total' ) ); ?> <strong><?php echo wp_kses_post( wc_price( $total_amount ) ); ?></strong></p>
 				</td>
 			</tr>
 
@@ -160,10 +161,10 @@ if ( ! isset( $order ) || ! is_a( $order, 'WC_Order' ) ) {
 								<strong><?php echo esc_html( trim( $billing_first . ' ' . $billing_last ) ); ?></strong><br />
 							<?php endif; ?>
 							<?php if ( $billing_phone ) : ?>
-								Телефон: <a href="tel:<?php echo esc_attr( preg_replace( '/[^+0-9]/', '', $billing_phone ) ); ?>" style="color:#000;text-decoration:underline;"><?php echo esc_html( $billing_phone ); ?></a><br />
+								<?php echo esc_html( moveat_email_text( $t, 'phone' ) ); ?> <a href="tel:<?php echo esc_attr( preg_replace( '/[^+0-9]/', '', $billing_phone ) ); ?>" style="color:#000;text-decoration:underline;"><?php echo esc_html( $billing_phone ); ?></a><br />
 							<?php endif; ?>
 							<?php if ( $billing_email ) : ?>
-								Email: <a href="mailto:<?php echo esc_attr( $billing_email ); ?>" style="color:#000;text-decoration:underline;"><?php echo esc_html( $billing_email ); ?></a>
+								<?php echo esc_html( moveat_email_text( $t, 'email' ) ); ?> <a href="mailto:<?php echo esc_attr( $billing_email ); ?>" style="color:#000;text-decoration:underline;"><?php echo esc_html( $billing_email ); ?></a>
 							<?php endif; ?>
 						</p>
 					<?php endif; ?>
@@ -177,16 +178,16 @@ if ( ! isset( $order ) || ! is_a( $order, 'WC_Order' ) ) {
 							font-size:14px;
 							color:#333;
 						">
-							Есть вопросы, или возникли проблемы с оплатой заказа? Пишите нам на почту 
+							<?php echo esc_html( moveat_email_text( $t, 'contact_before' ) ); ?>
 						<a href="mailto:moveat.expert@gmail.com" 
 							style="color:#ff7f13;text-decoration:underline;font-weight:600;">moveat.expert@gmail.com
-						</a> или в мессенджеры.
+						</a> <?php echo esc_html( moveat_email_text( $t, 'contact_after' ) ); ?>
 					</p>
 				</td>
 			</tr>
 			<tr>
 				<td style="padding:20px;text-align:center;font-size:12px;color:#999;">
-					Moveat Expert
+					<?php echo esc_html( moveat_email_text( $t, 'footer' ) ); ?>
 				</td>
 			</tr>
 		</table>

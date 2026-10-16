@@ -2,6 +2,10 @@
 /*
 	Отправляет письмо донатору после успешной оплаты доната.
 	Настройки письма — вкладка Email на странице донатов (donations.json).
+
+	Язык письма — язык заказа (moveat_order_lang()): поля ACF и соцсети берутся
+	с языковой версии страницы донатов, тексты по умолчанию — из словаря
+	assets/dictionaries/emails/customer-donation-completed-order.
 */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -11,37 +15,43 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'MOVEAT_DONATION_EMAIL_SOCIALS_MAX', 10 );
 
 /*
-	ID страницы с шаблоном донатов.
+	ID страницы с шаблоном донатов на нужном языке ('ru' | 'uk').
+	Без языка или без перевода — первая найденная страница с шаблоном.
 */
-function moveat_get_donations_page_id() {
-	static $page_id = null;
+function moveat_get_donations_page_id( $lang = null ) {
+	static $base_id = null;
 
-	if ( $page_id !== null ) {
-		return $page_id;
+	if ( $base_id === null ) {
+		$pages = get_pages(
+			array(
+				'meta_key'   => '_wp_page_template',
+				'meta_value' => 'templates/donations-page.php',
+				'number'     => 1,
+			)
+		);
+
+		$base_id = ! empty( $pages[0]->ID ) ? (int) $pages[0]->ID : 0;
 	}
 
-	$pages = get_pages(
-		array(
-			'meta_key'   => '_wp_page_template',
-			'meta_value' => 'templates/donations-page.php',
-			'number'     => 1,
-		)
-	);
+	if ( $base_id && $lang && function_exists( 'pll_get_post' ) ) {
+		$translated = pll_get_post( $base_id, $lang );
+		if ( $translated ) {
+			return (int) $translated;
+		}
+	}
 
-	$page_id = ! empty( $pages[0]->ID ) ? (int) $pages[0]->ID : 0;
-
-	return $page_id;
+	return $base_id;
 }
 
 /*
 	Текстовое поле Email со страницы донатов с запасным значением.
 */
-function moveat_get_donations_email_field( $field_name, $default = '' ) {
+function moveat_get_donations_email_field( $field_name, $default = '', $lang = null ) {
 	if ( ! function_exists( 'get_field' ) ) {
 		return $default;
 	}
 
-	$page_id = moveat_get_donations_page_id();
+	$page_id = moveat_get_donations_page_id( $lang );
 	if ( ! $page_id ) {
 		return $default;
 	}
@@ -75,12 +85,13 @@ function moveat_normalize_donation_email_icon_url( $icon ) {
 /*
 	Список соцсетей для письма (только заполненные: ссылка + иконка).
 */
-function moveat_get_donation_email_social_items() {
+function moveat_get_donation_email_social_items( $lang = null ) {
 	if ( ! function_exists( 'get_field' ) ) {
 		return array();
 	}
 
-	$page_id = moveat_get_donations_page_id();
+	$t       = moveat_dictionary( 'emails/customer-donation-completed-order', $lang );
+	$page_id = moveat_get_donations_page_id( $lang );
 	if ( ! $page_id ) {
 		return array();
 	}
@@ -103,7 +114,7 @@ function moveat_get_donation_email_social_items() {
 			'url'      => $url,
 			'icon_url' => $icon_url,
 			'bg_color' => $bg_color !== '' ? $bg_color : '#ff7f13',
-			'label'    => $label !== '' ? $label : sprintf( 'Соцсеть %d', $i ),
+			'label'    => $label !== '' ? $label : sprintf( moveat_email_text( $t, 'social_label' ), $i ),
 		);
 	}
 
@@ -111,30 +122,23 @@ function moveat_get_donation_email_social_items() {
 }
 
 /*
-	Тексты письма со страницы донатов.
+	Тексты письма: ACF-поле со страницы донатов на языке письма,
+	а если оно пустое — строка из словаря.
 */
-function moveat_get_donation_email_content() {
-	return array(
-		'subject'       => moveat_get_donations_email_field(
-			'donations_email_subject',
-			'Спасибо! Вы помогаете проекту Moveat развиваться ❤️'
-		),
-		'greeting'      => moveat_get_donations_email_field( 'donations_email_greeting', 'Здравствуйте!' ),
-		'thanks'        => moveat_get_donations_email_field( 'donations_email_thanks', 'Спасибо за вашу поддержку ❤️' ),
-		'intro'         => moveat_get_donations_email_field(
-			'donations_email_intro',
-			'Такие переводы помогают нам продолжать делать то, что мы считаем важным: выпускать полезные материалы о здоровье, объяснять сложное простым языком и помогать людям лучше понимать свой организм.'
-		),
-		'details_title' => moveat_get_donations_email_field( 'donations_email_details_title', 'Детали поддержки:' ),
-		'label_amount'  => moveat_get_donations_email_field( 'donations_email_label_amount', 'Сумма:' ),
-		'label_date'    => moveat_get_donations_email_field( 'donations_email_label_date', 'Дата:' ),
-		'label_payment' => moveat_get_donations_email_field( 'donations_email_label_payment', 'Способ оплаты:' ),
-		'outro_thanks'  => moveat_get_donations_email_field( 'donations_email_outro_thanks', 'Спасибо, что вы с нами.' ),
-		'signoff_line'  => moveat_get_donations_email_field( 'donations_email_signoff_line', 'С уважением,' ),
-		'signoff_team'  => moveat_get_donations_email_field( 'donations_email_signoff_team', 'Команда Moveat' ),
-		'socials_title' => moveat_get_donations_email_field( 'donations_email_socials_title', 'Следите за новыми материалами:' ),
-		'footer'        => moveat_get_donations_email_field( 'donations_email_footer', 'Moveat' ),
+function moveat_get_donation_email_content( $lang = null ) {
+	$t       = moveat_dictionary( 'emails/customer-donation-completed-order', $lang );
+	$content = array();
+
+	$keys = array(
+		'subject', 'greeting', 'thanks', 'intro', 'details_title', 'label_amount', 'label_date',
+		'label_payment', 'outro_thanks', 'signoff_line', 'signoff_team', 'socials_title', 'footer',
 	);
+
+	foreach ( $keys as $key ) {
+		$content[ $key ] = moveat_get_donations_email_field( 'donations_email_' . $key, moveat_email_text( $t, $key ), $lang );
+	}
+
+	return $content;
 }
 
 /*
@@ -144,7 +148,15 @@ function moveat_get_donation_email_content() {
 	чтобы подписи в письмах и в админке не разъезжались. Свой словарь здесь
 	держать больше не нужно.
 */
-function moveat_get_donation_payment_method_label( $order ) {
+function moveat_get_donation_payment_method_label( $order, $lang = null ) {
+	$t    = moveat_dictionary( 'emails/customer-donation-completed-order', $lang );
+	$slug = $order ? (string) $order->get_payment_method() : '';
+
+	// Перевод подписи из словаря письма; нет — общая (русская) подпись реестра.
+	if ( $slug !== '' && ! empty( $t['payment_methods'][ $slug ] ) ) {
+		return (string) $t['payment_methods'][ $slug ];
+	}
+
 	return \Moveat\Woo\PaymentMethod\label( $order );
 }
 
@@ -178,7 +190,8 @@ function moveat_send_customer_donation_completed_email( $order_id ) {
 		return;
 	}
 
-	$email_content = moveat_get_donation_email_content();
+	$lang          = moveat_order_lang( $order );
+	$email_content = moveat_get_donation_email_content( $lang );
 
 	ob_start();
 	wc_get_template(
@@ -186,8 +199,8 @@ function moveat_send_customer_donation_completed_email( $order_id ) {
 		array(
 			'order'                => $order,
 			'email_content'        => $email_content,
-			'payment_method_label' => moveat_get_donation_payment_method_label( $order ),
-			'social_items'         => moveat_get_donation_email_social_items(),
+			'payment_method_label' => moveat_get_donation_payment_method_label( $order, $lang ),
+			'social_items'         => moveat_get_donation_email_social_items( $lang ),
 		),
 		'',
 		get_template_directory() . '/woocommerce/'

@@ -118,6 +118,10 @@ function moveat_create_donation_order( \WP_REST_Request $request ) {
 		$order->set_status( 'pending' );
 		$order->set_created_via( 'donation' );
 		$order->update_meta_data( '_is_donation', 'yes' );
+		// Язык письма донатору.
+		if ( function_exists( 'moveat_set_order_lang' ) ) {
+			moveat_set_order_lang( $order );
+		}
 		$order->calculate_totals();
 		$order->save();
 

@@ -72,6 +72,8 @@ if ( class_exists( 'WooCommerce' ) ) {
 	require_once __DIR__ . '/woocommerce/api/create-donation-order.php';
 	// Оплата заказа
 	require_once __DIR__ . '/woocommerce/api/pay-order.php';
+	// Язык писем клиенту по заказу + темы стандартных писем WooCommerce из словарей.
+	require_once __DIR__ . '/woocommerce/emails/email-language.php';
 	// Напоминание об оплате (пользователю и менеджерам)
 	require_once __DIR__ . '/woocommerce/emails/reminders.php';
 	// Сообщение о выполненном заказе админу
