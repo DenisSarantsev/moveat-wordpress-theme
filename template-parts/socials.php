@@ -5,12 +5,12 @@
 */
 defined( 'ABSPATH' ) || exit;
 
-// Вспомогательная функция: пытается получить поле из глобальной страницы (GLOBAL_SETTINGS_PAGE_ID), затем ACF options, затем ACF, затем get_option
+// Вспомогательная функция: пытается получить поле из глобальной страницы на текущем языке (moveat_global_page_id), затем ACF options, затем ACF, затем get_option
 if ( ! function_exists( 'moveat_get_social_field' ) ) {
 	function moveat_get_social_field( $key ) {
 		// Попытка: глобальная страница настроек
 		if ( defined( 'GLOBAL_SETTINGS_PAGE_ID' ) && function_exists( 'get_field' ) ) {
-			$val = get_field( $key, GLOBAL_SETTINGS_PAGE_ID );
+			$val = get_field( $key, moveat_global_page_id() );
 			if ( ! empty( $val ) ) {
 				return $val;
 			}

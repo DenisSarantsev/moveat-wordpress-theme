@@ -59,10 +59,10 @@
 						<?php the_content(); ?>
 						<?php
 							// Поля блока CTA (берём из глобальной страницы настроек)
-							$cta_title       = trim((string) get_field('cta_title', GLOBAL_SETTINGS_PAGE_ID));
-							$cta_subtitle    = trim((string) get_field('cta_subtitle', GLOBAL_SETTINGS_PAGE_ID));
-							$cta_button_text = trim((string) get_field('cta_button_text', GLOBAL_SETTINGS_PAGE_ID));
-							$cta_button_url  = trim((string) get_field('cta_button_url', GLOBAL_SETTINGS_PAGE_ID));
+							$cta_title       = trim((string) get_field('cta_title', moveat_global_page_id()));
+							$cta_subtitle    = trim((string) get_field('cta_subtitle', moveat_global_page_id()));
+							$cta_button_text = trim((string) get_field('cta_button_text', moveat_global_page_id()));
+							$cta_button_url  = trim((string) get_field('cta_button_url', moveat_global_page_id()));
 
 							// Показываем CTA только если заполнены все поля (см. правила рендера)
 							if ($cta_title && $cta_subtitle && $cta_button_text && $cta_button_url) :
@@ -78,7 +78,7 @@
 
 						<?php
 							// Блок «Поделиться»: ссылки вида sharer текущего материала (без привязки к URL профилей в ACF)
-							$share_title_acf = trim((string) get_field('share_title', GLOBAL_SETTINGS_PAGE_ID));
+							$share_title_acf = trim((string) get_field('share_title', moveat_global_page_id()));
 							$share_heading   = $share_title_acf !== '' ? $share_title_acf : 'Поделиться';
 
 							$article_share_url    = get_permalink();

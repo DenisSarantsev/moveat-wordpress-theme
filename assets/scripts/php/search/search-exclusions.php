@@ -6,6 +6,8 @@
    - «Поиск — скрыть страницы»: отдельные страницы (у страниц рубрик нет).
  Целые рубрики/категории — живое правило (tax_query NOT IN, ловит и будущие элементы).
  Отдельные элементы — post__not_in. Применяется к основному поисковому запросу.
+ У каждой языковой версии страницы настроек свой список: поиск на /uk/ берёт исключения
+ с украинской страницы (moveat_global_page_id()), на русском — с русской.
 */
 defined( 'ABSPATH' ) || exit;
 
@@ -18,15 +20,18 @@ add_action(
 			return;
 		}
 
-		$location = [
-			[
+		// Блоки показываются на каждой языковой версии страницы настроек:
+		// у каждого языка свой список исключений (см. moveat_global_page_id()).
+		$location = [];
+		foreach ( moveat_global_page_ids() as $page_id ) {
+			$location[] = [
 				[
 					'param'    => 'page',
 					'operator' => '==',
-					'value'    => GLOBAL_SETTINGS_PAGE_ID,
+					'value'    => $page_id,
 				],
-			],
-		];
+			];
+		}
 
 		// --- Блок «Записи»
 		acf_add_local_field_group(
@@ -208,13 +213,55 @@ add_action(
 );
 
 // ----------------------------------- Счётчик «скрыто N из M» в сводках блоков
+// Языковая версия страницы настроек, открытая сейчас в редакторе (иначе — русская).
+if ( ! function_exists( 'moveat_search_admin_page_id' ) ) {
+	function moveat_search_admin_page_id() {
+		$current = 0;
+		if ( isset( $_GET['post'] ) ) {
+			$current = (int) $_GET['post'];
+		} elseif ( isset( $_POST['post_ID'] ) ) {
+			$current = (int) $_POST['post_ID'];
+		}
+		return in_array( $current, moveat_global_page_ids(), true ) ? $current : GLOBAL_SETTINGS_PAGE_ID;
+	}
+}
+
+// Язык этой версии — чтобы «N из M» считались только по записям того же языка.
+if ( ! function_exists( 'moveat_search_lang_args' ) ) {
+	function moveat_search_lang_args( $pid, $post_type ) {
+		if ( ! function_exists( 'pll_get_post_language' ) || ! function_exists( 'pll_is_translated_post_type' ) || ! pll_is_translated_post_type( $post_type ) ) {
+			return [];
+		}
+		$lang = pll_get_post_language( $pid );
+		return $lang ? [ 'lang' => $lang ] : [];
+	}
+}
+
 if ( ! function_exists( 'moveat_search_count_hidden' ) ) {
 	function moveat_search_count_hidden( $post_type, $taxonomy, $cat_field, $item_field ) {
-		$pid   = defined( 'GLOBAL_SETTINGS_PAGE_ID' ) ? GLOBAL_SETTINGS_PAGE_ID : 0;
-		$total = 0;
-		$counts = wp_count_posts( $post_type );
-		if ( $counts && isset( $counts->publish ) ) {
-			$total = (int) $counts->publish;
+		$pid       = defined( 'GLOBAL_SETTINGS_PAGE_ID' ) ? moveat_search_admin_page_id() : 0;
+		$lang_args = moveat_search_lang_args( $pid, $post_type );
+		$total     = 0;
+		if ( $lang_args ) {
+			$total = count(
+				get_posts(
+					array_merge(
+						[
+							'post_type'      => $post_type,
+							'post_status'    => 'publish',
+							'posts_per_page' => -1,
+							'fields'         => 'ids',
+							'no_found_rows'  => true,
+						],
+						$lang_args
+					)
+				)
+			);
+		} else {
+			$counts = wp_count_posts( $post_type );
+			if ( $counts && isset( $counts->publish ) ) {
+				$total = (int) $counts->publish;
+			}
 		}
 
 		$hidden_ids = moveat_search_collect_ids( get_field( $item_field, $pid ) );
@@ -223,20 +270,23 @@ if ( ! function_exists( 'moveat_search_count_hidden' ) ) {
 			$cat_ids = array_values( array_filter( array_map( 'intval', (array) get_field( $cat_field, $pid ) ) ) );
 			if ( $cat_ids ) {
 				$in_cats = get_posts(
-					[
-						'post_type'      => $post_type,
-						'post_status'    => 'publish',
-						'posts_per_page' => -1,
-						'fields'         => 'ids',
-						'no_found_rows'  => true,
-						'tax_query'      => [
-							[
-								'taxonomy' => $taxonomy,
-								'field'    => 'term_id',
-								'terms'    => $cat_ids,
+					array_merge(
+						[
+							'post_type'      => $post_type,
+							'post_status'    => 'publish',
+							'posts_per_page' => -1,
+							'fields'         => 'ids',
+							'no_found_rows'  => true,
+							'tax_query'      => [
+								[
+									'taxonomy' => $taxonomy,
+									'field'    => 'term_id',
+									'terms'    => $cat_ids,
+								],
 							],
 						],
-					]
+						$lang_args
+					)
 				);
 				$hidden_ids = array_merge( $hidden_ids, array_map( 'intval', (array) $in_cats ) );
 			}
@@ -305,7 +355,8 @@ function moveat_search_filter_excluded( $query ) {
 		return;
 	}
 
-	$pid = GLOBAL_SETTINGS_PAGE_ID;
+	// Список исключений — со страницы настроек на языке поиска.
+	$pid = moveat_global_page_id();
 
 	// 1) Отдельные элементы (записи + товары + страницы) → post__not_in.
 	$item_ids = array_merge(

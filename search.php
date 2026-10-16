@@ -112,7 +112,8 @@ get_header();
 						</div>
 						<div class="article-card__bottom">
 							<?php
-							$search_btn_title = __( 'Подробнее', 'moveat' );
+							// Для страниц своего поля нет — дефолт на языке сайта («Подробнее» / «Детальніше»).
+							$search_btn_title = function_exists( 'moveat_default_button_title' ) ? moveat_default_button_title( moveat_category_button_current_lang() ) : 'Подробнее';
 							if ( 'product' === $post_type && function_exists( 'moveat_get_product_button_title' ) ) {
 								$search_btn_title = moveat_get_product_button_title( get_the_ID() );
 							} elseif ( 'post' === $post_type && function_exists( 'moveat_get_post_button_title' ) ) {
