@@ -1,0 +1,409 @@
+{
+	"key": "group_banner_youth",
+	"title": "Баннер — Долгая молодость",
+	"fields": [
+		{
+			"key": "field_banner_youth_eyebrow",
+			"label": "Надзаголовок",
+			"name": "banner_youth_eyebrow",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Для мужчин и женщин 40+",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_banner_youth_title",
+			"label": "Заголовок",
+			"name": "banner_youth_title",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Курс «Долгая молодость»",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_banner_youth_subtitle",
+			"label": "Подзаголовок",
+			"name": "banner_youth_subtitle",
+			"type": "textarea",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Как можно дольше оставаться молодыми, сохранить ясность ума, энергию и силу",
+			"placeholder": "",
+			"maxlength": "",
+			"rows": 2,
+			"new_lines": ""
+		},
+		{
+			"key": "field_banner_youth_description",
+			"label": "Описание",
+			"name": "banner_youth_description",
+			"type": "textarea",
+			"instructions": "Каждая строка выводится отдельным абзацем.",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Чем раньше начать работать над сохранением здоровья, тем больше возможностей поддерживать активность и качество жизни с возрастом.\nПерсональные рекомендации по питанию, добавкам и физической активности с учётом состояния вашего здоровья.",
+			"placeholder": "",
+			"maxlength": "",
+			"rows": 5,
+			"new_lines": ""
+		},
+		{
+			"key": "field_banner_youth_signature",
+			"label": "Подпись",
+			"name": "banner_youth_signature",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Макс Погорелый",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_banner_youth_tab_features",
+			"label": "Features",
+			"name": "banner_youth_tab_features",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_banner_youth_features_instructions",
+			"label": "Преимущества (список)",
+			"name": "banner_youth_features_instructions",
+			"type": "message",
+			"instructions": "",
+			"required": 0,
+			"message": "До 6 пунктов. Элемент показывается только если заполнены и иконка, и подпись. Чтобы убрать пункт из списка, очистите оба поля в этом блоке.",
+			"new_lines": "wpautop",
+			"esc_html": 1
+		},
+		{
+			"key": "field_banner_youth_feature_1_icon",
+			"label": "Преимущество 1 — иконка (URL)",
+			"name": "banner_youth_feature_1_icon",
+			"type": "image",
+			"instructions": "Полный URL изображения.",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_banner_youth_feature_1_label",
+			"label": "Преимущество 1 — подпись",
+			"name": "banner_youth_feature_1_label",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Ясность мышления",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_banner_youth_feature_2_icon",
+			"label": "Преимущество 2 — иконка (URL)",
+			"name": "banner_youth_feature_2_icon",
+			"type": "image",
+			"instructions": "Полный URL изображения.",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_banner_youth_feature_2_label",
+			"label": "Преимущество 2 — подпись",
+			"name": "banner_youth_feature_2_label",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Энергия и бодрость",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_banner_youth_feature_3_icon",
+			"label": "Преимущество 3 — иконка (URL)",
+			"name": "banner_youth_feature_3_icon",
+			"type": "image",
+			"instructions": "Полный URL изображения.",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_banner_youth_feature_3_label",
+			"label": "Преимущество 3 — подпись",
+			"name": "banner_youth_feature_3_label",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Сила и подвижность",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_banner_youth_feature_4_icon",
+			"label": "Преимущество 4 — иконка (URL)",
+			"name": "banner_youth_feature_4_icon",
+			"type": "image",
+			"instructions": "Полный URL изображения.",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_banner_youth_feature_4_label",
+			"label": "Преимущество 4 — подпись",
+			"name": "banner_youth_feature_4_label",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_banner_youth_feature_5_icon",
+			"label": "Преимущество 5 — иконка (URL)",
+			"name": "banner_youth_feature_5_icon",
+			"type": "image",
+			"instructions": "Полный URL изображения.",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_banner_youth_feature_5_label",
+			"label": "Преимущество 5 — подпись",
+			"name": "banner_youth_feature_5_label",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_banner_youth_feature_6_icon",
+			"label": "Преимущество 6 — иконка (URL)",
+			"name": "banner_youth_feature_6_icon",
+			"type": "image",
+			"instructions": "Полный URL изображения.",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "medium",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_banner_youth_feature_6_label",
+			"label": "Преимущество 6 — подпись",
+			"name": "banner_youth_feature_6_label",
+			"type": "text",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_banner_youth_tab_messengers",
+			"label": "Messengers",
+			"name": "banner_youth_tab_messengers",
+			"type": "tab",
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_banner_youth_messengers_instructions",
+			"label": "Мессенджеры",
+			"name": "banner_youth_messengers_instructions",
+			"type": "message",
+			"instructions": "",
+			"required": 0,
+			"message": "Кнопка показывается только если заполнены и ссылка, и иконка. Чтобы скрыть канал — очистите одно из полей.",
+			"new_lines": "wpautop",
+			"esc_html": 1
+		},
+		{
+			"key": "field_banner_youth_messengers_intro",
+			"label": "Текст над кнопками",
+			"name": "banner_youth_messengers_intro",
+			"type": "textarea",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "Переходите в ваш любимый мессенджер",
+			"placeholder": "",
+			"maxlength": "",
+			"rows": 2,
+			"new_lines": ""
+		},
+		{
+			"key": "field_banner_youth_link_telegram",
+			"label": "Telegram — ссылка",
+			"name": "banner_youth_link_telegram",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": ""
+		},
+		{
+			"key": "field_banner_youth_icon_telegram",
+			"label": "Telegram — иконка (URL)",
+			"name": "banner_youth_icon_telegram",
+			"type": "image",
+			"instructions": "Полный URL PNG/SVG иконки.",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_banner_youth_link_whatsapp",
+			"label": "WhatsApp — ссылка",
+			"name": "banner_youth_link_whatsapp",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": ""
+		},
+		{
+			"key": "field_banner_youth_icon_whatsapp",
+			"label": "WhatsApp — иконка (URL)",
+			"name": "banner_youth_icon_whatsapp",
+			"type": "image",
+			"instructions": "Полный URL PNG/SVG иконки.",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all",
+			"mime_types": ""
+		},
+		{
+			"key": "field_banner_youth_link_viber",
+			"label": "Viber — ссылка",
+			"name": "banner_youth_link_viber",
+			"type": "url",
+			"instructions": "",
+			"required": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": ""
+		},
+		{
+			"key": "field_banner_youth_icon_viber",
+			"label": "Viber — иконка (URL)",
+			"name": "banner_youth_icon_viber",
+			"type": "image",
+			"instructions": "Полный URL PNG/SVG иконки.",
+			"required": 0,
+			"return_format": "url",
+			"preview_size": "thumbnail",
+			"library": "all",
+			"mime_types": ""
+		}
+	],
+	"location": [
+		[
+			{
+				"param": "page_template",
+				"operator": "==",
+				"value": "templates/banners/banner-youth.php"
+			}
+		]
+	],
+	"menu_order": 0,
+	"position": "normal",
+	"style": "default",
+	"label_placement": "top",
+	"instruction_placement": "label",
+	"hide_on_screen": "",
+	"active": true,
+	"description": "Поля баннера «Долгая молодость» (шаблон banner-youth.php)."
+}

@@ -89,3 +89,11 @@ add_shortcode(
 		return moveat_banner_render_partial('templates/banners/banner-club.php', $moveat_banner_club_page_id);
 	}
 );
+
+add_shortcode(
+	'moveat_banner_youth',
+	function () {
+		global $moveat_banner_youth_page_id;
+		return moveat_banner_render_partial('templates/banners/banner-youth.php', $moveat_banner_youth_page_id);
+	}
+);
