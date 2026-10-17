@@ -11,10 +11,13 @@ if (empty($moveat_banner_partial_only)) {
 // При выводе через шорткод доступна переменная $banner_page_id.
 $banner_acf_post_id = ! empty($banner_page_id) ? (int) $banner_page_id : get_the_ID();
 
-$default_title            = 'Расчет индивидуального сбалансированного рациона';
-$default_subtitle         = 'Хотите узнать, почему диеты не работают?';
-$default_description      = 'Важно учитывать все 14 параметров здоровья при расчете рациона';
-$default_messengers_intro = 'Переходите в ваш любимый мессенджер';
+// Тексты по умолчанию — на языке страницы (assets/dictionaries/templates/banners).
+$banner_dict = moveat_dictionary('templates/banners');
+
+$default_title            = moveat_dictionary_text($banner_dict, 'diet_title');
+$default_subtitle         = moveat_dictionary_text($banner_dict, 'diet_subtitle');
+$default_description      = moveat_dictionary_text($banner_dict, 'diet_description');
+$default_messengers_intro = moveat_dictionary_text($banner_dict, 'diet_messengers_intro');
 
 $diet_title = $default_title;
 if (function_exists('get_field')) {

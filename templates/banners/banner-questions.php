@@ -11,9 +11,12 @@ if (empty($moveat_banner_partial_only)) {
 // При выводе через шорткод доступна переменная $banner_page_id.
 $banner_acf_post_id = ! empty($banner_page_id) ? (int) $banner_page_id : get_the_ID();
 
-$default_title            = 'Есть вопросы? Будем рады ответить!';
-$default_description      = 'По всем вопросам пишите нам в мессенджеры. В рабочие дни мы отвечаем очень быстро. В выходные немного медленнее, но ваше сообщение точно дойдет, не потеряется и будет обработано!';
-$default_messengers_intro = 'Выберите удобный мессенджер';
+// Тексты по умолчанию — на языке страницы (assets/dictionaries/templates/banners).
+$banner_dict = moveat_dictionary('templates/banners');
+
+$default_title            = moveat_dictionary_text($banner_dict, 'questions_title');
+$default_description      = moveat_dictionary_text($banner_dict, 'questions_description');
+$default_messengers_intro = moveat_dictionary_text($banner_dict, 'questions_messengers_intro');
 
 $questions_title = $default_title;
 if (function_exists('get_field')) {

@@ -11,8 +11,11 @@ if (empty($moveat_banner_partial_only)) {
 // При выводе через шорткод доступна переменная $banner_page_id.
 $banner_acf_post_id = ! empty($banner_page_id) ? (int) $banner_page_id : get_the_ID();
 
-$default_title    = 'Книги о здоровом питании от Макса Погорелого';
-$default_subtitle = 'Ценные знаний о питании и здоровье - в простой и понятной форме. Красиво оформлено, удобно читать прямо с телефона!';
+// Тексты по умолчанию — на языке страницы (assets/dictionaries/templates/banners).
+$banner_dict = moveat_dictionary('templates/banners');
+
+$default_title    = moveat_dictionary_text($banner_dict, 'books_title');
+$default_subtitle = moveat_dictionary_text($banner_dict, 'books_subtitle');
 
 $banner_books_title = $default_title;
 if (function_exists('get_field')) {
@@ -31,7 +34,7 @@ if (function_exists('get_field')) {
 }
 
 $cta_url = '#';
-$cta_txt = 'Перейти на книжную полку';
+$cta_txt = moveat_dictionary_text($banner_dict, 'books_cta');
 if (function_exists('get_field')) {
 	$u = get_field('banner_books_cta_url', $banner_acf_post_id);
 	if (is_string($u) && $u !== '') {

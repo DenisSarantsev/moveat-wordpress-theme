@@ -12,7 +12,15 @@ if (! function_exists('moveat_banner_render_partial')) {
 		if (! $path) {
 			return '';
 		}
-		$banner_page_id             = (int) $page_id;
+		// Языковая версия баннера на языке страницы (Polylang). Нет перевода — русская.
+		$banner_page_id = (int) $page_id;
+		if ($banner_page_id && function_exists('pll_get_post')) {
+			$translated = pll_get_post($banner_page_id);
+			if ($translated) {
+				$banner_page_id = (int) $translated;
+			}
+		}
+
 		$moveat_banner_partial_only = true;
 		ob_start();
 		include $path;
@@ -20,8 +28,9 @@ if (! function_exists('moveat_banner_render_partial')) {
 	}
 }
 
-// ID страниц (Страницы → нужная страница → в адресной строке post=123): после назначения
-// соответствующего шаблона баннера подставьте числовой ID вместо 0 в переменных ниже.
+// ID русских версий баннеров (Баннеры → нужный баннер → в адресной строке post=123).
+// Украинские версии создаются через Polylang — их ID сюда писать не нужно,
+// moveat_banner_render_partial() находит перевод сам.
 
 /** Шаблон «Баннер — Диета» → ID страницы. */
 $moveat_banner_diet_page_id = 3467;
@@ -37,6 +46,9 @@ $moveat_banner_questions_page_id = 3463;
 
 /** Шаблон «Баннер — Клуб» → ID страницы. */
 $moveat_banner_club_page_id = 3465;
+
+/** Шаблон «Баннер — Долгая молодость» → ID страницы. Вписать после создания баннера в админке. */
+$moveat_banner_youth_page_id = 11598;
 
 add_shortcode(
 	'moveat_banner_diet',

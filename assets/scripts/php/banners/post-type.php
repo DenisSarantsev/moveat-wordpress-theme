@@ -33,4 +33,17 @@ add_action('init', function () {
 		]
 	);
 });
+
+// ----------------------------------- Переводы баннеров (Polylang)
+// Тип непубличный, поэтому Polylang не предлагает его в своих настройках —
+// включаем переводы кодом. В списке настроек Polylang тип не показываем,
+// чтобы переводы случайно не выключили.
+add_filter('pll_get_post_types', function ($post_types, $is_settings) {
+	if ($is_settings) {
+		unset($post_types['banner']);
+	} else {
+		$post_types['banner'] = 'banner';
+	}
+	return $post_types;
+}, 10, 2);
 ?>

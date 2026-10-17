@@ -11,9 +11,12 @@ if (empty($moveat_banner_partial_only)) {
 // При выводе через шорткод доступна переменная $banner_page_id.
 $banner_acf_post_id = ! empty($banner_page_id) ? (int) $banner_page_id : get_the_ID();
 
-$default_title       = 'Программа «Строим здоровое тело вместе»';
-$default_description = 'Мы поможем вам перейти на здоровое питание, ответим на волнующие вопросы и подберем персональный рацион. Вместе с командой врачей мы приведем вас к результату! Начните путь к здоровью - записывайтесь сейчас!';
-$default_signature   = 'Максим Погорелый';
+// Тексты по умолчанию — на языке страницы (assets/dictionaries/templates/banners).
+$banner_dict = moveat_dictionary('templates/banners');
+
+$default_title       = moveat_dictionary_text($banner_dict, 'build_body_title');
+$default_description = moveat_dictionary_text($banner_dict, 'build_body_description');
+$default_signature   = moveat_dictionary_text($banner_dict, 'build_body_signature');
 
 $banner_body_title = $default_title;
 if (function_exists('get_field')) {
@@ -60,7 +63,7 @@ for ($fi = 1; $fi <= $banner_body_features_max; $fi++) {
 }
 
 $cta_url = '#';
-$cta_txt = 'Узнать больше';
+$cta_txt = moveat_dictionary_text($banner_dict, 'build_body_cta');
 if (function_exists('get_field')) {
 	$u = get_field('banner_build_body_cta_url', $banner_acf_post_id);
 	if (is_string($u) && $u !== '') {

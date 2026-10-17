@@ -11,11 +11,14 @@ if (empty($moveat_banner_partial_only)) {
 // При выводе через шорткод доступна переменная $banner_page_id.
 $banner_acf_post_id = ! empty($banner_page_id) ? (int) $banner_page_id : get_the_ID();
 
-$default_img_alt       = 'Клуб МАКСимального здоровья';
-$default_title         = 'Клуб МАКСимального здоровья';
-$default_subtitle      = 'Есть вопросы о питании лично к Максу?';
-$default_description   = 'Обсуждения, рецепты, личные рекомендации, поддержка единомышленников. Мы ждем вас в клубе!';
-$default_messengers_intro = 'Переходите в удобный мессенджер, где мы расскажем про клуб подробнее (стоимость, условия)';
+// Тексты по умолчанию — на языке страницы (assets/dictionaries/templates/banners).
+$banner_dict = moveat_dictionary('templates/banners');
+
+$default_img_alt       = moveat_dictionary_text($banner_dict, 'club_image_alt');
+$default_title         = moveat_dictionary_text($banner_dict, 'club_title');
+$default_subtitle      = moveat_dictionary_text($banner_dict, 'club_subtitle');
+$default_description   = moveat_dictionary_text($banner_dict, 'club_description');
+$default_messengers_intro = moveat_dictionary_text($banner_dict, 'club_messengers_intro');
 
 $club_main_image = '';
 if (function_exists('get_field')) {
