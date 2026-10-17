@@ -118,24 +118,30 @@ if ( ! isset( $order ) || ! is_a( $order, 'WC_Order' ) ) {
 					<p style="margin:10px 0;color:#333;font-size:14px;text-align:center;line-height:140%;padding-top: 10px;">
 						<?php echo esc_html( moveat_email_text( $t, 'messengers_intro' ) ); ?>
 					</p>
-					<!-- Иконки мессенджеров -->
+					<!-- Иконки мессенджеров: выводятся только те, для которых в словаре есть ссылка -->
 					<table role="presentation" align="center" style="margin:12px auto 0;border-collapse:collapse;">
 						<tr>
+							<?php if ( moveat_email_messenger_url( $t, 'whatsapp' ) ) : ?>
 							<td style="padding:0 8px;text-align:center;">
 								<a href="<?php echo esc_url( moveat_email_messenger_url( $t, 'whatsapp' ) ); ?>" target="_blank" rel="noopener" style="display:inline-block;width:54px;height:54px;background:#25d366;border-radius:50%;text-decoration:none;">
 									<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/white/whatsapp.png' ); ?>" width="32" height="32" alt="WhatsApp" style="display:block;margin:11px auto;border:0;" />
 								</a>
 							</td>
+							<?php endif; ?>
+							<?php if ( moveat_email_messenger_url( $t, 'viber' ) ) : ?>
 							<td style="padding:0 8px;text-align:center;">
 								<a href="<?php echo esc_url( moveat_email_messenger_url( $t, 'viber' ) ); ?>" target="_blank" rel="noopener" style="display:inline-block;width:54px;height:54px;background:#7360f2;border-radius:50%;text-decoration:none;">
 									<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/white/viber.png' ); ?>" width="26" height="26" alt="Viber" style="display:block;margin:14px auto;border:0;" />
 								</a>
 							</td>
+							<?php endif; ?>
+							<?php if ( moveat_email_messenger_url( $t, 'telegram' ) ) : ?>
 							<td style="padding:0 8px;text-align:center;">
 								<a href="<?php echo esc_url( moveat_email_messenger_url( $t, 'telegram' ) ); ?>" target="_blank" rel="noopener" style="display:inline-block;width:54px;height:54px;background:#24A1DE;border-radius:50%;text-decoration:none;">
 									<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/white/telegram.png' ); ?>" width="28" height="28" alt="Telegram" style="display:block;margin:13px auto;border:0;" />
 								</a>
 							</td>
+							<?php endif; ?>
 						</tr>
 					</table>
 				</td>
