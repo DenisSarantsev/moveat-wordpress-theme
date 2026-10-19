@@ -22,7 +22,7 @@ return [
 
 		// Мессенджеры: подпись и ссылка
 		'telegram_name'  => 'Телеграм-бот',
-		'telegram_url'   => 'https://t.me/MaxPogorelyBot?start=657b3f6ba17c770cfe08738c',
+		'telegram_url'   => 'https://t.me/MoveatExpertUaBot',
 		'whatsapp_name'  => 'Вотсап-бот',
 		'whatsapp_url'   => 'https://380991900483.wa.pulse.is/',
 		'viber_name'     => 'Вайбер-бот',

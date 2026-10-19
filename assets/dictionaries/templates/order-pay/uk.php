@@ -28,10 +28,10 @@ return [
 		'help_text'            => 'Якщо у вас <span>НЕ ПРОХОДИТЬ ОПЛАТА,</span> зв’яжіться з нами в одному з месенджерів, і ми допоможемо вам з оплатою.',
 		'privacy_text'         => 'Ваші особисті дані використовуватимуться для обробки ваших замовлень, спрощення вашої роботи із сайтом та для інших цілей, описаних у нашій %s.',
 		'privacy_link'         => 'політиці конфіденційності',
-		'privacy_url'          => 'https://moveat.expert/uk/politika-konfidentsialnosti/',
+		'privacy_url'          => 'https://moveat.expert/uk/politika-konfidenczijnosti/',
 		'agree_text'           => 'Я прочитав(-ла) і погоджуюся з %s',
 		'agree_link'           => 'публічним договором (офертою)',
-		'agree_url'            => 'https://moveat.expert/uk/public-contract/',
+		'agree_url'            => 'https://moveat.expert/uk/publichnij-dogovir-oferta-na-zamovlennya-kupivlyu-prodazh-i-dostavku-tovariv/',
 		'submit'               => 'Оплатити замовлення',
 
 		// Состав заказа

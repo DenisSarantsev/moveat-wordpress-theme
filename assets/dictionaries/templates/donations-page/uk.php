@@ -60,9 +60,9 @@ return [
 		'help_label'                 => 'Інформація про оплату карткою російського банку',
 		'help_text'                  => 'Якщо у вас <span>НЕ ПРОХОДИТЬ ОПЛАТА,</span> зв’яжіться з нами в одному з месенджерів, і ми допоможемо вам з оплатою.',
 		'privacy_text'               => 'Ваші особисті дані використовуватимуться для обробки ваших замовлень, спрощення вашої роботи із сайтом та для інших цілей, описаних у нашій <a href="%s">політиці конфіденційності</a>.',
-		'privacy_url'                => 'https://moveat.expert/politika-konfidentsialnosti/',
+		'privacy_url'                => 'https://moveat.expert/uk/politika-konfidenczijnosti/',
 		'agree_text'                 => 'Я прочитав(-ла) і погоджуюся з <a href="%s">правилами сайту</a>',
-		'agree_url'                  => 'https://moveat.expert/public-contract/',
+		'agree_url'                  => 'https://moveat.expert/uk/publichnij-dogovir-oferta-na-zamovlennya-kupivlyu-prodazh-i-dostavku-tovariv/',
 		'submit'                     => 'Надіслати донат',
 	],
 ];
