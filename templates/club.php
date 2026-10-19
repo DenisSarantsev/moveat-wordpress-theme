@@ -11,13 +11,19 @@ defined( 'ABSPATH' ) || exit;
 */
 $faq_cross_icon_src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA+0lEQVR4nO2YwQ6CMBBE53/0c7rhoP/BUY/+syYQY70Q0AI72y3ZSThw6cyh0J0AhEKhUChUrhMa9rgDeAG4sgwACIAngAcj/JAvFoTk8F8fNYjzZOEh33daBvisNefx9lZRmjHQ2glZWPsCZTEgxCo8A8I8vCZEtfAaENXD74FwE34LhLvwayDchi+BcB/+3zRlT3H6Trh/8rUQTYTHwjvPbLEm4ZuA6Fr+iOXHUcms4ioqOefdQsiKIeUOQjZMWDcQsqMeVIcQhW5TDUIUi5k5BKNVJisIZiVObIhD/NjqDVplmkDctA16g0qcMoR6+EP8Xg+FQqHQ8TQCNxwr5J48PtQAAAAASUVORK5CYII=';
 
-$club_hero_title          = trim( (string) get_field( 'club_hero_title' ) ) ?: 'Клуб Макса Погорелого';
-$club_breadcrumb_current  = trim( (string) get_field( 'club_breadcrumb_current' ) ) ?: 'Клуб';
+// Тексты вёрстки на языке страницы — assets/dictionaries/templates/club.
+$page_dict = moveat_dictionary( 'templates/club' );
+$tr = function ( $key ) use ( $page_dict ) {
+	return moveat_dictionary_text( $page_dict, $key );
+};
+
+$club_hero_title          = trim( (string) get_field( 'club_hero_title' ) ) ?: $tr( 'hero_title' );
+$club_breadcrumb_current  = trim( (string) get_field( 'club_breadcrumb_current' ) ) ?: $tr( 'breadcrumb_current' );
 $club_intro_image         = get_field( 'club_intro_image' );
 $club_intro_alt           = trim( (string) get_field( 'club_intro_alt' ) ) ?: $club_hero_title;
 $club_intro_lead          = trim( (string) get_field( 'club_intro_lead' ) );
 $club_intro_text          = trim( (string) get_field( 'club_intro_text' ) );
-$club_intro_cta_text      = trim( (string) get_field( 'club_intro_cta_text' ) ) ?: 'Присоединиться к клубу';
+$club_intro_cta_text      = trim( (string) get_field( 'club_intro_cta_text' ) ) ?: $tr( 'intro_cta' );
 
 $club_material_items = [];
 for ( $m = 1; $m <= 7; $m++ ) {
@@ -27,15 +33,15 @@ for ( $m = 1; $m <= 7; $m++ ) {
 	}
 }
 
-$club_team_heading = trim( (string) get_field( 'club_team_heading' ) ) ?: 'Наша команда';
+$club_team_heading = trim( (string) get_field( 'club_team_heading' ) ) ?: $tr( 'team_heading' );
 
 $club_intro_aria_attrs = '';
 if ( $club_intro_lead !== '' || $club_intro_text !== '' ) {
 	$club_intro_aria_attrs = ' aria-labelledby="club-intro-heading"';
 } elseif ( ! empty( $club_intro_image ) ) {
-	$club_intro_aria_attrs = ' aria-label="' . esc_attr__( 'Информация о клубе', 'moveat' ) . '"';
+	$club_intro_aria_attrs = ' aria-label="' . esc_attr( $tr( 'intro_label_info' ) ) . '"';
 } else {
-	$club_intro_aria_attrs = ' aria-label="' . esc_attr__( 'Присоединение к клубу', 'moveat' ) . '"';
+	$club_intro_aria_attrs = ' aria-label="' . esc_attr( $tr( 'intro_label_join' ) ) . '"';
 }
 
 get_header();
@@ -50,10 +56,10 @@ get_header();
 	</div>
 	<div class="hero-block__container">
 		<h1 class="hero-block__title"><?php echo esc_html( $club_hero_title ); ?></h1>
-		<nav aria-label="хлебные крошки">
+		<nav aria-label="<?php echo esc_attr( $tr( 'breadcrumbs_label' ) ); ?>">
 			<ol class="breadcrumb no-padding page-hero__breadcrumbs-list">
 				<li class="breadcrumb-item page-hero__breadcrumbs-item white">
-					<a class="text-body" href="<?php echo esc_url( home_url( '/' ) ); ?>">Главная</a>
+					<a class="text-body" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html( $tr( 'breadcrumb_home' ) ); ?></a>
 				</li>
 				<li class="breadcrumb-item page-hero__breadcrumbs-item white">
 					<span class="text-body"><?php echo esc_html( $club_breadcrumb_current ); ?></span>
@@ -87,7 +93,7 @@ get_header();
 					type="button"
 					class="primary-button club-page__intro-cta"
 					data-club-scroll-to-pricing
-					aria-label="<?php echo esc_attr__( 'Перейти к блоку оплаты и оформить участие', 'moveat' ); ?>">
+					aria-label="<?php echo esc_attr( $tr( 'intro_cta_label' ) ); ?>">
 					<?php echo esc_html( $club_intro_cta_text ); ?>
 				</button>
 			</div>
@@ -97,15 +103,15 @@ get_header();
 			class="club-page__band"
 			aria-labelledby="club-materials-heading">
 			<h2 class="club-page__section-title" id="club-materials-heading">
-				<?php echo esc_html( get_field( 'club_materials_title' ) ?: 'Эксклюзивные материалы только для членов клуба' ); ?>
+				<?php echo esc_html( get_field( 'club_materials_title' ) ?: $tr( 'materials_title' ) ); ?>
 			</h2>
 			<div class="club-page__materials">
 				<div class="club-page__materials-visual">
 					<?php
 					$mat_fig1 = get_field( 'club_materials_figure_1_image' );
 					$mat_fig2 = get_field( 'club_materials_figure_2_image' );
-					$mat_alt1 = trim( (string) get_field( 'club_materials_figure_1_alt' ) ) ?: 'Витамины и нутриенты';
-					$mat_alt2 = trim( (string) get_field( 'club_materials_figure_2_alt' ) ) ?: 'Продукты и питание';
+					$mat_alt1 = trim( (string) get_field( 'club_materials_figure_1_alt' ) ) ?: $tr( 'materials_alt_1' );
+					$mat_alt2 = trim( (string) get_field( 'club_materials_figure_2_alt' ) ) ?: $tr( 'materials_alt_2' );
 					?>
 					<?php if ( ! empty( $mat_fig1 ) ) : ?>
 						<figure class="club-page__figure">
@@ -132,7 +138,7 @@ get_header();
 			class="club-page__spotlight"
 			aria-labelledby="club-online-heading">
 			<h2 class="club-page__section-title" id="club-online-heading">
-				<?php echo esc_html( get_field( 'club_online_title' ) ?: 'Онлайн-общение с Максом' ); ?>
+				<?php echo esc_html( get_field( 'club_online_title' ) ?: $tr( 'online_title' ) ); ?>
 			</h2>
 			<?php
 			$online_text = trim( (string) get_field( 'club_online_text' ) );
@@ -142,7 +148,7 @@ get_header();
 			<?php endif; ?>
 			<?php
 			$online_img = get_field( 'club_online_image' );
-			$online_alt = trim( (string) get_field( 'club_online_image_alt' ) ) ?: 'Макс на встрече с участниками клуба';
+			$online_alt = trim( (string) get_field( 'club_online_image_alt' ) ) ?: $tr( 'online_alt' );
 			if ( ! empty( $online_img ) ) :
 				?>
 				<figure class="club-page__spotlight-figure">
@@ -159,7 +165,7 @@ get_header();
 			class="club-page__band club-page__band--tight"
 			aria-labelledby="club-community-heading">
 			<h2 class="club-page__section-title" id="club-community-heading">
-				<?php echo esc_html( get_field( 'club_community_title' ) ?: 'Общение и поддержка единомышленников' ); ?>
+				<?php echo esc_html( get_field( 'club_community_title' ) ?: $tr( 'community_title' ) ); ?>
 			</h2>
 			<?php
 			$comm_text_raw = trim( (string) get_field( 'club_community_text' ) );
@@ -171,7 +177,7 @@ get_header();
 			<?php endif; ?>
 			<?php
 			$map_img = get_field( 'club_community_map_image' );
-			$map_alt = trim( (string) get_field( 'club_community_map_alt' ) ) ?: 'Участники клуба по всему миру';
+			$map_alt = trim( (string) get_field( 'club_community_map_alt' ) ) ?: $tr( 'community_map_alt' );
 			if ( ! empty( $map_img ) ) :
 				?>
 				<figure class="club-page__worldmap">
@@ -226,7 +232,7 @@ get_header();
 			id="club-pricing"
 			aria-labelledby="club-pricing-heading">
 			<h2 class="club-page__section-title" id="club-pricing-heading">
-				<?php echo esc_html( get_field( 'club_pricing_title' ) ?: 'Стать участником клуба' ); ?>
+				<?php echo esc_html( get_field( 'club_pricing_title' ) ?: $tr( 'pricing_title' ) ); ?>
 			</h2>
 			<div class="club-page__pricing-grid">
 				<div class="club-page__pricing-card">
@@ -238,7 +244,7 @@ get_header();
 					<?php endif; ?>
 					<?php
 					$u1   = trim( (string) get_field( 'club_pricing_card_1_url' ) );
-					$btn1 = trim( (string) get_field( 'club_pricing_card_1_btn' ) ) ?: 'Оплатить';
+					$btn1 = trim( (string) get_field( 'club_pricing_card_1_btn' ) ) ?: $tr( 'pay' );
 					if ( $u1 !== '' ) :
 						?>
 						<a class="primary-button club-page__pricing-btn" href="<?php echo esc_url( $u1 ); ?>" target="_blank" rel="noreferrer noopener"><?php echo esc_html( $btn1 ); ?></a>
@@ -254,7 +260,7 @@ get_header();
 					<?php endif; ?>
 					<?php
 					$u2   = trim( (string) get_field( 'club_pricing_card_2_url' ) );
-					$btn2 = trim( (string) get_field( 'club_pricing_card_2_btn' ) ) ?: 'Оплатить';
+					$btn2 = trim( (string) get_field( 'club_pricing_card_2_btn' ) ) ?: $tr( 'pay' );
 					if ( $u2 !== '' ) :
 						?>
 						<a class="primary-button club-page__pricing-btn" href="<?php echo esc_url( $u2 ); ?>" target="_blank" rel="noreferrer noopener"><?php echo esc_html( $btn2 ); ?></a>
@@ -268,7 +274,7 @@ get_header();
 			aria-labelledby="club-rules-heading">
 			<h2 class="club-page__outreach-title" id="club-rules-heading">
 				<?php
-				$r_text = trim( (string) get_field( 'club_rules_link_text' ) ) ?: 'Правила клуба';
+				$r_text = trim( (string) get_field( 'club_rules_link_text' ) ) ?: $tr( 'rules_link' );
 				$r_url  = trim( (string) get_field( 'club_rules_link_url' ) );
 				if ( $r_url !== '' ) :
 					?>
@@ -316,7 +322,7 @@ get_header();
 								href="<?php echo esc_url( $tg_u ); ?>"
 								target="_blank"
 								rel="noopener noreferrer"
-								aria-label="<?php echo esc_attr( sprintf( __( 'Открыть %s', 'moveat' ), $tg_l ) ); ?>">
+								aria-label="<?php echo esc_attr( sprintf( $tr( 'open_messenger' ), $tg_l ) ); ?>">
 								<?php if ( ! empty( $tg_icon ) ) : ?>
 									<img src="<?php echo esc_url( $tg_icon ); ?>" alt="<?php echo esc_attr( $tg_l ); ?>" loading="lazy" decoding="async" />
 								<?php else : ?>
@@ -330,7 +336,7 @@ get_header();
 								href="<?php echo esc_url( $wa_u ); ?>"
 								target="_blank"
 								rel="noopener noreferrer"
-								aria-label="<?php echo esc_attr( sprintf( __( 'Открыть %s', 'moveat' ), $wa_l ) ); ?>">
+								aria-label="<?php echo esc_attr( sprintf( $tr( 'open_messenger' ), $wa_l ) ); ?>">
 								<?php if ( ! empty( $wa_icon ) ) : ?>
 									<img src="<?php echo esc_url( $wa_icon ); ?>" alt="<?php echo esc_attr( $wa_l ); ?>" loading="lazy" decoding="async" />
 								<?php else : ?>
@@ -343,7 +349,7 @@ get_header();
 								class="club-page__messengers-link club-page__messengers-link--viber"
 								href="<?php echo esc_url( $vb_u, array( 'http', 'https', 'viber' ) ); ?>"
 								rel="noopener noreferrer"
-								aria-label="<?php echo esc_attr( sprintf( __( 'Открыть %s', 'moveat' ), $vb_l ) ); ?>">
+								aria-label="<?php echo esc_attr( sprintf( $tr( 'open_messenger' ), $vb_l ) ); ?>">
 								<?php if ( ! empty( $vb_icon ) ) : ?>
 									<img src="<?php echo esc_url( $vb_icon ); ?>" alt="<?php echo esc_attr( $vb_l ); ?>" loading="lazy" decoding="async" />
 								<?php else : ?>

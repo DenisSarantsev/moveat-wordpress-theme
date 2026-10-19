@@ -25,6 +25,12 @@ if ( ! headers_sent() ) {
 
 get_header();
 
+// Тексты вёрстки на языке страницы — assets/dictionaries/templates/pay-problem.
+$page_dict = moveat_dictionary( 'templates/pay-problem' );
+$t = function ( $key ) use ( $page_dict ) {
+	return moveat_dictionary_text( $page_dict, $key );
+};
+
 $theme_uri = get_template_directory_uri();
 
 // Если шлюз перенаправил с параметрами заказа, используем их для повторной оплаты
@@ -54,15 +60,15 @@ $pay_order_key = isset( $_GET['order_key'] ) ? sanitize_text_field( $_GET['order
 
 			<!-- Heading -->
 			<div class="problem-pay-page__heading">
-				<h1 class="problem-pay-page__title">Оплата не прошла</h1>
-				<p class="problem-pay-page__subtitle">К сожалению, произошла ошибка при проведении платежа.</p>
+				<h1 class="problem-pay-page__title"><?php echo esc_html( $t( 'title' ) ); ?></h1>
+				<p class="problem-pay-page__subtitle"><?php echo esc_html( $t( 'subtitle' ) ); ?></p>
 			</div>
 
 			<div class="problem-pay-page__divider"></div>
 
 			<!-- Messengers (no email) -->
 			<div class="problem-pay-page__messengers">
-				<p class="problem-pay-page__messengers-title">Не получается оплатить? Напишите нам - мы поможем решить эту проблему:</p>
+				<p class="problem-pay-page__messengers-title"><?php echo esc_html( $t( 'messengers_title' ) ); ?></p>
 				<div class="problem-pay-page__messengers-list">
 					<!-- Ссылки на мессенджеры -->
 					<?php get_template_part( 'template-parts/socials' ); ?>
@@ -74,7 +80,7 @@ $pay_order_key = isset( $_GET['order_key'] ) ? sanitize_text_field( $_GET['order
 			<!-- Action -->
 			<div class="problem-pay-page__actions">
 				<?php
-				$retry_label = __( 'Вернуться на страницу оплаты', 'moveat' );
+				$retry_label = $t( 'retry_order' );
 				$retry_url   = function_exists( 'wc_get_checkout_url' ) ? wc_get_checkout_url() : home_url( '/' );
 
 				if ( $pay_order_id && $pay_order_key && function_exists( 'wc_get_order' ) ) {
@@ -85,7 +91,7 @@ $pay_order_key = isset( $_GET['order_key'] ) ? sanitize_text_field( $_GET['order
 							|| $order->get_created_via() === 'donation';
 
 						if ( $is_donation ) {
-							$retry_label = __( 'Вернуться на страницу для донатов', 'moveat' );
+							$retry_label = $t( 'retry_donation' );
 							$retry_url   = get_permalink( 2081 ) ?: home_url( '/' );
 						} else {
 							$retry_url = add_query_arg(

@@ -9,8 +9,14 @@ defined( 'ABSPATH' ) || exit;
 
 $page_id = get_queried_object_id();
 
+// Тексты вёрстки на языке страницы — assets/dictionaries/templates/messengers-page.
+$page_dict = moveat_dictionary( 'templates/messengers-page' );
+$t = function ( $key ) use ( $page_dict ) {
+	return moveat_dictionary_text( $page_dict, $key );
+};
+
 $messengers_page_title = trim( (string) get_field( 'messengers_page_title', $page_id ) );
-$messengers_page_title = $messengers_page_title !== '' ? $messengers_page_title : 'Пишите про ваши проблемы и цели. Подберу для вас оптимальное решение!';
+$messengers_page_title = $messengers_page_title !== '' ? $messengers_page_title : $t( 'title' );
 
 $messengers_page_body_text = trim( (string) get_field( 'messengers_page_body_text', $page_id ) );
 $messengers_page_body_text = $messengers_page_body_text !== '' ? $messengers_page_body_text : 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum ratione vitae pariatur iure hic veritatis, praesentium cupiditate nam, quia rerum autem! Sunt, consectetur reiciendis culpa nobis voluptatibus atque corrupti iusto! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum ratione vitae pariatur iure hic veritatis, praesentium cupiditate nam, quia rerum autem! Sunt, consectetur reiciendis culpa nobis voluptatibus atque corrupti iusto!';
@@ -19,7 +25,7 @@ $messengers_page_left_image     = get_field( 'messengers_page_left_image', $page
 $messengers_page_left_image_alt = trim( (string) get_field( 'messengers_page_left_image_alt', $page_id ) );
 
 $messengers_page_messengers_caption = trim( (string) get_field( 'messengers_page_messengers_caption', $page_id ) );
-$messengers_page_messengers_caption = $messengers_page_messengers_caption !== '' ? $messengers_page_messengers_caption : 'Выберите удобный мессенджер и напишите нам';
+$messengers_page_messengers_caption = $messengers_page_messengers_caption !== '' ? $messengers_page_messengers_caption : $t( 'messengers_caption' );
 
 $social_links = [];
 for ( $si = 1; $si <= 10; $si++ ) {
@@ -41,7 +47,7 @@ for ( $si = 1; $si <= 10; $si++ ) {
 		'url'   => $social_url,
 		'icon'  => $social_icon,
 		'color' => $color_str,
-		'label' => $social_label !== '' ? $social_label : __( 'Мессенджер', 'moveat' ),
+		'label' => $social_label !== '' ? $social_label : $t( 'messenger' ),
 	];
 }
 
@@ -104,7 +110,7 @@ get_header();
 											<?php echo $target_attr; ?>
 											rel="<?php echo esc_attr( $link_rel ); ?>"
 											style="background-color: <?php echo esc_attr( $item['color'] ); ?>;"
-											aria-label="<?php echo esc_attr( sprintf( __( 'Открыть %s', 'moveat' ), $item['label'] ) ); ?>">
+											aria-label="<?php echo esc_attr( sprintf( $t( 'open' ), $item['label'] ) ); ?>">
 											<img
 												src="<?php echo esc_url( $item['icon'] ); ?>"
 												alt="<?php echo esc_attr( $item['label'] ); ?>"

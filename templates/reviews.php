@@ -28,10 +28,16 @@ if (! function_exists('moveat_reviews_is_truthy')) {
 
 $page_id = get_queried_object_id();
 
-$filter_title       = 'Темы отзывов:';
+// Тексты вёрстки на языке страницы — assets/dictionaries/templates/reviews.
+$page_dict = moveat_dictionary( 'templates/reviews' );
+$tr = function ( $key ) use ( $page_dict ) {
+	return moveat_dictionary_text( $page_dict, $key );
+};
+
+$filter_title       = $tr( 'filter_title' );
 $filter_hint        = '';
-$filter_select_all  = 'Выбрать все';
-$filter_clear       = 'Очистить фильтр';
+$filter_select_all  = $tr( 'filter_select_all' );
+$filter_clear       = $tr( 'filter_clear' );
 $empty_message      = '';
 
 if (function_exists('get_field')) {
@@ -58,10 +64,10 @@ if (function_exists('get_field')) {
 }
 
 if ($filter_hint === '') {
-	$filter_hint = 'Отметьте одну или несколько тем. Показываются отзывы, где встречается хотя бы одна выбранная тема. Без выбора видны все отзывы.';
+	$filter_hint = $tr( 'filter_hint' );
 }
 if ($empty_message === '') {
-	$empty_message = 'По выбранным темам пока нет отзывов. Снимите часть фильтров или очистите выбор полностью.';
+	$empty_message = $tr( 'empty' );
 }
 
 get_header();
@@ -80,7 +86,7 @@ get_header();
 		<nav aria-label="breadcrumb no-padding animated slideInDown page-hero__breadcrumbs">
 			<ol class="breadcrumb no-padding page-hero__breadcrumbs-list">
 				<li class="breadcrumb-item page-hero__breadcrumbs-item white">
-					<a class="text-body" href="<?php echo esc_url(home_url('/')); ?>">Главная</a>
+					<a class="text-body" href="<?php echo esc_url(home_url('/')); ?>"><?php echo esc_html( $tr( 'breadcrumb_home' ) ); ?></a>
 				</li>
 				<li class="breadcrumb-item page-hero__breadcrumbs-item white">
 					<span class="text-body"><?php echo esc_html(get_the_title()); ?></span>
@@ -191,7 +197,7 @@ get_header();
 									poster="<?php echo esc_url($video_poster); ?>"
 								<?php endif; ?>>
 								<source src="<?php echo esc_url($video_url); ?>" type="video/mp4" />
-								<?php esc_html_e('Ваш браузер не поддерживает воспроизведение видео.', 'moveat'); ?>
+								<?php echo esc_html( $tr( 'video_unsupported' ) ); ?>
 							</video>
 						<?php elseif ($image_url !== '') : ?>
 							<img
@@ -228,7 +234,7 @@ get_header();
 							<?php echo wp_kses_post(wpautop(trim($quote))); ?>
 						</blockquote>
 						<?php if (! empty($topic_list)) : ?>
-							<div class="reviews-page__topics" aria-label="<?php echo esc_attr__('Темы отзыва', 'moveat'); ?>">
+							<div class="reviews-page__topics" aria-label="<?php echo esc_attr( $tr( 'topics_label' ) ); ?>">
 								<?php foreach ($topic_list as $topic_label) : ?>
 									<span class="reviews-page__topic-pill"><?php echo esc_html($topic_label); ?></span>
 								<?php endforeach; ?>

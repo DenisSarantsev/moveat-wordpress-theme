@@ -1,4 +1,11 @@
 <?php get_header(); ?>
+<?php
+// Тексты вёрстки на языке страницы — assets/dictionaries/templates/single.
+$page_dict = moveat_dictionary( 'templates/single' );
+$t = function ( $key ) use ( $page_dict ) {
+	return moveat_dictionary_text( $page_dict, $key );
+};
+?>
 
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 		<?php
@@ -15,13 +22,13 @@
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb product-breadcrumbs__list">
 							<li class="breadcrumb-item product-breadcrumbs__item">
-								<a href="<?php echo esc_url(home_url('/')); ?>">Главная</a>
+								<a href="<?php echo esc_url(home_url('/')); ?>"><?php echo esc_html( $t( 'breadcrumb_home' ) ); ?></a>
 							</li>
 							<li class="breadcrumb-item product-breadcrumbs__item">
 								<?php if ($category_name && $category_link) : ?>
 									<a href="<?php echo esc_url($category_link); ?>"><?php echo esc_html($category_name); ?></a>
 								<?php else : ?>
-									<a href="<?php echo esc_url($posts_page ?: home_url('/')); ?>">Статьи</a>
+									<a href="<?php echo esc_url($posts_page ?: home_url('/')); ?>"><?php echo esc_html( $t( 'breadcrumb_articles' ) ); ?></a>
 								<?php endif; ?>
 							</li>
 							<li class="breadcrumb-item product-breadcrumbs__item active" aria-current="page">
@@ -79,7 +86,7 @@
 						<?php
 							// Блок «Поделиться»: ссылки вида sharer текущего материала (без привязки к URL профилей в ACF)
 							$share_title_acf = trim((string) get_field('share_title', moveat_global_page_id()));
-							$share_heading   = $share_title_acf !== '' ? $share_title_acf : 'Поделиться';
+							$share_heading   = $share_title_acf !== '' ? $share_title_acf : $t( 'share_title' );
 
 							$article_share_url    = get_permalink();
 							$article_share_title  = wp_strip_all_tags(get_the_title());
@@ -90,22 +97,22 @@
 
 							$article_share_buttons = [
 								[
-									'label' => 'Поделиться в Telegram',
+									'label' => $t( 'share_telegram' ),
 									'url'   => 'https://t.me/share/url?url=' . $enc_share_url . '&text=' . $enc_share_title,
 									'icon'  => $icons_base_uri . 'telegram.png',
 								],
 								[
-									'label' => 'Поделиться в WhatsApp',
+									'label' => $t( 'share_whatsapp' ),
 									'url'   => 'https://api.whatsapp.com/send?text=' . $enc_share_wa_message,
 									'icon'  => $icons_base_uri . 'whatsapp.png',
 								],
 								[
-									'label' => 'Поделиться в Facebook',
+									'label' => $t( 'share_facebook' ),
 									'url'   => 'https://www.facebook.com/sharer/sharer.php?u=' . $enc_share_url,
 									'icon'  => $icons_base_uri . 'facebook.png',
 								],
 								[
-									'label' => 'Поделиться в X',
+									'label' => $t( 'share_x' ),
 									'url'   => 'https://twitter.com/intent/tweet?url=' . $enc_share_url . '&text=' . $enc_share_title,
 									'icon'  => $icons_base_uri . 'x.svg',
 								],
@@ -150,8 +157,8 @@
 			<section class="article-related">
 				<div class="article-related__container max-width-limiter">
 					<div class="title-subtitle-header">
-						<h2 class="section-title">Похожие статьи</h2>
-						<p class="text-secondary">Материалы, которые помогут закрепить полезные привычки</p>
+						<h2 class="section-title"><?php echo esc_html( $t( 'related_title' ) ); ?></h2>
+						<p class="text-secondary"><?php echo esc_html( $t( 'related_subtitle' ) ); ?></p>
 					</div>
 					<div class="article-related__grid">
 						<?php while ($related->have_posts()) : $related->the_post(); ?>
@@ -165,7 +172,7 @@
 									</div>
 								</div>
 								<div class="article-card__bottom">
-									<span class="article-card__button primary-button"><?php echo esc_html( function_exists( 'moveat_get_post_button_title' ) ? moveat_get_post_button_title( get_the_ID() ) : 'Читать статью' ); ?></span>
+									<span class="article-card__button primary-button"><?php echo esc_html( function_exists( 'moveat_get_post_button_title' ) ? moveat_get_post_button_title( get_the_ID() ) : $t( 'read_article' ) ); ?></span>
 								</div>
 							</a>
 						<?php endwhile; wp_reset_postdata(); ?>

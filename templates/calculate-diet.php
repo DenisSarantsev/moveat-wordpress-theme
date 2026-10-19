@@ -6,6 +6,12 @@
 
 get_header();
 
+// Тексты вёрстки на языке страницы — assets/dictionaries/templates/calculate-diet.
+$page_dict = moveat_dictionary( 'templates/calculate-diet' );
+$cd_t = function ( $key ) use ( $page_dict ) {
+	return moveat_dictionary_text( $page_dict, $key );
+};
+
 $page_id           = get_queried_object_id();
 $icon_arrow_src    = esc_url( get_template_directory_uri() . '/assets/images/icons/arrow.png' );
 $problem_group_max = 6;
@@ -621,7 +627,7 @@ $show_final_cta = ( $final_ok_left && $final_ok_right );
 									<div class="razion-pricing__card_subtitle"><?php echo esc_html( $pc['subtitle'] ); ?></div>
 									<div class="razion-pricing__card_price"><?php echo esc_html( $pc['cost'] ); ?></div>
 								</div>
-								<a class="primary-button" href="<?php echo esc_url( $pc['link'] ); ?>"><?php echo esc_html__( 'Подробнее', 'moveat' ); ?></a>
+								<a class="primary-button" href="<?php echo esc_url( $pc['link'] ); ?>"><?php echo esc_html( $cd_t( 'price_card_more' ) ); ?></a>
 							</div>
 							<?php endforeach; ?>
 						</div>

@@ -5,6 +5,13 @@
 */
 ?>
 <?php get_header(); ?>
+<?php
+// Тексты вёрстки на языке страницы — assets/dictionaries/templates/articles.
+$page_dict = moveat_dictionary( 'templates/articles' );
+$t = function ( $key ) use ( $page_dict ) {
+	return moveat_dictionary_text( $page_dict, $key );
+};
+?>
 
 	<!-- Page Header Start -->
 	<div class="hero-block">
@@ -19,7 +26,7 @@
 			<nav aria-label="breadcrumb no-padding animated slideInDown page-hero__breadcrumbs">
 				<ol class="breadcrumb no-padding page-hero__breadcrumbs-list">
 					<li class="breadcrumb-item page-hero__breadcrumbs-item white">
-						<a class="text-body" href="<?php echo esc_url(home_url('/')); ?>">Главная</a>
+						<a class="text-body" href="<?php echo esc_url(home_url('/')); ?>"><?php echo esc_html( $t( 'breadcrumb_home' ) ); ?></a>
 					</li>
 					<li class="breadcrumb-item page-hero__breadcrumbs-item white">
 						<span class="text-body"><?php echo esc_html( get_the_title() ); ?></span>
@@ -85,7 +92,7 @@
 						</a>
 					<?php endwhile; wp_reset_postdata(); ?>
 				<?php elseif (! empty($category_ids)) : ?>
-					<p>Статей пока нет.</p>
+					<p><?php echo esc_html( $t( 'empty' ) ); ?></p>
 				<?php endif; ?>
 			</div>
 		</div>
@@ -98,8 +105,8 @@
 					'format'    => 'page/%#%/',
 					'current'   => $current,
 					'total'     => $total_pages,
-					'prev_text' => 'Предыдущая',
-					'next_text' => 'Следующая',
+					'prev_text' => esc_html( $t( 'pagination_prev' ) ),
+					'next_text' => esc_html( $t( 'pagination_next' ) ),
 					'type'      => 'array',
 				]);
 		?>

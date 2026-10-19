@@ -2,6 +2,12 @@
 /*
 	Template Name: Техническое обслуживание
 */
+
+// Тексты вёрстки на языке страницы — assets/dictionaries/templates/maintenance.
+$page_dict = moveat_dictionary( 'templates/maintenance' );
+$t = function ( $key ) use ( $page_dict ) {
+	return moveat_dictionary_text( $page_dict, $key );
+};
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -37,42 +43,38 @@
 	<main class="tech-page">
 		<section class="tech-page__section">
 			<div class="tech-page__container max-width-limiter">
-				<div class="tech-page__badge">Технические работы</div>
+				<div class="tech-page__badge"><?php echo esc_html( $t( 'badge' ) ); ?></div>
 
-				<h1 class="tech-page__title">Друзья, наш сайт ушел на небольшое обновление! 🛠</h1>
+				<h1 class="tech-page__title"><?php echo esc_html( $t( 'title' ) ); ?></h1>
 
 				<div class="tech-page__content">
-					<p>
-						Мы решили провести плановую «генеральную уборку»: обновляем интерфейс и оптимизируем работу
-						разделов, чтобы вам было еще удобнее находить нужную информацию и оформлять заказы.
-					</p>
+					<p><?php echo esc_html( $t( 'intro' ) ); ?></p>
 
-					<h2>Что это значит для вас?</h2>
-					<p>Сайт будет временно недоступен в течение 1-2 дней.</p>
+					<h2><?php echo esc_html( $t( 'what_title' ) ); ?></h2>
+					<p><?php echo esc_html( $t( 'what_text' ) ); ?></p>
 
-					<p>
-						Мы на связи! Все вопросы по текущим заказам и консультациям оперативно решаем в мессенджерах.
-					</p>
+					<p><?php echo esc_html( $t( 'contact_text' ) ); ?></p>
 
-					<p>Пишите нам в удобный для вас канал:</p>
+					<p><?php echo esc_html( $t( 'channels_text' ) ); ?></p>
 				</div>
 
-				<div class="tech-page__links" aria-label="Ссылки на мессенджеры и социальные сети">
-					<a class="tech-page__link tech-page__link--telegram" href="https://t.me/MaxPogorelyBot?start=657b3f6ba17c770cfe08738c" target="_blank" rel="noopener noreferrer">
-						<span class="tech-page__link-name">Телеграм бот</span>
-					</a>
-					<a class="tech-page__link tech-page__link--whatsapp" href="https://380991900483.wa.pulse.is/" target="_blank" rel="noopener noreferrer">
-						<span class="tech-page__link-name">Вотсап бот</span>
-					</a>
-					<a class="tech-page__link tech-page__link--viber" href="viber://pa?chatURI=max_pogorely&context=657b4bccc151da5d54055ea2">
-						<span class="tech-page__link-name">Вайбер бот</span>
-					</a>
-					<a class="tech-page__link tech-page__link--instagram" href="https://www.instagram.com/max_pogorely/" target="_blank" rel="noopener noreferrer">
-						<span class="tech-page__link-name">Инстаграм (Direct)</span>
-					</a>
+				<div class="tech-page__links" aria-label="<?php echo esc_attr( $t( 'links_label' ) ); ?>">
+					<?php foreach ( [ 'telegram', 'whatsapp', 'viber', 'instagram' ] as $channel ) : ?>
+						<?php
+						$channel_url = $t( $channel . '_url' );
+						if ( '' === $channel_url ) {
+							continue;
+						}
+						// viber:// открывает приложение — новая вкладка ему не нужна.
+						$is_app_link = 'viber' === $channel;
+						?>
+						<a class="tech-page__link tech-page__link--<?php echo esc_attr( $channel ); ?>" href="<?php echo esc_url( $channel_url, [ 'http', 'https', 'viber' ] ); ?>"<?php echo $is_app_link ? '' : ' target="_blank" rel="noopener noreferrer"'; ?>>
+							<span class="tech-page__link-name"><?php echo esc_html( $t( $channel . '_name' ) ); ?></span>
+						</a>
+					<?php endforeach; ?>
 				</div>
 
-				<p class="tech-page__footer-text">Скоро вернемся с обновленным и быстрым сайтом!</p>
+				<p class="tech-page__footer-text"><?php echo esc_html( $t( 'footer' ) ); ?></p>
 			</div>
 		</section>
 	</main>

@@ -138,3 +138,31 @@ function moveat_dictionary_text( $dictionary, $key, $fallback = '' ) {
 		? (string) $dictionary['strings'][ $key ]
 		: $fallback;
 }
+
+/**
+ * Строка с числом в правильной форме: «1 товар», «3 товара», «5 товаров».
+ *
+ * В словаре под ключом лежат три формы — '<ключ>_one', '<ключ>_few' и
+ * '<ключ>_many', каждая с %d на месте числа. Правило выбора формы у русского
+ * и украинского одно и то же.
+ *
+ * @param array  $dictionary Словарь целиком (результат moveat_dictionary()).
+ * @param string $key        Ключ без суффикса формы.
+ * @param int    $count      Число.
+ * @return string
+ */
+function moveat_dictionary_plural( $dictionary, $key, $count ) {
+	$count  = (int) $count;
+	$mod10  = abs( $count ) % 10;
+	$mod100 = abs( $count ) % 100;
+
+	if ( 1 === $mod10 && 11 !== $mod100 ) {
+		$form = 'one';
+	} elseif ( $mod10 >= 2 && $mod10 <= 4 && ( $mod100 < 12 || $mod100 > 14 ) ) {
+		$form = 'few';
+	} else {
+		$form = 'many';
+	}
+
+	return sprintf( moveat_dictionary_text( $dictionary, $key . '_' . $form, '%d' ), $count );
+}

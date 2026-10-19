@@ -6,10 +6,16 @@ if ( ! $term instanceof WP_Term || 'product_cat' !== $term->taxonomy ) {
 	return;
 }
 
+// Тексты вёрстки на языке страницы — assets/dictionaries/templates/product-category-archive.
+$page_dict = moveat_dictionary( 'templates/product-category-archive' );
+$t = function ( $key ) use ( $page_dict ) {
+	return moveat_dictionary_text( $page_dict, $key );
+};
+
 $theme_uri = get_template_directory_uri();
 $cart_icon = $theme_uri . '/assets/images/icons/cart.png';
 
-$button_title = function_exists( 'moveat_get_category_button_title' ) ? moveat_get_category_button_title( $term->term_id ) : 'Подробнее';
+$button_title = function_exists( 'moveat_get_category_button_title' ) ? moveat_get_category_button_title( $term->term_id ) : $t( 'more' );
 
 $shop_id   = function_exists( 'wc_get_page_id' ) ? (int) wc_get_page_id( 'shop' ) : 0;
 $shop_url  = $shop_id > 0 ? get_permalink( $shop_id ) : '';
@@ -34,9 +40,9 @@ if ( is_wp_error( $term_description ) || ! is_string( $term_description ) ) {
 		<h1 class="hero-block__title"><?php echo esc_html( $term->name ); ?></h1>
 		<nav aria-label="breadcrumb no-padding animated slideInDown page-hero__breadcrumbs">
 			<ol class="breadcrumb no-padding page-hero__breadcrumbs-list">
-				<li class="breadcrumb-item page-hero__breadcrumbs-item white"><a class="text-body" href="<?php echo esc_url( home_url( '/' ) ); ?>">Главная</a></li>
+				<li class="breadcrumb-item page-hero__breadcrumbs-item white"><a class="text-body" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html( $t( 'breadcrumb_home' ) ); ?></a></li>
 				<?php if ( $shop_url ) : ?>
-					<li class="breadcrumb-item page-hero__breadcrumbs-item white"><a class="text-body" href="<?php echo esc_url( $shop_url ); ?>"><?php echo esc_html( $shop_name ? $shop_name : __( 'Каталог', 'moveat' ) ); ?></a></li>
+					<li class="breadcrumb-item page-hero__breadcrumbs-item white"><a class="text-body" href="<?php echo esc_url( $shop_url ); ?>"><?php echo esc_html( $shop_name ? $shop_name : $t( 'breadcrumb_catalog' ) ); ?></a></li>
 				<?php endif; ?>
 				<li class="breadcrumb-item page-hero__breadcrumbs-item white"><span class="text-body"><?php echo esc_html( $term->name ); ?></span></li>
 			</ol>
@@ -108,7 +114,7 @@ if ( is_wp_error( $term_description ) || ! is_string( $term_description ) ) {
 									data-add-to-cart
 									data-product-action="add-to-cart"
 									data-product-id="<?php echo esc_attr( get_the_ID() ); ?>"
-									aria-label="<?php echo esc_attr( sprintf( 'Добавить "%s" в корзину', get_the_title() ) ); ?>"
+									aria-label="<?php echo esc_attr( sprintf( $t( 'add_to_cart' ), get_the_title() ) ); ?>"
 								>
 									<img class="product-card__button-cart-icon" src="<?php echo esc_url( $cart_icon ); ?>" alt="Cart">
 									<div class="loader disabled"></div>
@@ -125,7 +131,7 @@ if ( is_wp_error( $term_description ) || ! is_string( $term_description ) ) {
 				</div>
 			<?php endif; ?>
 		<?php else : ?>
-			<p class="products__description"><?php esc_html_e( 'В этой категории пока нет товаров.', 'moveat' ); ?></p>
+			<p class="products__description"><?php echo esc_html( $t( 'empty' ) ); ?></p>
 		<?php endif; ?>
 	</div>
 </div>

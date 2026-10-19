@@ -8,6 +8,12 @@ defined( 'ABSPATH' ) || exit;
 
 get_header();
 
+// Тексты вёрстки на языке страницы — assets/dictionaries/templates/cart.
+$page_dict = moveat_dictionary( 'templates/cart' );
+$t = function ( $key ) use ( $page_dict ) {
+	return moveat_dictionary_text( $page_dict, $key );
+};
+
 $theme_uri        = get_template_directory_uri();
 $theme_dir        = get_template_directory();
 $shop_url         = home_url( '/catalog/' );
@@ -94,16 +100,16 @@ if ( $has_applied_coupon && $cart_discount_raw > 0 ) {
 	<div class="cart-page__container max-width-limiter">
 		<section class="cart-page__content">
 			<header class="cart-page__header">
-				<h2 class="section-title">Ваш заказ</h2>
-				<p class="text-secondary">Проверьте товары, измените количество и перейдите к оплате.</p>
+				<h2 class="section-title"><?php echo esc_html( $t( 'title' ) ); ?></h2>
+				<p class="text-secondary"><?php echo esc_html( $t( 'subtitle' ) ); ?></p>
 			</header>
 
 			<?php if ( $cart_is_empty ) : ?>
 				<div class="cart-page__empty">
-					<!-- <img class="cart-page__empty-icon" src="<?php echo esc_url( $cart_icon ); ?>" alt="Корзина пуста"> -->
-					<h3 class="cart-page__empty-title">Корзина пуста</h3>
-					<p class="cart-page__empty-text">Вы ещё не добавили ни одного товара. Перейдите в каталог, чтобы выбрать продукты.</p>
-					<a href="<?php echo esc_url( $shop_url ); ?>" class="primary-button cart-page__empty-action">Перейти в каталог</a>
+					<!-- <img class="cart-page__empty-icon" src="<?php echo esc_url( $cart_icon ); ?>" alt="<?php echo esc_attr( $t( 'empty_title' ) ); ?>"> -->
+					<h3 class="cart-page__empty-title"><?php echo esc_html( $t( 'empty_title' ) ); ?></h3>
+					<p class="cart-page__empty-text"><?php echo esc_html( $t( 'empty_text' ) ); ?></p>
+					<a href="<?php echo esc_url( $shop_url ); ?>" class="primary-button cart-page__empty-action"><?php echo esc_html( $t( 'empty_action' ) ); ?></a>
 				</div>
 			<?php else : ?>
 				<div class="cart-page__list">
@@ -140,23 +146,23 @@ if ( $has_applied_coupon && $cart_discount_raw > 0 ) {
 									<?php echo wp_kses_post( wpautop( $short_description ) ); ?>
 								</div>
 							</div>
-							<div class="cart-page__item-qty" aria-label="Количество товара">
-								<button class="cart-page__qty-button" type="button" aria-label="Уменьшить количество" data-cart-action="decrease" aria-disabled="true">
-									<img src="<?php echo esc_url( $minus_icon ); ?>" alt="Уменьшить количество">
+							<div class="cart-page__item-qty" aria-label="<?php echo esc_attr( $t( 'qty_label' ) ); ?>">
+								<button class="cart-page__qty-button" type="button" aria-label="<?php echo esc_attr( $t( 'qty_decrease' ) ); ?>" data-cart-action="decrease" aria-disabled="true">
+									<img src="<?php echo esc_url( $minus_icon ); ?>" alt="<?php echo esc_attr( $t( 'qty_decrease' ) ); ?>">
 								</button>
 								<span class="cart-page__qty-value"><?php echo esc_html( $quantity ); ?></span>
-								<button class="cart-page__qty-button" type="button" aria-label="Увеличить количество" data-cart-action="increase" aria-disabled="true">
-									<img src="<?php echo esc_url( $plus_icon ); ?>" alt="Увеличить количество">
+								<button class="cart-page__qty-button" type="button" aria-label="<?php echo esc_attr( $t( 'qty_increase' ) ); ?>" data-cart-action="increase" aria-disabled="true">
+									<img src="<?php echo esc_url( $plus_icon ); ?>" alt="<?php echo esc_attr( $t( 'qty_increase' ) ); ?>">
 								</button>
 							</div>
 							<div class="cart-page__item-price">
 								<span class="cart-page__item-price-main">$<?php echo esc_html( wc_format_decimal( $line_total, $display_decimals ) ); ?></span>
 								<?php if ( $line_uah > 0 ) : ?>
-									<span class="cart-page__item-price-secondary"><?php echo esc_html( wc_format_decimal( $line_uah, 0 ) ); ?> грн</span>
+									<span class="cart-page__item-price-secondary"><?php echo esc_html( wc_format_decimal( $line_uah, 0 ) ); ?> <?php echo esc_html( $t( 'currency_uah' ) ); ?></span>
 								<?php endif; ?>
 							</div>
-							<button class="cart-page__remove" type="button" aria-label="Удалить товар" data-cart-action="remove" aria-disabled="true">
-								<img src="<?php echo esc_url( $cross_icon ); ?>" alt="Удалить товар">
+							<button class="cart-page__remove" type="button" aria-label="<?php echo esc_attr( $t( 'remove' ) ); ?>" data-cart-action="remove" aria-disabled="true">
+								<img src="<?php echo esc_url( $cross_icon ); ?>" alt="<?php echo esc_attr( $t( 'remove' ) ); ?>">
 							</button>
 						</article>
 					<?php endforeach; ?>
@@ -167,7 +173,7 @@ if ( $has_applied_coupon && $cart_discount_raw > 0 ) {
 		<aside class="cart-page__summary">
 			<div class="cart-page__summary-card">
 				<div class="cart-page__summary-header">
-					<span class="cart-page__summary-label">Итоговая сумма</span>
+					<span class="cart-page__summary-label"><?php echo esc_html( $t( 'summary_label' ) ); ?></span>
 					<?php
 						/*
 							Блок скидки: показывается только если применён купон.
@@ -188,12 +194,12 @@ if ( $has_applied_coupon && $cart_discount_raw > 0 ) {
 					</div>
 					<div class="cart-page__summary-amount-wrapper">
 						<div class="cart-page__summary-amount">$<?php echo esc_html( $cart_total_usd ); ?></div>
-						<div class="cart-page__summary-amount-secondary"><?php echo esc_html( wc_format_decimal( $cart_total_uah, 0 ) ); ?> грн</div>
+						<div class="cart-page__summary-amount-secondary"><?php echo esc_html( wc_format_decimal( $cart_total_uah, 0 ) ); ?> <?php echo esc_html( $t( 'currency_uah' ) ); ?></div>
 						<div class="cart-page__summary-loader disabled">
 							<div class="loader"></div>
 						</div>
 					</div>
-					<div class="cart-page__summary-count"><?php echo esc_html( $cart_items_count ); ?> товара в корзине</div>
+					<div class="cart-page__summary-count"><?php echo esc_html( moveat_dictionary_plural( $page_dict, 'items_count', $cart_items_count ) ); ?></div>
 				</div>
 				<div class="cart-page__promo">
 					<?php
@@ -207,36 +213,36 @@ if ( $has_applied_coupon && $cart_discount_raw > 0 ) {
 							class="cart-page__promo-input form-input"
 							type="text"
 							name="promocode"
-							placeholder="Промокод"
-							aria-label="Введите промокод" />
+							placeholder="<?php echo esc_attr( $t( 'promo_placeholder' ) ); ?>"
+							aria-label="<?php echo esc_attr( $t( 'promo_label' ) ); ?>" />
 						<button
 							class="cart-page__promo-button secondary-button unactive"
 							type="button">
-							Применить
+							<?php echo esc_html( $t( 'promo_apply' ) ); ?>
 						</button>
 					</div>
 					<div class="cart-page__promo-message-wrapper<?php echo $has_applied_coupon ? '' : ' hidden'; ?>">
 						<div class="cart-page__promo-message cart-page__promo-message--error hidden">
-							Промокод истёк или уже был использован
+							<?php echo esc_html( $t( 'promo_error' ) ); ?>
 						</div>
 						<div class="cart-page__promo-message cart-page__promo-message--success<?php echo $has_applied_coupon ? '' : ' hidden'; ?>">
-							<div>Применён промокод:</div>
+							<div><?php echo esc_html( $t( 'promo_applied' ) ); ?></div>
 							<div><?php echo esc_html( $applied_coupon_code ); ?></div>
 						</div>
 						<button
 							class="cart-page__promo-button_delete secondary-button red<?php echo $has_applied_coupon ? '' : ' hidden'; ?>"
 							type="button">
-							Удалить промокод
+							<?php echo esc_html( $t( 'promo_remove' ) ); ?>
 						</button>
 					</div>
 				</div>
 				<div class="cart-page__summary-divider"></div>
 				<div class="cart-page__summary-actions">
-					<a href="<?php echo esc_url( $checkout_url ); ?>" class="cart-page__summary-actions_order primary-button<?php echo $cart_is_empty ? ' unactive' : ''; ?>"<?php echo $cart_is_empty ? ' aria-disabled="true"' : ''; ?>>Оформить заказ</a>
-					<a href="<?php echo esc_url( $shop_url ); ?>" class="secondary-button">Продолжить покупки</a>
+					<a href="<?php echo esc_url( $checkout_url ); ?>" class="cart-page__summary-actions_order primary-button<?php echo $cart_is_empty ? ' unactive' : ''; ?>"<?php echo $cart_is_empty ? ' aria-disabled="true"' : ''; ?>><?php echo esc_html( $t( 'checkout' ) ); ?></a>
+					<a href="<?php echo esc_url( $shop_url ); ?>" class="secondary-button"><?php echo esc_html( $t( 'continue' ) ); ?></a>
 				</div>
 				<div class="cart-page__payment-note">
-					<p class="cart-page__payment-note-text">По вопросам оплаты вы можете написать нам в мессенджеры</p>
+					<p class="cart-page__payment-note-text"><?php echo esc_html( $t( 'payment_note' ) ); ?></p>
 					<div class="cart-page__payment-messengers">
 						<!-- Ссылки на мессенджеры -->
 						<?php get_template_part( 'template-parts/socials' ); ?>

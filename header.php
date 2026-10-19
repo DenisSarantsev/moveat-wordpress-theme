@@ -26,6 +26,12 @@
     <header class="header container-fluid fixed-top px-0 wow fadeIn" data-wow-delay="0.1s">
 			<nav class="header__navbar navbar navbar-light wow fadeIn" data-wow-delay="0.1s">
 				<?php
+					// Тексты вёрстки на языке страницы — assets/dictionaries/templates/header.
+					$header_dict = moveat_dictionary( 'templates/header' );
+					$t = function ( $key ) use ( $header_dict ) {
+						return moveat_dictionary_text( $header_dict, $key );
+					};
+
 					$custom_logo_id = (int) get_theme_mod( 'custom_logo' );
 					$home_url       = esc_url( home_url( '/' ) );
 					if ( $custom_logo_id ) {
@@ -53,7 +59,7 @@
 				</div>
 
 				<!-- Language switcher -->
-				<div class="lang-switcher notranslate" translate="no" data-nosnippet tabindex="0" aria-label="Выбор языка">
+				<div class="lang-switcher notranslate" translate="no" data-nosnippet tabindex="0" aria-label="<?php echo esc_attr( $t( 'lang_switcher_label' ) ); ?>">
 					<input type="radio" name="site-lang" id="lang-ru" checked hidden />
 					<input type="radio" name="site-lang" id="lang-uk" hidden />
 					<!-- Current (display controlled via CSS based on the checked input) -->
@@ -80,7 +86,7 @@
 								stroke-linejoin="round" />
 						</svg>
 					</div>
-					<div class="lang-switcher__list" role="listbox" aria-label="Выбор языка">
+					<div class="lang-switcher__list" role="listbox" aria-label="<?php echo esc_attr( $t( 'lang_switcher_label' ) ); ?>">
 						<ul class="lang-switcher__list-inner">
 							<li>
 								<label for="lang-ru" class="lang-switcher__option">
@@ -117,7 +123,7 @@
 							type="button"
 							class="header-icon header-search__toggle"
 							data-search-toggle
-							aria-label="Поиск"
+							aria-label="<?php echo esc_attr( $t( 'search_toggle' ) ); ?>"
 							aria-expanded="false">
 							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/search.png" alt="Search" class="img-fluid" />
 						</button>
@@ -125,20 +131,20 @@
 							class="header-search__form"
 							role="search"
 							method="get"
-							action="/"
+							action="<?php echo esc_url( function_exists( 'pll_home_url' ) ? pll_home_url() : home_url( '/' ) ); ?>"
 							data-search-form>
 							<input
 								type="search"
 								name="s"
 								class="header-search__input"
-								placeholder="Поиск по сайту…"
+								placeholder="<?php echo esc_attr( $t( 'search_placeholder' ) ); ?>"
 								autocomplete="off"
 								data-search-input />
 							<button
 								type="button"
 								class="header-search__clear"
 								data-search-clear
-								aria-label="Очистить"
+								aria-label="<?php echo esc_attr( $t( 'search_clear' ) ); ?>"
 								hidden>
 								<img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/cross.png" alt="" class="img-fluid" />
 							</button>
@@ -146,7 +152,7 @@
 								type="submit"
 								class="header-search__submit"
 								data-search-submit
-								aria-label="Искать"
+								aria-label="<?php echo esc_attr( $t( 'search_submit' ) ); ?>"
 								disabled>
 								<img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/search.png" alt="" class="img-fluid" />
 							</button>
@@ -182,7 +188,7 @@
 				<div class="messages-container__message-text">
 					Ваш заказ успешно оформлен lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
 				</div>
-				<button type="button" class="messages-container__message-close" aria-label="Закрыть уведомление" data-message-close>
+				<button type="button" class="messages-container__message-close" aria-label="<?php echo esc_attr( $t( 'message_close' ) ); ?>" data-message-close>
 					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/cross.png' ); ?>" alt="Close" class="img-fluid">
 				</button>
 			</div>
@@ -194,14 +200,14 @@
 				<button
 					class="lang-modal__close"
 					type="button"
-					aria-label="Закрыть"
+					aria-label="<?php echo esc_attr( $t( 'lang_modal_close' ) ); ?>"
 					data-lang-modal-close>
 					&times;
 				</button>
 				<div class="lang-modal__body">
-					<h3 class="lang-modal__title">Выберите язык</h3>
+					<h3 class="lang-modal__title"><?php echo esc_html( $t( 'lang_modal_title' ) ); ?></h3>
 					<p class="lang-modal__desc">
-						На каком языке вы хотите пользоваться сайтом?
+						<?php echo esc_html( $t( 'lang_modal_desc' ) ); ?>
 					</p>
 					<div class="lang-modal__actions notranslate" translate="no">
 						<button class="lang-modal__btn ru" data-lang-select data-lang="ru">

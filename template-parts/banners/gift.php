@@ -14,17 +14,19 @@
  *   button — надпись на кнопке (шаблон уже подставил запасную)
  */
 
+$gift_button = moveat_dictionary_text( moveat_dictionary( 'templates/banners' ), 'gift_button' );
+
 $banner = wp_parse_args(
 	isset( $args ) && is_array( $args ) ? $args : [],
 	[
 		'image'  => get_template_directory_uri() . '/assets/images/illustrations/gift.png',
 		'title'  => '',
 		'desc'   => '',
-		'button' => 'Забрать подарок',
+		'button' => $gift_button,
 	]
 );
 
-$banner_button = '' !== trim( (string) $banner['button'] ) ? $banner['button'] : 'Забрать подарок';
+$banner_button = '' !== trim( (string) $banner['button'] ) ? $banner['button'] : $gift_button;
 ?>
 <article class="banner banner-gift" data-banner="gift">
 	<div class="banner-gift__wrapper banner__wrapper">

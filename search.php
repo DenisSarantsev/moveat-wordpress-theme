@@ -8,6 +8,12 @@ $search_query = get_search_query();
 $found_posts  = (int) $GLOBALS['wp_query']->found_posts;
 $icons_uri    = get_template_directory_uri() . '/assets/images/icons/filled/';
 
+// Тексты вёрстки на языке страницы — assets/dictionaries/templates/search.
+$page_dict = moveat_dictionary( 'templates/search' );
+$t = function ( $key ) use ( $page_dict ) {
+	return moveat_dictionary_text( $page_dict, $key );
+};
+
 get_header();
 ?>
 
@@ -16,7 +22,7 @@ get_header();
 	<div class="search-results__container max-width-limiter" data-search-results>
 		<?php if ( $search_query ) : ?>
 			<p class="search-results__query">
-				Результаты по запросу:
+				<?php echo esc_html( $t( 'query_label' ) ); ?>
 				<span class="search-results__query-phrase">«<?php echo esc_html( $search_query ); ?>»</span>
 			</p>
 		<?php endif; ?>
@@ -25,9 +31,9 @@ get_header();
 			role="search"
 			method="get"
 			class="search-results__form"
-			action="<?php echo esc_url( home_url( '/' ) ); ?>">
+			action="<?php echo esc_url( function_exists( 'pll_home_url' ) ? pll_home_url() : home_url( '/' ) ); ?>">
 			<label class="search-results__label" for="search-results-input">
-				<?php esc_html_e( 'Новый поиск', 'moveat' ); ?>
+				<?php echo esc_html( $t( 'new_search' ) ); ?>
 			</label>
 			<div class="search-results__field">
 				<div class="search-results__input-wrapper">
@@ -40,11 +46,11 @@ get_header();
 						type="search"
 						name="s"
 						value="<?php echo esc_attr( $search_query ); ?>"
-						placeholder="<?php esc_attr_e( 'Введите запрос…', 'moveat' ); ?>"
+						placeholder="<?php echo esc_attr( $t( 'placeholder' ) ); ?>"
 						required>
 				</div>
 				<button class="search-results__submit primary-button" type="submit">
-					<?php esc_html_e( 'Найти', 'moveat' ); ?>
+					<?php echo esc_html( $t( 'submit' ) ); ?>
 				</button>
 			</div>
 		</form>
@@ -52,19 +58,13 @@ get_header();
 		<?php if ( have_posts() ) : ?>
 			<p class="search-results__count">
 				<?php
-				echo esc_html(
-					sprintf(
-						/* translators: %d: number of search results */
-						_n( 'Найден %d результат', 'Найдено %d результатов', $found_posts, 'moveat' ),
-						$found_posts
-					)
-				);
+				echo esc_html( moveat_dictionary_plural( $page_dict, 'count', $found_posts ) );
 				?>
 			</p>
 
 			<!-- Чипы-фильтры по типу добавляются скриптом (search-results.ts) -->
 			<div class="search-results__filters" data-search-filters hidden>
-				<span class="search-results__filters-label">Тип:</span>
+				<span class="search-results__filters-label"><?php echo esc_html( $t( 'filters_label' ) ); ?></span>
 				<div
 					class="search-results__filters-chips"
 					data-search-filter-chips></div>
@@ -78,16 +78,16 @@ get_header();
 					$post_type      = get_post_type();
 					$type_modifier  = 'post';
 					$type_icon      = 'article.png';
-					$type_label     = 'Статья';
+					$type_label     = $t( 'type_post' );
 
 					if ( 'page' === $post_type ) {
 						$type_modifier = 'page';
 						$type_icon     = 'page.png';
-						$type_label    = 'Страница';
+						$type_label    = $t( 'type_page' );
 					} elseif ( 'product' === $post_type ) {
 						$type_modifier = 'product';
 						$type_icon     = 'product.png';
-						$type_label    = 'Товар';
+						$type_label    = $t( 'type_product' );
 					}
 
 					$excerpt_text = wp_strip_all_tags( get_post_field( 'post_content', get_the_ID() ) );
@@ -131,7 +131,7 @@ get_header();
 					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/search.png' ); ?>" alt="">
 				</span>
 				<p class="search-results__empty-text">
-					По выбранным фильтрам ничего не найдено.
+					<?php echo esc_html( $t( 'empty_filtered' ) ); ?>
 				</p>
 			</div>
 
@@ -139,7 +139,7 @@ get_header();
 			<nav
 				class="pagination max-width-limiter"
 				data-search-pagination
-				aria-label="Постраничная навигация по результатам"
+				aria-label="<?php echo esc_attr( $t( 'pagination_label' ) ); ?>"
 				hidden></nav>
 		<?php else : ?>
 			<div class="search-results__empty">
@@ -151,14 +151,14 @@ get_header();
 						<?php
 						echo esc_html(
 							sprintf(
-								'По запросу «%s» ничего не найдено. Попробуйте изменить формулировку.',
+								$t( 'empty_query' ),
 								$search_query
 							)
 						);
 						?>
 					</p>
 				<?php else : ?>
-					<p class="search-results__empty-text">Введите запрос в поле выше.</p>
+					<p class="search-results__empty-text"><?php echo esc_html( $t( 'empty_no_query' ) ); ?></p>
 				<?php endif; ?>
 			</div>
 		<?php endif; ?>

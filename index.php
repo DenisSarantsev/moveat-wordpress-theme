@@ -159,14 +159,14 @@
 				?>
 					<div class="problem__card section-visual-card<?php echo $card_class; ?>">
 						<?php if ($is_last) : ?>
-							<img loading="lazy" class="section-visual-card__bg-element <?php echo esc_attr($bg['class']); ?>" src="<?php echo esc_url($bg['src']); ?>" alt="Полукруги">
+							<img loading="lazy" class="section-visual-card__bg-element <?php echo esc_attr($bg['class']); ?>" src="<?php echo esc_url($bg['src']); ?>" alt="">
 							<div class="section-visual-card__icon-wrapper white">
 								<img loading="lazy" class="section-visual-card__icon white" src="<?php echo esc_url($card['icon']); ?>" alt="<?php echo esc_attr($card['title']); ?>">
 							</div>
 							<h3 class="section-visual-card__title white"><?php echo esc_html($card['title']); ?></h3>
 							<p class="section-visual-card__description white"><?php echo esc_html($card['desc']); ?></p>
 						<?php else : ?>
-							<img loading="lazy" class="section-visual-card__bg-element <?php echo esc_attr($bg['class']); ?>" src="<?php echo esc_url($bg['src']); ?>" alt="Полукруги">
+							<img loading="lazy" class="section-visual-card__bg-element <?php echo esc_attr($bg['class']); ?>" src="<?php echo esc_url($bg['src']); ?>" alt="">
 							<div class="section-visual-card__icon-wrapper">
 								<img loading="lazy" class="section-visual-card__icon" src="<?php echo esc_url($card['icon']); ?>" alt="<?php echo esc_attr($card['title']); ?>">
 							</div>
@@ -441,7 +441,7 @@
 					$bg         = $program_bg_elements[$idx % count($program_bg_elements)];
 				?>
 					<div class="program__card section-visual-card<?php echo $card_class; ?>">
-						<img loading="lazy" class="section-visual-card__bg-element <?php echo esc_attr($bg['class']); ?>" src="<?php echo esc_url($bg['src']); ?>" alt="Полукруги">
+						<img loading="lazy" class="section-visual-card__bg-element <?php echo esc_attr($bg['class']); ?>" src="<?php echo esc_url($bg['src']); ?>" alt="">
 						<?php if ($is_last) : ?>
 							<div class="section-visual-card__icon-wrapper white">
 								<img loading="lazy" class="section-visual-card__icon white" src="<?php echo esc_url($card['icon']); ?>" alt="<?php echo esc_attr($card['title']); ?>">

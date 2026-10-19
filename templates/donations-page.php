@@ -13,6 +13,12 @@ $page_id = get_queried_object_id();
 
 $theme_uri = get_template_directory_uri();
 
+// Тексты вёрстки на языке страницы — assets/dictionaries/templates/donations-page.
+$page_dict = moveat_dictionary( 'templates/donations-page' );
+$t = function ( $key ) use ( $page_dict ) {
+	return moveat_dictionary_text( $page_dict, $key );
+};
+
 $icon_cross               = $theme_uri . '/assets/images/icons/cross.png';
 $icon_open_tab            = $theme_uri . '/assets/images/icons/open-in-new-tab.png';
 $icon_content_copy        = $theme_uri . '/assets/images/icons/content-copy.png';
@@ -24,25 +30,25 @@ $logo_paypal              = $logotypes_uri . 'paypal.png';
 $logo_visa                = $logotypes_uri . 'visa.png';
 $logo_mastercard          = $logotypes_uri . 'mastercard.png';
 
-$privacy_url = 'https://moveat.expert/politika-konfidentsialnosti/';
-$terms_url   = 'https://moveat.expert/public-contract/';
+$privacy_url = $t( 'privacy_url' );
+$terms_url   = $t( 'agree_url' );
 
 $donations_page_title = trim( (string) get_field( 'donations_page_title', $page_id ) );
-$donations_page_title = $donations_page_title !== '' ? $donations_page_title : 'Поддержать проект Moveat';
+$donations_page_title = $donations_page_title !== '' ? $donations_page_title : $t( 'title' );
 
 $donations_page_subtitle = trim( (string) get_field( 'donations_page_subtitle', $page_id ) );
-$donations_page_subtitle = $donations_page_subtitle !== '' ? $donations_page_subtitle : 'Выберите удобный способ регулярной поддержки или отправьте разовый донат. Каждый вклад помогает создавать полезный контент о здоровом питании.';
+$donations_page_subtitle = $donations_page_subtitle !== '' ? $donations_page_subtitle : $t( 'subtitle' );
 
 $donations_page_content = get_field( 'donations_page_content', $page_id );
 
 $donations_onetime_block_title = trim( (string) get_field( 'donations_onetime_block_title', $page_id ) );
-$donations_onetime_block_title = $donations_onetime_block_title !== '' ? $donations_onetime_block_title : 'Единоразовый платеж';
+$donations_onetime_block_title = $donations_onetime_block_title !== '' ? $donations_onetime_block_title : $t( 'onetime_title' );
 
 $donations_onetime_button_text = trim( (string) get_field( 'donations_onetime_button_text', $page_id ) );
-$donations_onetime_button_text = $donations_onetime_button_text !== '' ? $donations_onetime_button_text : 'Поддержать';
+$donations_onetime_button_text = $donations_onetime_button_text !== '' ? $donations_onetime_button_text : $t( 'onetime_button' );
 
 $donations_subscriptions_block_title = trim( (string) get_field( 'donations_subscriptions_block_title', $page_id ) );
-$donations_subscriptions_block_title = $donations_subscriptions_block_title !== '' ? $donations_subscriptions_block_title : 'Подписки и спонсорство';
+$donations_subscriptions_block_title = $donations_subscriptions_block_title !== '' ? $donations_subscriptions_block_title : $t( 'subscriptions_title' );
 
 $donations_is_subscription_enabled = static function ( $field_name ) use ( $page_id ) {
 	$value = get_field( $field_name, $page_id );
@@ -98,8 +104,8 @@ $subscription_platforms_config = [
 		'description_field' => 'donations_subscription_youtube_description',
 		'icon'              => $logotypes_uri . 'youtube.png',
 		'icon_alt'          => 'YouTube',
-		'name'              => 'Спонсорство на YouTube',
-		'description'       => 'Ежемесячная поддержка через YouTube Membership',
+		'name'              => $t( 'youtube_name' ),
+		'description'       => $t( 'youtube_description' ),
 	],
 	[
 		'modifier'          => 'patreon',
@@ -110,7 +116,7 @@ $subscription_platforms_config = [
 		'icon'              => $logotypes_uri . 'patreon.png',
 		'icon_alt'          => 'Patreon',
 		'name'              => 'Patreon',
-		'description'       => 'Регулярная подписка и эксклюзивные материалы',
+		'description'       => $t( 'patreon_description' ),
 	],
 	[
 		'modifier'          => 'paypal',
@@ -121,7 +127,7 @@ $subscription_platforms_config = [
 		'icon'              => $logotypes_uri . 'paypal.png',
 		'icon_alt'          => 'PayPal',
 		'name'              => 'PayPal',
-		'description'       => 'Подписка $10 / месяц',
+		'description'       => $t( 'paypal_description' ),
 	],
 	[
 		'modifier'          => 'lava-top',
@@ -132,7 +138,7 @@ $subscription_platforms_config = [
 		'icon'              => $logotypes_uri . 'lava-top.png',
 		'icon_alt'          => 'Lava.top',
 		'name'              => 'Lava.top',
-		'description'       => 'Разовая/регулярная поддержка через Lava/top',
+		'description'       => $t( 'lava_top_description' ),
 	],
 	[
 		'modifier'          => 'boosty',
@@ -143,7 +149,7 @@ $subscription_platforms_config = [
 		'icon'              => $logotypes_uri . 'boosty.webp',
 		'icon_alt'          => 'Boosty',
 		'name'              => 'Boosty',
-		'description'       => 'Разовая/регулярная поддержка через Boosty',
+		'description'       => $t( 'boosty_description' ),
 	],
 ];
 
@@ -203,7 +209,7 @@ $donations_min_amount_label = moveat_format_donation_amount( $donations_min_amou
 							<div class="donations__onetime-card-inner_left_images">
 								<img
 									src="<?php echo esc_url( $icon_credit_card ); ?>"
-									alt="<?php echo esc_attr__( 'Банковская карта', 'moveat' ); ?>"
+									alt="<?php echo esc_attr( $t( 'card' ) ); ?>"
 									loading="lazy"
 									decoding="async" />
 								<img
@@ -214,10 +220,10 @@ $donations_min_amount_label = moveat_format_donation_amount( $donations_min_amou
 							</div>
 							<div class="donations__onetime-card-inner_left_text">
 								<span class="donations__onetime-card-inner_left-text-title">
-									<?php echo esc_html__( 'Банковская карта или PayPal', 'moveat' ); ?>
+									<?php echo esc_html( $t( 'card_or_paypal' ) ); ?>
 								</span>
 								<span class="donations__onetime-card-inner_left-text-description">
-									<?php echo esc_html__( 'Разовый платеж через PayPal или банковскую карту', 'moveat' ); ?>
+									<?php echo esc_html( $t( 'card_or_paypal_description' ) ); ?>
 								</span>
 							</div>
 						</div>
@@ -254,7 +260,7 @@ $donations_min_amount_label = moveat_format_donation_amount( $donations_min_amou
 								href="<?php echo esc_url( $platform['url'] ); ?>"
 								target="_blank"
 								rel="noopener noreferrer">
-								<div><?php echo esc_html__( 'Перейти', 'moveat' ); ?></div>
+								<div><?php echo esc_html( $t( 'go' ) ); ?></div>
 								<img src="<?php echo esc_url( $icon_open_tab ); ?>" alt="" loading="lazy" decoding="async" />
 							</a>
 						</div>
@@ -272,7 +278,7 @@ $donations_min_amount_label = moveat_format_donation_amount( $donations_min_amou
 						<div class="donations__platform-body">
 							<span class="donations__platform-name">USDT (TRC20)</span>
 							<span class="donations__platform-description">
-								<?php echo esc_html__( 'Криптовалютный перевод на кошелёк TRC20', 'moveat' ); ?>
+								<?php echo esc_html( $t( 'usdt_description' ) ); ?>
 							</span>
 						</div>
 						<div class="donations__card-btns-usdt">
@@ -281,13 +287,13 @@ $donations_min_amount_label = moveat_format_donation_amount( $donations_min_amou
 								class="donations__card-btn donations__card-btn--copy usdt"
 								data-usdt-copy
 								data-usdt-address="<?php echo esc_attr( $usdt_address ); ?>">
-								<div><?php echo esc_html__( 'Скопировать адрес', 'moveat' ); ?></div>
-								<img src="<?php echo esc_url( $icon_content_copy ); ?>" alt="<?php echo esc_attr__( 'Скопировать', 'moveat' ); ?>" loading="lazy" decoding="async" />
+								<div><?php echo esc_html( $t( 'copy_address' ) ); ?></div>
+								<img src="<?php echo esc_url( $icon_content_copy ); ?>" alt="<?php echo esc_attr( $t( 'copy' ) ); ?>" loading="lazy" decoding="async" />
 							</button>
 							<button
 								type="button"
 								class="donations__card-btn-usdt-qr usdt"
-								aria-label="<?php echo esc_attr__( 'Показать QR-код', 'moveat' ); ?>">
+								aria-label="<?php echo esc_attr( $t( 'show_qr' ) ); ?>">
 								<img src="<?php echo esc_url( $icon_qr_code ); ?>" alt="" loading="lazy" decoding="async" />
 							</button>
 						</div>
@@ -313,7 +319,7 @@ $donations_min_amount_label = moveat_format_donation_amount( $donations_min_amou
 					<button
 						class="donations__payment-modal_close"
 						type="button"
-						aria-label="<?php echo esc_attr__( 'Закрыть', 'moveat' ); ?>">
+						aria-label="<?php echo esc_attr( $t( 'close' ) ); ?>">
 						<img src="<?php echo esc_url( $icon_cross ); ?>" alt="" loading="lazy" decoding="async" />
 					</button>
 					<h2 class="donations__payment-modal_title" id="donations-payment-modal-title">
@@ -322,7 +328,7 @@ $donations_min_amount_label = moveat_format_donation_amount( $donations_min_amou
 				</div>
 				<div class="donations__payment-modal_content">
 					<div class="donations__methods">
-						<p class="donations__methods-title"><?php echo esc_html__( 'Способ оплаты', 'moveat' ); ?></p>
+						<p class="donations__methods-title"><?php echo esc_html( $t( 'methods_title' ) ); ?></p>
 						<div class="donations__methods-list" data-donations-methods>
 							<button
 								type="button"
@@ -353,7 +359,7 @@ $donations_min_amount_label = moveat_format_donation_amount( $donations_min_amou
 								<div class="donations__method-left">
 									<div class="donations__method-radio" aria-hidden="true"></div>
 									<div class="donations__method-text">
-										<span class="donations__method-name"><?php echo esc_html__( 'Банковская карта', 'moveat' ); ?></span>
+										<span class="donations__method-name"><?php echo esc_html( $t( 'card' ) ); ?></span>
 									</div>
 								</div>
 								<div class="donations__method-icons">
@@ -375,7 +381,7 @@ $donations_min_amount_label = moveat_format_donation_amount( $donations_min_amou
 					</div>
 
 					<div class="donations__amounts">
-						<p class="donations__amounts-title"><?php echo esc_html__( 'Сумма доната', 'moveat' ); ?></p>
+						<p class="donations__amounts-title"><?php echo esc_html( $t( 'amount_title' ) ); ?></p>
 						<div class="donations__amounts-wrapper">
 							<div class="donations__amounts-list" data-donations-amounts>
 								<button type="button" class="donations__amount-button" data-amount="5">$5</button>
@@ -387,7 +393,7 @@ $donations_min_amount_label = moveat_format_donation_amount( $donations_min_amou
 									type="number"
 									min="<?php echo $donations_min_amount_attr; ?>"
 									step="0.01"
-									placeholder="<?php echo esc_attr__( 'Другая сумма, $', 'moveat' ); ?>"
+									placeholder="<?php echo esc_attr( $t( 'amount_custom' ) ); ?>"
 									data-donations-custom-amount
 									inputmode="decimal" />
 							</div>
@@ -397,7 +403,7 @@ $donations_min_amount_label = moveat_format_donation_amount( $donations_min_amou
 								<?php
 								printf(
 									/* translators: %s: minimum donation amount in USD */
-									esc_html__( 'Минимальная сумма доната - %s$', 'moveat' ),
+									esc_html( $t( 'amount_min' ) ),
 									esc_html( $donations_min_amount_label )
 								);
 								?>
@@ -410,14 +416,14 @@ $donations_min_amount_label = moveat_format_donation_amount( $donations_min_amou
 							<label
 								class="donations__field-label"
 								for="donationsFirstName">
-								<?php echo esc_html__( 'Имя', 'moveat' ); ?><span aria-hidden="true">*</span>
+								<?php echo esc_html( $t( 'first_name' ) ); ?><span aria-hidden="true">*</span>
 							</label>
 							<input
 								class="form-input donations__field-input"
 								type="text"
 								id="donationsFirstName"
 								name="firstName"
-								placeholder="<?php echo esc_attr__( 'Иван', 'moveat' ); ?>"
+								placeholder="<?php echo esc_attr( $t( 'first_name_placeholder' ) ); ?>"
 								autocomplete="given-name"
 								data-donations-firstname
 								required
@@ -425,7 +431,7 @@ $donations_min_amount_label = moveat_format_donation_amount( $donations_min_amou
 							<div
 								class="donations__field-error"
 								data-donations-firstname-error>
-								<?php echo esc_html__( 'Введите имя', 'moveat' ); ?>
+								<?php echo esc_html( $t( 'first_name_error' ) ); ?>
 							</div>
 						</div>
 
@@ -433,21 +439,21 @@ $donations_min_amount_label = moveat_format_donation_amount( $donations_min_amou
 							<label
 								class="donations__field-label"
 								for="donationsLastName">
-								<?php echo esc_html__( 'Фамилия', 'moveat' ); ?>
+								<?php echo esc_html( $t( 'last_name' ) ); ?>
 							</label>
 							<input
 								class="form-input donations__field-input"
 								type="text"
 								id="donationsLastName"
 								name="lastName"
-								placeholder="<?php echo esc_attr__( 'Иванов', 'moveat' ); ?>"
+								placeholder="<?php echo esc_attr( $t( 'last_name_placeholder' ) ); ?>"
 								autocomplete="family-name"
 								data-donations-lastname />
 						</div>
 
 						<div class="donations__field donations__field--half">
 							<label class="donations__field-label" for="donationsPhone">
-								<?php echo esc_html__( 'Номер телефона', 'moveat' ); ?><span aria-hidden="true">*</span>
+								<?php echo esc_html( $t( 'phone' ) ); ?><span aria-hidden="true">*</span>
 							</label>
 							<input
 								class="form-input donations__field-input"
@@ -461,7 +467,7 @@ $donations_min_amount_label = moveat_format_donation_amount( $donations_min_amou
 							<div
 								class="donations__field-error"
 								data-donations-phone-error>
-								<?php echo esc_html__( 'Введите корректный номер телефона', 'moveat' ); ?>
+								<?php echo esc_html( $t( 'phone_error' ) ); ?>
 							</div>
 						</div>
 
@@ -482,7 +488,7 @@ $donations_min_amount_label = moveat_format_donation_amount( $donations_min_amou
 							<div
 								class="donations__field-error"
 								data-donations-email-error>
-								<?php echo esc_html__( 'Введите корректный email', 'moveat' ); ?>
+								<?php echo esc_html( $t( 'email_error' ) ); ?>
 							</div>
 						</div>
 					</div>
@@ -490,11 +496,11 @@ $donations_min_amount_label = moveat_format_donation_amount( $donations_min_amou
 					<div
 						class="donations__info-card"
 						role="note"
-						aria-label="<?php echo esc_attr__( 'Информация об оплате картой российского банка', 'moveat' ); ?>">
+						aria-label="<?php echo esc_attr( $t( 'help_label' ) ); ?>">
 						<p class="donations__info-card-text">
 							<?php
 							echo wp_kses(
-								__( 'Если у вас <span>НЕ ПРОХОДИТ ОПЛАТА,</span> свяжитесь с нами по одному из мессенджеров и мы поможем вам с оплатой.', 'moveat' ),
+								$t( 'help_text' ),
 								[ 'span' => [] ]
 							);
 							?>
@@ -529,7 +535,7 @@ $donations_min_amount_label = moveat_format_donation_amount( $donations_min_amou
 						printf(
 							wp_kses(
 								/* translators: %s: privacy policy URL */
-								__( 'Ваши личные данные будут использоваться для обработки ваших заказов, упрощения вашей работы с сайтом и для других целей, описанных в нашей <a href="%s">политике конфиденциальности</a>.', 'moveat' ),
+								$t( 'privacy_text' ),
 								[ 'a' => [ 'href' => [] ] ]
 							),
 							esc_url( $privacy_url )
@@ -551,7 +557,7 @@ $donations_min_amount_label = moveat_format_donation_amount( $donations_min_amou
 							printf(
 								wp_kses(
 									/* translators: %s: terms URL */
-									__( 'Я прочитал(а) и соглашаюсь с <a href="%s">правилами сайта</a>', 'moveat' ),
+									$t( 'agree_text' ),
 									[ 'a' => [ 'href' => [] ] ]
 								),
 								esc_url( $terms_url )
@@ -567,7 +573,7 @@ $donations_min_amount_label = moveat_format_donation_amount( $donations_min_amou
 						data-donations-submit
 						disabled>
 						<div class="donations__submit_inner">
-							<div class="donations__submit_text"><?php echo esc_html__( 'Отправить донат', 'moveat' ); ?></div>
+							<div class="donations__submit_text"><?php echo esc_html( $t( 'submit' ) ); ?></div>
 							<div class="donations__selected-amount" data-donations-selected-amount>
 								<span>$0</span>
 							</div>
@@ -585,11 +591,11 @@ $donations_min_amount_label = moveat_format_donation_amount( $donations_min_amou
 				<button
 					class="donations__qr-modal_close"
 					type="button"
-					aria-label="<?php echo esc_attr__( 'Закрыть', 'moveat' ); ?>">
+					aria-label="<?php echo esc_attr( $t( 'close' ) ); ?>">
 					<img src="<?php echo esc_url( $icon_cross ); ?>" alt="" loading="lazy" decoding="async" />
 				</button>
 				<h2 class="donations__qr-modal_title" id="donations-qr-modal-title">
-					<?php echo esc_html__( 'Отсканируйте QR-код', 'moveat' ); ?>
+					<?php echo esc_html( $t( 'qr_title' ) ); ?>
 				</h2>
 			</div>
 			<div class="donations__qr-modal_content">
@@ -597,19 +603,19 @@ $donations_min_amount_label = moveat_format_donation_amount( $donations_min_amou
 					<?php if ( $usdt_qr_image !== '' ) : ?>
 					<img
 						src="<?php echo esc_url( $usdt_qr_image ); ?>"
-						alt="<?php echo esc_attr__( 'QR-код кошелька USDT', 'moveat' ); ?>"
+						alt="<?php echo esc_attr( $t( 'qr_alt' ) ); ?>"
 						loading="lazy"
 						decoding="async" />
 					<?php endif; ?>
 				</div>
 				<div class="donations__qr-modal_network">
-					<p class="donations__qr-modal_network-title">Network (Сеть):</p>
+					<p class="donations__qr-modal_network-title"><?php echo esc_html( $t( 'qr_network' ) ); ?></p>
 					<p class="donations__qr-modal_network-description">
 						Tether TRC20
 					</p>
 				</div>
 				<p class="donations__qr-modal_qr-text-description">
-					<?php echo esc_html__( 'Или скопируйте адрес кошелька:', 'moveat' ); ?>
+					<?php echo esc_html( $t( 'qr_or_copy' ) ); ?>
 				</p>
 				<div class="donations__qr-modal_qr-text">
 					<div class="donations__qr-modal_wallet">
@@ -621,8 +627,8 @@ $donations_min_amount_label = moveat_format_donation_amount( $donations_min_amou
 							class="donations__qr-modal_wallet-copy"
 							data-usdt-copy
 							data-usdt-address="<?php echo esc_attr( $usdt_address ); ?>"
-							aria-label="<?php echo esc_attr__( 'Скопировать адрес кошелька', 'moveat' ); ?>">
-							<img src="<?php echo esc_url( $icon_content_copy ); ?>" alt="<?php echo esc_attr__( 'Скопировать', 'moveat' ); ?>" loading="lazy" decoding="async" />
+							aria-label="<?php echo esc_attr( $t( 'copy_wallet' ) ); ?>">
+							<img src="<?php echo esc_url( $icon_content_copy ); ?>" alt="<?php echo esc_attr( $t( 'copy' ) ); ?>" loading="lazy" decoding="async" />
 						</button>
 					</div>
 				</div>

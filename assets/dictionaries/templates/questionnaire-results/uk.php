@@ -8,7 +8,8 @@
  * вычитать названия категорий ниже: это медицинские формулировки, и они
  * выносятся в заголовки блоков.
  *
- * Шаблон: templates/questionnaire-results-with-modal.php
+ * Шаблоны: templates/questionnaire-results-with-modal.php,
+ *          templates/questionnaire-results.php
  */
 
 return [

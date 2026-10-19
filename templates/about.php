@@ -13,6 +13,12 @@ get_header();
 <?php
 // Hero: allow override via ACF about_title, fallback to static title
 $about_title = get_field( 'about_title' );
+
+// Тексты вёрстки на языке страницы — assets/dictionaries/templates/about.
+$page_dict = moveat_dictionary( 'templates/about' );
+$t = function ( $key ) use ( $page_dict ) {
+	return moveat_dictionary_text( $page_dict, $key );
+};
 ?>
 
 <div class="hero-block">
@@ -23,11 +29,11 @@ $about_title = get_field( 'about_title' );
 			alt="<?php echo esc_attr__( 'vegetables', 'moveat' ); ?>" />
 	</div>
 	<div class="hero-block__container">
-		<h1 class="hero-block__title"><?php echo esc_html( $about_title ?: 'Наша команда' ); ?></h1>
+		<h1 class="hero-block__title"><?php echo esc_html( $about_title ?: $t( 'title' ) ); ?></h1>
 		<nav aria-label="breadcrumb no-padding animated slideInDown page-hero__breadcrumbs">
 			<ol class="breadcrumb no-padding page-hero__breadcrumbs-list">
-				<li class="breadcrumb-item page-hero__breadcrumbs-item white"><a class="text-body" href="<?php echo esc_url( home_url( '/' ) ); ?>">Главная</a></li>
-				<li class="breadcrumb-item page-hero__breadcrumbs-item white"><span class="text-body">О нас</span></li>
+				<li class="breadcrumb-item page-hero__breadcrumbs-item white"><a class="text-body" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html( $t( 'breadcrumb_home' ) ); ?></a></li>
+				<li class="breadcrumb-item page-hero__breadcrumbs-item white"><span class="text-body"><?php echo esc_html( $t( 'breadcrumb_current' ) ); ?></span></li>
 			</ol>
 		</nav>
 	</div>
@@ -57,7 +63,7 @@ $about_title = get_field( 'about_title' );
 			<section class="about-page__section<?php echo $reverse_class; ?>">
 				<?php if ( ! empty( $photo ) ) : ?>
 					<div class="about-page__photo-wrapper">
-						<img class="about-page__photo" src="<?php echo esc_url( $photo ); ?>" alt="<?php echo esc_attr( $name ?: 'Участник' ); ?>" loading="lazy" />
+						<img class="about-page__photo" src="<?php echo esc_url( $photo ); ?>" alt="<?php echo esc_attr( $name ?: $t( 'member_alt' ) ); ?>" loading="lazy" />
 					</div>
 				<?php endif; ?>
 

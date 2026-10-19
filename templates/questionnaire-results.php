@@ -4,7 +4,18 @@
  	Template Post Type: post, page
  	Description: Шаблон страницы результатов опроса через чат-бот
 */
-get_header(); ?>
+get_header();
+
+// Тексты вёрстки на языке страницы — assets/dictionaries/templates/questionnaire-results
+// (общий словарь с questionnaire-results-with-modal.php).
+$results_dict = moveat_dictionary( 'templates/questionnaire-results' );
+$results_text = function ( $key ) use ( $results_dict ) {
+	return moveat_dictionary_text( $results_dict, $key );
+};
+$results_category = function ( $key ) use ( $results_dict ) {
+	return isset( $results_dict['categories'][ $key ] ) ? (string) $results_dict['categories'][ $key ] : '';
+};
+?>
 <script>
 	// Определяем высоту хедера
 	document.addEventListener("DOMContentLoaded", () => {
@@ -22,18 +33,18 @@ get_header(); ?>
 			<div class="questresult__bg-container"></div>
 			<img src="<?php echo get_template_directory_uri() ?>/assets/images/trees.webp" alt="" class="questresult__bg-image">
 			<h1 class="questresult__title">
-				Ваши результаты по 8 главным индикаторам здоровья готовы!
+				<?php echo esc_html( $results_text( 'intro_title' ) ); ?>
 			</h1>
 			<div class="questresult__subtitle">
-				Спасибо за ваши ответы. Прежде, чем вы увидите ваши результаты, мы хотим настроить вас на серьёзный лад. Несмотря на кажущуюся простоту вопросов, сравнение содержимого вашей тарелки и состояния организма позволяет сделать достаточно обоснованные выводы о том, как ваше питание влияет на ваши моложавость, здоровье и энергичность.
+				<?php echo esc_html( $results_text( 'intro_subtitle' ) ); ?>
 			</div>
 			<button class="questresult__button primary-button">
-				Узнать результаты
+				<?php echo esc_html( $results_text( 'intro_button' ) ); ?>
 			</button>
 		</div>
 		<div class="questresult__conclusions conclusions">
 			<h2 class="conclusions__title">
-				Общие выводы
+				<?php echo esc_html( $results_text( 'conclusions_title' ) ); ?>
 			</h2>
 			<div class="conclusions__subtitle average-text-container">
 					<?php the_field('general-conclusions-text1') ?>
@@ -74,17 +85,17 @@ get_header(); ?>
 		</div>
 		<div class="questresult__graphics graphics">
 			<div class="graphics__title">
-				Результаты
+				<?php echo esc_html( $results_text( 'graphics_title' ) ); ?>
 			</div>
 			<div class="graphics__subtitle">
-				А теперь мы подробнее расскажем о том, какие нарушения питания и состояния здоровья мы можем заподозрить после анализа ваших ответов
+				<?php echo esc_html( $results_text( 'graphics_subtitle' ) ); ?>
 			</div>
 
 <!--  ------------------------  -->
 
 <div class="graphics__main-graphic graphics__content main-graphic">
 	<h3 class="main-graphic__title">
-		Риск метаболического расстройства
+		<?php echo esc_html( $results_category( 'metabolic-disorder' ) ); ?>
 	</h3>
 	<?php
 		$__desc = get_field('metabolic-disorder-description');
@@ -108,8 +119,8 @@ get_header(); ?>
 				<div class="progress__max">6.1</div>
 			</div>
 			<div class="graphic__low-high">
-				<div class="graphic__low">Низкий</div>
-				<div class="graphic__high">Высокий</div>
+				<div class="graphic__low"><?php echo esc_html( $results_text( 'scale_low' ) ); ?></div>
+				<div class="graphic__high"><?php echo esc_html( $results_text( 'scale_high' ) ); ?></div>
 			</div>
 		</div>
 	</div>
@@ -156,7 +167,7 @@ get_header(); ?>
 
 <div class="graphics__main-graphic graphics__content main-graphic">
 				<h3 class="main-graphic__title">
-					Системное воспаление
+					<?php echo esc_html( $results_category( 'systemic-inflammation' ) ); ?>
 				</h3>
 			<?php
 				$__desc = get_field('systemic-inflammation-description');
@@ -180,8 +191,8 @@ get_header(); ?>
 							<div class="progress__max">6.5</div>
 						</div>
 						<div class="graphic__low-high">
-							<div class="graphic__low">Низкий</div>
-							<div class="graphic__high">Высокий</div>
+							<div class="graphic__low"><?php echo esc_html( $results_text( 'scale_low' ) ); ?></div>
+							<div class="graphic__high"><?php echo esc_html( $results_text( 'scale_high' ) ); ?></div>
 						</div>
 					</div>
 				</div>
@@ -227,7 +238,7 @@ get_header(); ?>
 
 <div class="graphics__main-graphic graphics__content main-graphic">
 				<h3 class="main-graphic__title">
-					Уровень закисления
+					<?php echo esc_html( $results_category( 'acidification-level' ) ); ?>
 				</h3>
 			<?php
 				$__desc = get_field('acidification-level-description');
@@ -251,8 +262,8 @@ get_header(); ?>
 							<div class="progress__max">3.4</div>
 						</div>
 						<div class="graphic__low-high">
-							<div class="graphic__low">Низкий</div>
-							<div class="graphic__high">Высокий</div>
+							<div class="graphic__low"><?php echo esc_html( $results_text( 'scale_low' ) ); ?></div>
+							<div class="graphic__high"><?php echo esc_html( $results_text( 'scale_high' ) ); ?></div>
 						</div>
 					</div>
 				</div>
@@ -298,7 +309,7 @@ get_header(); ?>
 
 <div class="graphics__main-graphic graphics__content main-graphic">
 				<h3 class="main-graphic__title">
-					Гликемичность рациона
+					<?php echo esc_html( $results_category( 'glycemic-level' ) ); ?>
 				</h3>
 			<?php
 				$__desc = get_field('glycemic-level-description');
@@ -322,8 +333,8 @@ get_header(); ?>
 							<div class="progress__max">5.2</div>
 						</div>
 						<div class="graphic__low-high">
-							<div class="graphic__low">Низкий</div>
-							<div class="graphic__high">Высокий</div>
+							<div class="graphic__low"><?php echo esc_html( $results_text( 'scale_low' ) ); ?></div>
+							<div class="graphic__high"><?php echo esc_html( $results_text( 'scale_high' ) ); ?></div>
 						</div>
 					</div>
 				</div>
@@ -369,7 +380,7 @@ get_header(); ?>
 
 <div class="graphics__main-graphic graphics__content main-graphic">
 				<h3 class="main-graphic__title">
-					Риск ускоренного старения
+					<?php echo esc_html( $results_category( 'accelerated-aging' ) ); ?>
 				</h3>
 			<?php
 				$__desc = get_field('accelerated-aging-description');
@@ -393,8 +404,8 @@ get_header(); ?>
 							<div class="progress__max">6</div>
 						</div>
 						<div class="graphic__low-high">
-							<div class="graphic__low">Низкий</div>
-							<div class="graphic__high">Высокий</div>
+							<div class="graphic__low"><?php echo esc_html( $results_text( 'scale_low' ) ); ?></div>
+							<div class="graphic__high"><?php echo esc_html( $results_text( 'scale_high' ) ); ?></div>
 						</div>
 					</div>
 				</div>
@@ -440,7 +451,7 @@ get_header(); ?>
 
 <div class="graphics__main-graphic graphics__content main-graphic">
 				<h3 class="main-graphic__title">
-					Нарушение способности организма к самоочищению
+					<?php echo esc_html( $results_category( 'self-cleaning' ) ); ?>
 				</h3>
 			<?php
 				$__desc = get_field('self-cleaning-description');
@@ -464,8 +475,8 @@ get_header(); ?>
 							<div class="progress__max">5.1</div>
 						</div>
 						<div class="graphic__low-high">
-							<div class="graphic__low">Низкий</div>
-							<div class="graphic__high">Высокий</div>
+							<div class="graphic__low"><?php echo esc_html( $results_text( 'scale_low' ) ); ?></div>
+							<div class="graphic__high"><?php echo esc_html( $results_text( 'scale_high' ) ); ?></div>
 						</div>
 					</div>
 				</div>
@@ -512,7 +523,7 @@ get_header(); ?>
 
 <div class="graphics__main-graphic graphics__content main-graphic">
 				<h3 class="main-graphic__title">
-					Риск раковых заболеваний
+					<?php echo esc_html( $results_category( 'cancer-risk' ) ); ?>
 				</h3>
 			<?php
 				$__desc = get_field('cancer-risk-description');
@@ -536,8 +547,8 @@ get_header(); ?>
 							<div class="progress__max">5.6</div>
 						</div>
 						<div class="graphic__low-high">
-							<div class="graphic__low">Низкий</div>
-							<div class="graphic__high">Высокий</div>
+							<div class="graphic__low"><?php echo esc_html( $results_text( 'scale_low' ) ); ?></div>
+							<div class="graphic__high"><?php echo esc_html( $results_text( 'scale_high' ) ); ?></div>
 						</div>
 					</div>
 				</div>
@@ -583,7 +594,7 @@ get_header(); ?>
 
 			<div class="graphics__main-graphic graphics__content main-graphic">
 				<h3 class="main-graphic__title">
-					Количество пустых калорий в пище
+					<?php echo esc_html( $results_category( 'quantity-calories' ) ); ?>
 				</h3>
 				<?php
 					$__desc = get_field('quantity-calories-description');
@@ -607,8 +618,8 @@ get_header(); ?>
 							<div class="progress__max">4.8</div>
 						</div>
 						<div class="graphic__low-high">
-							<div class="graphic__low">Низкий</div>
-							<div class="graphic__high">Высокий</div>
+							<div class="graphic__low"><?php echo esc_html( $results_text( 'scale_low' ) ); ?></div>
+							<div class="graphic__high"><?php echo esc_html( $results_text( 'scale_high' ) ); ?></div>
 						</div>
 					</div>
 				</div>

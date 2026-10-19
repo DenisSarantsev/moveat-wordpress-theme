@@ -8,6 +8,12 @@ defined( 'ABSPATH' ) || exit;
 
 get_header();
 
+// Тексты вёрстки на языке страницы — assets/dictionaries/templates/order-pay.
+$page_dict = moveat_dictionary( 'templates/order-pay' );
+$t = function ( $key ) use ( $page_dict ) {
+	return moveat_dictionary_text( $page_dict, $key );
+};
+
 $theme_uri       = get_template_directory_uri();
 $telegram_icon   = $theme_uri . '/assets/images/icons/telegram.png';
 $whatsapp_icon   = $theme_uri . '/assets/images/icons/whatsapp.png';
@@ -36,20 +42,9 @@ $total_uah = $valid && $uah_rate > 0 ? (float) $order->get_total() * $uah_rate :
 
 // Варианты количества платежей — moveat_order_pay_get_installment_terms() в parts-payment/instalments.php.
 
-// «3 платежа», «5 платежей», «21 платёж».
+// «3 платежа», «5 платежей», «21 платёж» — формы слова в словаре страницы.
 function moveat_order_pay_payments_label( $count ) {
-	$mod10  = $count % 10;
-	$mod100 = $count % 100;
-
-	if ( 1 === $mod10 && 11 !== $mod100 ) {
-		$word = 'платёж';
-	} elseif ( $mod10 >= 2 && $mod10 <= 4 && ( $mod100 < 12 || $mod100 > 14 ) ) {
-		$word = 'платежа';
-	} else {
-		$word = 'платежей';
-	}
-
-	return $count . ' ' . $word;
+	return moveat_dictionary_plural( moveat_dictionary( 'templates/order-pay' ), 'payments', $count );
 }
 
 $installment_terms = function_exists( 'moveat_instalments_amount_fits' )
@@ -86,22 +81,22 @@ $display_decimals = max(2, (int) wc_get_price_decimals());
 				data-checkout-modal="waiting"
 			>
 				<div class="payment-page-checkout__spinner" aria-hidden="true"></div>
-				<h3 class="payment-page-checkout__title">Ожидаем подтверждение оплаты</h3>
+				<h3 class="payment-page-checkout__title"><?php echo esc_html( $t( 'waiting_title' ) ); ?></h3>
 				<p class="payment-page-checkout__text">
-					Запрос отправлен в банк. Воспользуйтесь приложением Monobank для завершения оплаты
+					<?php echo esc_html( $t( 'waiting_text' ) ); ?>
 				</p>
 				<div class="payment-page-checkout__meta">
 					<div class="payment-page-checkout__meta-row">
-						<span class="payment-page-checkout__meta-label">Сумма</span>
-						<span class="payment-page-checkout__meta-value" data-checkout-amount><?php echo esc_html( number_format( $total_uah, 0, '.', ' ' ) ); ?> грн</span>
+						<span class="payment-page-checkout__meta-label"><?php echo esc_html( $t( 'waiting_amount' ) ); ?></span>
+						<span class="payment-page-checkout__meta-value" data-checkout-amount><?php echo esc_html( number_format( $total_uah, 0, '.', ' ' ) ); ?> <?php echo esc_html( $t( 'currency_uah' ) ); ?></span>
 					</div>
 					<div class="payment-page-checkout__meta-row">
-						<span class="payment-page-checkout__meta-label">Способ оплаты</span>
-						<span class="payment-page-checkout__meta-value" data-checkout-method>Оплата частями · Monobank</span>
+						<span class="payment-page-checkout__meta-label"><?php echo esc_html( $t( 'waiting_method' ) ); ?></span>
+						<span class="payment-page-checkout__meta-value" data-checkout-method><?php echo esc_html( $t( 'waiting_method_value' ) ); ?></span>
 					</div>
 				</div>
 				<p class="payment-page-checkout__note">
-					Не закрывайте страницу — после подтверждения в приложении мы перенаправим вас автоматически. На подтверждение есть 15 минут.
+					<?php echo esc_html( $t( 'waiting_note' ) ); ?>
 				</p>
 			</div>
 
@@ -113,32 +108,32 @@ $display_decimals = max(2, (int) wc_get_price_decimals());
 				aria-describedby="checkoutErrorText"
 				data-checkout-modal="error"
 			>
-				<button type="button" class="payment-page-checkout__close" aria-label="Закрыть" data-checkout-close>&times;</button>
+				<button type="button" class="payment-page-checkout__close" aria-label="<?php echo esc_attr( $t( 'close' ) ); ?>" data-checkout-close>&times;</button>
 				<div class="payment-page-checkout__icon payment-page-checkout__icon--error" aria-hidden="true">
 					<img src="<?php echo esc_url( $theme_uri . '/assets/images/icons/error.png' ); ?>" alt="">
 				</div>
-				<h3 class="payment-page-checkout__title" id="checkoutErrorTitle">Платёж не прошёл</h3>
+				<h3 class="payment-page-checkout__title" id="checkoutErrorTitle"><?php echo esc_html( $t( 'error_title' ) ); ?></h3>
 				<p class="payment-page-checkout__text" id="checkoutErrorText">
-					Банк отклонил операцию или истекло время ожидания. Деньги не списаны — попробуйте оплатить ещё раз или выберите другой способ.
+					<?php echo esc_html( $t( 'error_text' ) ); ?>
 				</p>
 				<p class="payment-page-checkout__error-code" data-checkout-error-code-row>
-					Код ошибки:
+					<?php echo esc_html( $t( 'error_code' ) ); ?>
 					<span data-checkout-error-code>—</span>
 				</p>
 				<div class="payment-page-checkout__actions">
 					<button type="button" class="primary-button payment-page-checkout__action" data-checkout-retry>
-						Попробовать снова
+						<?php echo esc_html( $t( 'retry' ) ); ?>
 					</button>
 					<!-- Дублирует крестик: закрывает окно и возвращает к выбору способа оплаты -->
 					<button type="button" class="payment-page-checkout__ghost-button" data-checkout-close>
-						Закрыть
+						<?php echo esc_html( $t( 'close' ) ); ?>
 					</button>
 				</div>
 				<p class="payment-page-checkout__note">
-					После закрытия окна вы вернётесь к оформлению — можно повторить оплату или выбрать другой способ.
+					<?php echo esc_html( $t( 'error_note' ) ); ?>
 				</p>
 				<div class="payment-page-checkout__support">
-					<span class="payment-page-checkout__support-text">Не получается оплатить? Напишите нам:</span>
+					<span class="payment-page-checkout__support-text"><?php echo esc_html( $t( 'support_text' ) ); ?></span>
 					<div class="payment-page__info-messengers">
 						<?php get_template_part( 'template-parts/socials' ); ?>
 					</div>
@@ -156,9 +151,9 @@ $display_decimals = max(2, (int) wc_get_price_decimals());
 				<div class="payment-page-checkout__icon payment-page-checkout__icon--success" aria-hidden="true">
 					<img src="<?php echo esc_url( $theme_uri . '/assets/images/icons/check.png' ); ?>" alt="">
 				</div>
-				<h3 class="payment-page-checkout__title" id="checkoutSuccessTitle">Оплата прошла успешно</h3>
+				<h3 class="payment-page-checkout__title" id="checkoutSuccessTitle"><?php echo esc_html( $t( 'success_title' ) ); ?></h3>
 				<p class="payment-page-checkout__text" id="checkoutSuccessText">
-					Спасибо! Мы получили платёж и отправили письмо с доступом к материалам на вашу почту.
+					<?php echo esc_html( $t( 'success_text' ) ); ?>
 				</p>
 			</div>
 
@@ -177,15 +172,15 @@ $display_decimals = max(2, (int) wc_get_price_decimals());
 
 					<!-- Header -->
 					<header class="payment-page__header">
-						<h2 class="section-title">Оплата заказа</h2>
-						<p class="payment-page__subtitle text-secondary">Проверьте состав заказа и выберите удобный способ оплаты.</p>
+						<h2 class="section-title"><?php echo esc_html( $t( 'title' ) ); ?></h2>
+						<p class="payment-page__subtitle text-secondary"><?php echo esc_html( $t( 'subtitle' ) ); ?></p>
 					</header>
 
 					<div class="payment-page__divider"></div>
 
 					<!-- Payment methods -->
 					<div class="payment-page__methods">
-						<p class="payment-page__methods-title">Способ оплаты</p>
+						<p class="payment-page__methods-title"><?php echo esc_html( $t( 'methods_title' ) ); ?></p>
 						<div class="payment-page__methods-list" id="paymentMethodsList">
 
 							<!-- PayPal -->
@@ -199,7 +194,7 @@ $display_decimals = max(2, (int) wc_get_price_decimals());
 									<div class="payment-page__method-radio" aria-hidden="true"></div>
 									<div class="payment-page__method-text">
 										<span class="payment-page__method-name">PayPal</span>
-										<span class="payment-page__method-description">Оплата через PayPal аккаунт</span>
+										<span class="payment-page__method-description"><?php echo esc_html( $t( 'paypal_description' ) ); ?></span>
 									</div>
 								</div>
 								<div class="payment-page__method-icons">
@@ -217,7 +212,7 @@ $display_decimals = max(2, (int) wc_get_price_decimals());
 								<div class="payment-page__method-left">
 									<div class="payment-page__method-radio" aria-hidden="true"></div>
 									<div class="payment-page__method-text">
-										<span class="payment-page__method-name">Банковская карта</span>
+										<span class="payment-page__method-name"><?php echo esc_html( $t( 'card' ) ); ?></span>
 										<span class="payment-page__method-description">Visa, Mastercard</span>
 									</div>
 								</div>
@@ -243,7 +238,7 @@ $display_decimals = max(2, (int) wc_get_price_decimals());
 									<span class="payment-page__method-left">
 										<span class="payment-page__method-radio" aria-hidden="true"></span>
 										<span class="payment-page__method-text">
-											<span class="payment-page__method-name">Оплата частями</span>
+											<span class="payment-page__method-name"><?php echo esc_html( $t( 'instalments' ) ); ?></span>
 											<span class="payment-page__method-description">Monobank</span>
 										</span>
 									</span>
@@ -252,7 +247,7 @@ $display_decimals = max(2, (int) wc_get_price_decimals());
 									</span>
 								</span>
 
-								<span class="payment-page__method-terms" role="radiogroup" aria-label="Количество платежей" hidden>
+								<span class="payment-page__method-terms" role="radiogroup" aria-label="<?php echo esc_attr( $t( 'terms_label' ) ); ?>" hidden>
 									<?php foreach ( $installment_terms as $index => $months ) : ?>
 										<?php $is_default = 0 === $index; ?>
 										<span
@@ -262,13 +257,13 @@ $display_decimals = max(2, (int) wc_get_price_decimals());
 											data-installment-term="<?php echo esc_attr( $months ); ?>"
 										>
 											<span class="payment-page__term-count"><?php echo esc_html( moveat_order_pay_payments_label( $months ) ); ?></span>
-											<span class="payment-page__term-payment" data-installment-payment><?php echo esc_html( number_format( $total_uah / $months, 0, '.', ' ' ) ); ?> грн/мес</span>
+											<span class="payment-page__term-payment" data-installment-payment><?php echo esc_html( number_format( $total_uah / $months, 0, '.', ' ' ) ); ?> <?php echo esc_html( $t( 'per_month' ) ); ?></span>
 										</span>
 									<?php endforeach; ?>
 								</span>
 
 								<span class="payment-page__method-terms-note" hidden>
-									Оплата равными частями без переплаты — комиссию берём на себя
+									<?php echo esc_html( $t( 'terms_note' ) ); ?>
 								</span>
 							</button>
 							<?php endif; ?>
@@ -281,7 +276,7 @@ $display_decimals = max(2, (int) wc_get_price_decimals());
 					<!-- Russian bank info -->
 					<div class="payment-page__info-card" role="note">
 						<p class="payment-page__info-card-text">
-							Если у вас <span>НЕ ПРОХОДИТ ОПЛАТА,</span> свяжитесь с нами по одному из мессенджеров и мы поможем вам с оплатой.
+							<?php echo wp_kses( $t( 'help_text' ), [ 'span' => [] ] ); ?>
 						</p>
 						<div class="payment-page__info-messengers">
 							<!-- Ссылки на мессенджеры -->
@@ -293,8 +288,12 @@ $display_decimals = max(2, (int) wc_get_price_decimals());
 
 					<!-- Privacy note -->
 					<p class="payment-page__privacy-note">
-						Ваши личные данные будут использоваться для обработки ваших заказов, упрощения вашей работы с сайтом и для других целей, описанных в нашей 
-						<a href="https://moveat.expert/politika-konfidentsialnosti/">политике конфиденциальности</a>.
+						<?php
+						printf(
+							esc_html( $t( 'privacy_text' ) ),
+							'<a href="' . esc_url( $t( 'privacy_url' ) ) . '">' . esc_html( $t( 'privacy_link' ) ) . '</a>'
+						); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						?>
 					</p>
 
 					<!-- Terms checkbox -->
@@ -308,7 +307,12 @@ $display_decimals = max(2, (int) wc_get_price_decimals());
 							aria-required="true"
 						>
 						<label class="payment-page__checkbox-label" for="agreeTerms">
-							Я прочитал(а) и соглашаюсь с <a href="https://moveat.expert/public-contract/">публичным договором (офертой)</a>
+							<?php
+							printf(
+								esc_html( $t( 'agree_text' ) ),
+								'<a href="' . esc_url( $t( 'agree_url' ) ) . '">' . esc_html( $t( 'agree_link' ) ) . '</a>'
+							); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+							?>
 						</label>
 					</div>
 
@@ -319,7 +323,7 @@ $display_decimals = max(2, (int) wc_get_price_decimals());
 						class="primary-button payment-page__submit unactive"
 						disabled
 					>
-						Оплатить заказ
+						<?php echo esc_html( $t( 'submit' ) ); ?>
 					</button>
 
 					<!-- Back link -->
@@ -331,7 +335,7 @@ $display_decimals = max(2, (int) wc_get_price_decimals());
 			<!-- Right column: Order summary -->
 			<aside class="payment-page__col-summary">
 				<div class="payment-page__summary-card">
-					<p class="payment-page__summary-title">Ваш заказ</p>
+					<p class="payment-page__summary-title"><?php echo esc_html( $t( 'summary_title' ) ); ?></p>
 					<div class="payment-page__summary-list">
 						<?php if ( $valid ) : ?>
 							<?php foreach ( $order->get_items() as $item ) : ?>
@@ -344,11 +348,11 @@ $display_decimals = max(2, (int) wc_get_price_decimals());
 								<div class="payment-page__summary-item">
 									<div class="payment-page__summary-item-info">
 										<span class="payment-page__summary-item-name"><?php echo esc_html( $name ); ?></span>
-										<span class="payment-page__summary-item-qty"><?php echo esc_html( $qty ); ?> шт.</span>
+										<span class="payment-page__summary-item-qty"><?php echo esc_html( sprintf( $t( 'qty' ), $qty ) ); ?></span>
 									</div>
 									<div class="payment-page__summary-item-price">
 										<span class="payment-page__summary-item-price-usd">$<?php echo esc_html( wc_format_decimal( $price_usd, $display_decimals ) ); ?></span>
-										<span class="payment-page__summary-item-price-uah"><?php echo number_format( $price_uah, 0, '.', ' ' ); ?> грн</span>
+										<span class="payment-page__summary-item-price-uah"><?php echo number_format( $price_uah, 0, '.', ' ' ); ?> <?php echo esc_html( $t( 'currency_uah' ) ); ?></span>
 									</div>
 								</div>
 							<?php endforeach; ?>
@@ -356,7 +360,7 @@ $display_decimals = max(2, (int) wc_get_price_decimals());
 					</div>
 					<div class="payment-page__divider"></div>
 					<div class="payment-page__summary-total">
-						<span class="payment-page__summary-total-label">Итого к оплате:</span>
+						<span class="payment-page__summary-total-label"><?php echo esc_html( $t( 'total_label' ) ); ?></span>
 
 						<?php if ( $valid ) : ?>
 							<?php
@@ -425,7 +429,7 @@ $display_decimals = max(2, (int) wc_get_price_decimals());
 								}
 								?>
 								<span class="payment-page__summary-total-usd">$<?php echo esc_html( wc_format_decimal( $display_total, $display_decimals ) ); ?></span>
-								<span class="payment-page__summary-total-uah"><?php echo number_format( $total_uah, 0, '.', ' ' ); ?> грн</span>
+								<span class="payment-page__summary-total-uah"><?php echo number_format( $total_uah, 0, '.', ' ' ); ?> <?php echo esc_html( $t( 'currency_uah' ) ); ?></span>
 							</div>
 						<?php endif; ?>
 					</div>

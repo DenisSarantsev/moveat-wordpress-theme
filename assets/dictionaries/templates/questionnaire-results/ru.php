@@ -7,7 +7,8 @@
  * ссылки) лежит в ACF-полях страницы и переводится в админке — у каждой
  * языковой версии страницы свои значения полей.
  *
- * Шаблон: templates/questionnaire-results-with-modal.php
+ * Шаблоны: templates/questionnaire-results-with-modal.php,
+ *          templates/questionnaire-results.php
  */
 
 return [

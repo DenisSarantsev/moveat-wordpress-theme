@@ -6,6 +6,12 @@
 
 get_header();
 
+// Тексты вёрстки на языке страницы — assets/dictionaries/templates/products.
+$page_dict = moveat_dictionary( 'templates/products' );
+$t = function ( $key ) use ( $page_dict ) {
+	return moveat_dictionary_text( $page_dict, $key );
+};
+
 $theme_uri        = get_template_directory_uri();
 $cart_icon        = $theme_uri . '/assets/images/icons/cart.png';
 $cart_icon_filled = $theme_uri . '/assets/images/icons/filled/shopping-cart-filled.png';
@@ -90,7 +96,7 @@ usort(
 		<h1 class="hero-block__title"><?php the_title(); ?></h1>
 		<nav aria-label="breadcrumb no-padding animated slideInDown page-hero__breadcrumbs">
 			<ol class="breadcrumb no-padding page-hero__breadcrumbs-list">
-				<li class="breadcrumb-item page-hero__breadcrumbs-item white"><a class="text-body" href="<?php echo esc_url( home_url( '/' ) ); ?>">Главная</a></li>
+				<li class="breadcrumb-item page-hero__breadcrumbs-item white"><a class="text-body" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html( $t( 'breadcrumb_home' ) ); ?></a></li>
 				<li class="breadcrumb-item page-hero__breadcrumbs-item white"><span class="text-body"><?php the_title(); ?></span></li>
 			</ol>
 		</nav>
@@ -169,23 +175,23 @@ usort(
 								<?php endif; ?>
 							</div>
 							<div class="product-card__buttons">
-								<a href="<?php the_permalink(); ?>" class="product-card__button primary-button"><?php echo esc_html( function_exists( 'moveat_get_product_button_title' ) ? moveat_get_product_button_title( get_the_ID() ) : 'Подробнее' ); ?></a>
+								<a href="<?php the_permalink(); ?>" class="product-card__button primary-button"><?php echo esc_html( function_exists( 'moveat_get_product_button_title' ) ? moveat_get_product_button_title( get_the_ID() ) : $t( 'more' ) ); ?></a>
 								<?php if ( $is_in_cart ) : ?>
 									<a
 										href="<?php echo esc_url( $cart_page_url ); ?>"
 										class="product-card__button product-card__button-cart added-to-cart-button"
-										aria-label="Перейти в корзину"
+										aria-label="<?php echo esc_attr( $t( 'go_to_cart' ) ); ?>"
 									>
 										<div class="product-page__added-to-cart">
 											<div class="product-page__added-to-cart_title">
 												<div class="product-page__added-to-cart_title-icons">
 													<img
 														src="<?php echo esc_url( $cart_icon_filled ); ?>"
-														alt="Товар добавлен в корзину" />
+														alt="<?php echo esc_attr( $t( 'added_to_cart' ) ); ?>" />
 													<div class="product-page__added-to-cart_cart-icon">
 														<img
 															src="<?php echo esc_url( $check_mark_icon ); ?>"
-															alt="Галочка" />
+															alt="<?php echo esc_attr( $t( 'check_mark' ) ); ?>" />
 													</div>
 												</div>
 											</div>
@@ -200,7 +206,7 @@ usort(
 										data-add-to-cart
 										data-product-action="add-to-cart"
 										data-product-id="<?php echo esc_attr( $product_id ); ?>"
-										aria-label="<?php echo esc_attr( sprintf( 'Добавить "%s" в корзину', get_the_title() ) ); ?>"
+										aria-label="<?php echo esc_attr( sprintf( $t( 'add_to_cart' ), get_the_title() ) ); ?>"
 									>
 										<img class="product-card__button-cart-icon" src="<?php echo esc_url( $cart_icon ); ?>" alt="Cart">
 										<div class="loader disabled"></div>

@@ -8,6 +8,12 @@ defined( 'ABSPATH' ) || exit;
 
 get_header();
 
+// Тексты вёрстки на языке страницы — assets/dictionaries/templates/order.
+$page_dict = moveat_dictionary( 'templates/order' );
+$t = function ( $key ) use ( $page_dict ) {
+	return moveat_dictionary_text( $page_dict, $key );
+};
+
 $theme_uri     = get_template_directory_uri();
 $telegram_icon = $theme_uri . '/assets/images/icons/telegram.png';
 $whatsapp_icon = $theme_uri . '/assets/images/icons/whatsapp.png';
@@ -22,10 +28,8 @@ $cart_items_count  = $has_woo_cart ? (int) WC()->cart->get_cart_contents_count()
 $cart_total_raw    = $has_woo_cart ? (float) WC()->cart->get_total( 'edit' ) : 0.0;
 $is_free_checkout  = $cart_items_count > 0 && $cart_total_raw <= 0;
 
-$order_subtitle_text = $is_free_checkout
-	? 'Заполните данные для оформления заказа. Поля, отмеченные '
-	: 'Заполните данные для получения ссылки на оплату. Поля, отмеченные ';
-$order_submit_text = $is_free_checkout ? 'Оформить заказ' : 'Перейти к оплате';
+$order_subtitle_text = $t( $is_free_checkout ? 'subtitle_free' : 'subtitle_pay' );
+$order_submit_text   = $t( $is_free_checkout ? 'submit_free' : 'submit_pay' );
 ?>
 
 <main class="order-page">
@@ -34,8 +38,8 @@ $order_submit_text = $is_free_checkout ? 'Оформить заказ' : 'Пер
 		<!-- Form card -->
 		<div class="order-page__card">
 			<header class="order-page__header">
-				<h2 class="section-title">Оформление заказа</h2>
-				<p class="order-page__subtitle text-secondary"><?php echo esc_html( $order_subtitle_text ); ?><span style="color: var(--secondary-color);">*</span>, обязательны для заполнения.</p>
+				<h2 class="section-title"><?php echo esc_html( $t( 'title' ) ); ?></h2>
+				<p class="order-page__subtitle text-secondary"><?php echo sprintf( esc_html( $order_subtitle_text ), '<span style="color: var(--secondary-color);">*</span>' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
 			</header>
 
 			<form class="order-page__form" id="orderForm" novalidate>
@@ -44,14 +48,14 @@ $order_submit_text = $is_free_checkout ? 'Оформить заказ' : 'Пер
 				<div class="order-page__form-row">
 					<div class="order-page__field">
 						<label class="order-page__label" for="firstName">
-							Имя<span class="order-page__required-mark" aria-hidden="true">*</span>
+							<?php echo esc_html( $t( 'first_name' ) ); ?><span class="order-page__required-mark" aria-hidden="true">*</span>
 						</label>
 						<input
 							class="order-page__input form-input"
 							type="text"
 							id="firstName"
 							name="firstName"
-							placeholder="Иван"
+							placeholder="<?php echo esc_attr( $t( 'first_name_placeholder' ) ); ?>"
 							autocomplete="given-name"
 							required
 							aria-required="true"
@@ -60,14 +64,14 @@ $order_submit_text = $is_free_checkout ? 'Оформить заказ' : 'Пер
 
 					<div class="order-page__field">
 						<label class="order-page__label" for="lastName">
-							Фамилия
+							<?php echo esc_html( $t( 'last_name' ) ); ?>
 						</label>
 						<input
 							class="order-page__input form-input"
 							type="text"
 							id="lastName"
 							name="lastName"
-							placeholder="Иванов"
+							placeholder="<?php echo esc_attr( $t( 'last_name_placeholder' ) ); ?>"
 							autocomplete="family-name"
 						>
 					</div>
@@ -76,7 +80,7 @@ $order_submit_text = $is_free_checkout ? 'Оформить заказ' : 'Пер
 				<!-- Email -->
 				<div class="order-page__field">
 					<label class="order-page__label" for="email">
-						Email<span class="order-page__required-mark" aria-hidden="true">*</span>
+						<?php echo esc_html( $t( 'email' ) ); ?><span class="order-page__required-mark" aria-hidden="true">*</span>
 					</label>
 					<input
 						class="order-page__input form-input"
@@ -93,7 +97,7 @@ $order_submit_text = $is_free_checkout ? 'Оформить заказ' : 'Пер
 				<!-- Телефон -->
 				<div class="order-page__field">
 					<label class="order-page__label" for="phone">
-						Телефон<span
+						<?php echo esc_html( $t( 'phone' ) ); ?><span
 							class="order-page__required-mark"
 							aria-hidden="true"
 							>*</span
@@ -124,7 +128,7 @@ $order_submit_text = $is_free_checkout ? 'Оформить заказ' : 'Пер
 
 				<!-- Мессенджеры -->
 				<div class="order-page__messengers-card">
-					<p class="order-page__messengers-text">По вопросам оплаты вы можете написать нам в мессенджеры</p>
+					<p class="order-page__messengers-text"><?php echo esc_html( $t( 'messengers_text' ) ); ?></p>
 					<div class="order-page__messengers-list">
 						<a href="#" class="order-page__messenger-link order-page__messenger-link--telegram" aria-label="Telegram">
 							<img src="<?php echo esc_url( $telegram_icon ); ?>" alt="Telegram">

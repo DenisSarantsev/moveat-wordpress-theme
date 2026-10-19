@@ -9,6 +9,12 @@
 defined( 'ABSPATH' ) || exit;
 
 get_header();
+
+// Тексты вёрстки на языке страницы — assets/dictionaries/templates/410.
+$page_dict = moveat_dictionary( 'templates/410' );
+$t = function ( $key ) use ( $page_dict ) {
+	return moveat_dictionary_text( $page_dict, $key );
+};
 ?>
 
 <!-- 410 Start -->
@@ -18,9 +24,9 @@ get_header();
 			class="page-deleted__image"
 			src="<?php echo get_template_directory_uri() ?>/assets/images/illustrations/deleted-page.png"
 			alt="deleted page icon" />
-		<h1 class="page-deleted__title">Страница удалена</h1>
+		<h1 class="page-deleted__title"><?php echo esc_html( $t( 'title' ) ); ?></h1>
 		<div class="page-deleted__description">
-			Этот контент больше не существует
+			<?php echo esc_html( $t( 'description' ) ); ?>
 		</div>
 	</div>
 </main>

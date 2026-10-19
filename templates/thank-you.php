@@ -6,11 +6,17 @@
 
 defined( 'ABSPATH' ) || exit;
 
+// Тексты вёрстки на языке страницы — assets/dictionaries/templates/thank-you.
+$page_dict = moveat_dictionary( 'templates/thank-you' );
+$t = function ( $key ) use ( $page_dict ) {
+	return moveat_dictionary_text( $page_dict, $key );
+};
+
 $is_donation_thankyou   = false;
-$thankyou_title         = __( 'Спасибо за покупку!', 'moveat' );
-$thankyou_subtitle      = __( 'Ваш заказ успешно оформлен и принят в обработку', 'moveat' );
+$thankyou_title         = $t( 'order_title' );
+$thankyou_subtitle      = $t( 'order_subtitle' );
 $thankyou_show_subtitle = true;
-$thankyou_primary_label = __( 'Продолжить покупки', 'moveat' );
+$thankyou_primary_label = $t( 'order_primary' );
 $thankyou_primary_url   = home_url( '/catalog/' );
 
 if ( function_exists( 'moveat_get_thankyou_order_from_request' ) ) {
@@ -22,9 +28,9 @@ if ( function_exists( 'moveat_get_thankyou_order_from_request' ) ) {
 }
 
 if ( $is_donation_thankyou ) {
-	$thankyou_title         = __( 'Спасибо за поддержку!', 'moveat' );
+	$thankyou_title         = $t( 'donation_title' );
 	$thankyou_show_subtitle = false;
-	$thankyou_primary_label = __( 'Школа здоровья', 'moveat' );
+	$thankyou_primary_label = $t( 'donation_primary' );
 }
 
 // Надёжное серверное удаление флаговой куки перед отправкой заголовков
@@ -117,7 +123,7 @@ $viber_icon    = $theme_uri . '/assets/images/icons/viber.png';
 			<!-- Messengers -->
 			<div class="thankyou-page__messengers">
 				<p class="thankyou-page__messengers-title">
-					Остались вопросы? Пишите — мы с радостью на них ответим!
+					<?php echo esc_html( $t( 'messengers_title' ) ); ?>
 				</p>
 				<div class="thankyou-page__messengers-list">
 					<!-- Ссылки на мессенджеры -->
@@ -128,7 +134,7 @@ $viber_icon    = $theme_uri . '/assets/images/icons/viber.png';
 			<!-- Actions -->
 			<div class="thankyou-page__actions">
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="secondary-button">
-					На главную
+					<?php echo esc_html( $t( 'home' ) ); ?>
 				</a>
 				<a href="<?php echo esc_url( $thankyou_primary_url ); ?>" class="primary-button">
 					<?php echo esc_html( $thankyou_primary_label ); ?>

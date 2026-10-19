@@ -57,8 +57,14 @@ if ( ! function_exists( 'moveat_partners_list_items' ) ) {
 	}
 }
 
+// Тексты вёрстки на языке страницы — assets/dictionaries/templates/partners.
+$page_dict = moveat_dictionary( 'templates/partners' );
+$t = function ( $key ) use ( $page_dict ) {
+	return moveat_dictionary_text( $page_dict, $key );
+};
+
 $hero_title  = trim( (string) get_field( 'partners_hero_title', $page_id ) );
-$hero_title  = $hero_title !== '' ? $hero_title : 'С кем мы сотрудничаем';
+$hero_title  = $hero_title !== '' ? $hero_title : $t( 'hero_title' );
 
 $intro_text = get_field( 'partners_intro_text', $page_id );
 
@@ -115,10 +121,10 @@ get_header();
 		<nav aria-label="breadcrumb" class="page-hero__breadcrumbs">
 			<ol class="breadcrumb no-padding page-hero__breadcrumbs-list">
 				<li class="breadcrumb-item page-hero__breadcrumbs-item white">
-					<a class="text-body" href="<?php echo esc_url( home_url( '/' ) ); ?>">Главная</a>
+					<a class="text-body" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html( $t( 'breadcrumb_home' ) ); ?></a>
 				</li>
 				<li class="breadcrumb-item page-hero__breadcrumbs-item white">
-					<span class="text-body">Партнёры</span>
+					<span class="text-body"><?php echo esc_html( $t( 'breadcrumb_current' ) ); ?></span>
 				</li>
 			</ol>
 		</nav>
