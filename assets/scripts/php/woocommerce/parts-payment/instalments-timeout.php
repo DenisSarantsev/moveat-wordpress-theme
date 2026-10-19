@@ -70,7 +70,9 @@ function moveat_instalments_timeout( $order_id, $mono_id ) {
 	}
 
 	// Этот текст отдаёт клиенту эндпоинт опроса плагина, если экран ожидания ещё открыт.
-	$order->update_meta_data( '_cciw_fail_text', 'Вы не подтвердили заявку в течение 15 минут.' );
+	// Язык — из заказа: крон не знает, на какой версии сайта был покупатель.
+	$dict = moveat_dictionary( 'templates/order-pay', moveat_order_lang( $order ) );
+	$order->update_meta_data( '_cciw_fail_text', moveat_dictionary_text( $dict, 'instalments_timeout' ) );
 	$order->update_status( 'cancelled', 'monobank: заявку не подтвердили за 15 минут — заказ отменён.' );
 }
 add_action( MOVEAT_INSTALMENTS_TIMEOUT_HOOK, 'moveat_instalments_timeout', 10, 2 );

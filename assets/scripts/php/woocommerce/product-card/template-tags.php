@@ -11,7 +11,7 @@ function moveat_wc_render_breadcrumbs() {
 			'wrap_after'  => '</ol></nav>',
 			'before'      => '<li class="breadcrumb-item product-breadcrumbs__item">',
 			'after'       => '</li>',
-			'home'        => _x( 'Главная', 'breadcrumb', 'moveat' ),
+			'home'        => moveat_dictionary_text( moveat_dictionary( 'templates/product' ), 'breadcrumb_home' ),
 		] );
 	}
 }
@@ -56,9 +56,10 @@ function moveat_wc_render_formats_block() {
 	if ( empty( $formats ) ) {
 		return;
 	}
-	$map = function_exists( 'moveat_wc_get_formats_map' ) ? moveat_wc_get_formats_map() : [];
-	echo '<div class="product-page__formats" aria-label="Форматы получения товара">';
-	echo '<div class="product-page__formats-title">' . esc_html__( 'Вы получаете:', 'moveat' ) . '</div>';
+	$map  = function_exists( 'moveat_wc_get_formats_map' ) ? moveat_wc_get_formats_map() : [];
+	$dict = moveat_dictionary( 'templates/product' );
+	echo '<div class="product-page__formats" aria-label="' . esc_attr( moveat_dictionary_text( $dict, 'formats_label' ) ) . '">';
+	echo '<div class="product-page__formats-title">' . esc_html( moveat_dictionary_text( $dict, 'formats_title' ) ) . '</div>';
 	echo '<div class="product-page__formats-wrapper">';
 	foreach ( $formats as $format_key ) {
 		if ( empty( $map[ $format_key ] ) ) {
@@ -87,7 +88,7 @@ function moveat_wc_render_audio_block() {
 		return;
 	}
 	echo '<div class="product-page__audio-player">';
-	echo '<div class="product-page__audio-player-title">' . esc_html__( 'Аудио фрагмент:', 'moveat' ) . '</div>';
+	echo '<div class="product-page__audio-player-title">' . esc_html( moveat_dictionary_text( moveat_dictionary( 'templates/product' ), 'audio_title' ) ) . '</div>';
 	echo '<audio src="' . esc_url( $src ) . '" controls></audio>';
 	echo '</div>';
 }

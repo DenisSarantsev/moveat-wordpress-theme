@@ -302,21 +302,24 @@ function start_instalments(\WC_Order $order, array $body)
 	$gateway = moveat_instalments_gateway();
 	$rate    = moveat_order_pay_get_uah_rate();
 
+	// Ошибки — на языке заказа: в REST-запросе Polylang текущий язык не знает.
+	$dict = moveat_dictionary('templates/order-pay', moveat_order_lang($order));
+
 	if (!moveat_instalments_allowed_for_current_user()) {
 		return new \WP_REST_Response([
-			'error' => 'Оплата частями недоступна. Выберите другой способ оплаты.',
+			'error' => moveat_dictionary_text($dict, 'instalments_error_forbidden'),
 		], 403);
 	}
 
 	if (!$gateway || $rate <= 0) {
 		return new \WP_REST_Response([
-			'error' => 'Оплата частями сейчас недоступна. Выберите другой способ оплаты.',
+			'error' => moveat_dictionary_text($dict, 'instalments_error_unavailable'),
 		], 400);
 	}
 
 	if (!moveat_instalments_amount_fits((float) $order->get_total() * $rate)) {
 		return new \WP_REST_Response([
-			'error' => 'Оплата частями недоступна для этой суммы. Выберите другой способ оплаты.',
+			'error' => moveat_dictionary_text($dict, 'instalments_error_amount'),
 		], 400);
 	}
 
@@ -364,6 +367,6 @@ function start_instalments(\WC_Order $order, array $body)
 	}
 
 	return new \WP_REST_Response([
-		'error' => $message ?: 'Не удалось отправить заявку в monobank. Попробуйте ещё раз или выберите другой способ оплаты.',
+		'error' => $message ?: moveat_dictionary_text($dict, 'instalments_error_send'),
 	], 400);
 }
