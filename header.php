@@ -1,11 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html <?php language_attributes(); ?>>
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
 		<?php if ( has_site_icon() ) : ?>
 			<link href="<?php echo esc_url( get_site_icon_url() ); ?>" rel="icon">
 		<?php endif; ?>

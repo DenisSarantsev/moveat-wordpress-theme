@@ -67,7 +67,7 @@ function moveat_handle_maintenance_mode() {
 	}
 
 	// Если шаблон не найден — отдаём минимальный 503 HTML.
-	echo '<!doctype html><html><head><meta charset="utf-8"><title>Технические работы</title></head><body><h1>Сайт временно недоступен</h1><p>Мы проводим технические работы. Попробуйте зайти позже.</p></body></html>';
+	echo '<!doctype html><html lang="ru"><head><meta charset="utf-8"><title>Технические работы</title></head><body><h1>Сайт временно недоступен</h1><p>Мы проводим технические работы. Попробуйте зайти позже.</p></body></html>';
 	exit;
 }
 add_action( 'template_redirect', 'moveat_handle_maintenance_mode' );
