@@ -33,6 +33,8 @@ require_once __DIR__ . '/main/redirects.php';
 require_once __DIR__ . '/main/410-rules.php';
 // Google AdSense и Google Analytics 4.
 require_once __DIR__ . '/google-scripts/setup.php';
+// Мета-теги подтверждения прав на сайт (Impact / iHerb).
+require_once __DIR__ . '/main/site-verification.php';
 // Виджет чат-бота Pulse.
 require_once __DIR__ . '/chat/pulse-livechat.php';
 // Письмо с результатами опросника (к WooCommerce не привязано — подключаем безусловно).
