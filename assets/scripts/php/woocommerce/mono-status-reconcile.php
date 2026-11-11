@@ -315,6 +315,9 @@ function fetch_invoice_status( $invoice_id, $token ) {
 		return null;
 	}
 
+	// Полный ответ (errCode, failureReason) — для журнала оплат (payment-logs).
+	do_action( 'moveat_mono_status_checked', $invoice_id, $body );
+
 	return (string) $body['status'];
 }
 

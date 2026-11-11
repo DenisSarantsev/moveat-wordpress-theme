@@ -66,6 +66,8 @@ if ( class_exists( 'WooCommerce' ) ) {
 	require_once __DIR__ . '/woocommerce/free-order.php';
 	// Cron-сверка статусов mono (страховка на случай недоставленного вебхука).
 	require_once __DIR__ . '/woocommerce/mono-status-reconcile.php';
+	// Журнал попыток оплаты и кодов отказов mono/PayPal (assets/logs/payments.log).
+	require_once __DIR__ . '/payment-logs/index.php';
 	// Создание заказа
 	require_once __DIR__ . '/woocommerce/api/create-order.php';
 	// Минимальная сумма доната (единый источник для API и шаблона)

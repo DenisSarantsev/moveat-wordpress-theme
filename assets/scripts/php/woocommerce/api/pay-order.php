@@ -156,6 +156,8 @@ function pay_order(\WP_REST_Request $request)
 	// 3. Идемпотентность: уже оплачен → не создаём инвойс
 	// -----------------------------
 	if ($order->is_paid() || $order->has_status(['processing', 'completed'])) {
+		do_action('moveat_payment_attempt', $order, $payment_method, ['event' => 'already_paid']);
+
 		return new \WP_REST_Response([
 			'order_id'     => $order_id,
 			'payment_url'  => $order->get_checkout_order_received_url(),
@@ -168,6 +170,8 @@ function pay_order(\WP_REST_Request $request)
 	// -----------------------------
 	$reuse_url = get_reusable_pay_url($order, $payment_method);
 	if ($reuse_url) {
+		do_action('moveat_payment_attempt', $order, $payment_method, ['event' => 'reused']);
+
 		return new \WP_REST_Response([
 			'order_id'    => $order_id,
 			'payment_url' => $reuse_url,
@@ -246,6 +250,9 @@ function pay_order(\WP_REST_Request $request)
 
 						error_log('[moveat pay-order] gateway result: ' . wp_json_encode($result));
 
+						// Плагин мог сохранить transaction_id в свою копию заказа — перечитываем.
+						do_action('moveat_payment_attempt', wc_get_order($order_id), $payment_method, ['event' => 'gateway', 'result' => $result]);
+
 						if (is_array($result)) {
 							$payment_url =
 								$result['redirect']
@@ -256,6 +263,7 @@ function pay_order(\WP_REST_Request $request)
 				}
 			} catch (\Throwable $e) {
 				error_log('[moveat pay-order] gateway error: ' . $e->getMessage());
+				do_action('moveat_payment_attempt', $order, $payment_method, ['event' => 'error', 'error' => $e->getMessage()]);
 			}
 		}
 
@@ -340,6 +348,8 @@ function start_instalments(\WC_Order $order, array $body)
 	}
 
 	error_log('[moveat pay-order] instalments result: ' . wp_json_encode($result));
+
+	do_action('moveat_payment_attempt', wc_get_order($order->get_id()), $order->get_payment_method(), ['event' => 'gateway', 'result' => $result]);
 
 	if (is_array($result) && ($result['result'] ?? '') === 'success') {
 		// Плагин сохранил ID заявки в свою копию заказа — перечитываем.
